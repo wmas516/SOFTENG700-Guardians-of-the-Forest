@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bplrvtsqqw2rr"]
+
+[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="1_57y6x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ya4xx"]
+radius = 414.0
+height = 1046.0
+
+[node name="Enemy" type="StaticBody2D" unique_id=997142279]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907736169]
+texture = ExtResource("1_57y6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
+visible = false
+position = Vector2(20, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_ya4xx")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=2125186630]
+target_position = Vector2(800, 0)

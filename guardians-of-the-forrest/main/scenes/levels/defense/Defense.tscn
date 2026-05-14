@@ -1,17 +1,25 @@
 [gd_scene format=3 uid="uid://c27j283kd57ee"]
 
-[ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="1_4hnop"]
+[ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_3g5mn"]
 [ext_resource type="Texture2D" uid="uid://wvfopgv0smo7" path="res://icon.svg" id="2_4dmpt"]
-[ext_resource type="Texture2D" uid="uid://dvrtx24ppcjv0" path="res://resources/backgrounds/Level2.png" id="3_3g5mn"]
+[ext_resource type="PackedScene" uid="uid://hvuda7qthsar" path="res://main/scenes/backgrounds/Background2.tscn" id="3_4hnop"]
+[ext_resource type="Script" uid="uid://0y4dkhbiwv2s" path="res://main/scripts/src/main/defense/Player_def.gd" id="3_nn2o5"]
+[ext_resource type="PackedScene" uid="uid://b3vkbv5hgt1rw" path="res://main/scenes/levels/defense/Tree.tscn" id="4_4dmpt"]
+[ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="6_nn2o5"]
+[ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
+[ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
+[ext_resource type="Script" uid="uid://cjlm3u7rcl4br" path="res://main/scripts/src/main/defense/EnemyPath.gd" id="9_e18um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nn2o5"]
 size = Vector2(1378, 38)
 
-[node name="Defense" type="Node2D" unique_id=1123565302]
+[sub_resource type="Curve2D" id="Curve2D_vbpy5"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 164, 600, 0, 0, 0, 0, 1105, 600)
+}
+point_count = 2
 
-[node name="Player" parent="." unique_id=868766390 instance=ExtResource("1_4hnop")]
-position = Vector2(577, 308)
-scale = Vector2(0.5, 0.5)
+[node name="Defense" type="Node2D" unique_id=1123565302]
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1142229150]
 position = Vector2(690, 672)
@@ -28,17 +36,52 @@ position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_nn2o5")
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=200881659]
-layer = -1
-follow_viewport_enabled = true
+[node name="PlayerDef" parent="." unique_id=868766390 instance=ExtResource("2_3g5mn")]
+position = Vector2(627, 560)
+scale = Vector2(0.5, 0.5)
+collision_mask = 7
+script = ExtResource("3_nn2o5")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=331849234]
-anchors_preset = -1
-anchor_right = 1.6880904
-anchor_bottom = 1.0046914
-offset_right = 0.31982422
-offset_bottom = -0.040039063
-texture = ExtResource("3_3g5mn")
-expand_mode = 3
-metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
+[node name="Background2" parent="." unique_id=1169487791 instance=ExtResource("3_4hnop")]
+
+[node name="Tree" parent="Background2" unique_id=616234793 groups=["Target", "Tree"] instance=ExtResource("4_4dmpt")]
+position = Vector2(929, 530)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("6_vbpy5")
+
+[node name="Tree2" parent="Background2" unique_id=602429044 groups=["Target", "Tree"] instance=ExtResource("4_4dmpt")]
+z_index = 1
+position = Vector2(233, 537)
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("6_vbpy5")
+
+[node name="Enemy" parent="." unique_id=475867398 groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
+z_index = 1
+position = Vector2(164, 600)
+scale = Vector2(0.15, 0.15)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("8_e18um")
+
+[node name="Enemy2" parent="." unique_id=997142279 groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
+z_index = 1
+position = Vector2(467.99997, 572)
+scale = Vector2(0.15, 0.15)
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("8_e18um")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1267324426]
+curve = SubResource("Curve2D_vbpy5")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1690878681]
+position = Vector2(164, 600)
+script = ExtResource("9_e18um")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=2012538046]
+scale = Vector2(0.15, 0.15)
+remote_path = NodePath("../../../Enemy")
