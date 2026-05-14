@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/Level.gd" id="1_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="Texture2D" uid="uid://wvfopgv0smo7" path="res://icon.svg" id="3_qdg80"]
-[ext_resource type="Texture2D" uid="uid://dvrtx24ppcjv0" path="res://resources/backgrounds/Level2.png" id="4_30cc6"]
+[ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
 size = Vector2(1378, 38)
@@ -30,19 +30,4 @@ position = Vector2(-2, -1)
 shape = SubResource("RectangleShape2D_mx8sn")
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=775600481]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1402424167]
-anchors_preset = -1
-anchor_left = -5.0189037
-anchor_top = -2.4027777
-anchor_right = -5.0189037
-anchor_bottom = -2.4027777
-offset_left = 3861.9165
-offset_top = 915.00006
-offset_right = 7707.861
-offset_bottom = 2207.0
-texture = ExtResource("4_30cc6")
-expand_mode = 3
-metadata/_edit_use_anchors_ = true
+[node name="Background1" parent="." unique_id=1015706442 instance=ExtResource("4_ov1ge")]
