@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhhk5le3qldw"
-path="res://.godot/imported/ramarama_Low_Infection.png-d5a71e541b2c1099a5653de0328e05b6.ctex"
+uid="uid://dsd75dnj4mrrg"
+path="res://.godot/imported/kawakawa_1.png-a6877f75001f4bf5d31033b8e259b0a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ramarama_Low_Infection.png"
-dest_files=["res://.godot/imported/ramarama_Low_Infection.png-d5a71e541b2c1099a5653de0328e05b6.ctex"]
+source_file="res://platforming/assets/kawakawa_1.png"
+dest_files=["res://.godot/imported/kawakawa_1.png-a6877f75001f4bf5d31033b8e259b0a3.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckmth2gdexgsq"
-path="res://.godot/imported/kawakawa_2.png-9d779c9b90cd326312a7d4d21eac2c11.ctex"
+uid="uid://qmlv7tehorj7"
+path="res://.godot/imported/Level3.png-20259798840f32173e67ccb67d4c3519.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/kawakawa_2.png"
-dest_files=["res://.godot/imported/kawakawa_2.png-9d779c9b90cd326312a7d4d21eac2c11.ctex"]
+source_file="res://platforming/assets/Level3.png"
+dest_files=["res://.godot/imported/Level3.png-20259798840f32173e67ccb67d4c3519.ctex"]
 
 [params]
 

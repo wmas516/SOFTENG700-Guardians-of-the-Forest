@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vlxltqxlvbls"
-path="res://.godot/imported/standing frame v2.png-62832cb0f3404d9ca417dd6a0074af9e.ctex"
+uid="uid://ckmth2gdexgsq"
+path="res://.godot/imported/kawakawa_2.png-527edf215b788a9fef4c4010b54ef975.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/standing frame v2.png"
-dest_files=["res://.godot/imported/standing frame v2.png-62832cb0f3404d9ca417dd6a0074af9e.ctex"]
+source_file="res://platforming/assets/kawakawa_2.png"
+dest_files=["res://.godot/imported/kawakawa_2.png-527edf215b788a9fef4c4010b54ef975.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buld5kdhswt5o"
-path="res://.godot/imported/ramarama 2 low myrtle.png-502780ab1014fb7c8cb4b285e97493fa.ctex"
+uid="uid://c0g7vjtj764dl"
+path="res://.godot/imported/mankauuu2.png-023fd99b1c89f02202a101fa2120b54c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ramarama 2 low myrtle.png"
-dest_files=["res://.godot/imported/ramarama 2 low myrtle.png-502780ab1014fb7c8cb4b285e97493fa.ctex"]
+source_file="res://platforming/assets/mankauuu2.png"
+dest_files=["res://.godot/imported/mankauuu2.png-023fd99b1c89f02202a101fa2120b54c.ctex"]
 
 [params]
 

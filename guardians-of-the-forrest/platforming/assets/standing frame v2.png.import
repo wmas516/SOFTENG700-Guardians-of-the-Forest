@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3v7etoiu3nih"
-path="res://.godot/imported/Walk Cycle.png-825b9d6b0695ede857f18f5bd63a7d87.ctex"
+uid="uid://vlxltqxlvbls"
+path="res://.godot/imported/standing frame v2.png-b8280e38cf4d8604f11e3f2d4686f6a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Walk Cycle.png"
-dest_files=["res://.godot/imported/Walk Cycle.png-825b9d6b0695ede857f18f5bd63a7d87.ctex"]
+source_file="res://platforming/assets/standing frame v2.png"
+dest_files=["res://.godot/imported/standing frame v2.png-b8280e38cf4d8604f11e3f2d4686f6a4.ctex"]
 
 [params]
 

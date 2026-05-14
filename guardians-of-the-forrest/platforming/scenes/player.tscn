@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bpdur70ykfenc"]
 
-[ext_resource type="Script" uid="uid://c8sv2ou7vl476" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Texture2D" uid="uid://3v7etoiu3nih" path="res://assets/Walk Cycle.png" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://vlxltqxlvbls" path="res://assets/standing frame v2.png" id="2_qhqgy"]
+[ext_resource type="Script" uid="uid://c8sv2ou7vl476" path="res://platforming/scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://3v7etoiu3nih" path="res://platforming/assets/Walk Cycle.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://vlxltqxlvbls" path="res://platforming/assets/standing frame v2.png" id="2_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vyb7"]
 size = Vector2(32, 55)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y1sm24f1wque"
-path="res://.godot/imported/pohutakawa 1.png-c430fcbcd9815bbb68eee716cff3b19e.ctex"
+uid="uid://dhhk5le3qldw"
+path="res://.godot/imported/ramarama_Low_Infection.png-693a5af5548b3d838dbb51e0562399a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pohutakawa 1.png"
-dest_files=["res://.godot/imported/pohutakawa 1.png-c430fcbcd9815bbb68eee716cff3b19e.ctex"]
+source_file="res://platforming/assets/ramarama_Low_Infection.png"
+dest_files=["res://.godot/imported/ramarama_Low_Infection.png-693a5af5548b3d838dbb51e0562399a8.ctex"]
 
 [params]
 

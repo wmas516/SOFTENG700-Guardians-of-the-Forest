@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg8xtb54rjj4x"
-path="res://.godot/imported/ramarama.png-ee2181d4437c8c8589022aeb76317330.ctex"
+uid="uid://dy7eeh2hepqv"
+path="res://.godot/imported/mankauuu2_low_infection.png-1958a6256da467ac92a736f485c66185.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ramarama.png"
-dest_files=["res://.godot/imported/ramarama.png-ee2181d4437c8c8589022aeb76317330.ctex"]
+source_file="res://platforming/assets/mankauuu2_low_infection.png"
+dest_files=["res://.godot/imported/mankauuu2_low_infection.png-1958a6256da467ac92a736f485c66185.ctex"]
 
 [params]
 

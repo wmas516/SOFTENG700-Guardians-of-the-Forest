@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0g7vjtj764dl"
-path="res://.godot/imported/mankauuu2.png-e181ca96170d8226e973611766d8b954.ctex"
+uid="uid://3v7etoiu3nih"
+path="res://.godot/imported/Walk Cycle.png-6e54bcd4bf7815ec536a8351b44547b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mankauuu2.png"
-dest_files=["res://.godot/imported/mankauuu2.png-e181ca96170d8226e973611766d8b954.ctex"]
+source_file="res://platforming/assets/Walk Cycle.png"
+dest_files=["res://.godot/imported/Walk Cycle.png-6e54bcd4bf7815ec536a8351b44547b5.ctex"]
 
 [params]
 
