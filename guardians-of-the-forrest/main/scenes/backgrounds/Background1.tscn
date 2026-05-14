@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dn5gd5fak5r1d"]
+
+[ext_resource type="Texture2D" uid="uid://b4p8i2nuxnbop" path="res://resources/backgrounds/Level1.png" id="1_yd6cs"]
+
+[node name="Background1" type="CanvasLayer" unique_id=1015706442]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1989293190]
+anchors_preset = -1
+anchor_right = 1.6880904
+anchor_bottom = 1.0046914
+offset_right = 0.31982422
+offset_bottom = -0.040039063
+texture = ExtResource("1_yd6cs")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true

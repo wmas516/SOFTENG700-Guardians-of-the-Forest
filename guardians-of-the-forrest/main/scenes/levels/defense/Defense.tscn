@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c27j283kd57ee"]
+
+[ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="1_4hnop"]
+[ext_resource type="Texture2D" uid="uid://wvfopgv0smo7" path="res://icon.svg" id="2_4dmpt"]
+[ext_resource type="Texture2D" uid="uid://dvrtx24ppcjv0" path="res://resources/backgrounds/Level2.png" id="3_3g5mn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nn2o5"]
+size = Vector2(1378, 38)
+
+[node name="Defense" type="Node2D" unique_id=1123565302]
+
+[node name="Player" parent="." unique_id=868766390 instance=ExtResource("1_4hnop")]
+position = Vector2(577, 308)
+scale = Vector2(0.5, 0.5)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1142229150]
+position = Vector2(690, 672)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=985827725]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1.9999654, -2)
+scale = Vector2(10.765625, 0.28125)
+texture = ExtResource("2_4dmpt")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=654838392]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_nn2o5")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=200881659]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=331849234]
+anchors_preset = -1
+anchor_right = 1.6880904
+anchor_bottom = 1.0046914
+offset_right = 0.31982422
+offset_bottom = -0.040039063
+texture = ExtResource("3_3g5mn")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
