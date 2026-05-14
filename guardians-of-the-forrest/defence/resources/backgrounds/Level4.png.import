@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cofm40o8eagvr"
-path="res://.godot/imported/mankauuu2.png-cedf72a0c85239899a281fb04726ad9c.ctex"
+uid="uid://dpdktiyis885c"
+path="res://.godot/imported/Level4.png-c1585f68c591dfb14b8d69592833df84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/mankauuu2.png"
-dest_files=["res://.godot/imported/mankauuu2.png-cedf72a0c85239899a281fb04726ad9c.ctex"]
+source_file="res://defence/resources/backgrounds/Level4.png"
+dest_files=["res://.godot/imported/Level4.png-c1585f68c591dfb14b8d69592833df84.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d3fmjtrvicnct"
-path="res://.godot/imported/ramarama.png-a150d27007ac32a543b79588ea3075c7.ctex"
+path="res://.godot/imported/ramarama.png-31ed146e5c18bd6c33a76517a7b0c31f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/ramarama.png"
-dest_files=["res://.godot/imported/ramarama.png-a150d27007ac32a543b79588ea3075c7.ctex"]
+source_file="res://defence/resources/props/ramarama.png"
+dest_files=["res://.godot/imported/ramarama.png-31ed146e5c18bd6c33a76517a7b0c31f.ctex"]
 
 [params]
 

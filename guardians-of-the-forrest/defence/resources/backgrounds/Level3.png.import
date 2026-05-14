@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dou4a6p3vnepk"
-path="res://.godot/imported/pohutakawa 1_low_infection.png-e399fddd18a6a49ea49264fc3249b4a5.ctex"
+uid="uid://ec10dgkoogtt"
+path="res://.godot/imported/Level3.png-859654c56e9459ccf58403d3ae3b26bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/pohutakawa 1_low_infection.png"
-dest_files=["res://.godot/imported/pohutakawa 1_low_infection.png-e399fddd18a6a49ea49264fc3249b4a5.ctex"]
+source_file="res://defence/resources/backgrounds/Level3.png"
+dest_files=["res://.godot/imported/Level3.png-859654c56e9459ccf58403d3ae3b26bf.ctex"]
 
 [params]
 

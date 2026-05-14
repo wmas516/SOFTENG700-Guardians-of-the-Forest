@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq7nxnprylcca"
-path="res://.godot/imported/ramarama_Low_Infection.png-3974e1bc7db1b401a94c47241ccbc466.ctex"
+uid="uid://dou4a6p3vnepk"
+path="res://.godot/imported/pohutakawa 1_low_infection.png-240ae8e4cefc1ccd53a9663dfe915d0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/ramarama_Low_Infection.png"
-dest_files=["res://.godot/imported/ramarama_Low_Infection.png-3974e1bc7db1b401a94c47241ccbc466.ctex"]
+source_file="res://defence/resources/props/pohutakawa 1_low_infection.png"
+dest_files=["res://.godot/imported/pohutakawa 1_low_infection.png-240ae8e4cefc1ccd53a9663dfe915d0a.ctex"]
 
 [params]
 

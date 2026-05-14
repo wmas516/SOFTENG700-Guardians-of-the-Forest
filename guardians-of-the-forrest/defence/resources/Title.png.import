@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://glxtr452fr43"
-path="res://.godot/imported/standing frame v2.png-27006b9aa7af530fada9f93a56211480.ctex"
+uid="uid://bl66ysmcy7qc3"
+path="res://.godot/imported/Title.png-e93bd3f81bb1f5c520912fec6b2697f0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/standing frame v2.png"
-dest_files=["res://.godot/imported/standing frame v2.png-27006b9aa7af530fada9f93a56211480.ctex"]
+source_file="res://defence/resources/Title.png"
+dest_files=["res://.godot/imported/Title.png-e93bd3f81bb1f5c520912fec6b2697f0.ctex"]
 
 [params]
 
