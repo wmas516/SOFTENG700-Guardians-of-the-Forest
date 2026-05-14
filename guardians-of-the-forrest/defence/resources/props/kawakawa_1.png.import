@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl3ks7lam227e"
-path="res://.godot/imported/pohutakawa 1.png-eb87896da87297375aa4f3e6c70724e4.ctex"
+uid="uid://dqvt14w1uxam2"
+path="res://.godot/imported/kawakawa_1.png-29d02f646053e191bf57b0c9f79297e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/pohutakawa 1.png"
-dest_files=["res://.godot/imported/pohutakawa 1.png-eb87896da87297375aa4f3e6c70724e4.ctex"]
+source_file="res://defence/resources/props/kawakawa_1.png"
+dest_files=["res://.godot/imported/kawakawa_1.png-29d02f646053e191bf57b0c9f79297e2.ctex"]
 
 [params]
 

@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://yqhytax1uj6k"]
 
-[ext_resource type="Script" uid="uid://cuxgqn00vfgmv" path="res://src/main/Main.gd" id="1_aeu4d"]
-[ext_resource type="Texture2D" uid="uid://glxtr452fr43" path="res://resources/sprites/standing frame v2.png" id="1_aobmq"]
-[ext_resource type="Texture2D" uid="uid://b7dw3amonc2pc" path="res://resources/sprites/Walk Cycle.png" id="2_4w5fw"]
-[ext_resource type="Script" uid="uid://iwmxboswo5us" path="res://src/main/level/Level.gd" id="2_b8ch3"]
-[ext_resource type="Texture2D" uid="uid://b4p8i2nuxnbop" path="res://resources/backgrounds/Level1.png" id="3_4w5fw"]
+[ext_resource type="Script" uid="uid://cuxgqn00vfgmv" path="res://defence/src/main/Main.gd" id="1_aeu4d"]
+[ext_resource type="Texture2D" uid="uid://glxtr452fr43" path="res://defence/resources/sprites/standing frame v2.png" id="1_aobmq"]
+[ext_resource type="Texture2D" uid="uid://b7dw3amonc2pc" path="res://defence/resources/sprites/Walk Cycle.png" id="2_4w5fw"]
+[ext_resource type="Script" uid="uid://iwmxboswo5us" path="res://defence/src/main/level/Level.gd" id="2_b8ch3"]
+[ext_resource type="Texture2D" uid="uid://dvrtx24ppcjv0" path="res://defence/resources/backgrounds/Level2.png" id="3_b8ch3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aeu4d"]
 atlas = ExtResource("1_aobmq")
@@ -106,9 +106,8 @@ layer = -1
 [node name="TextureRect" type="TextureRect" parent="Level/Background/CanvasLayer" unique_id=79323361]
 offset_right = 3840.0
 offset_bottom = 1292.0
-texture = ExtResource("3_4w5fw")
+texture = ExtResource("3_b8ch3")
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="Player" type="Node2D" parent="Level" unique_id=903144095]
 
@@ -117,6 +116,7 @@ position = Vector2(109, 473)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Player/PlayerBody" unique_id=686675199]
 sprite_frames = SubResource("SpriteFrames_321d5")
+animation = &"walk"
 metadata/_edit_lock_ = true
 
 [node name="HeadShape" type="CollisionShape2D" parent="Level/Player/PlayerBody" unique_id=199744639]

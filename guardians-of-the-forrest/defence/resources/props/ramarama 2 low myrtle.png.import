@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7i1itfh7gg5a"
-path="res://.godot/imported/kawakawa_2.png-d5f36402002ddf1769fc419d9782d350.ctex"
+uid="uid://bedjbllejr2uj"
+path="res://.godot/imported/ramarama 2 low myrtle.png-27ccdf082b4dd62e54f55e15921ac029.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/kawakawa_2.png"
-dest_files=["res://.godot/imported/kawakawa_2.png-d5f36402002ddf1769fc419d9782d350.ctex"]
+source_file="res://defence/resources/props/ramarama 2 low myrtle.png"
+dest_files=["res://.godot/imported/ramarama 2 low myrtle.png-27ccdf082b4dd62e54f55e15921ac029.ctex"]
 
 [params]
 

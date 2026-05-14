@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvrtx24ppcjv0"
-path="res://.godot/imported/Level2.png-2ae17da3ad0ec5164aafad749e9e4478.ctex"
+uid="uid://b7dw3amonc2pc"
+path="res://.godot/imported/Walk Cycle.png-5906cb201d5c81b83cd62bbd8060b288.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/backgrounds/Level2.png"
-dest_files=["res://.godot/imported/Level2.png-2ae17da3ad0ec5164aafad749e9e4478.ctex"]
+source_file="res://defence/resources/sprites/Walk Cycle.png"
+dest_files=["res://.godot/imported/Walk Cycle.png-5906cb201d5c81b83cd62bbd8060b288.ctex"]
 
 [params]
 

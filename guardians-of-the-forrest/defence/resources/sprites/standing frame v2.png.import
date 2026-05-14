@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqvt14w1uxam2"
-path="res://.godot/imported/kawakawa_1.png-c1a2cf48ae3bdcb64766c89ff0606fd3.ctex"
+uid="uid://glxtr452fr43"
+path="res://.godot/imported/standing frame v2.png-34bfe554027049ee83ebf6c1d73eee94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/props/kawakawa_1.png"
-dest_files=["res://.godot/imported/kawakawa_1.png-c1a2cf48ae3bdcb64766c89ff0606fd3.ctex"]
+source_file="res://defence/resources/sprites/standing frame v2.png"
+dest_files=["res://.godot/imported/standing frame v2.png-34bfe554027049ee83ebf6c1d73eee94.ctex"]
 
 [params]
 
