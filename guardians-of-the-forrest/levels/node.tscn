@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://yqhytax1uj6k"]
+
+[ext_resource type="Script" uid="uid://cuxgqn00vfgmv" path="res://src/main/Main.gd" id="1_aeu4d"]
+[ext_resource type="Texture2D" uid="uid://glxtr452fr43" path="res://resources/sprites/standing frame v2.png" id="1_aobmq"]
+[ext_resource type="Texture2D" uid="uid://b7dw3amonc2pc" path="res://resources/sprites/Walk Cycle.png" id="2_4w5fw"]
+[ext_resource type="Script" uid="uid://iwmxboswo5us" path="res://src/main/level/Level.gd" id="2_b8ch3"]
+[ext_resource type="Texture2D" uid="uid://b4p8i2nuxnbop" path="res://resources/backgrounds/Level1.png" id="3_4w5fw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeu4d"]
+atlas = ExtResource("1_aobmq")
+region = Rect2(0, 0, 140, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8ch3"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(0, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2t87"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(234, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvkua"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(468, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ukee"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(702, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtipm"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(936, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x3oo"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(1170, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwghf"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(1404, 0, 234, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ef8x"]
+atlas = ExtResource("2_4w5fw")
+region = Rect2(1638, 0, 234, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_321d5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeu4d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8ch3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2t87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvkua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ukee")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtipm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x3oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwghf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ef8x")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvndm"]
+radius = 38.910152
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7l032"]
+radius = 44.0
+height = 138.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyr3e"]
+size = Vector2(73, 72)
+
+[node name="Node" type="Node" unique_id=1366888952]
+script = ExtResource("1_aeu4d")
+
+[node name="Level" type="Node2D" parent="." unique_id=1447160223]
+script = ExtResource("2_b8ch3")
+
+[node name="Background" type="Node2D" parent="Level" unique_id=2075808045]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Level/Background" unique_id=406094063]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Level/Background/CanvasLayer" unique_id=79323361]
+offset_right = 3840.0
+offset_bottom = 1292.0
+texture = ExtResource("3_4w5fw")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Player" type="Node2D" parent="Level" unique_id=903144095]
+
+[node name="PlayerBody" type="CharacterBody2D" parent="Level/Player" unique_id=1364223627]
+position = Vector2(109, 473)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Level/Player/PlayerBody" unique_id=686675199]
+sprite_frames = SubResource("SpriteFrames_321d5")
+metadata/_edit_lock_ = true
+
+[node name="HeadShape" type="CollisionShape2D" parent="Level/Player/PlayerBody" unique_id=199744639]
+position = Vector2(-3, -59)
+shape = SubResource("CircleShape2D_xvndm")
+metadata/_edit_lock_ = true
+
+[node name="TorsoShape" type="CollisionShape2D" parent="Level/Player/PlayerBody" unique_id=1416775991]
+position = Vector2(-2, 44)
+shape = SubResource("CapsuleShape2D_7l032")
+metadata/_edit_lock_ = true
+
+[node name="BaseShape" type="CollisionShape2D" parent="Level/Player/PlayerBody" unique_id=107997214]
+position = Vector2(-7.5, 119)
+shape = SubResource("RectangleShape2D_iyr3e")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Level" unique_id=1974552]
+position = Vector2(579, 551)
