@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Guardians_of_the_Forrest"
+run/main_scene="uid://b837183jblvu4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="Guardians_of_the_Forrest"
 
 [physics]
 
