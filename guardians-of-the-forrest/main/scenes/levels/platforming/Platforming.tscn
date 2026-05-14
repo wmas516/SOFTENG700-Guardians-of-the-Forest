@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b837183jblvu4"]
+
+[ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/Level.gd" id="1_ov1ge"]
+[ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
+[ext_resource type="Texture2D" uid="uid://wvfopgv0smo7" path="res://icon.svg" id="3_qdg80"]
+[ext_resource type="Texture2D" uid="uid://dvrtx24ppcjv0" path="res://resources/backgrounds/Level2.png" id="4_30cc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(1378, 38)
+
+[node name="Level" type="Node2D" unique_id=455574578]
+script = ExtResource("1_ov1ge")
+
+[node name="Player" parent="." unique_id=868766390 instance=ExtResource("2_cd8s3")]
+position = Vector2(577, 308)
+scale = Vector2(0.5, 0.5)
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=621391506]
+position = Vector2(690, 667)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground" unique_id=683976312]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1.9999654, -2)
+scale = Vector2(10.765625, 0.28125)
+texture = ExtResource("3_qdg80")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=2051606214]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_mx8sn")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=775600481]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1402424167]
+anchors_preset = -1
+anchor_left = -5.0189037
+anchor_top = -2.4027777
+anchor_right = -5.0189037
+anchor_bottom = -2.4027777
+offset_left = 3861.9165
+offset_top = 915.00006
+offset_right = 7707.861
+offset_bottom = 2207.0
+texture = ExtResource("4_30cc6")
+expand_mode = 3
+metadata/_edit_use_anchors_ = true
