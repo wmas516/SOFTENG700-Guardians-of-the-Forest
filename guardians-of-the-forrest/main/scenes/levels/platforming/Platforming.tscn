@@ -14,6 +14,7 @@ script = ExtResource("1_ov1ge")
 [node name="Player" parent="." unique_id=868766390 instance=ExtResource("2_cd8s3")]
 position = Vector2(577, 308)
 scale = Vector2(0.5, 0.5)
+speed = 250
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=621391506]
 position = Vector2(690, 667)
@@ -31,3 +32,19 @@ shape = SubResource("RectangleShape2D_mx8sn")
 metadata/_edit_lock_ = true
 
 [node name="Background1" parent="." unique_id=1015706442 instance=ExtResource("4_ov1ge")]
+
+[node name="Ground2" type="StaticBody2D" parent="." unique_id=1151910773]
+position = Vector2(2018, 438.00003)
+rotation = -0.34906584
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2" unique_id=1484488096]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1.9999654, -2)
+scale = Vector2(10.765625, 0.28125)
+texture = ExtResource("3_qdg80")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=1174158324]
+position = Vector2(-2, -1)
+shape = SubResource("RectangleShape2D_mx8sn")
+metadata/_edit_lock_ = true

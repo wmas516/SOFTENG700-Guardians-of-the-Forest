@@ -110,3 +110,5 @@ shape = SubResource("CapsuleShape2D_m7xua")
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=2079283681]
 position = Vector2(-7.25, 123)
 shape = SubResource("RectangleShape2D_ifepu")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1614575538]
