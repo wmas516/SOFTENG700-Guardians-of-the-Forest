@@ -85,7 +85,7 @@ animations = [{
 radius = 37.01351
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7xua"]
-radius = 45.0
+radius = 29.0
 height = 154.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifepu"]
@@ -98,13 +98,14 @@ script = ExtResource("1_3vyb7")
 position = Vector2(-1.9073486e-06, 1.9073486e-06)
 sprite_frames = SubResource("SpriteFrames_3vyb7")
 animation = &"idle"
+frame_progress = 0.100049466
 
 [node name="HeadShape" type="CollisionShape2D" parent="." unique_id=709598243]
 position = Vector2(-4, -61)
 shape = SubResource("CircleShape2D_8naqe")
 
 [node name="TorsoShape" type="CollisionShape2D" parent="." unique_id=1372787142]
-position = Vector2(-1, 42)
+position = Vector2(-5, 38)
 shape = SubResource("CapsuleShape2D_m7xua")
 
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=2079283681]
@@ -112,3 +113,4 @@ position = Vector2(-7.25, 123)
 shape = SubResource("RectangleShape2D_ifepu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614575538]
+limit_bottom = 685
