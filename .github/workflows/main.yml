@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         # Match these names exactly with your Godot Export Preset names
-        platform: [windows, linux, mac]
+        platform: [windows]
 
     steps:
       - name: Checkout Source Code
