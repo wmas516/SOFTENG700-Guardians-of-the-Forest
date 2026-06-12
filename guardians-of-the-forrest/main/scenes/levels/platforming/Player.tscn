@@ -81,36 +81,22 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8naqe"]
-radius = 37.01351
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7xua"]
-radius = 29.0
-height = 154.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifepu"]
-size = Vector2(72.5, 63)
+size = Vector2(38, 131.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=868766390]
 script = ExtResource("1_3vyb7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1068237543]
-position = Vector2(-1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.51428574, 0.5142857)
 sprite_frames = SubResource("SpriteFrames_3vyb7")
 animation = &"idle"
-frame_progress = 0.100049466
-
-[node name="HeadShape" type="CollisionShape2D" parent="." unique_id=709598243]
-position = Vector2(-4, -61)
-shape = SubResource("CircleShape2D_8naqe")
-
-[node name="TorsoShape" type="CollisionShape2D" parent="." unique_id=1372787142]
-position = Vector2(-5, 38)
-shape = SubResource("CapsuleShape2D_m7xua")
+frame_progress = 0.2852992
 
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=2079283681]
-position = Vector2(-7.25, 123)
+position = Vector2(-3, 13.75)
 shape = SubResource("RectangleShape2D_ifepu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614575538]
+zoom = Vector2(1.5, 1.5)
 limit_bottom = 685
