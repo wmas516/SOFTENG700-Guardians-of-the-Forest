@@ -1,0 +1,47 @@
+name: "Godot CI/CD Build"
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  export-game:
+    name: Export Godot Project
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [windows]
+    defaults:
+      run:
+        working-directory: guardians-of-the-forrest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Setup Godot Engine
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          # Specify your exact Godot version here
+          version: 4.6.2
+          use-dotnet: false
+          include-templates: true
+
+      - name: Verify Installations
+        run: godot --version
+
+      - name: Create Build Directory
+        run: mkdir -p ../build/${{ matrix.platform }}
+
+      - name: Compile and Export
+        run: godot --headless --export-release "Windows Desktop" ../build/${{ matrix.platform }}/${{ matrix.platform }}.exe
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.platform }}-build
+          path: build/${{ matrix.platform }}/
