@@ -12,8 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Match these names exactly with your Godot Export Preset names
         platform: [windows]
+    defaults:
+      run:
+        working-directory: guardians-of-the-forrest
 
     steps:
       - name: Checkout Source Code
@@ -32,10 +34,10 @@ jobs:
         run: godot --version
 
       - name: Create Build Directory
-        run: mkdir -p build/${{ matrix.platform }}
+        run: mkdir -p ../build/${{ matrix.platform }}
 
       - name: Compile and Export
-        run: godot --headless --export-release "${{ matrix.platform }}" build/${{ matrix.platform }}/${{ matrix.platform }}
+        run: godot --headless --export-release "Windows Desktop" ../build/${{ matrix.platform }}/${{ matrix.platform }}.exe
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
