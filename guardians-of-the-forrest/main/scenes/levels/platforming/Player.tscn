@@ -81,21 +81,14 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8naqe"]
-radius = 37.01351
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m7xua"]
-radius = 45.0
-height = 154.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifepu"]
-size = Vector2(72.5, 63)
+size = Vector2(38, 131.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=868766390]
 script = ExtResource("1_3vyb7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1068237543]
-position = Vector2(-1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.51428574, 0.5142857)
 sprite_frames = SubResource("SpriteFrames_3vyb7")
 animation = &"run"
 metadata/_edit_lock_ = true
