@@ -12,7 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        platform: [windows]
+        include:
+          - platform: windows
+            preset: Windows Desktop
+            artifact_ext: exe
+          - platform: android
+            preset: Android
+            artifact_ext: apk
     defaults:
       run:
         working-directory: guardians-of-the-forrest
@@ -38,7 +44,7 @@ jobs:
         run: mkdir -p ../build/${{ matrix.platform }}
 
       - name: Compile and Export
-        run: godot --headless --export-release "Windows Desktop" ../build/${{ matrix.platform }}/${{ matrix.platform }}.exe
+        run: godot --headless --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
