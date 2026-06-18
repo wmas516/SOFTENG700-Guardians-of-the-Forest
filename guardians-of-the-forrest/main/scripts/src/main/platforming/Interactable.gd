@@ -33,6 +33,7 @@ signal interacted(interactable: Interactable)
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var _player_inside: bool = false
+var fade_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,15 +66,19 @@ func _on_body_exited(body: Node2D) -> void:
 		_hide_label()
 		
 func _show_label() -> void:
+	if fade_tween:
+		fade_tween.kill()
 	label.show()
-	var tween := create_tween()
+	fade_tween = create_tween()
 	label.modulate.a = 0.0
-	tween.tween_property(label, "modulate:a", 1.0, 0.2)
+	fade_tween.tween_property(label, "modulate:a", 1.0, 0.2)
 	
 func _hide_label() -> void:
-	var tween := create_tween()
-	tween.tween_property(label, "modulate:a", 0.0, 0.15)
-	tween.tween_callback(label.hide)
+	if fade_tween:
+		fade_tween.kill()
+	fade_tween = create_tween()
+	fade_tween.tween_property(label, "modulate:a", 0.0, 0.15)
+	fade_tween.tween_callback(label.hide)
 	
 func _fit_sprite_to_size() -> void:
 	if sprite_2d.texture == null:
