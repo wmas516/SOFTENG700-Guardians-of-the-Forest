@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 @export var xReverse = false
-
+@export var speed = 0.002
 @onready var remote: RemoteTransform2D = $RemoteTransform2D
 @onready var follower = remote.get_node_or_null(remote.remote_path)
 # Called when the node enters the scene tree for the first time.
@@ -25,8 +25,8 @@ func _process(delta: float) -> void:
 
 			
 	if (xReverse):
-		self.progress_ratio -= 0.001
+		self.progress_ratio -= speed
 	elif (!xReverse):
-		self.progress_ratio += 0.001
+		self.progress_ratio += speed
 	
 	pass
