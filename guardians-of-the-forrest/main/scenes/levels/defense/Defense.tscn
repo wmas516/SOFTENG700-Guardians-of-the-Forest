@@ -94,6 +94,7 @@ position = Vector2(-59.6765, 751.81177)
 rotation = -0.74463886
 
 [node name="TextureRect" type="TextureRect" parent="Enemy/EnemyPath/Position" unique_id=435693938]
+visible = false
 offset_right = 10.3671875
 offset_bottom = 15.981812
 texture = ExtResource("10_1n74u")
@@ -102,7 +103,7 @@ expand_mode = 1
 [node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1082693588]
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=133030815]
-wait_time = 4.0
+wait_time = 3.0
 
 [node name="Left" type="Path2D" parent="." unique_id=326367309]
 curve = SubResource("Curve2D_a68iq")

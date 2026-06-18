@@ -31,8 +31,10 @@ func _physics_process(delta: float) -> void:
 			else:
 				moveAlongPath()
 				position = follow.position
-			
+		
+		rangeRay.rotation_degrees = self.rotation_degrees
 		move_and_slide()
+		
 	return
 
 
