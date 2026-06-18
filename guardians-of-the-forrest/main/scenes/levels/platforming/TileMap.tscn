@@ -161,6 +161,6 @@ texture = ExtResource("1_1d273")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_01o1b")
 
-[node name="TileMap" type="TileMap" unique_id=1780929110]
+[node name="Layer0" type="TileMapLayer" unique_id=604904959]
+use_parent_material = true
 tile_set = SubResource("TileSet_0axbr")
-format = 2
