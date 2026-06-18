@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = (speed * y)
 	velocity.x = (speed * x)
 
-	xFlip(x < 0)
+	flip(x, y)
 
 	if(Input.is_action_just_pressed("Heal")):
 		var healed = getTargetsInRange()
@@ -42,13 +42,32 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	update_animation((y || x))
 
-func xFlip(xReverse):
+func flip(x, y):
+	var xReverse = x < 0
+	var angle
 	animated_sprite.flip_h = xReverse
+	
+	
+		
+	if (x != 0):
+		if (xReverse):
+			angle = 180
+		else:
+			angle = 0
 
-	if (xReverse):
-		rangeRay.rotation_degrees = 180
-	else:
-		rangeRay.rotation_degrees = 0
+		if (y < 0):
+			angle += 45
+		elif (y > 0):
+			angle -= 45
+
+	else: 
+		if (y < 0):
+			angle = -90
+		else:
+			angle = 90
+
+	if (angle):
+		rangeRay.rotation_degrees = angle
 	
 
 func update_animation(move):
