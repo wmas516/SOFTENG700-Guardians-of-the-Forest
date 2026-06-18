@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://b837183jblvu4"]
 
-[ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/level.gd" id="1_ov1ge"]
+[ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/Level.gd" id="1_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dajcbf6o7w0br" path="res://main/scenes/levels/platforming/TileMap.tscn" id="4_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]

@@ -8,6 +8,7 @@ class_name PlayerDef
 
 func _ready() -> void:
 	rangeRay.collision_mask = self.collision_mask
+	return
 
 func _physics_process(delta: float) -> void:
 
@@ -17,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = (speed * y)
 	velocity.x = (speed * x)
 
-	flip(x, y)
+	flip(x < 0)
 
 	if(Input.is_action_just_pressed("Heal")):
 		var healed = getTargetsInRange()
@@ -38,43 +39,38 @@ func _physics_process(delta: float) -> void:
 			&& target.has_method("damage")):
 				target.damage()
 
-
+	setTargetAngle(x, y)
 	move_and_slide()
 	update_animation((y || x))
+	return
 
-func flip(x, y):
-	var xReverse = x < 0
-	var angle
+func flip(xReverse):
 	animated_sprite.flip_h = xReverse
-	
-	
+	return
+
+func setTargetAngle(x, y):
+	var angle = null
 		
-	if (x != 0):
-		if (xReverse):
+	if x != 0:
+		if x > 0:
+			angle = 0  
+		else: 
 			angle = 180
-		else:
-			angle = 0
+		if y != 0:
+			angle += 45 * sign(y) * sign(x)
+	elif y != 0:
+			angle = 90 * sign(y)
 
-		if (y < 0):
-			angle += 45
-		elif (y > 0):
-			angle -= 45
-
-	else: 
-		if (y < 0):
-			angle = -90
-		else:
-			angle = 90
-
-	if (angle):
+	if (angle != null):
 		rangeRay.rotation_degrees = angle
-	
+	return
 
 func update_animation(move):
 	if move:
 		animated_sprite.play("run")
 	else:
-		animated_sprite.play("idle")		
+		animated_sprite.play("idle")
+	return
 
 
 func getTargetsInRange() -> Array[Node]:

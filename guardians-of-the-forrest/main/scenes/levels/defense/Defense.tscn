@@ -9,16 +9,36 @@
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="6_nn2o5"]
 [ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
-[ext_resource type="Script" uid="uid://cjlm3u7rcl4br" path="res://main/scripts/src/main/defense/EnemyPath.gd" id="9_e18um"]
+[ext_resource type="Texture2D" uid="uid://wvfopgv0smo7" path="res://icon.svg" id="10_1n74u"]
 
-[sub_resource type="Curve2D" id="Curve2D_vbpy5"]
+[sub_resource type="Curve2D" id="Curve2D_1n74u"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -14.461538, 688.15015, 0, 0, 0, 0, 679.0659, 41.811844)
+"points": PackedVector2Array(0, 0, 0, 0, -59.6765, 751.81177, 0, 0, 0, 0, 583.73926, 158.81908)
 }
 point_count = 2
 
-[node name="Defense" type="Node2D" unique_id=1123565302]
+[sub_resource type="Curve2D" id="Curve2D_a68iq"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, 300, 0, 0, 0, 0, -50, 650)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xkn8c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1200, 300, 0, 0, 0, 0, 1200, 650)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_3sbh2"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, 700, 0, 0, 0, 0, 1200, 700)
+}
+point_count = 2
+
+[node name="Defense" type="Node2D" unique_id=1123565302 node_paths=PackedStringArray("enemy", "spawnTimer")]
 script = ExtResource("1_1n74u")
+enemy = NodePath("Enemy")
+spawnTimer = NodePath("SpawnTimer")
 
 [node name="PlayerDef" parent="." unique_id=868766390 instance=ExtResource("2_3g5mn")]
 position = Vector2(548.00006, 375.00003)
@@ -52,35 +72,57 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("6_vbpy5")
 
-[node name="Enemy" parent="." unique_id=475867398 groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
+[node name="Enemy" parent="." unique_id=475867398 node_paths=PackedStringArray("damageTimer") groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
 z_index = 1
-position = Vector2(-64.31964, 717.8642)
-rotation = -0.71428794
-scale = Vector2(0.12125105, 0.12063749)
-skew = -0.07199359
+position = Vector2(-70.00001, 639)
+rotation = -0.6729137
+scale = Vector2(0.1216119, 0.12027373)
+skew = -0.071320176
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("8_e18um")
+damageTimer = NodePath("DamageTimer")
 
-[node name="Enemy2" parent="." unique_id=997142279 groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
-z_index = 1
-position = Vector2(559.0001, 534)
-scale = Vector2(0.12, 0.12)
-collision_layer = 2
-collision_mask = 7
-script = ExtResource("8_e18um")
+[node name="EnemyPath" type="Path2D" parent="Enemy" unique_id=190554370]
+position = Vector2(4140.663, -3977.854)
+rotation = 0.7083764
+scale = Vector2(7.7195563, 8.149365)
+curve = SubResource("Curve2D_1n74u")
 
-[node name="Path2D" type="Path2D" parent="." unique_id=1267324426]
-position = Vector2(-7.926605, 152.52545)
-scale = Vector2(0.8348624, 0.7766831)
-curve = SubResource("Curve2D_vbpy5")
+[node name="Position" type="PathFollow2D" parent="Enemy/EnemyPath" unique_id=1713734844]
+position = Vector2(-59.6765, 751.81177)
+rotation = -0.74463886
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1690878681]
-position = Vector2(-14.461538, 688.15015)
-rotation = -0.75019336
-script = ExtResource("9_e18um")
+[node name="TextureRect" type="TextureRect" parent="Enemy/EnemyPath/Position" unique_id=435693938]
+offset_right = 10.3671875
+offset_bottom = 15.981812
+texture = ExtResource("10_1n74u")
+expand_mode = 1
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Path2D/PathFollow2D" unique_id=2012538046]
-position = Vector2(-65.92842, -7.1221848)
-scale = Vector2(0.15, 0.15)
-remote_path = NodePath("../../../Enemy")
+[node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1082693588]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=133030815]
+wait_time = 4.0
+
+[node name="Left" type="Path2D" parent="." unique_id=326367309]
+curve = SubResource("Curve2D_a68iq")
+
+[node name="Position" type="PathFollow2D" parent="Left" unique_id=917788338]
+position = Vector2(-50, 300)
+rotation = 1.5707964
+
+[node name="Right" type="Path2D" parent="." unique_id=244885232]
+curve = SubResource("Curve2D_xkn8c")
+
+[node name="Position" type="PathFollow2D" parent="Right" unique_id=1357526468]
+position = Vector2(1200, 300)
+rotation = 1.5707964
+
+[node name="Bottom" type="Path2D" parent="." unique_id=2060728132]
+curve = SubResource("Curve2D_3sbh2")
+
+[node name="Position" type="PathFollow2D" parent="Bottom" unique_id=453209793]
+position = Vector2(-50, 700)
+
+[connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
