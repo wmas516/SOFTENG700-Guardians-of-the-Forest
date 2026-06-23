@@ -3,54 +3,50 @@ extends Area2D
 
 signal interacted(interactable: Interactable)
 
-@export_group("Appearance")
-
 @export var size: Vector2 = Vector2(64, 64):
 	set(value):
 		size = value
 		if is_node_ready():
 			_fit_shape_to_size()
-@export_group("Interaction")
+@export var interact_action: String = "Heal"
 @export var popup_text: String = "Press [E] to interact":
 	set(value):
 		popup_text = value
 		if label:
 			label.text = value
-
-@export var interact_action: String = "Heal"
-@export var label_offset: float = 40.0
+@export var label_offset: Vector2 = Vector2.ZERO
 
 @onready var label: Label = $Label
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var _player_inside: bool = false
 var fade_tween: Tween
+var interactable_enabled: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = popup_text
 	label.hide()
 	
-	label.position = Vector2(-label.size.x, - label_offset)
-	
+	label.position = Vector2(label_offset.x, label_offset.y)
 	_fit_shape_to_size()
 	
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 	
 func _unhandled_input(event_input) -> void:
-	if _player_inside and event_input.is_action_pressed(interact_action):
+	if interactable_enabled and _player_inside and event_input.is_action_pressed(interact_action):
 		interacted.emit(self)
 		get_viewport().set_input_as_handled()
 		
 func _on_body_entered(body: Node2D) -> void:
 	print("Area entered")
-	if body.is_in_group("Player"):
+	if interactable_enabled and body.is_in_group("Player"):
 		_player_inside = true
 		_show_label()
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if interactable_enabled and body.is_in_group("Player"):
 		_player_inside = false
 		_hide_label()
 		

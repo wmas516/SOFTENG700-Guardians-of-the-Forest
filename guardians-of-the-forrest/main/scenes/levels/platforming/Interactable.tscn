@@ -13,6 +13,8 @@ script = ExtResource("1_tmepa")
 shape = SubResource("CircleShape2D_tmepa")
 
 [node name="Label" type="Label" parent="." unique_id=1713282983]
+z_index = 11
 offset_right = 40.0
 offset_bottom = 23.0
 horizontal_alignment = 1
+vertical_alignment = 1
