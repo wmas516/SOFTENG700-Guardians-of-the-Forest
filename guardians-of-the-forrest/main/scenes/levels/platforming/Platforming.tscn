@@ -1,18 +1,15 @@
-[gd_scene format=4 uid="uid://b837183jblvu4"]
+[gd_scene format=3 uid="uid://b837183jblvu4"]
 
 [ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/level.gd" id="1_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="5_qdg80"]
-[ext_resource type="PackedScene" uid="uid://2xbmbpus47ls" path="res://main/scenes/levels/platforming/NewTileMap.tscn" id="6_30cc6"]
 [ext_resource type="Texture2D" uid="uid://dnp82wba1aq4h" path="res://resources/props/mankauuu2_low_infection.png" id="6_qdg80"]
 [ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="7_30cc6"]
+[ext_resource type="PackedScene" uid="uid://bbgyogec6uxex" path="res://main/scenes/levels/platforming/ground/Center.tscn" id="7_mhbhg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov1ge"]
 size = Vector2(4410, 71)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdg80"]
-size = Vector2(2815.5, 72)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhbhg"]
 radius = 27.073973
@@ -51,19 +48,10 @@ position = Vector2(-3.0000153, -24.00003)
 scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("6_qdg80")
 
-[node name="NewTileMap" parent="." unique_id=604904959 instance=ExtResource("6_30cc6")]
-tile_map_data = PackedByteArray("AAAAAAMAAQAAAAAAAAABAAMAAQABAAAAAAACAAMAAQACAAAAAAADAAMAAQADAAAAAAAEAAMAAQAEAAAAAAAFAAMAAQAFAAAAAAAGAAMAAQAGAAAAAAAHAAMAAQAHAAAAAAAIAAMAAQAIAAAAAAAJAAMAAQAJAAAAAAAKAAMAAQAKAAAAAAALAAMAAQAAAAAAAAAMAAMAAQABAAAAAAANAAMAAQACAAAAAAAOAAMAAQADAAAAAAAPAAMAAQAEAAAAAAAQAAMAAQAFAAAAAAARAAMAAQAGAAAAAAASAAMAAQAHAAAAAAATAAMAAQAIAAAAAAAUAAMAAQAJAAAAAAAVAAMAAQAKAAAAAAA=")
-
-[node name="Ground" type="Area2D" parent="." unique_id=463868023]
-position = Vector2(1406.75, 476)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=1031750292]
-shape = SubResource("RectangleShape2D_qdg80")
-
 [node name="Obstacles" type="Node2D" parent="." unique_id=447275548]
 
 [node name="Obstacle1" type="Area2D" parent="Obstacles" unique_id=952836804]
-position = Vector2(1788, 440)
+position = Vector2(1676.33, 430.995)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle1" unique_id=236147605]
 shape = SubResource("CircleShape2D_mhbhg")
@@ -75,7 +63,7 @@ scale = Vector2(0.053596072, 0.066279076)
 texture = ExtResource("7_30cc6")
 
 [node name="Obstacle2" type="Area2D" parent="Obstacles" unique_id=1807132668]
-position = Vector2(1936.295, 440)
+position = Vector2(1936.295, 431.135)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle2" unique_id=1636709881]
 shape = SubResource("CircleShape2D_mhbhg")
@@ -85,6 +73,18 @@ position = Vector2(0.9999526, -1.40070915e-05)
 rotation = 2.443461
 scale = Vector2(0.053596072, 0.066279076)
 texture = ExtResource("7_30cc6")
+
+[node name="Ground" type="Node2D" parent="." unique_id=746815332]
+
+[node name="Center" parent="Ground" unique_id=212487399 instance=ExtResource("7_mhbhg")]
+position = Vector2(672, 432)
+
+[node name="Center2" parent="Ground" unique_id=432747761 instance=ExtResource("7_mhbhg")]
+position = Vector2(1663, 432)
+scale = Vector2(-1, 1)
+
+[node name="Center3" parent="Ground" unique_id=1475797621 instance=ExtResource("7_mhbhg")]
+position = Vector2(2654.73, 432)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="body_entered" from="Obstacles/Obstacle1" to="." method="_on_deathzone_body_entered"]
