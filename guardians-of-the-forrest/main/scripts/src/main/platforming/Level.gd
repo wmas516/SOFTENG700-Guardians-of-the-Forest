@@ -4,6 +4,8 @@ extends Node2D
 @onready var tree: Interactable = $Interactables/Tree
 
 func _on_deathzone_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer: return
+	print("Player Killed")
 	body.velocity = Vector2.ZERO
 	body.global_position = start_position.global_position
 
