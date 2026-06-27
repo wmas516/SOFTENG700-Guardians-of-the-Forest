@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bq0xx0f2ne41i"]
+
+[ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigame/CleaningBoot.gd" id="1_gy606"]
+[ext_resource type="Texture2D" uid="uid://dpdktiyis885c" path="res://resources/backgrounds/Level4.png" id="1_jdw5w"]
+[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="3_gy606"]
+[ext_resource type="Texture2D" uid="uid://dty80mflvv0fc" path="res://resources/props/shoe.png" id="4_v40sw"]
+
+[sub_resource type="GDScript" id="GDScript_gy606"]
+
+[node name="CleaningBoot" type="Node2D" unique_id=965748908 node_paths=PackedStringArray("sprites")]
+script = ExtResource("1_gy606")
+sprites = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("Sprite2D3")]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1618740350]
+z_index = -2
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_jdw5w")
+expand_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2013017918]
+position = Vector2(505.44827, 181.09767)
+scale = Vector2(0.052873563, 0.060237985)
+texture = ExtResource("3_gy606")
+script = SubResource("GDScript_gy606")
+
+[node name="Shoe" type="Sprite2D" parent="." unique_id=1258363042]
+z_index = -1
+position = Vector2(555, 305)
+rotation = -1.5707964
+texture = ExtResource("4_v40sw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1699567667]
+position = Vector2(602, 265)
+scale = Vector2(0.052873563, 0.060237985)
+texture = ExtResource("3_gy606")
+script = SubResource("GDScript_gy606")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2123999987]
+position = Vector2(527, 414)
+scale = Vector2(0.052873563, 0.060237985)
+texture = ExtResource("3_gy606")
+script = SubResource("GDScript_gy606")
