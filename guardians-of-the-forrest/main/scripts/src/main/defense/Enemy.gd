@@ -5,15 +5,18 @@ extends CharacterBody2D
 
 @export var enabled = false
 
-@onready  var path: Path2D = $EnemyPath
-@onready  var follow: PathFollow2D = $EnemyPath/Position
+@export var dest: CollisionObject2D;
+
 @export var damageTimer: Timer
 @export var speed = 0.002
 var timerOver = false
+var destPos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rangeRay.collision_mask = self.collision_mask
+	if (dest):
+		destPos = dest.global_position
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,24 +26,27 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if (enabled):
 		var damaged = getTargetsInRange()
-
+		
 		damageTargets(damaged)
-		if (follow):
+		if (destPos):
+			#moveTowardTarget(targetPos)
 			if (damageTimer && !damageTimer.is_stopped()):
+				velocity = Vector2(0, 0)
 				pass
 			else:
-				moveAlongPath()
-				position = follow.position
-		
-		rangeRay.rotation_degrees = self.rotation_degrees
+				var direction = global_position.direction_to(destPos)
+				velocity = speed * direction
+				rotation = direction.angle()
+				if (direction.x < 0):
+					sprite.flip_v = true
+				
+			
 		move_and_slide()
 		
 	return
 
-
 func damage():
 	queue_free()
-
 
 func getTargetsInRange() -> Array[Node]:
 	var collisions: Array[Node] = []
@@ -53,10 +59,8 @@ func getTargetsInRange() -> Array[Node]:
 
 		if (curCollision):
 			rangeRay.add_exception(curCollision)
-			exemptCollisions.append(curCollision)
-
-			collisions.append(getTargetableParent(curCollision))
-			
+			exemptCollisions.append(curCollision)			
+			collisions.append(getTargetableParent(curCollision))			
 		else:
 			break
 		
@@ -96,38 +100,13 @@ func damageTargets(damaged):
 			else:
 				target.damage()
 
-func xFlip(xReverse):
-	sprite.flip_h = xReverse
-
-	if (xReverse):
-		rangeRay.rotation_degrees = 180
-	else:
-		rangeRay.rotation_degrees = 0
-
-
-func moveAlongPath():
-	if (follow):
-		follow.progress_ratio += speed
-
-
 func _on_damage_timer_timeout() -> void:
 	timerOver = true
-	
-
-func setPath(point):
-	if (path):
-		if (!path.curve):
-			return
-
-		# Give each clone its own curve so edits don't leak to other enemies.
-		path.curve = path.curve.duplicate()
-		var curve = path.curve
-		curve.set_point_position(0, point)
-		follow.progress_ratio = 0
-		
-	return
 
 func setEnabled(enable):
 	enabled = enable
 	visible = enable
 	return
+
+func moveTowardTarget(pos):
+	global_position.direction_to(pos)

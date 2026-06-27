@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://cl3ks7lam227e" path="res://resources/props/pohutakawa 1.png" id="1_a3jpf"]
 [ext_resource type="Texture2D" uid="uid://dou4a6p3vnepk" path="res://resources/props/pohutakawa 1_low_infection.png" id="2_3kcfx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdoqj"]
-size = Vector2(513, 422)
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3jpf"]
+radius = 312.02563
 
 [node name="Tree" type="StaticBody2D" unique_id=616234793]
 
@@ -18,6 +18,5 @@ texture = ExtResource("2_3kcfx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403409876]
 visible = false
-position = Vector2(-0.5, 44)
-shape = SubResource("RectangleShape2D_bdoqj")
-metadata/_edit_lock_ = true
+position = Vector2(5, -46)
+shape = SubResource("CircleShape2D_a3jpf")

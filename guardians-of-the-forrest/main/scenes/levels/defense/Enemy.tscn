@@ -18,4 +18,4 @@ rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ya4xx")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=2125186630]
-target_position = Vector2(800, 0)
+target_position = Vector2(590, 0)
