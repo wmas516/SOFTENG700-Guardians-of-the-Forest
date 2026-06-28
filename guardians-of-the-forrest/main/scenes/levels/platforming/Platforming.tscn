@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b837183jblvu4"]
 
-[ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/level.gd" id="1_ov1ge"]
+[ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/Level.gd" id="1_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="5_qdg80"]
@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="7_30cc6"]
 [ext_resource type="PackedScene" uid="uid://bbgyogec6uxex" path="res://main/scenes/levels/platforming/ground/Center.tscn" id="7_mhbhg"]
 [ext_resource type="PackedScene" uid="uid://bvtv8cngat471" path="res://main/scenes/levels/platforming/ground/Center-1.tscn" id="8_mhbhg"]
+[ext_resource type="PackedScene" uid="uid://do86g1d6hipdu" path="res://main/scenes/levels/platforming/ground/Left.tscn" id="9_dhwro"]
+[ext_resource type="PackedScene" uid="uid://x6f5rudu18m" path="res://main/scenes/levels/platforming/ground/Right.tscn" id="10_7dyxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov1ge"]
-size = Vector2(4410, 71)
+size = Vector2(6586, 71)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mhbhg"]
 radius = 27.073973
@@ -21,7 +23,9 @@ script = ExtResource("1_ov1ge")
 [node name="Player" parent="." unique_id=868766390 groups=["Player"] instance=ExtResource("2_cd8s3")]
 position = Vector2(577, 308)
 scale = Vector2(0.5, 0.5)
+gravity = 600
 speed = 200
+jump_force = 300
 
 [node name="Background1" parent="." unique_id=1015706442 instance=ExtResource("4_ov1ge")]
 
@@ -29,7 +33,7 @@ speed = 200
 position = Vector2(1110, 965)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone" unique_id=1893854617]
-position = Vector2(529, -81.5)
+position = Vector2(1617, -81.5)
 shape = SubResource("RectangleShape2D_ov1ge")
 
 [node name="StartPosition" type="Marker2D" parent="." unique_id=1544441623]
@@ -44,6 +48,18 @@ size = Vector2(128, 128)
 label_offset = Vector2(-75, -60)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree" unique_id=4654972]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("6_qdg80")
+
+[node name="Tree2" parent="Interactables" unique_id=969771678 instance=ExtResource("5_qdg80")]
+z_index = -1
+position = Vector2(4935, 463)
+size = Vector2(128, 128)
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree2" unique_id=523909436]
 z_index = 1
 position = Vector2(-3.0000153, -24.00003)
 scale = Vector2(0.21484375, 0.21484375)
@@ -75,10 +91,49 @@ rotation = 2.443461
 scale = Vector2(0.053596072, 0.066279076)
 texture = ExtResource("7_30cc6")
 
+[node name="Obstacle3" type="Area2D" parent="Obstacles" unique_id=2094739981]
+position = Vector2(4045, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle3" unique_id=1315949034]
+shape = SubResource("CircleShape2D_mhbhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle3" unique_id=111750119]
+position = Vector2(8.678436e-05, -1.5258789e-05)
+rotation = 2.443461
+scale = Vector2(0.053596072, 0.066279076)
+texture = ExtResource("7_30cc6")
+
+[node name="Obstacle4" type="Area2D" parent="Obstacles" unique_id=2135108464]
+position = Vector2(4165, 371)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle4" unique_id=1312834064]
+shape = SubResource("CircleShape2D_mhbhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle4" unique_id=61082246]
+position = Vector2(0.9999526, -1.40070915e-05)
+rotation = 2.443461
+scale = Vector2(0.053596072, 0.066279076)
+texture = ExtResource("7_30cc6")
+
+[node name="Obstacle5" type="Area2D" parent="Obstacles" unique_id=1284872323]
+position = Vector2(4285, 435)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle5" unique_id=867365377]
+shape = SubResource("CircleShape2D_mhbhg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle5" unique_id=1590203525]
+position = Vector2(0.9999526, -1.40070915e-05)
+rotation = 2.443461
+scale = Vector2(0.053596072, 0.066279076)
+texture = ExtResource("7_30cc6")
+
 [node name="Ground" type="Node2D" parent="." unique_id=746815332]
 
 [node name="Center" parent="Ground" unique_id=212487399 instance=ExtResource("7_mhbhg")]
 position = Vector2(672, 432)
+
+[node name="Center5" parent="Ground" unique_id=1846802583 instance=ExtResource("7_mhbhg")]
+position = Vector2(3473, 248)
 
 [node name="Center2" parent="Ground" unique_id=432747761 instance=ExtResource("7_mhbhg")]
 position = Vector2(1330, 432)
@@ -90,6 +145,48 @@ position = Vector2(1991, 432)
 [node name="Center4" parent="Ground" unique_id=1521245830 instance=ExtResource("8_mhbhg")]
 position = Vector2(2668, 432)
 
+[node name="Left" parent="Ground" unique_id=2006634761 instance=ExtResource("9_dhwro")]
+position = Vector2(2947, 386)
+
+[node name="Right" parent="Ground" unique_id=1180749873 instance=ExtResource("10_7dyxv")]
+position = Vector2(2724, 320)
+scale = Vector2(1, 0.5)
+
+[node name="Right2" parent="Ground" unique_id=579691415 instance=ExtResource("10_7dyxv")]
+position = Vector2(3881, 248)
+
+[node name="Left2" parent="Ground" unique_id=1707881650 instance=ExtResource("9_dhwro")]
+position = Vector2(2578, 320)
+scale = Vector2(1, 0.5)
+
+[node name="Left3" parent="Ground" unique_id=52477941 instance=ExtResource("10_7dyxv")]
+position = Vector2(2965, 248.5)
+scale = Vector2(-1, 0.25)
+
+[node name="Left4" parent="Ground" unique_id=1995036869 instance=ExtResource("9_dhwro")]
+position = Vector2(3075, 248)
+
+[node name="Left5" parent="Ground" unique_id=1465783373 instance=ExtResource("9_dhwro")]
+position = Vector2(3075, 324)
+
+[node name="Right3" parent="Ground" unique_id=701503473 instance=ExtResource("10_7dyxv")]
+position = Vector2(4000, 310)
+
+[node name="Right4" parent="Ground" unique_id=70197282 instance=ExtResource("10_7dyxv")]
+position = Vector2(4122, 371)
+
+[node name="Right5" parent="Ground" unique_id=1253602246 instance=ExtResource("10_7dyxv")]
+position = Vector2(4239, 433)
+
+[node name="Center6" parent="Ground" unique_id=1843095838 instance=ExtResource("7_mhbhg")]
+position = Vector2(4602, 494)
+
+[node name="Center7" parent="Ground" unique_id=1624362260 instance=ExtResource("7_mhbhg")]
+position = Vector2(5264, 494)
+
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="body_entered" from="Obstacles/Obstacle1" to="." method="_on_deathzone_body_entered"]
 [connection signal="body_entered" from="Obstacles/Obstacle2" to="." method="_on_deathzone_body_entered"]
+[connection signal="body_entered" from="Obstacles/Obstacle3" to="." method="_on_deathzone_body_entered"]
+[connection signal="body_entered" from="Obstacles/Obstacle4" to="." method="_on_deathzone_body_entered"]
+[connection signal="body_entered" from="Obstacles/Obstacle5" to="." method="_on_deathzone_body_entered"]
