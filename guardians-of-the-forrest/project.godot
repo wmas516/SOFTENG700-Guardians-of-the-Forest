@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Guardians_of_the_Forrest"
+config/name="Guardians_of_the_Forest"
 run/main_scene="uid://b837183jblvu4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
