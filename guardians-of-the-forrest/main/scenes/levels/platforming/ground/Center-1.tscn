@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://bbgyogec6uxex"]
+[gd_scene format=3 uid="uid://bvtv8cngat471"]
 
-[ext_resource type="Texture2D" uid="uid://cb3ava7ema678" path="res://resources/props/ground-transparent.png" id="1_b6441"]
+[ext_resource type="Texture2D" uid="uid://cb3ava7ema678" path="res://resources/props/ground-transparent.png" id="1_836cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyrkx"]
-size = Vector2(663, 61.5)
+size = Vector2(694, 61.5)
 
 [node name="Center" type="Node2D" unique_id=212487399]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=257971642]
 position = Vector2(0, 21)
 scale = Vector2(0.66568863, 0.66770184)
-texture = ExtResource("1_b6441")
+texture = ExtResource("1_836cj")
 region_enabled = true
-region_rect = Rect2(255.95827, 50.015594, 995.8655, 161.14604)
+region_rect = Rect2(263.9884, 293.0048, 1042.9227, 175.4516)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=88690672]
 
