@@ -7,8 +7,9 @@ class_name Player
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var active = true
-var direction = 0
+var active: bool = true
+var direction: int = 0
+var health: int = 100
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor() == false:
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	update_animation(direction)
-	
+
 func update_animation(direction):
 	if direction == 0:
 		animated_sprite.play("idle")
