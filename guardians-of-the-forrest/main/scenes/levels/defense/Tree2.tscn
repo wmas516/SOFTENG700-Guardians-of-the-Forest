@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bgxy6l7ed5p4d"]
+
+[ext_resource type="Texture2D" uid="uid://cl3ks7lam227e" path="res://resources/props/pohutakawa 1.png" id="1_a3jpf"]
+[ext_resource type="Texture2D" uid="uid://dou4a6p3vnepk" path="res://resources/props/pohutakawa 1_low_infection.png" id="2_3kcfx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3jpf"]
+radius = 312.02563
+
+[node name="Tree" type="StaticBody2D" unique_id=616234793]
+
+[node name="Healthy" type="Sprite2D" parent="." unique_id=1526073718]
+texture = ExtResource("1_a3jpf")
+metadata/_edit_lock_ = true
+
+[node name="Infected" type="Sprite2D" parent="." unique_id=554847086]
+visible = false
+texture = ExtResource("2_3kcfx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403409876]
+visible = false
+position = Vector2(5, -46)
+shape = SubResource("CircleShape2D_a3jpf")

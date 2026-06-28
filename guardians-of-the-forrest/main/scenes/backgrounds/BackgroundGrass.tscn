@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ctqsgrenq75cf"]
+
+[ext_resource type="Texture2D" uid="uid://c33l13ucmprhr" path="res://resources/backgrounds/grass.jpg" id="1_l3213"]
+
+[node name="BackgroundGrass" type="CanvasLayer" unique_id=1215222339]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=426818906]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_l3213")
+expand_mode = 3
