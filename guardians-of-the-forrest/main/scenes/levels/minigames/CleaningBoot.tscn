@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq0xx0f2ne41i"]
 
-[ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigame/CleaningBoot.gd" id="1_gy606"]
+[ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
 [ext_resource type="Texture2D" uid="uid://dpdktiyis885c" path="res://resources/backgrounds/Level4.png" id="1_jdw5w"]
 [ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="3_gy606"]
 [ext_resource type="Texture2D" uid="uid://dty80mflvv0fc" path="res://resources/props/shoe.png" id="4_v40sw"]

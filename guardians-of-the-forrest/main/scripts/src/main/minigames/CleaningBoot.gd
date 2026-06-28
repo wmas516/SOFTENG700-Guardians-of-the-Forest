@@ -53,7 +53,7 @@ func isPointInsideSprite(globalPoint: Vector2) -> Sprite2D:
 	return null
 	
 func clearedSprite(left: int):
-	print("Removed Disease " , left , " left to go")
-
+	print("[Removed Disease]:")
+	print(" - ", left , " left to go")
 func miniGameOver():
 	print("Boot Cleared")
