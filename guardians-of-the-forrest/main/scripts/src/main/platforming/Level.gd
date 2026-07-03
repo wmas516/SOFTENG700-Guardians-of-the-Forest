@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @onready var start_position: Marker2D = $StartPosition
 @onready var tree: Interactable = $Interactables/Tree
 @onready var tree_2: Interactable = $Interactables/Tree2
