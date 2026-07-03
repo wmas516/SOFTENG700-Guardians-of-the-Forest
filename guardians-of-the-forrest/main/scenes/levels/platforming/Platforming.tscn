@@ -21,7 +21,7 @@ radius = 27.073973
 script = ExtResource("1_ov1ge")
 
 [node name="Player" parent="." unique_id=868766390 groups=["Player"] instance=ExtResource("2_cd8s3")]
-position = Vector2(577, 308)
+position = Vector2(578, 392)
 scale = Vector2(0.5, 0.5)
 gravity = 600
 speed = 200
@@ -119,10 +119,10 @@ texture = ExtResource("7_30cc6")
 position = Vector2(4285, 435)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles/Obstacle5" unique_id=867365377]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_mhbhg")
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacles/Obstacle5" unique_id=1590203525]
-position = Vector2(0.9999526, -1.40070915e-05)
 rotation = 2.443461
 scale = Vector2(0.053596072, 0.066279076)
 texture = ExtResource("7_30cc6")
@@ -160,7 +160,7 @@ position = Vector2(2578, 320)
 scale = Vector2(1, 0.5)
 
 [node name="Left3" parent="Ground" unique_id=52477941 instance=ExtResource("10_7dyxv")]
-position = Vector2(2965, 248.5)
+position = Vector2(2965, 248.35)
 scale = Vector2(-1, 0.25)
 
 [node name="Left4" parent="Ground" unique_id=1995036869 instance=ExtResource("9_dhwro")]
