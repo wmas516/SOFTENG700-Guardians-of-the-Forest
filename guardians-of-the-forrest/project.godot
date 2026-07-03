@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Guardians_of_the_Forest"
-run/main_scene="uid://b837183jblvu4"
+run/main_scene="uid://bj4p7h8cuq2r7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

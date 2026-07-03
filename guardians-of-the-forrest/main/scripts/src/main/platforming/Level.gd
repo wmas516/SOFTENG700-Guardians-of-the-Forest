@@ -1,11 +1,12 @@
 extends Node2D
 
+
 @onready var start_position: Marker2D = $StartPosition
 @onready var tree: Interactable = $Interactables/Tree
 @onready var tree_2: Interactable = $Interactables/Tree2
 
 func _on_deathzone_body_entered(body: Node2D) -> void:
-	if body is not Player: return
+	if body is not PlatformPlayer: return
 	print("Player Killed")
 	body.velocity = Vector2.ZERO
 	body.global_position = start_position.global_position
