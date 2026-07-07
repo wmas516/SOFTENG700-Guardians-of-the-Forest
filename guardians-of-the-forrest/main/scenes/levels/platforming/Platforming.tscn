@@ -20,13 +20,6 @@ radius = 27.073973
 [node name="Level" type="Node2D" unique_id=455574578]
 script = ExtResource("1_ov1ge")
 
-[node name="Player" parent="." unique_id=868766390 groups=["Player"] instance=ExtResource("2_cd8s3")]
-position = Vector2(578, 392)
-scale = Vector2(0.5, 0.5)
-gravity = 600
-speed = 200
-jump_force = 300
-
 [node name="Background1" parent="." unique_id=1015706442 instance=ExtResource("4_ov1ge")]
 
 [node name="Deathzone" type="Area2D" parent="." unique_id=1005538961]
@@ -183,6 +176,13 @@ position = Vector2(4602, 494)
 
 [node name="Center7" parent="Ground" unique_id=1624362260 instance=ExtResource("7_mhbhg")]
 position = Vector2(5264, 494)
+
+[node name="Player" parent="." unique_id=868766390 instance=ExtResource("2_cd8s3")]
+position = Vector2(507, 255)
+scale = Vector2(0.5, 0.5)
+gravity = 600
+speed = 200
+jump_force = 300
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="body_entered" from="Obstacles/Obstacle1" to="." method="_on_deathzone_body_entered"]
