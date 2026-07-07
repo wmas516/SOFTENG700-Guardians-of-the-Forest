@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ps70uxdlw3kb"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=441802430]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1569455643]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1484753740]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1599544387]
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=760724639]

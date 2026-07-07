@@ -139,7 +139,7 @@ position = Vector2(1991, 432)
 position = Vector2(2668, 432)
 
 [node name="Left" parent="Ground" unique_id=2006634761 instance=ExtResource("9_dhwro")]
-position = Vector2(2947, 386)
+position = Vector2(2976, 370)
 
 [node name="Right" parent="Ground" unique_id=1180749873 instance=ExtResource("10_7dyxv")]
 position = Vector2(2724, 320)
@@ -160,7 +160,7 @@ scale = Vector2(-1, 0.25)
 position = Vector2(3075, 248)
 
 [node name="Left5" parent="Ground" unique_id=1465783373 instance=ExtResource("9_dhwro")]
-position = Vector2(3075, 324)
+position = Vector2(3075, 309)
 
 [node name="Right3" parent="Ground" unique_id=701503473 instance=ExtResource("10_7dyxv")]
 position = Vector2(4000, 310)
