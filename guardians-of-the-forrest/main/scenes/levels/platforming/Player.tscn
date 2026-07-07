@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpdur70ykfenc"]
 
-[ext_resource type="Script" uid="uid://c8sv2ou7vl476" path="res://main/scripts/src/main/platforming/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://c6mde2o80h72h" path="res://main/scripts/src/main/platforming/Player.gd" id="1_738yx"]
 [ext_resource type="Texture2D" uid="uid://glxtr452fr43" path="res://resources/sprites/Stand_Frame.png" id="2_8naqe"]
 [ext_resource type="Texture2D" uid="uid://b7dw3amonc2pc" path="res://resources/sprites/Walk_Cycle.png" id="3_m7xua"]
 
@@ -85,7 +85,7 @@ animations = [{
 size = Vector2(38, 131.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=868766390]
-script = ExtResource("1_3vyb7")
+script = ExtResource("1_738yx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1068237543]
 scale = Vector2(0.51428574, 0.5142857)
