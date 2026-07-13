@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bvtv8cngat471" path="res://main/scenes/levels/platforming/ground/Center-1.tscn" id="8_mhbhg"]
 [ext_resource type="PackedScene" uid="uid://do86g1d6hipdu" path="res://main/scenes/levels/platforming/ground/Left.tscn" id="9_dhwro"]
 [ext_resource type="PackedScene" uid="uid://x6f5rudu18m" path="res://main/scenes/levels/platforming/ground/Right.tscn" id="10_7dyxv"]
+[ext_resource type="PackedScene" uid="uid://ps70uxdlw3kb" path="res://main/scenes/levels/platforming/Enemy.tscn" id="11_7dyxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov1ge"]
 size = Vector2(6586, 71)
@@ -183,6 +184,10 @@ scale = Vector2(0.5, 0.5)
 gravity = 600
 speed = 200
 jump_force = 300
+
+[node name="Enemy" parent="." unique_id=441802430 instance=ExtResource("11_7dyxv")]
+position = Vector2(3338, 207)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="body_entered" from="Obstacles/Obstacle1" to="." method="_on_deathzone_body_entered"]

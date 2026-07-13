@@ -1,11 +1,27 @@
 [gd_scene format=3 uid="uid://ps70uxdlw3kb"]
 
+[ext_resource type="Script" uid="uid://dfpi35xtpk3jd" path="res://main/scripts/src/main/platforming/Enemy.gd" id="1_85md8"]
+[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="1_xgv6r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xgv6r"]
+radius = 92.0489
+
 [node name="Enemy" type="CharacterBody2D" unique_id=441802430]
+script = ExtResource("1_85md8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1569455643]
+position = Vector2(1.5258789e-05, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_xgv6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1484753740]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_xgv6r")
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1599544387]
+[node name="WallRay" type="RayCast2D" parent="." unique_id=1599544387]
+position = Vector2(90.03, 0)
+rotation = -1.5707964
 
-[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=760724639]
+[node name="FloorRay" type="RayCast2D" parent="." unique_id=760724639]
+position = Vector2(35, 61.000008)
+rotation = -0.7853982
