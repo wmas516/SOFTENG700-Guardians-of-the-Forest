@@ -4,12 +4,15 @@ extends CharacterBody2D
 @export var gravity = 400
 @export var speed = 125
 @export var jump_force = 200
+@export var damage_on_hit = 10
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var active: bool = true
 var direction: int = 0
 var health: int = 100
+
+signal reset_player()
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor() == false:
@@ -29,12 +32,24 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	update_animation(direction)
+	handle_collisions()
+
+func handle_collisions() -> void:
+	for i in get_slide_collision_count():
+		var collider = get_slide_collision(i).get_collider()
+
+		if collider.is_in_group("Enemies"):
+			take_damage()
+
+func take_damage() -> void:
+	PlayerData.take_damage(10)
+	reset_player.emit()
 
 func update_animation(direction):
 	if direction == 0:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
-			
+	
 func jump(force):
 	velocity.y = -force

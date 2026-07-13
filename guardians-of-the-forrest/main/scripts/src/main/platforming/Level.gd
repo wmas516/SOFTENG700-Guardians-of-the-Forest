@@ -2,22 +2,24 @@ extends Node2D
 @onready var start_position: Marker2D = $StartPosition
 @onready var tree: Interactable = $Interactables/Tree
 @onready var tree_2: Interactable = $Interactables/Tree2
-
-func _on_deathzone_body_entered(body: Node2D) -> void:
-	if body is not PlatformPlayer: return
-	PlayerData.take_damage(10)
-	body.velocity = Vector2.ZERO
-	body.global_position = start_position.global_position
-	print("Player Killed")
+@onready var player: PlatformPlayer = $Player
 
 # In any parent node or level script
 func _ready() -> void:
 	tree.interacted.connect(heal_tree)
 	tree_2.interacted.connect(go_to_defense)
+	player.reset_player.connect(reset_player)
 	
 func go_to_defense(_source: Interactable) -> void:
 	print("Go to defense")
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Defense.tscn")
+	
+func reset_player() -> void:
+	PlayerData.take_damage(10)
+	player.velocity = Vector2.ZERO
+	player.global_position = start_position.global_position
+	print("take_damage called, connections: ", player.reset_player.get_connections().size())
+	print("Player Killed")
 
 func heal_tree(source: Interactable) -> void:
 	var sprite: Sprite2D = source.find_child("Sprite2D")

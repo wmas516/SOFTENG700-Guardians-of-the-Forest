@@ -15,9 +15,8 @@ func _physics_process(delta: float) -> void:
 	
 	if wall_ray.is_colliding() or not floor_ray.is_colliding():
 		_turn()
-		
+	
 	velocity.x = direction * speed
-	print(velocity)
 	move_and_slide()
 	
 func _turn() -> void:
