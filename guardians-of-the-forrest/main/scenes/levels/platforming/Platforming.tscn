@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://dkervblc40ylr" path="res://main/scenes/levels/platforming/Obstacle.tscn" id="5_7dyxv"]
+[ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="5_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="5_qdg80"]
 [ext_resource type="Texture2D" uid="uid://dnp82wba1aq4h" path="res://resources/props/mankauuu2_low_infection.png" id="6_qdg80"]
 [ext_resource type="PackedScene" uid="uid://bbgyogec6uxex" path="res://main/scenes/levels/platforming/ground/Center.tscn" id="7_mhbhg"]
@@ -55,6 +56,13 @@ z_index = 1
 position = Vector2(-3.0000153, -24.00003)
 scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("6_qdg80")
+
+[node name="Interactable" parent="Interactables" unique_id=1191232182 instance=ExtResource("5_7dyxv")]
+visible = false
+position = Vector2(1287, 301)
+
+[node name="Interactable2" parent="Interactables" unique_id=1243148844 instance=ExtResource("5_7dyxv")]
+position = Vector2(1501, 382)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=447275548]
 
