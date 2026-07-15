@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bqh8j34rsc5ga"]
 
-[ext_resource type="Script" uid="uid://b4cuu66lhxdph" path="res://main/scripts/src/main/platforming/interactable.gd" id="1_tmepa"]
+[ext_resource type="Script" uid="uid://b4cuu66lhxdph" path="res://main/scripts/src/main/platforming/Interactable.gd" id="1_tmepa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmepa"]
 radius = 24.020824
