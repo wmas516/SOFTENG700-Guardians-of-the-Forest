@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var speed = 125
 @export var jump_force = 200
 @export var damage_on_hit = 10
-@export var knockback_force: float = 200.0
+@export var knockback_force: float = 300
 @export var knockback_duration: float = 0.2
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -14,7 +14,6 @@ var active: bool = true
 var direction: int = 0
 var health: int = 100
 var invincible: bool = false
-var knockback: bool = false
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor() == false:
@@ -40,12 +39,13 @@ func handle_collisions() -> void:
 	if invincible: return
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider() 
-
+		
 		if collider.is_in_group("Enemies"):
-			take_damage()
+			take_damage(get_slide_collision(i))
 
-func take_damage() -> void:
+func take_damage(collision: KinematicCollision2D) -> void:
 	PlayerData.take_damage(10)
+	apply_knockback(collision.get_normal())
 	start_invincibility(1)
 
 func update_animation(direction):
@@ -61,3 +61,9 @@ func start_invincibility(duration: float) -> void:
 	invincible = true
 	await get_tree().create_timer(duration).timeout
 	invincible = false
+	
+func apply_knockback(normal: Vector2) -> void:
+	velocity = normal * knockback_force
+	active = false
+	await get_tree().create_timer(knockback_duration).timeout
+	active = true
