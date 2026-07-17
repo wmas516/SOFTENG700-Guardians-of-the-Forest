@@ -18,7 +18,6 @@ func reset_player() -> void:
 	PlayerData.take_damage(10)
 	player.velocity = Vector2.ZERO
 	player.global_position = start_position.global_position
-	print("take_damage called, connections: ", player.reset_player.get_connections().size())
 	print("Player Killed")
 
 func heal_tree(source: Interactable) -> void:
