@@ -8,17 +8,10 @@ extends Node2D
 func _ready() -> void:
 	tree.interacted.connect(heal_tree)
 	tree_2.interacted.connect(go_to_defense)
-	player.reset_player.connect(reset_player)
 	
 func go_to_defense(_source: Interactable) -> void:
 	print("Go to defense")
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Defense.tscn")
-	
-func reset_player() -> void:
-	PlayerData.take_damage(10)
-	player.velocity = Vector2.ZERO
-	player.global_position = start_position.global_position
-	print("Player Killed")
 
 func heal_tree(source: Interactable) -> void:
 	var sprite: Sprite2D = source.find_child("Sprite2D")
