@@ -1,10 +1,12 @@
 class_name PlayerTutorial
 extends CharacterBody2D
 
+enum Direction {FORWARD, LEFT, RIGHT}
+
 @export var jump_force = 200
 @export var gravity = 400
 
-@export var direction: String
+@export var direction: Direction = Direction.FORWARD
 @export var jumping: bool
 @export var switch: bool
 @export var switchTime: int
@@ -31,9 +33,9 @@ func _ready() -> void:
 		add_child(timer)
 		timer.start()
 	
-	if (direction == "left"):
+	if (direction == Direction.LEFT):
 		update_animation(-1)
-	elif (direction == "right"):
+	elif (direction == Direction.RIGHT):
 		update_animation(1)
 	
 	

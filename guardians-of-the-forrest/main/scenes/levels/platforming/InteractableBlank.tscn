@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://3g0wfp4sckok"]
+
+[ext_resource type="Script" uid="uid://dtt04x2ni2qm6" path="res://main/scripts/src/main/ui/Interactable.gd" id="1_dw3dy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah0oh"]
+size = Vector2(277, 206)
+
+[node name="Interactable2" type="Area2D" unique_id=1553916585 node_paths=PackedStringArray("fadable")]
+collision_layer = 4
+script = ExtResource("1_dw3dy")
+fadable = [NodePath("")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584256101]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ah0oh")
