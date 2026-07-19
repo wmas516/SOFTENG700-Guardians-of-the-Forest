@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bs3bf0pyoanhi"]
+
+[ext_resource type="Script" uid="uid://bhy3yybish4yt" path="res://main/scripts/src/main/ui/Dialog.gd" id="1_dcvgk"]
+[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="1_qq16h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq16h"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Dialog" type="Control" unique_id=445186671]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.44900003
+offset_bottom = 0.047973633
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dcvgk")
+speaker = "Character Name"
+text = "Dialog"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=942660067]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 252.0
+texture = ExtResource("1_qq16h")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1094850001]
+layout_mode = 0
+offset_top = 160.0
+offset_right = 1152.0
+offset_bottom = 289.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_qq16h")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1293580806]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -18
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=784087855]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer" unique_id=784087856]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=784087857]
+layout_mode = 2
+text = "Name"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=1116984970]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2" unique_id=1935126837]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1323481189]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Dialog text goes here. "
+fit_content = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=2053166187]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer3" unique_id=522533020]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer" unique_id=2080223461]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Click to continue"

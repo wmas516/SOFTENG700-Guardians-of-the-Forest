@@ -3,9 +3,14 @@ extends Area2D
 
 signal interacted(interactable: Interactable)
 
+enum Transition {STATIC, FADE}
+
 @export var label_offset: Vector2 = Vector2.ZERO
 
 @export var fadable: Array[Node] = []
+
+@export var behaviour: Transition = Transition.FADE
+@export var keep: bool = false
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
@@ -16,7 +21,8 @@ var interactable_enabled: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for item in fadable:
-		item.hide()
+		if is_instance_valid(item):
+			item.hide()
 	
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -37,16 +43,26 @@ func _show_label() -> void:
 		for t in fade_tween:
 			t.kill()
 	for item in fadable:
+		if not is_instance_valid(item):
+			continue
 		item.show()
-		fade_tween.append(create_tween())
-		item.modulate.a = 0.0
-		fade_tween[-1].tween_property(item, "modulate:a", 1.0, 0.2)
+		if behaviour == Transition.FADE:
+			fade_tween.append(create_tween())
+			item.modulate.a = 0.0
+			fade_tween[-1].tween_property(item, "modulate:a", 1.0, 0.2)
+		else:
+			item.modulate.a = 1.0
 	
 func _hide_label() -> void:
 	if fade_tween:
 		for t in fade_tween:
 			t.kill()
 	for item in fadable:
-		fade_tween.append(create_tween())
-		fade_tween[-1].tween_property(item, "modulate:a", 0.0, 0.15)
-		fade_tween[-1].tween_callback(item.hide)
+		if not is_instance_valid(item):
+			continue
+		if behaviour == Transition.FADE:
+			fade_tween.append(create_tween())
+			fade_tween[-1].tween_property(item, "modulate:a", 0.0, 0.15)
+			fade_tween[-1].tween_callback(item.hide)
+		elif not keep:
+			item.hide()
