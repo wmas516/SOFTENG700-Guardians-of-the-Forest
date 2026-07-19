@@ -5,8 +5,13 @@ extends CharacterBody2D
 @export var speed = 125
 @export var jump_force = 200
 @export var damage_on_hit = 10
+
 @export var knockback_force: float = 300
 @export var knockback_duration: float = 0.2
+
+@export var dash_force: int = 1000
+@export var dash_duration: float = 0.15
+@export var dash_cooldown: float = 0.5
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -14,6 +19,8 @@ var active: bool = true
 var direction: int = 0
 var health: int = 100
 var invincible: bool = false
+var can_dash: bool = true
+var dashing: bool = false
 
 func _physics_process(delta: float) -> void:
 	if is_on_floor() == false:
@@ -23,13 +30,18 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 500
 		
 	if active:
-		if Input.is_action_just_pressed("ui_up") && is_on_floor():
-			jump(jump_force)
+		if Input.is_action_just_pressed("Up") && is_on_floor():
+			velocity.y = -jump_force
+		
+		if Input.is_action_just_pressed("Damage") && can_dash:
+			start_dash()
 			
-		direction = Input.get_axis("ui_left", "ui_right")
+		direction = Input.get_axis("Left", "Right")
 		if direction != 0:
 			animated_sprite.flip_h = (direction == -1)
-		velocity.x = direction * speed
+		
+		if not dashing:
+			velocity.x = direction * speed
 		
 	move_and_slide()
 	update_animation(direction)
@@ -54,9 +66,6 @@ func update_animation(direction):
 	else:
 		animated_sprite.play("run")
 	
-func jump(force):
-	velocity.y = -force
-	
 func start_invincibility(duration: float) -> void:
 	invincible = true
 	await get_tree().create_timer(duration).timeout
@@ -67,3 +76,18 @@ func apply_knockback(normal: Vector2) -> void:
 	active = false
 	await get_tree().create_timer(knockback_duration).timeout
 	active = true
+	
+func start_dash() -> void:
+	print("start dash")
+	dashing = true
+	can_dash = false
+	
+	var dash_direction := direction if direction != 0 else (-1 if animated_sprite.flip_h else 1)
+	velocity.x = direction * dash_force
+	
+	await get_tree().create_timer(dash_duration).timeout
+	dashing = false
+	
+	await get_tree().create_timer(dash_cooldown).timeout
+	can_dash = true
+	

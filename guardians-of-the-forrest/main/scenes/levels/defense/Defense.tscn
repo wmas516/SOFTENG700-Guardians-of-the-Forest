@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_1n74u"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_3g5mn"]
-[ext_resource type="Script" uid="uid://0y4dkhbiwv2s" path="res://main/scripts/src/main/defense/Player_def.gd" id="3_nn2o5"]
 [ext_resource type="PackedScene" uid="uid://bgxy6l7ed5p4d" path="res://main/scenes/levels/defense/Tree2.tscn" id="4_1n74u"]
 [ext_resource type="PackedScene" uid="uid://b3vkbv5hgt1rw" path="res://main/scenes/levels/defense/Tree1.tscn" id="4_4dmpt"]
 [ext_resource type="PackedScene" uid="uid://ctqsgrenq75cf" path="res://main/scenes/backgrounds/BackgroundGrass.tscn" id="4_e18um"]
@@ -37,7 +36,6 @@ spawnTimer = NodePath("SpawnTimer")
 position = Vector2(548.00006, 375.00003)
 scale = Vector2(0.33, 0.33)
 collision_mask = 6
-script = ExtResource("3_nn2o5")
 
 [node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("4_e18um")]
 layer = -1
