@@ -25,6 +25,7 @@ var dashing: bool = false
 # Animation Assistance Variables
 var is_hurt: bool = false
 var was_on_floor: bool = false
+var is_landing: bool = false
 
 func _physics_process(delta: float) -> void:
 	if dashing:
@@ -51,6 +52,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = direction * speed
 		
 	move_and_slide()
+	check_landing()
 	update_animation(direction)
 	handle_collisions()
 
@@ -63,29 +65,45 @@ func handle_collisions() -> void:
 			take_damage(get_slide_collision(i))
 
 func take_damage(collision: KinematicCollision2D) -> void:
+	is_hurt = true
 	PlayerData.take_damage(10)
 	apply_knockback(collision.get_normal())
 	start_invincibility(1)
+	animated_sprite.play("hurt")
+	await animated_sprite.animation_finished
+	is_hurt = false
 	
 
 func update_animation(direction):
-	if not was_on_floor and is_on_floor():
-		if is_hurt or dashing:
-			return
-		animated_sprite.play("land")
-		await animated_sprite.animation_finished
-		
+	if is_hurt or is_landing: return
+	
 	if dashing:
 		animated_sprite.play("dash")
 		return
 	
+	if not is_on_floor():
+		print(velocity.y)
+		if velocity.y < -25:
+			animated_sprite.play("jump-up")
+		elif -25 < velocity.y and velocity.y < 25:
+			animated_sprite.play("jump-top")
+		else:
+			animated_sprite.play("jump-down")
+		return
+		
 	if direction == 0:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
-		
+
+func check_landing() -> void:
+	if not was_on_floor and is_on_floor() and not is_landing:
+		is_landing = true
+		animated_sprite.play("land")
+		await animated_sprite.animation_finished
+		is_landing = false
 	was_on_floor = is_on_floor()
-	
+
 func start_invincibility(duration: float) -> void:
 	invincible = true
 	await get_tree().create_timer(duration).timeout
