@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="5_qdg80"]
 [ext_resource type="Texture2D" uid="uid://dnp82wba1aq4h" path="res://resources/props/mankauuu2_low_infection.png" id="6_qdg80"]
 [ext_resource type="PackedScene" uid="uid://3g0wfp4sckok" path="res://main/scenes/levels/platforming/InteractableBlank.tscn" id="7_4ig86"]
+[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="7_30cc6"]
 [ext_resource type="PackedScene" uid="uid://bbgyogec6uxex" path="res://main/scenes/levels/platforming/ground/Center.tscn" id="7_mhbhg"]
 [ext_resource type="PackedScene" uid="uid://bvtv8cngat471" path="res://main/scenes/levels/platforming/ground/Center-1.tscn" id="8_mhbhg"]
 [ext_resource type="PackedScene" uid="uid://do86g1d6hipdu" path="res://main/scenes/levels/platforming/ground/Left.tscn" id="9_dhwro"]
