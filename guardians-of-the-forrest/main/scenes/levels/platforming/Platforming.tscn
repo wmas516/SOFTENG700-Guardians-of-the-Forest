@@ -4,17 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://dkervblc40ylr" path="res://main/scenes/levels/platforming/Obstacle.tscn" id="5_7dyxv"]
-[ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="5_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="5_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="5_qdg80"]
 [ext_resource type="Texture2D" uid="uid://dnp82wba1aq4h" path="res://resources/props/mankauuu2_low_infection.png" id="6_qdg80"]
 [ext_resource type="PackedScene" uid="uid://3g0wfp4sckok" path="res://main/scenes/levels/platforming/InteractableBlank.tscn" id="7_4ig86"]
-[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="7_30cc6"]
 [ext_resource type="PackedScene" uid="uid://bbgyogec6uxex" path="res://main/scenes/levels/platforming/ground/Center.tscn" id="7_mhbhg"]
 [ext_resource type="PackedScene" uid="uid://bvtv8cngat471" path="res://main/scenes/levels/platforming/ground/Center-1.tscn" id="8_mhbhg"]
 [ext_resource type="PackedScene" uid="uid://do86g1d6hipdu" path="res://main/scenes/levels/platforming/ground/Left.tscn" id="9_dhwro"]
 [ext_resource type="PackedScene" uid="uid://x6f5rudu18m" path="res://main/scenes/levels/platforming/ground/Right.tscn" id="10_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://ps70uxdlw3kb" path="res://main/scenes/levels/platforming/Enemy.tscn" id="11_7dyxv"]
+[ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="12_7dyxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov1ge"]
 size = Vector2(6586, 71)
@@ -72,7 +71,7 @@ position = Vector2(-3.0000153, -24.00003)
 scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("6_qdg80")
 
-[node name="Tutorial" parent="Interactables" unique_id=1243148844 instance=ExtResource("5_7dyxv")]
+[node name="Tutorial" parent="Interactables" unique_id=1243148844 instance=ExtResource("12_7dyxv")]
 position = Vector2(1502, 319)
 
 [node name="DialogInteractable" parent="Interactables" unique_id=1915233063 node_paths=PackedStringArray("fadable") instance=ExtResource("7_4ig86")]
