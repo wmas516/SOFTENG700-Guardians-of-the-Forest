@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 @export var dash_force: int = 1000
 @export var dash_duration: float = 0.15
-@export var dash_cooldown: float = 0.5
+@export var dash_cooldown: float = 1
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -22,7 +22,14 @@ var invincible: bool = false
 var can_dash: bool = true
 var dashing: bool = false
 
+# Animation Assistance Variables
+var is_hurt: bool = false
+var was_on_floor: bool = false
+
 func _physics_process(delta: float) -> void:
+	if dashing:
+		spawn_ghost()
+	
 	if is_on_floor() == false:
 		# Gravity
 		velocity.y += gravity*delta
@@ -59,12 +66,25 @@ func take_damage(collision: KinematicCollision2D) -> void:
 	PlayerData.take_damage(10)
 	apply_knockback(collision.get_normal())
 	start_invincibility(1)
+	
 
 func update_animation(direction):
+	if not was_on_floor and is_on_floor():
+		if is_hurt or dashing:
+			return
+		animated_sprite.play("land")
+		await animated_sprite.animation_finished
+		
+	if dashing:
+		animated_sprite.play("dash")
+		return
+	
 	if direction == 0:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
+		
+	was_on_floor = is_on_floor()
 	
 func start_invincibility(duration: float) -> void:
 	invincible = true
@@ -78,12 +98,12 @@ func apply_knockback(normal: Vector2) -> void:
 	active = true
 	
 func start_dash() -> void:
-	print("start dash")
+	print("start dash (direction: ", direction, ")")
 	dashing = true
 	can_dash = false
 	
-	var dash_direction := direction if direction != 0 else (-1 if animated_sprite.flip_h else 1)
-	velocity.x = direction * dash_force
+	var dash_direction := -1 if animated_sprite.flip_h else 1
+	velocity.x = dash_direction * dash_force
 	
 	await get_tree().create_timer(dash_duration).timeout
 	dashing = false
@@ -91,3 +111,17 @@ func start_dash() -> void:
 	await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
 	
+func spawn_ghost() -> void:
+	var ghost := Sprite2D.new()
+	ghost.texture = animated_sprite.sprite_frames.get_frame_texture(
+		animated_sprite.animation, animated_sprite.get_frame()
+	)
+	ghost.global_position = global_position
+	ghost.flip_h = animated_sprite.flip_h
+	ghost.scale = animated_sprite.scale
+	ghost.modulate = Color(1,1,1,0.4)
+	get_parent().add_child(ghost)
+	
+	var tween := ghost.create_tween()
+	tween.tween_property(ghost, "modulate:a", 0.0, 0.2)
+	tween.tween_callback(ghost.queue_free)
