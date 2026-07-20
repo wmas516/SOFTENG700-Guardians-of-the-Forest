@@ -3,11 +3,11 @@ extends Node
 signal health_changed(new_health: int, max_health: int)
 signal player_died
 
-var max_health: int
-var current_health: int
+var current_health: int = 100
+var max_health: int = 100
 	
 func take_damage(amount: int) -> void:
-	current_health -= amount
+	current_health = maxi(current_health - amount, 0)
 	health_changed.emit(current_health, max_health)
 	print(current_health)
 	if current_health == 0:

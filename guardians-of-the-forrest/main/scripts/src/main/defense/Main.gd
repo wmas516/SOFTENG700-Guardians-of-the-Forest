@@ -12,9 +12,9 @@ var enemies: Array[Node] = []
 @onready var rightFollow: PathFollow2D = $Right/Position
 @onready var bottomFollow: PathFollow2D = $Bottom/Position
 
-@onready var waveLabel: Label = $Control/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentWave
-@onready var waveTotalLabel: Label = $Control/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4/TotalWave
-@onready var enemyLabel: Label = $Control/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
+@onready var waveLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentWave
+@onready var waveTotalLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4/TotalWave
+@onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -62,7 +62,7 @@ func spawn():
 		)
 		enemies.append(newEnemy)
 		#print("[Enemy Spawned]:")
-		enemyLog()
+		#enemyLog()
 
 
 func randomSpawn() -> Vector2:
@@ -87,4 +87,4 @@ func _on_enemy_tree_exited(enemy_node: Node) -> void:
 func enemyLog():
 	#print(" - Alive: ", enemies.size())
 	#print(" - Remaining: ", aliveEnemies)
-	enemyLabel.text = str(aliveEnemies)
+	enemyLabel.text = str(aliveEnemies + enemies.size())
