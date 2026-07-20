@@ -14,6 +14,7 @@ extends CharacterBody2D
 @export var dash_cooldown: float = 1
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var dash_indicator: MeshInstance2D = $MeshInstance2D
 
 var active: bool = true
 var direction: int = 0
@@ -72,7 +73,6 @@ func take_damage(collision: KinematicCollision2D) -> void:
 	animated_sprite.play("hurt")
 	await animated_sprite.animation_finished
 	is_hurt = false
-	
 
 func update_animation(direction):
 	if is_hurt or is_landing: return
@@ -82,7 +82,6 @@ func update_animation(direction):
 		return
 	
 	if not is_on_floor():
-		print(velocity.y)
 		if velocity.y < -25:
 			animated_sprite.play("jump-up")
 		elif -25 < velocity.y and velocity.y < 25:
@@ -116,9 +115,10 @@ func apply_knockback(normal: Vector2) -> void:
 	active = true
 	
 func start_dash() -> void:
-	print("start dash (direction: ", direction, ")")
+	print("dashing (direction: ", direction, ")")
 	dashing = true
 	can_dash = false
+	dash_indicator.visible = false
 	
 	var dash_direction := -1 if animated_sprite.flip_h else 1
 	velocity.x = dash_direction * dash_force
@@ -127,6 +127,7 @@ func start_dash() -> void:
 	dashing = false
 	
 	await get_tree().create_timer(dash_cooldown).timeout
+	dash_indicator.visible = true
 	can_dash = true
 	
 func spawn_ghost() -> void:

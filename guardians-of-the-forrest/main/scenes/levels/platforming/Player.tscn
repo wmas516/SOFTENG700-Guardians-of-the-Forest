@@ -328,6 +328,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ifepu"]
 size = Vector2(16, 29)
 
+[sub_resource type="SphereMesh" id="SphereMesh_qopbr"]
+
 [node name="Player" type="CharacterBody2D" unique_id=868766390 groups=["Player"]]
 script = ExtResource("1_738yx")
 dash_force = 800
@@ -345,3 +347,8 @@ shape = SubResource("RectangleShape2D_ifepu")
 zoom = Vector2(2.26, 2.26)
 limit_bottom = 500
 limit_smoothed = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1724771882]
+position = Vector2(0, -18)
+scale = Vector2(5.7562366, 5.7562366)
+mesh = SubResource("SphereMesh_qopbr")
