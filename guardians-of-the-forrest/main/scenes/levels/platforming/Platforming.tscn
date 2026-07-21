@@ -217,7 +217,6 @@ position = Vector2(5264, 494)
 
 [node name="Player" parent="." unique_id=868766390 instance=ExtResource("2_cd8s3")]
 position = Vector2(507, 255)
-scale = Vector2(0.5, 0.5)
 gravity = 600
 speed = 200
 jump_force = 300

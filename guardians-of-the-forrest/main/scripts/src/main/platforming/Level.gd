@@ -9,6 +9,7 @@ var player_dead: bool = false
 
 # In any parent node or level script
 func _ready() -> void:
+	PlayerData.set_health(100)
 	tree.interacted.connect(heal_tree)
 	tree_2.interacted.connect(go_to_defense)
 	PlayerData.health_changed.connect(_on_player_health_changed)
