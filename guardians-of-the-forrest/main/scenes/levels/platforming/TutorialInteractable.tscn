@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c1gpfvhc7g1gn"]
+
+[ext_resource type="Script" uid="uid://blqdrmafl62a6" path="res://main/scripts/src/main/ui/Interactable.gd" id="1_ah0oh"]
+[ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="2_66pg3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah0oh"]
+size = Vector2(277, 206)
+
+[node name="Interactable" type="Area2D" unique_id=1553916585 node_paths=PackedStringArray("fadable")]
+collision_layer = 4
+script = ExtResource("1_ah0oh")
+fadable = [NodePath("Tutorial")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584256101]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ah0oh")
+
+[node name="Tutorial" parent="." unique_id=1434005533 instance=ExtResource("2_66pg3")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+metadata/_edit_use_anchors_ = true

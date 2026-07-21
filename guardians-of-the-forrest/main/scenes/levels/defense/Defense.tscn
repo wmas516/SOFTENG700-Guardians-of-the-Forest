@@ -2,13 +2,15 @@
 
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_1n74u"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_3g5mn"]
-[ext_resource type="Script" uid="uid://0y4dkhbiwv2s" path="res://main/scripts/src/main/defense/Player_def.gd" id="3_nn2o5"]
 [ext_resource type="PackedScene" uid="uid://bgxy6l7ed5p4d" path="res://main/scenes/levels/defense/Tree2.tscn" id="4_1n74u"]
 [ext_resource type="PackedScene" uid="uid://b3vkbv5hgt1rw" path="res://main/scenes/levels/defense/Tree1.tscn" id="4_4dmpt"]
 [ext_resource type="PackedScene" uid="uid://ctqsgrenq75cf" path="res://main/scenes/backgrounds/BackgroundGrass.tscn" id="4_e18um"]
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="6_nn2o5"]
 [ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat_bg"]
+bg_color = Color(0, 0, 0, 0.55)
 
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
 _data = {
@@ -33,11 +35,120 @@ script = ExtResource("1_1n74u")
 enemy = NodePath("Enemy")
 spawnTimer = NodePath("SpawnTimer")
 
+[node name="HUD" type="Control" parent="." unique_id=943279924]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1374927661]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1691368687]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=1297709971]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stat_bg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=1161093962]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1297709972]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=703349103]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Wave: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=502969364]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="CurrentWave" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=781350397]
+layout_mode = 2
+text = "67"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=564574337]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Divisor" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer3" unique_id=1005617058]
+layout_mode = 2
+text = "/"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=136305637]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="TotalWave" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4" unique_id=18322677]
+layout_mode = 2
+text = "69"
+
+[node name="Enemies" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=1163219687]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stat_bg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Enemies" unique_id=1885290354]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=460133739]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer" unique_id=442221471]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Enemies Left: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=759600579]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Count" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=2115732667]
+layout_mode = 2
+text = "67"
+
 [node name="PlayerDef" parent="." unique_id=868766390 instance=ExtResource("2_3g5mn")]
 position = Vector2(548.00006, 375.00003)
 scale = Vector2(0.33, 0.33)
 collision_mask = 6
-script = ExtResource("3_nn2o5")
 
 [node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("4_e18um")]
 layer = -1

@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cr5cbvq7sv7gv"]
+
+[ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="1_dsb75"]
+[ext_resource type="Script" uid="uid://ctpp75jehr23s" path="res://main/scripts/src/main/ui/PlayerTutorial.gd" id="2_54omf"]
+[ext_resource type="Script" uid="uid://q0ft3l2npcl3" path="res://main/scripts/src/main/ui/InputLabeller.gd" id="3_avg8m"]
+
+[node name="Tutorial" type="Control" unique_id=1434005533]
+layout_mode = 3
+anchor_right = 0.26041666
+anchor_bottom = 0.3287037
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1768432230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=646514072]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Left" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1600904696]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Left" unique_id=44409145]
+layout_mode = 2
+
+[node name="Right Jumping Wrap" type="PanelContainer" parent="Panel/HBoxContainer/Left/VBoxContainer" unique_id=2143000001]
+custom_minimum_size = Vector2(96, 112)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap" unique_id=2143000101]
+layout_mode = 2
+
+[node name="Bounds" type="Control" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap/CenterContainer" unique_id=2143000201]
+layout_mode = 2
+
+[node name="Left" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap/CenterContainer/Bounds" unique_id=125588370 instance=ExtResource("1_dsb75")]
+scale = Vector2(0.9, 0.9)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_54omf")
+direction = 1
+jumping = false
+switch = false
+switchTime = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Left/VBoxContainer" unique_id=982494538]
+layout_mode = 2
+text = "[Left]"
+horizontal_alignment = 1
+script = ExtResource("3_avg8m")
+action = "Left"
+
+[node name="Jump" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1088949616]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Jump" unique_id=966458430]
+layout_mode = 2
+
+[node name="Right Jumping Wrap" type="PanelContainer" parent="Panel/HBoxContainer/Jump/VBoxContainer" unique_id=1428598977]
+custom_minimum_size = Vector2(96, 112)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap" unique_id=1464324037]
+layout_mode = 2
+
+[node name="Bounds" type="Control" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap/CenterContainer" unique_id=142593347]
+layout_mode = 2
+
+[node name="Jumping" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap/CenterContainer/Bounds" unique_id=868766390 instance=ExtResource("1_dsb75")]
+scale = Vector2(0.9, 0.9)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_54omf")
+direction = 0
+jumping = true
+switch = false
+switchTime = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Jump/VBoxContainer" unique_id=211842522]
+layout_mode = 2
+text = "[Jump]"
+horizontal_alignment = 1
+script = ExtResource("3_avg8m")
+action = "Jump"
+
+[node name="Right" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1546793819]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Right" unique_id=340086428]
+layout_mode = 2
+
+[node name="Right Jumping Wrap" type="PanelContainer" parent="Panel/HBoxContainer/Right/VBoxContainer" unique_id=110637965]
+custom_minimum_size = Vector2(96, 112)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap" unique_id=319028699]
+layout_mode = 2
+
+[node name="Bounds" type="Control" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap/CenterContainer" unique_id=2125852602]
+layout_mode = 2
+
+[node name="Right" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap/CenterContainer/Bounds" unique_id=201761421 instance=ExtResource("1_dsb75")]
+scale = Vector2(0.9, 0.9)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_54omf")
+direction = 2
+jumping = false
+switch = false
+switchTime = 1
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Right/VBoxContainer" unique_id=1932186265]
+layout_mode = 2
+text = "[Right]"
+horizontal_alignment = 1
+script = ExtResource("3_avg8m")
+action = "Right"
