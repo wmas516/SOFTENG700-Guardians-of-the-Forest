@@ -5,11 +5,67 @@
 [ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="3_gy606"]
 [ext_resource type="Texture2D" uid="uid://dty80mflvv0fc" path="res://resources/props/shoe.png" id="4_v40sw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyicb"]
+bg_color = Color(0, 0, 0, 0.55)
+
 [sub_resource type="GDScript" id="GDScript_gy606"]
 
 [node name="CleaningBoot" type="Node2D" unique_id=965748908 node_paths=PackedStringArray("sprites")]
 script = ExtResource("1_gy606")
-sprites = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("Sprite2D3")]
+sprites = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("Sprite2D3"), NodePath("Sprite2D4"), NodePath("Sprite2D5"), NodePath("Sprite2D6")]
+
+[node name="HUD" type="Control" parent="." unique_id=1332782465]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=244367267]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1037876537]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=1381198697]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hyicb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=676610854]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1310756826]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=139965579]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Spots Left to Clean: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=882530717]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="CurrentSpots" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=701112630]
+layout_mode = 2
+text = "67"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1618740350]
 z_index = -2
@@ -18,26 +74,51 @@ offset_bottom = 648.0
 texture = ExtResource("1_jdw5w")
 expand_mode = 2
 
+[node name="Shoe" type="Sprite2D" parent="." unique_id=1258363042]
+z_index = -1
+position = Vector2(340, 320)
+rotation = -1.5707964
+texture = ExtResource("4_v40sw")
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2013017918]
-position = Vector2(505.44827, 181.09767)
+position = Vector2(303, 192)
 scale = Vector2(0.052873563, 0.060237985)
 texture = ExtResource("3_gy606")
 script = SubResource("GDScript_gy606")
 
-[node name="Shoe" type="Sprite2D" parent="." unique_id=1258363042]
-z_index = -1
-position = Vector2(555, 305)
-rotation = -1.5707964
-texture = ExtResource("4_v40sw")
-
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1699567667]
-position = Vector2(602, 265)
+position = Vector2(384, 281)
 scale = Vector2(0.052873563, 0.060237985)
 texture = ExtResource("3_gy606")
 script = SubResource("GDScript_gy606")
 
 [node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2123999987]
-position = Vector2(527, 414)
+position = Vector2(329, 447)
+scale = Vector2(0.052873563, 0.060237985)
+texture = ExtResource("3_gy606")
+script = SubResource("GDScript_gy606")
+
+[node name="Shoe2" type="Sprite2D" parent="." unique_id=1399124704]
+z_index = -1
+position = Vector2(808, 324)
+rotation = -1.5707964
+texture = ExtResource("4_v40sw")
+flip_v = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=134418159]
+position = Vector2(806, 156)
+scale = Vector2(0.052873563, 0.060237985)
+texture = ExtResource("3_gy606")
+script = SubResource("GDScript_gy606")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1472434478]
+position = Vector2(836, 294)
+scale = Vector2(0.052873563, 0.060237985)
+texture = ExtResource("3_gy606")
+script = SubResource("GDScript_gy606")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1518245265]
+position = Vector2(813.00006, 481)
 scale = Vector2(0.052873563, 0.060237985)
 texture = ExtResource("3_gy606")
 script = SubResource("GDScript_gy606")

@@ -2,9 +2,12 @@ extends Node2D
 
 @export var sprites: Array[Sprite2D]
 
+@onready var spotLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentSpots
+
 var isDragging = false
 
 func _ready():
+	spotLabel.text = str(sprites.size())
 	pass
 
 func _input(event):
@@ -31,6 +34,7 @@ func dragSprite(curSprite):
 		sprites.erase(curSprite)
 		curSprite.queue_free()
 		if (sprites.size() <= 0):
+			clearedSprite(sprites.size())
 			miniGameOver()
 		else:
 			clearedSprite(sprites.size())
@@ -53,7 +57,8 @@ func isPointInsideSprite(globalPoint: Vector2) -> Sprite2D:
 	return null
 	
 func clearedSprite(left: int):
-	print("[Removed Disease]:")
-	print(" - ", left , " left to go")
+	#print("[Removed Disease]:")
+	#print(" - ", left , " left to go")
+	spotLabel.text = str(left)
 func miniGameOver():
 	print("Boot Cleared")
