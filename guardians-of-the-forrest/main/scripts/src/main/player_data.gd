@@ -5,6 +5,8 @@ signal player_died
 
 var current_health: int = 100
 var max_health: int = 100
+var saved_platforming_position: Vector2 = Vector2.ZERO
+var has_saved_platforming_position: bool = false
 	
 func take_damage(amount: int) -> void:
 	current_health = maxi(current_health - amount, 0)
@@ -24,3 +26,10 @@ func set_health(set_num: int) -> void:
 	max_health = set_num
 	current_health = max_health
 	health_changed.emit(current_health, max_health)
+
+func save_platforming_position(position: Vector2) -> void:
+	saved_platforming_position = position
+	has_saved_platforming_position = true
+
+func clear_platforming_position() -> void:
+	has_saved_platforming_position = false

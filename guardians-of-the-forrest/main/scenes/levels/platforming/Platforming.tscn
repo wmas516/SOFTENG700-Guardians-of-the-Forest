@@ -128,13 +128,26 @@ scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("6_qdg80")
 
 [node name="Tutorial" parent="Interactables" unique_id=1243148844 instance=ExtResource("12_7dyxv")]
-position = Vector2(1502, 319)
+position = Vector2(566, 325)
 
 [node name="DialogInteractable" parent="Interactables" unique_id=1915233063 node_paths=PackedStringArray("fadable") instance=ExtResource("7_4ig86")]
-position = Vector2(754, 322)
+position = Vector2(844, 327)
 fadable = [NodePath("../../UI/Dialog")]
 behaviour = 0
 keep = true
+
+[node name="Tree3" parent="Interactables" unique_id=1960927500 instance=ExtResource("5_qdg80")]
+z_index = -1
+position = Vector2(1269, 398)
+size = Vector2(128, 128)
+popup_text = "Press [E] to Clean Boots"
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree3" unique_id=1629835510]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("6_qdg80")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=447275548]
 
@@ -226,3 +239,4 @@ position = Vector2(3339, 211.99998)
 scale = Vector2(0.355, 0.355)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="interacted" from="Interactables/Tree3" to="." method="go_to_boot_clean"]
