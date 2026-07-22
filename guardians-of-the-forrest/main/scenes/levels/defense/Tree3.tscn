@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c7bdsy4ygdsfy"]
+
+[ext_resource type="Texture2D" uid="uid://d3fmjtrvicnct" path="res://resources/props/ramarama.png" id="1_t0l15"]
+[ext_resource type="Texture2D" uid="uid://dq7nxnprylcca" path="res://resources/props/ramarama_Low_Infection.png" id="2_ntm5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdoqj"]
+size = Vector2(266, 514)
+
+[node name="Tree" type="StaticBody2D" unique_id=616234793]
+
+[node name="Healthy" type="Sprite2D" parent="." unique_id=1526073718]
+texture = ExtResource("1_t0l15")
+metadata/_edit_lock_ = true
+
+[node name="Infected" type="Sprite2D" parent="." unique_id=554847086]
+visible = false
+texture = ExtResource("2_ntm5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403409876]
+visible = false
+shape = SubResource("RectangleShape2D_bdoqj")
+metadata/_edit_lock_ = true

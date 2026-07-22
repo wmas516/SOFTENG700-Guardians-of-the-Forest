@@ -1,5 +1,5 @@
 extends StaticBody2D
-
+class_name TreeTrim
 
 @export var infected: bool = false
 	

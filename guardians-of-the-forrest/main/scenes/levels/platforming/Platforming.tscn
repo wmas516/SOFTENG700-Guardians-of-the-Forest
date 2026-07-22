@@ -149,6 +149,19 @@ position = Vector2(-3.0000153, -24.00003)
 scale = Vector2(0.21484375, 0.21484375)
 texture = ExtResource("6_qdg80")
 
+[node name="Tree4" parent="Interactables" unique_id=2119179687 instance=ExtResource("5_qdg80")]
+z_index = -1
+position = Vector2(5269, 466)
+size = Vector2(128, 128)
+popup_text = "Press [E] to Treat Forest"
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree4" unique_id=1590409085]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("6_qdg80")
+
 [node name="Obstacles" type="Node2D" parent="." unique_id=447275548]
 
 [node name="Obstacle" parent="Obstacles" unique_id=640118713 instance=ExtResource("5_7dyxv")]
@@ -240,3 +253,4 @@ scale = Vector2(0.355, 0.355)
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="interacted" from="Interactables/Tree3" to="." method="go_to_boot_clean"]
+[connection signal="interacted" from="Interactables/Tree4" to="." method="go_to_tree_trim"]
