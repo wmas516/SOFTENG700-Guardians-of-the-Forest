@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://b7kn5yvkqh6q0"]
+
+[ext_resource type="PackedScene" uid="uid://hvuda7qthsar" path="res://main/scenes/backgrounds/Background2.tscn" id="1_amdy5"]
+[ext_resource type="Script" uid="uid://cxq3gofqbwwi0" path="res://main/scripts/src/main/minigames/TreeTrimming.gd" id="1_vk8mo"]
+[ext_resource type="PackedScene" uid="uid://b3vkbv5hgt1rw" path="res://main/scenes/levels/defense/Tree1.tscn" id="2_4qsu2"]
+[ext_resource type="Script" uid="uid://7otirbekpvxs" path="res://main/scripts/src/main/minigames/Tree.gd" id="3_vk8mo"]
+[ext_resource type="PackedScene" uid="uid://bgxy6l7ed5p4d" path="res://main/scenes/levels/defense/Tree2.tscn" id="4_qldv1"]
+[ext_resource type="PackedScene" uid="uid://c7bdsy4ygdsfy" path="res://main/scenes/levels/defense/Tree3.tscn" id="5_vk8mo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk8mo"]
+bg_color = Color(0, 0, 0, 0.55)
+
+[node name="TreeTrim" type="Node2D" unique_id=303672061]
+script = ExtResource("1_vk8mo")
+
+[node name="Background2" parent="." unique_id=1169487791 instance=ExtResource("1_amdy5")]
+
+[node name="Tree" parent="." unique_id=616234793 instance=ExtResource("2_4qsu2")]
+position = Vector2(367.00003, 425.00003)
+scale = Vector2(0.38, 0.38)
+input_pickable = true
+script = ExtResource("3_vk8mo")
+
+[node name="Tree2" parent="." unique_id=1849605979 instance=ExtResource("4_qldv1")]
+position = Vector2(898.99994, 439)
+scale = Vector2(0.38, 0.38)
+input_pickable = true
+script = ExtResource("3_vk8mo")
+infected = true
+
+[node name="Tree3" parent="." unique_id=839699836 instance=ExtResource("5_vk8mo")]
+position = Vector2(631, 415)
+scale = Vector2(0.38, 0.38)
+input_pickable = true
+script = ExtResource("3_vk8mo")
+infected = true
+
+[node name="HUD" type="Control" parent="." unique_id=240035246]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1448145577]
+layout_mode = 0
+offset_right = 217.0
+offset_bottom = 81.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=528778894]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=681494436]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_vk8mo")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=1569396053]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1924254823]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=853620793]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Trees to Treat: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=224815705]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=320933632]
+layout_mode = 2
+text = "67"
+
+[node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1965514459]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -29.0
+offset_right = 59.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=405630267]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Forest Section Treated"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=50071429]
+layout_mode = 2
+text = "Return"
+
+[connection signal="input_event" from="Tree" to="." method="_on_static_body_clicked" binds= ["Tree"]]
+[connection signal="input_event" from="Tree2" to="." method="_on_static_body_clicked" binds= ["Tree2"]]
+[connection signal="input_event" from="Tree3" to="." method="_on_static_body_clicked" binds= ["Tree3"]]
+[connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]

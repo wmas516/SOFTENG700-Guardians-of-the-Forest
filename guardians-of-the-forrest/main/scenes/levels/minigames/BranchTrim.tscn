@@ -1,0 +1,201 @@
+[gd_scene format=3 uid="uid://crt4idn7oe0ng"]
+
+[ext_resource type="Script" uid="uid://dxcjygs21llba" path="res://main/scripts/src/main/minigames/BranchTrimming.gd" id="1_qjx1r"]
+[ext_resource type="Texture2D" uid="uid://c3hucxoogwx8i" path="res://resources/props/branchParts/infected-Bot.png" id="3_vrsdg"]
+[ext_resource type="Texture2D" uid="uid://g4hjqvfv12sf" path="res://resources/props/branchParts/infected-Left.png" id="4_tq68q"]
+[ext_resource type="Texture2D" uid="uid://cat8pf1ehq5fg" path="res://resources/props/branchParts/infected-Mid.png" id="5_dwokx"]
+[ext_resource type="Texture2D" uid="uid://dbwyd17nsnley" path="res://resources/props/treebranch.png" id="5_tq68q"]
+[ext_resource type="Texture2D" uid="uid://b7hde4uitwbon" path="res://resources/props/branchParts/infected-Right.png" id="6_qjx1r"]
+[ext_resource type="Texture2D" uid="uid://pw4yxaq8sm8j" path="res://resources/props/branchParts/infected-Top.png" id="7_ufqbl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr6li"]
+radius = 35.723694
+height = 199.12378
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_760op"]
+radius = 32.8042
+height = 299.39038
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qkkfw"]
+radius = 23.242676
+height = 209.79007
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qjx1r"]
+radius = 30.360046
+height = 248.34717
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ufqbl"]
+radius = 32.06494
+height = 199.08813
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dwokx"]
+radius = 35.73297
+height = 243.46063
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwokx"]
+bg_color = Color(0, 0, 0, 0.55)
+
+[node name="BranchTrimming" type="Node2D" unique_id=513680572]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_qjx1r")
+
+[node name="Healthy" type="Sprite2D" parent="." unique_id=649309411]
+position = Vector2(384, 216)
+texture = ExtResource("5_tq68q")
+
+[node name="InfectedBot" type="Sprite2D" parent="." unique_id=153945013]
+visible = false
+position = Vector2(320.6667, 289.33334)
+scale = Vector2(0.287, 0.287)
+texture = ExtResource("3_vrsdg")
+
+[node name="Area2D" type="Area2D" parent="InfectedBot" unique_id=1677614743]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectedBot/Area2D" unique_id=1183474960]
+position = Vector2(-292.6831, 80.13928)
+rotation = 0.98611104
+shape = SubResource("CapsuleShape2D_kr6li")
+
+[node name="InfectedLeft" type="Sprite2D" parent="." unique_id=537966983]
+visible = false
+position = Vector2(267.3333, 192.66667)
+scale = Vector2(0.287, 0.287)
+texture = ExtResource("4_tq68q")
+
+[node name="Area2D" type="Area2D" parent="InfectedLeft" unique_id=1689427514]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectedLeft/Area2D" unique_id=786132008]
+position = Vector2(-76.655136, 229.96515)
+rotation = 0.44505897
+shape = SubResource("CapsuleShape2D_760op")
+
+[node name="InfectedMid" type="Sprite2D" parent="." unique_id=1734922652]
+visible = false
+position = Vector2(376.66672, 154.66669)
+scale = Vector2(0.287, 0.287)
+texture = ExtResource("5_dwokx")
+
+[node name="Area2D" type="Area2D" parent="InfectedMid" unique_id=278403399]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectedMid/Area2D" unique_id=1456367711]
+position = Vector2(-233.44948, 236.93379)
+rotation = 0.7330383
+shape = SubResource("CapsuleShape2D_qkkfw")
+
+[node name="InfectedRight" type="Sprite2D" parent="." unique_id=733298720]
+visible = false
+position = Vector2(439.3333, 205.33333)
+scale = Vector2(0.287, 0.287)
+texture = ExtResource("6_qjx1r")
+
+[node name="Area2D" type="Area2D" parent="InfectedRight" unique_id=983087318]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectedRight/Area2D" unique_id=1172555164]
+position = Vector2(-365.85367, 81.88153)
+rotation = 1.3177236
+shape = SubResource("CapsuleShape2D_qjx1r")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InfectedRight/Area2D" unique_id=2100772980]
+position = Vector2(-118.46696, -60.97562)
+rotation = 1.2915436
+shape = SubResource("CapsuleShape2D_ufqbl")
+
+[node name="InfectedTop" type="Sprite2D" parent="." unique_id=1578062109]
+visible = false
+position = Vector2(492.66666, 128.66669)
+scale = Vector2(0.287, 0.287)
+texture = ExtResource("7_ufqbl")
+
+[node name="Area2D" type="Area2D" parent="InfectedTop" unique_id=1873436064]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InfectedTop/Area2D" unique_id=1091820737]
+position = Vector2(-294.42505, 174.21603)
+rotation = 0.9773844
+shape = SubResource("CapsuleShape2D_dwokx")
+
+[node name="HUD" type="Control" parent="." unique_id=1180940932]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 768.0
+offset_bottom = 432.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1571294642]
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 432.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=503510028]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=666423056]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dwokx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=1510897323]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=969480574]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=452186184]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Branches to Trim: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1779035812]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1700819724]
+layout_mode = 2
+text = "67"
+
+[node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=376418556]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -29.0
+offset_right = 59.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=593183791]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tree Treated"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=424820200]
+layout_mode = 2
+text = "Return"
+
+[connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]

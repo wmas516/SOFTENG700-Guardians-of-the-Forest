@@ -7,6 +7,7 @@ extends Node2D
 @export var spawnTimer: Timer
 
 var enemies: Array[Node] = []
+var level_complete: bool = false
 
 @onready var leftFollow: PathFollow2D = $Left/Position
 @onready var rightFollow: PathFollow2D = $Right/Position
@@ -15,13 +16,15 @@ var enemies: Array[Node] = []
 @onready var waveLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentWave
 @onready var waveTotalLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4/TotalWave
 @onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
+@onready var completion_container: Container = $HUD/ReturnBox
+@onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#enemy.setEnabled(true)
 	waveTotalLabel.text = str(waveEnemies.size())
+	completion_container.visible = false
 	nextWave()
-	pass # Replace with function body.
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,6 +33,8 @@ func _process(delta: float) -> void:
 
 
 func _on_spawn_timer_timeout() -> void:
+	if level_complete:
+		return
 	if aliveEnemies > 0:
 		spawn()
 		aliveEnemies -= 1
@@ -46,10 +51,13 @@ func nextWave():
 		waveLabel.text = str(wave)
 	else:
 		spawnTimer.stop()
-		print("Level Complete")
+		level_complete = true
+		_show_completion()
 	
 
 func spawn():
+	if level_complete:
+		return
 	if (enemy):
 		var newEnemy = enemy.duplicate()
 		var spawnPoint = randomSpawn()
@@ -88,3 +96,10 @@ func enemyLog():
 	#print(" - Alive: ", enemies.size())
 	#print(" - Remaining: ", aliveEnemies)
 	enemyLabel.text = str(aliveEnemies + enemies.size())
+
+func _show_completion() -> void:
+	completion_container.visible = true
+
+func _on_return_button_pressed() -> void:
+	print("return pressed")
+	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Platforming.tscn")

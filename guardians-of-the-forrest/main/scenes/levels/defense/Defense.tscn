@@ -9,9 +9,6 @@
 [ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat_bg"]
-bg_color = Color(0, 0, 0, 0.55)
-
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -50, 300, 0, 0, 0, 0, -50, 650)
@@ -30,13 +27,89 @@ _data = {
 }
 point_count = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat_bg"]
+bg_color = Color(0, 0, 0, 0.55)
+
 [node name="Defense" type="Node2D" unique_id=1123565302 node_paths=PackedStringArray("enemy", "spawnTimer")]
 script = ExtResource("1_1n74u")
 enemy = NodePath("Enemy")
 spawnTimer = NodePath("SpawnTimer")
 
+[node name="PlayerDef" parent="." unique_id=868766390 instance=ExtResource("2_3g5mn")]
+position = Vector2(548.00006, 375.00003)
+scale = Vector2(0.33, 0.33)
+collision_mask = 6
+
+[node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("4_e18um")]
+layer = -1
+
+[node name="Tree" parent="BackgroundGrass" unique_id=2014874240 groups=["Target", "Tree"] instance=ExtResource("4_4dmpt")]
+position = Vector2(1555, 150)
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("6_vbpy5")
+
+[node name="Tree2" parent="BackgroundGrass" unique_id=602429044 groups=["Target", "Tree"] instance=ExtResource("4_4dmpt")]
+z_index = 1
+position = Vector2(1591, 330)
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("6_vbpy5")
+
+[node name="Tree3" parent="BackgroundGrass" unique_id=616234793 groups=["Target", "Tree"] instance=ExtResource("4_1n74u")]
+z_index = 1
+position = Vector2(550, 98)
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("6_vbpy5")
+
+[node name="Enemy" parent="." unique_id=475867398 node_paths=PackedStringArray("dest", "damageTimer") groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
+z_index = 1
+position = Vector2(500, 800)
+scale = Vector2(0.12, 0.13)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("8_e18um")
+dest = NodePath("../BackgroundGrass/Tree3")
+damageTimer = NodePath("DamageTimer")
+speed = 100.0
+
+[node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1082693588]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=133030815]
+wait_time = 3.0
+
+[node name="Left" type="Path2D" parent="." unique_id=326367309]
+curve = SubResource("Curve2D_a68iq")
+
+[node name="Position" type="PathFollow2D" parent="Left" unique_id=917788338]
+position = Vector2(-50, 300)
+rotation = 1.5707964
+
+[node name="Right" type="Path2D" parent="." unique_id=244885232]
+curve = SubResource("Curve2D_xkn8c")
+
+[node name="Position" type="PathFollow2D" parent="Right" unique_id=1357526468]
+position = Vector2(1200, 300)
+rotation = 1.5707964
+
+[node name="Bottom" type="Path2D" parent="." unique_id=2060728132]
+curve = SubResource("Curve2D_3sbh2")
+
+[node name="Position" type="PathFollow2D" parent="Bottom" unique_id=453209793]
+position = Vector2(-50, 700)
+
 [node name="HUD" type="Control" parent="." unique_id=943279924]
 layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CompletionPanel" type="Control" parent="HUD" unique_id=2000000001]
+visible = false
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -145,72 +218,26 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 text = "67"
 
-[node name="PlayerDef" parent="." unique_id=868766390 instance=ExtResource("2_3g5mn")]
-position = Vector2(548.00006, 375.00003)
-scale = Vector2(0.33, 0.33)
-collision_mask = 6
+[node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1784878928]
+visible = false
+layout_mode = 0
+offset_left = 516.0
+offset_top = 295.0
+offset_right = 635.0
+offset_bottom = 353.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("4_e18um")]
-layer = -1
+[node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=2000000004]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete"
+horizontal_alignment = 1
 
-[node name="Tree" parent="BackgroundGrass" unique_id=2014874240 groups=["Target", "Tree"] instance=ExtResource("4_4dmpt")]
-position = Vector2(1555, 150)
-scale = Vector2(0.5, 0.5)
-collision_layer = 4
-collision_mask = 6
-script = ExtResource("6_vbpy5")
-
-[node name="Tree2" parent="BackgroundGrass" unique_id=602429044 groups=["Target", "Tree"] instance=ExtResource("4_4dmpt")]
-z_index = 1
-position = Vector2(1591, 330)
-scale = Vector2(0.5, 0.5)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("6_vbpy5")
-
-[node name="Tree3" parent="BackgroundGrass" unique_id=616234793 groups=["Target", "Tree"] instance=ExtResource("4_1n74u")]
-z_index = 1
-position = Vector2(550, 98)
-scale = Vector2(0.5, 0.5)
-collision_layer = 4
-collision_mask = 7
-script = ExtResource("6_vbpy5")
-
-[node name="Enemy" parent="." unique_id=475867398 node_paths=PackedStringArray("dest", "damageTimer") groups=["Enemies", "Target"] instance=ExtResource("6_nn2o5")]
-z_index = 1
-position = Vector2(500, 800)
-scale = Vector2(0.12, 0.13)
-collision_layer = 2
-collision_mask = 4
-script = ExtResource("8_e18um")
-dest = NodePath("../BackgroundGrass/Tree3")
-damageTimer = NodePath("DamageTimer")
-speed = 100.0
-
-[node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1082693588]
-
-[node name="SpawnTimer" type="Timer" parent="." unique_id=133030815]
-wait_time = 3.0
-
-[node name="Left" type="Path2D" parent="." unique_id=326367309]
-curve = SubResource("Curve2D_a68iq")
-
-[node name="Position" type="PathFollow2D" parent="Left" unique_id=917788338]
-position = Vector2(-50, 300)
-rotation = 1.5707964
-
-[node name="Right" type="Path2D" parent="." unique_id=244885232]
-curve = SubResource("Curve2D_xkn8c")
-
-[node name="Position" type="PathFollow2D" parent="Right" unique_id=1357526468]
-position = Vector2(1200, 300)
-rotation = 1.5707964
-
-[node name="Bottom" type="Path2D" parent="." unique_id=2060728132]
-curve = SubResource("Curve2D_3sbh2")
-
-[node name="Position" type="PathFollow2D" parent="Bottom" unique_id=453209793]
-position = Vector2(-50, 700)
+[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=384352501]
+layout_mode = 2
+text = "Return"
 
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
