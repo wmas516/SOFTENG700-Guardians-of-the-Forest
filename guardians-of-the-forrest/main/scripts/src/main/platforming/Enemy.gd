@@ -9,6 +9,12 @@ var direction: int = 1
 @onready var wall_ray: RayCast2D = $WallRay
 @onready var floor_ray: RayCast2D = $FloorRay
 
+func _ready() -> void:
+	await get_tree().process_frame
+	var players = get_tree().get_nodes_in_group("player")
+	for player in players:
+		wall_ray.add_exception(player)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
