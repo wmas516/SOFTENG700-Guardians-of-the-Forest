@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b3k3gbp42ffgv"]
+
+[ext_resource type="Texture2D" uid="uid://baka2rf6qn7pb" path="res://resources/sprites/tile-placeholder.png" id="1_cu2rx"]
+[ext_resource type="Script" uid="uid://hpej8slthgq" path="res://main/scripts/src/main/platforming/tile_map.gd" id="2_noeoi"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cu2rx"]
+texture = ExtResource("1_cu2rx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ahgh2"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_cu2rx")
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=1342644550]
+tile_set = SubResource("TileSet_ahgh2")
+script = ExtResource("2_noeoi")

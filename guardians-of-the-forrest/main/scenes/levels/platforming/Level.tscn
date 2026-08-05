@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://d2kbgxtgma457"]
+
+[ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/Level.gd" id="1_s3y7u"]
+[ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="2_474am"]
+[ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="3_4ke4l"]
+[ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="4_gmq1w"]
+[ext_resource type="Texture2D" uid="uid://dnp82wba1aq4h" path="res://resources/props/mankauuu2_low_infection.png" id="5_n7jlw"]
+[ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="6_gwiru"]
+[ext_resource type="PackedScene" uid="uid://3g0wfp4sckok" path="res://main/scenes/levels/platforming/InteractableBlank.tscn" id="7_mjylf"]
+[ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="13_080uc"]
+[ext_resource type="PackedScene" uid="uid://bqhdp05jrpbac" path="res://main/scenes/levels/platforming/Platform.tscn" id="15_sj30d"]
+[ext_resource type="Texture2D" uid="uid://fkqaerqf540y" path="res://resources/sprites/Forest_Sprite_Pack/forest gr sides 1.png" id="16_ldci6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8h53"]
+bg_color = Color(0, 0, 0, 0.55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ov1ge"]
+size = Vector2(6586, 71)
+
+[node name="Level" type="Node2D" unique_id=455574578]
+script = ExtResource("1_s3y7u")
+
+[node name="Background1" parent="." unique_id=1015706442 instance=ExtResource("2_474am")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1729458824]
+
+[node name="Dialog" parent="UI" unique_id=1459087742 instance=ExtResource("3_4ke4l")]
+anchor_top = 0.554
+anchor_bottom = 1.0
+offset_top = 0.0079956055
+offset_bottom = 0.0
+grow_vertical = 0
+speaker = "Myrtle Rust"
+text = "ooo I'm Myrtle Rust and I'm evil. I hope there isn't a conveniently located video game protagonist to try and stop my plot to infect the whole forest with my fungal infectious disease. That would suck."
+metadata/_edit_use_anchors_ = true
+
+[node name="HUD" type="Control" parent="UI" unique_id=1731070445]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD" unique_id=12521807]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="VBoxContainer" parent="UI/HUD/MarginContainer" unique_id=543818267]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Wave" type="PanelContainer" parent="UI/HUD/MarginContainer/HBoxContainer" unique_id=787895912]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f8h53")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUD/MarginContainer/HBoxContainer/Wave" unique_id=131435228]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1075413073]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="HPLabel" type="Label" parent="UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=1626146586]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "HP: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1614757543]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="CurrentHP" type="Label" parent="UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1944628751]
+layout_mode = 2
+text = "67"
+
+[node name="Deathzone" type="Area2D" parent="." unique_id=1005538961]
+position = Vector2(1110, 965)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone" unique_id=1893854617]
+position = Vector2(1617, -81.5)
+shape = SubResource("RectangleShape2D_ov1ge")
+
+[node name="StartPosition" type="Marker2D" parent="." unique_id=1544441623]
+position = Vector2(578, 415)
+
+[node name="Interactables" type="Node2D" parent="." unique_id=717887328]
+
+[node name="Tree" parent="Interactables" unique_id=1553916585 instance=ExtResource("4_gmq1w")]
+z_index = -1
+position = Vector2(987, 405)
+size = Vector2(128, 128)
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree" unique_id=4654972]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("5_n7jlw")
+
+[node name="Tree2" parent="Interactables" unique_id=969771678 instance=ExtResource("4_gmq1w")]
+z_index = -1
+position = Vector2(4935, 463)
+size = Vector2(128, 128)
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree2" unique_id=523909436]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("5_n7jlw")
+
+[node name="Tutorial" parent="Interactables" unique_id=1243148844 instance=ExtResource("6_gwiru")]
+position = Vector2(566, 325)
+
+[node name="DialogInteractable" parent="Interactables" unique_id=1915233063 node_paths=PackedStringArray("fadable") instance=ExtResource("7_mjylf")]
+position = Vector2(844, 327)
+fadable = [NodePath("../../UI/Dialog")]
+behaviour = 0
+keep = true
+
+[node name="Tree3" parent="Interactables" unique_id=1960927500 instance=ExtResource("4_gmq1w")]
+z_index = -1
+position = Vector2(1269, 398)
+size = Vector2(128, 128)
+popup_text = "Press [E] to Clean Boots"
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree3" unique_id=1629835510]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("5_n7jlw")
+
+[node name="Tree4" parent="Interactables" unique_id=2119179687 instance=ExtResource("4_gmq1w")]
+z_index = -1
+position = Vector2(5269, 466)
+size = Vector2(128, 128)
+popup_text = "Press [E] to Treat Forest"
+label_offset = Vector2(-75, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree4" unique_id=1590409085]
+z_index = 1
+position = Vector2(-3.0000153, -24.00003)
+scale = Vector2(0.21484375, 0.21484375)
+texture = ExtResource("5_n7jlw")
+
+[node name="Player" parent="." unique_id=868766390 instance=ExtResource("13_080uc")]
+position = Vector2(507, 255)
+gravity = 600
+speed = 200
+jump_force = 300
+
+[node name="Platform" parent="." unique_id=2114267292 instance=ExtResource("15_sj30d")]
+position = Vector2(1442, 434)
+texture = ExtResource("16_ldci6")
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="interacted" from="Interactables/Tree3" to="." method="go_to_boot_clean"]
+[connection signal="interacted" from="Interactables/Tree4" to="." method="go_to_tree_trim"]
