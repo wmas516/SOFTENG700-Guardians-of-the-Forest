@@ -75,7 +75,6 @@ collision_mask = 4
 script = ExtResource("8_e18um")
 dest = NodePath("../BackgroundGrass/Tree3")
 damageTimer = NodePath("DamageTimer")
-speed = 100.0
 
 [node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1082693588]
 
