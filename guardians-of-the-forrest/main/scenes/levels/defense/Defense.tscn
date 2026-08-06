@@ -2,12 +2,37 @@
 
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_1n74u"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_3g5mn"]
+[ext_resource type="Script" uid="uid://cl86ypf08bfjf" path="res://main/scripts/src/main/defense/Wave.gd" id="2_e18um"]
 [ext_resource type="PackedScene" uid="uid://bgxy6l7ed5p4d" path="res://main/scenes/levels/defense/Tree2.tscn" id="4_1n74u"]
 [ext_resource type="PackedScene" uid="uid://b3vkbv5hgt1rw" path="res://main/scenes/levels/defense/Tree1.tscn" id="4_4dmpt"]
 [ext_resource type="PackedScene" uid="uid://ctqsgrenq75cf" path="res://main/scenes/backgrounds/BackgroundGrass.tscn" id="4_e18um"]
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="6_nn2o5"]
 [ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
+
+[sub_resource type="Resource" id="Resource_1n74u"]
+script = ExtResource("2_e18um")
+normal = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_a68iq"]
+script = ExtResource("2_e18um")
+normal = 2
+elite = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_xkn8c"]
+script = ExtResource("2_e18um")
+elite = 1
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_3sbh2"]
+script = ExtResource("2_e18um")
+normal = 3
+elite = 2
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
 _data = {
@@ -32,6 +57,7 @@ bg_color = Color(0, 0, 0, 0.55)
 
 [node name="Defense" type="Node2D" unique_id=1123565302 node_paths=PackedStringArray("enemy", "spawnTimer")]
 script = ExtResource("1_1n74u")
+waveEnemies = [SubResource("Resource_1n74u"), SubResource("Resource_a68iq"), SubResource("Resource_xkn8c"), SubResource("Resource_3sbh2")]
 enemy = NodePath("Enemy")
 spawnTimer = NodePath("SpawnTimer")
 
