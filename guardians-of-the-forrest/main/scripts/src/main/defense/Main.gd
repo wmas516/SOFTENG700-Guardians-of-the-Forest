@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var waveEnemies = [1,2,4,6]
+@export var waveEnemies: Array[Wave] = [Wave.new(1,1,1),Wave.new(2,1,0),Wave.new(0,0,2),Wave.new(3,2,1)]
 @export var wave = 0
 @export var aliveEnemies = 0
 @export var enemy: CharacterBody2D
@@ -44,7 +44,7 @@ func _on_spawn_timer_timeout() -> void:
 func nextWave():
 	spawnTimer.start()
 	if (wave < waveEnemies.size()):
-		aliveEnemies = waveEnemies[wave]
+		aliveEnemies = waveEnemies[wave].total()
 		wave = wave + 1
 		enemyLabel.text = str(aliveEnemies)
 		#print("[New Wave]:\n - Wave: ",wave)
@@ -59,6 +59,7 @@ func spawn():
 	if level_complete:
 		return
 	if (enemy):
+		enemy.type = waveEnemies[wave-1].getRandEnemyBossLast()
 		var newEnemy = enemy.duplicate()
 		var spawnPoint = randomSpawn()
 		add_child(newEnemy)
