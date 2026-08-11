@@ -14,8 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://x6f5rudu18m" path="res://main/scenes/levels/platforming/ground/Right.tscn" id="10_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://ps70uxdlw3kb" path="res://main/scenes/levels/platforming/Enemy.tscn" id="11_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="12_7dyxv"]
-[ext_resource type="PackedScene" uid="uid://bqhdp05jrpbac" path="res://main/scenes/levels/platforming/Platform.tscn" id="15_jr0vh"]
-[ext_resource type="Texture2D" uid="uid://fkqaerqf540y" path="res://resources/sprites/Forest_Sprite_Pack/forest gr sides 1.png" id="16_jr0vh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8h53"]
 bg_color = Color(0, 0, 0, 0.55)
@@ -252,10 +250,6 @@ jump_force = 300
 [node name="Enemy" parent="." unique_id=441802430 instance=ExtResource("11_7dyxv")]
 position = Vector2(3339, 211.99998)
 scale = Vector2(0.355, 0.355)
-
-[node name="Platform" parent="." unique_id=2114267292 instance=ExtResource("15_jr0vh")]
-position = Vector2(1442, 434)
-texture = ExtResource("16_jr0vh")
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="interacted" from="Interactables/Tree3" to="." method="go_to_boot_clean"]
