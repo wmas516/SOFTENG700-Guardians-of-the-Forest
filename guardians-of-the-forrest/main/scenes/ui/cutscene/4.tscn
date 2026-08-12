@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ssylucqvc0dk"]
+
+[ext_resource type="Texture2D" uid="uid://m66dwpoqse18" path="res://resources/cutscene/4/Hills.png" id="1_qy0lk"]
+[ext_resource type="Texture2D" uid="uid://bvrnilhnfymyh" path="res://resources/cutscene/4/Sky.png" id="2_yfnf5"]
+[ext_resource type="Texture2D" uid="uid://b5v1wgmh64b1x" path="res://resources/cutscene/4/Forest.png" id="3_45yg2"]
+[ext_resource type="Texture2D" uid="uid://cns1rxftp67nb" path="res://resources/cutscene/4/Dirt.png" id="4_4pgtw"]
+[ext_resource type="Texture2D" uid="uid://c30hjwv12oi4o" path="res://resources/cutscene/4/Bush.png" id="5_44lfp"]
+
+[node name="4" type="Control" unique_id=226109720]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hills" type="TextureRect" parent="." unique_id=1421825893]
+layout_mode = 0
+offset_top = 175.0
+offset_right = 2388.0
+offset_bottom = 999.0
+texture = ExtResource("1_qy0lk")
+
+[node name="Sky" type="TextureRect" parent="." unique_id=1778058823]
+layout_mode = 0
+offset_right = 2388.0
+offset_bottom = 1146.0
+texture = ExtResource("2_yfnf5")
+
+[node name="Forest" type="TextureRect" parent="." unique_id=1828498748]
+layout_mode = 0
+offset_top = 324.0
+offset_right = 2388.0
+offset_bottom = 1522.0
+texture = ExtResource("3_45yg2")
+
+[node name="Dirt" type="TextureRect" parent="." unique_id=272006093]
+layout_mode = 0
+offset_top = 532.0
+offset_right = 2388.0
+offset_bottom = 1668.0
+texture = ExtResource("4_4pgtw")
+
+[node name="Bush" type="TextureRect" parent="." unique_id=1710565197]
+layout_mode = 0
+offset_right = 2388.0
+offset_bottom = 1668.0
+texture = ExtResource("5_44lfp")

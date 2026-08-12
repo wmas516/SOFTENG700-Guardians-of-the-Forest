@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jroyp5s3fqky"]
+
+[ext_resource type="PackedScene" uid="uid://dwxgornygspgk" path="res://main/scenes/ui/cutscene/2.tscn" id="1_w5x00"]
+
+[node name="CutScene" type="Node" unique_id=590531104]
+
+[node name="2" parent="." unique_id=175296139 instance=ExtResource("1_w5x00")]
+offset_left = 126.00001
+offset_right = 126.2959
+scale = Vector2(0.388, 0.388)

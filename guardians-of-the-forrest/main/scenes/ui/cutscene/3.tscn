@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://rebxd0meupyi"]
+
+[ext_resource type="Texture2D" uid="uid://cq2m0xa8c1nyd" path="res://resources/cutscene/3/Dirt.png" id="1_t0tvk"]
+[ext_resource type="Texture2D" uid="uid://bbcuf30yxykth" path="res://resources/cutscene/3/Forest.png" id="2_fcd3i"]
+[ext_resource type="Texture2D" uid="uid://d4m8khmvo8x3b" path="res://resources/cutscene/3/Kea.png" id="3_aq3p8"]
+[ext_resource type="Texture2D" uid="uid://bfw2r1hejk6r8" path="res://resources/cutscene/3/Bush.png" id="4_6j70f"]
+
+[node name="3" type="Control" unique_id=175296139]
+layout_mode = 3
+anchor_right = 2.0770001
+anchor_bottom = 2.5730002
+offset_right = 0.29589844
+offset_bottom = -0.30407715
+
+[node name="Dirt" type="TextureRect" parent="." unique_id=176779522]
+layout_mode = 0
+offset_top = 211.0
+offset_right = 2388.0
+offset_bottom = 1669.0
+texture = ExtResource("1_t0tvk")
+
+[node name="Forest" type="TextureRect" parent="." unique_id=1116143859]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fcd3i")
+
+[node name="Kea" type="TextureRect" parent="." unique_id=1747174915]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 618.0
+offset_right = 1454.0
+offset_bottom = 1379.0
+texture = ExtResource("3_aq3p8")
+
+[node name="Bush" type="TextureRect" parent="." unique_id=1308832068]
+layout_mode = 0
+offset_top = 1159.0
+offset_right = 951.0
+offset_bottom = 1669.0
+texture = ExtResource("4_6j70f")
