@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bvwvdn4orihhm" path="res://resources/cutscene/2/Bush.png" id="3_h02x5"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="4_inihf"]
 
-[node name="2" type="Control" unique_id=175296139]
+[node name="Frame2" type="Control" unique_id=175296139]
 layout_mode = 3
 anchor_right = 2.0770001
 anchor_bottom = 2.5730002
