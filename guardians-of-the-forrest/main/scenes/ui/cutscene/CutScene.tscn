@@ -23,6 +23,6 @@ scale = Vector2(0.388, 0.388)
 [node name="Frame4" parent="." unique_id=226109720 instance=ExtResource("3_ir5e6")]
 visible = false
 offset_left = 128.00002
-offset_right = 1365.1753
-offset_bottom = 1019.52576
+offset_right = 129.0791
+offset_bottom = 4.7283936
 scale = Vector2(0.388, 0.388)

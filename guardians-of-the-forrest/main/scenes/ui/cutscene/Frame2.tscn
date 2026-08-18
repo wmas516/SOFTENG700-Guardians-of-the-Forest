@@ -3,8 +3,28 @@
 [ext_resource type="Texture2D" uid="uid://daktl3p473i8f" path="res://resources/cutscene/2/Dirt.png" id="1_434f2"]
 [ext_resource type="Script" uid="uid://dflhvox4geju" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame2.gd" id="1_novuo"]
 [ext_resource type="Texture2D" uid="uid://mwtl6rj7eaxo" path="res://resources/cutscene/2/Forest.png" id="2_novuo"]
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_xkdhk"]
 [ext_resource type="Texture2D" uid="uid://bvwvdn4orihhm" path="res://resources/cutscene/2/Bush.png" id="3_h02x5"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="4_inihf"]
+[ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="6_a2cx0"]
+
+[sub_resource type="Resource" id="Resource_jfx2n"]
+script = ExtResource("2_xkdhk")
+caption = "This is a script test"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_cl4mu"]
+script = ExtResource("2_xkdhk")
+caption = "If you are seeing this it workie"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_2emwa"]
+script = ExtResource("2_xkdhk")
+caption = "YIPPEEEEE"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 
 [node name="Frame2" type="Control" unique_id=175296139]
 layout_mode = 3
@@ -13,14 +33,25 @@ anchor_bottom = 2.5730002
 offset_right = 0.29589844
 offset_bottom = -0.30407715
 script = ExtResource("1_novuo")
+captions = Array[ExtResource("2_xkdhk")]([SubResource("Resource_jfx2n"), SubResource("Resource_cl4mu"), SubResource("Resource_2emwa")])
+
+[node name="Background" type="TextureRect" parent="." unique_id=1079677629]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 2408.0
+offset_bottom = 1674.0
+texture = ExtResource("6_a2cx0")
 
 [node name="Forest" type="TextureRect" parent="." unique_id=361378407]
+visible = false
 layout_mode = 0
 offset_right = 2388.0
 offset_bottom = 1073.0
 texture = ExtResource("2_novuo")
 
 [node name="Dirt" type="TextureRect" parent="." unique_id=826678084]
+visible = false
 layout_mode = 0
 offset_left = 5.0
 offset_top = 922.0
@@ -29,6 +60,7 @@ offset_bottom = 1667.0
 texture = ExtResource("1_434f2")
 
 [node name="Bush" type="TextureRect" parent="." unique_id=1611502206]
+visible = false
 layout_mode = 0
 offset_top = 357.0
 offset_right = 2388.0
@@ -41,3 +73,32 @@ offset_left = 313.0
 offset_right = 1459.0
 offset_bottom = 1511.0
 texture = ExtResource("4_inihf")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=792101625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1749827670]
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+text = "Blank"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1520726576]
+wait_time = 100.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
