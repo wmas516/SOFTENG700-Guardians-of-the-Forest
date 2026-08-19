@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://ssylucqvc0dk"]
+
+[ext_resource type="Texture2D" uid="uid://m66dwpoqse18" path="res://resources/cutscene/4/Hills.png" id="1_qy0lk"]
+[ext_resource type="Script" uid="uid://dqea78t351wly" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame4.gd" id="1_yfnf5"]
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_24vjh"]
+[ext_resource type="Texture2D" uid="uid://b27mwjjggftw1" path="res://resources/cutscene/4/Background.png" id="2_nlisy"]
+[ext_resource type="Texture2D" uid="uid://bvrnilhnfymyh" path="res://resources/cutscene/4/Sky.png" id="2_yfnf5"]
+[ext_resource type="Texture2D" uid="uid://b5v1wgmh64b1x" path="res://resources/cutscene/4/Forest.png" id="3_45yg2"]
+[ext_resource type="Texture2D" uid="uid://cns1rxftp67nb" path="res://resources/cutscene/4/Dirt.png" id="4_4pgtw"]
+[ext_resource type="Texture2D" uid="uid://c30hjwv12oi4o" path="res://resources/cutscene/4/Bush.png" id="5_44lfp"]
+
+[sub_resource type="Resource" id="Resource_ftqun"]
+script = ExtResource("2_24vjh")
+caption = "This is Mr Mountain Range"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_rklfq"]
+script = ExtResource("2_24vjh")
+caption = "You can Say hi now"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_571yf"]
+script = ExtResource("2_24vjh")
+caption = "He's gonna be here for a while"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[node name="Frame4" type="Control" unique_id=226109720]
+layout_mode = 3
+anchor_right = 2.0730002
+anchor_bottom = 2.5740001
+offset_right = -0.096191406
+offset_bottom = 0.047973633
+script = ExtResource("1_yfnf5")
+captions = Array[ExtResource("2_24vjh")]([SubResource("Resource_ftqun"), SubResource("Resource_rklfq"), SubResource("Resource_571yf")])
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1261017240]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_nlisy")
+
+[node name="Hills" type="TextureRect" parent="." unique_id=1421825893]
+layout_mode = 0
+offset_top = 175.0
+offset_right = 2388.0
+offset_bottom = 999.0
+texture = ExtResource("1_qy0lk")
+
+[node name="Sky" type="TextureRect" parent="." unique_id=1778058823]
+layout_mode = 0
+offset_right = 2388.0
+offset_bottom = 1146.0
+texture = ExtResource("2_yfnf5")
+
+[node name="Forest" type="TextureRect" parent="." unique_id=1828498748]
+layout_mode = 0
+offset_top = 324.0
+offset_right = 2388.0
+offset_bottom = 1522.0
+texture = ExtResource("3_45yg2")
+
+[node name="Dirt" type="TextureRect" parent="." unique_id=272006093]
+layout_mode = 0
+offset_top = 532.0
+offset_right = 2388.0
+offset_bottom = 1668.0
+texture = ExtResource("4_4pgtw")
+
+[node name="Bush" type="TextureRect" parent="." unique_id=1710565197]
+layout_mode = 0
+offset_right = 2388.0
+offset_bottom = 1668.0
+texture = ExtResource("5_44lfp")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1335777704]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1682896729]
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=70082436]
+wait_time = 100.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
