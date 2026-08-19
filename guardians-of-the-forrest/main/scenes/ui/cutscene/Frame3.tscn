@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://rebxd0meupyi"]
+
+[ext_resource type="Script" uid="uid://b7gnpn7xk01gg" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame3.gd" id="1_fcd3i"]
+[ext_resource type="Texture2D" uid="uid://cq2m0xa8c1nyd" path="res://resources/cutscene/3/Dirt.png" id="1_t0tvk"]
+[ext_resource type="Texture2D" uid="uid://bbcuf30yxykth" path="res://resources/cutscene/3/Forest.png" id="2_fcd3i"]
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_jb8xw"]
+[ext_resource type="Texture2D" uid="uid://d4m8khmvo8x3b" path="res://resources/cutscene/3/Kea.png" id="3_aq3p8"]
+[ext_resource type="Texture2D" uid="uid://bfw2r1hejk6r8" path="res://resources/cutscene/3/Bush.png" id="4_6j70f"]
+[ext_resource type="Texture2D" uid="uid://doofc8w6ujoaa" path="res://resources/cutscene/3/Background.png" id="6_4v8xe"]
+
+[sub_resource type="Resource" id="Resource_4shbs"]
+script = ExtResource("2_jb8xw")
+caption = "Welcome to Scene 3"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_ld1h5"]
+script = ExtResource("2_jb8xw")
+caption = "Check out the Kea"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_ppj3f"]
+script = ExtResource("2_jb8xw")
+caption = "He lowk chillin"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[node name="Frame3" type="Control" unique_id=175296139]
+layout_mode = 3
+anchor_right = 2.0770001
+anchor_bottom = 2.5730002
+offset_right = 0.29589844
+offset_bottom = -0.30407715
+script = ExtResource("1_fcd3i")
+captions = Array[ExtResource("2_jb8xw")]([SubResource("Resource_4shbs"), SubResource("Resource_ld1h5"), SubResource("Resource_ppj3f")])
+
+[node name="Background" type="TextureRect" parent="." unique_id=358110102]
+layout_mode = 0
+offset_right = 2388.0
+offset_bottom = 1669.0
+texture = ExtResource("6_4v8xe")
+
+[node name="Dirt" type="TextureRect" parent="." unique_id=176779522]
+visible = false
+layout_mode = 0
+offset_top = 211.0
+offset_right = 2388.0
+offset_bottom = 1669.0
+texture = ExtResource("1_t0tvk")
+
+[node name="Forest" type="TextureRect" parent="." unique_id=1116143859]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_fcd3i")
+
+[node name="Kea" type="TextureRect" parent="." unique_id=1747174915]
+layout_mode = 0
+offset_left = 84.0
+offset_top = 618.0
+offset_right = 1454.0
+offset_bottom = 1379.0
+texture = ExtResource("3_aq3p8")
+
+[node name="Bush" type="TextureRect" parent="." unique_id=1308832068]
+layout_mode = 0
+offset_top = 1159.0
+offset_right = 951.0
+offset_bottom = 1669.0
+texture = ExtResource("4_6j70f")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=864001330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1544810327]
+custom_minimum_size = Vector2(2000, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=1631657169]
+wait_time = 100.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
