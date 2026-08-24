@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="6_nn2o5"]
 [ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_1n74u"]
 
 [sub_resource type="Resource" id="Resource_1n74u"]
 script = ExtResource("2_e18um")
@@ -242,6 +243,11 @@ theme_override_constants/margin_bottom = 4
 [node name="Count" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=2115732667]
 layout_mode = 2
 text = "67"
+
+[node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_1n74u")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1784878928]
 visible = false

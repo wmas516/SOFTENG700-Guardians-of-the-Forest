@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c36k3t8howobl" path="res://resources/sprites/player jump 48x48.png" id="5_8xb2h"]
 [ext_resource type="Texture2D" uid="uid://dn6qkx1jf310l" path="res://resources/sprites/player land 48x48.png" id="6_gdtdr"]
 [ext_resource type="Texture2D" uid="uid://d0ma6mhymd5wy" path="res://resources/sprites/PlayerWalk 48x48.png" id="7_0vj8s"]
+[ext_resource type="AudioStream" uid="uid://5lwphmcm1ixf" path="res://resources/audio/dash.mp3" id="8_2qfoq"]
+[ext_resource type="AudioStream" uid="uid://ddpuymeykm6a" path="res://resources/audio/footstep2.mp3" id="9_2qfoq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xk8t1"]
 atlas = ExtResource("2_qopbr")
@@ -337,7 +339,7 @@ dash_force = 800
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1068237543]
 position = Vector2(-0.7571425, 0.7571424)
 sprite_frames = SubResource("SpriteFrames_3vyb7")
-animation = &"jump-down"
+animation = &"run"
 
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=2079283681]
 position = Vector2(-1, 2.5)
@@ -351,3 +353,11 @@ limit_smoothed = true
 position = Vector2(0, -18)
 scale = Vector2(5.7562366, 5.7562366)
 mesh = SubResource("SphereMesh_qopbr")
+
+[node name="DashSound" type="AudioStreamPlayer" parent="." unique_id=1380171504]
+stream = ExtResource("8_2qfoq")
+bus = &"SFX"
+
+[node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=506494104]
+stream = ExtResource("9_2qfoq")
+bus = &"SFX"

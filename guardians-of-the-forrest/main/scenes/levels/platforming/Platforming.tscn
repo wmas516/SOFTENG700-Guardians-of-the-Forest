@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dkokt8mfgal1i" path="res://main/scripts/src/main/platforming/Level.gd" id="1_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="2_cd8s3"]
 [ext_resource type="PackedScene" uid="uid://dn5gd5fak5r1d" path="res://main/scenes/backgrounds/Background1.tscn" id="4_ov1ge"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="4_pw1h1"]
 [ext_resource type="PackedScene" uid="uid://dkervblc40ylr" path="res://main/scenes/levels/platforming/Obstacle.tscn" id="5_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="5_ov1ge"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="5_qdg80"]
@@ -14,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://x6f5rudu18m" path="res://main/scenes/levels/platforming/ground/Right.tscn" id="10_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://ps70uxdlw3kb" path="res://main/scenes/levels/platforming/Enemy.tscn" id="11_7dyxv"]
 [ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="12_7dyxv"]
+[ext_resource type="AudioStream" uid="uid://drbeyt01a7tyf" path="res://resources/audio/main.mp3" id="16_jr0vh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8h53"]
 bg_color = Color(0, 0, 0, 0.55)
@@ -90,6 +92,11 @@ theme_override_constants/margin_bottom = 4
 [node name="CurrentHP" type="Label" parent="UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1944628751]
 layout_mode = 2
 text = "67"
+
+[node name="VolumeMenu" parent="UI/HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("4_pw1h1")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [node name="Deathzone" type="Area2D" parent="." unique_id=1005538961]
 position = Vector2(1110, 965)
@@ -263,6 +270,11 @@ jump_force = 300
 [node name="Enemy" parent="." unique_id=441802430 instance=ExtResource("11_7dyxv")]
 position = Vector2(3339, 211.99998)
 scale = Vector2(0.355, 0.355)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1160032567]
+stream = ExtResource("16_jr0vh")
+autoplay = true
+bus = &"Music"
 
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
 [connection signal="interacted" from="Interactables/Tree3" to="." method="go_to_boot_clean"]
