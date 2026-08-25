@@ -18,6 +18,8 @@ extends CharacterBody2D
 
 @onready var dash_audio_player: AudioStreamPlayer = $DashSound
 @onready var step_audio_player: AudioStreamPlayer = $FootstepSound
+@onready var jump_audio_player: AudioStreamPlayer = $JumpSound
+@onready var damage_audio_player: AudioStreamPlayer = $DamageSound
 
 var active: bool = true
 var direction: int = 0
@@ -44,6 +46,7 @@ func _physics_process(delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed("Up") && is_on_floor():
 			velocity.y = -jump_force
+			jump_audio_player.play()
 		
 		if Input.is_action_just_pressed("Damage") && can_dash:
 			start_dash()
@@ -74,6 +77,7 @@ func take_damage(collision: KinematicCollision2D) -> void:
 	apply_knockback(collision.get_normal())
 	start_invincibility(1)
 	animated_sprite.play("hurt")
+	damage_audio_player.play()
 	await animated_sprite.animation_finished
 	is_hurt = false
 
