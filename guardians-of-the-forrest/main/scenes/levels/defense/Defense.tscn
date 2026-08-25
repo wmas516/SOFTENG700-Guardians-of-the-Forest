@@ -40,6 +40,30 @@ elite = 2
 boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
+[sub_resource type="Resource" id="Resource_1n74u"]
+script = ExtResource("2_e18um")
+normal = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_a68iq"]
+script = ExtResource("2_e18um")
+normal = 2
+elite = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_xkn8c"]
+script = ExtResource("2_e18um")
+elite = 1
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_3sbh2"]
+script = ExtResource("2_e18um")
+normal = 3
+elite = 2
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -50, 300, 0, 0, 0, 0, -50, 650)
