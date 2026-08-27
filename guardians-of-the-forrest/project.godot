@@ -15,6 +15,10 @@ run/main_scene="uid://bj4p7h8cuq2r7"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://k1ic2ba1olo6"
+
 [autoload]
 
 PlayerData="*uid://cgw664gw5wods"
@@ -78,6 +82,7 @@ Jump={
 
 [layer_names]
 
+2d_physics/layer_1="World"
 2d_physics/layer_3="Interactable"
 
 [physics]

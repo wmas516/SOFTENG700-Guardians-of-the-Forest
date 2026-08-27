@@ -1,0 +1,1587 @@
+[gd_scene format=4 uid="uid://d2kbgxtgma457"]
+
+[ext_resource type="Texture2D" uid="uid://d18mmjjqm5wse" path="res://resources/environment/stones/boulder_mossy_07.png" id="1_5qn0k"]
+[ext_resource type="Texture2D" uid="uid://s41iq5rov07b" path="res://resources/environment/foliage/bush_medium_01.png" id="1_dd580"]
+[ext_resource type="Texture2D" uid="uid://3tdxb384kk6i" path="res://resources/environment/stones/boulder_mossy_04.png" id="1_gwiru"]
+[ext_resource type="Texture2D" uid="uid://crlwwd0xavabr" path="res://resources/environment/stones/boulder_01.png" id="1_ykwt6"]
+[ext_resource type="Texture2D" uid="uid://dn1l3wscy6pas" path="res://resources/environment/stones/boulder_mossy_02.png" id="2_4ke4l"]
+[ext_resource type="PackedScene" uid="uid://b3k3gbp42ffgv" path="res://main/scenes/levels/platforming/TileMap.tscn" id="2_ed30o"]
+[ext_resource type="Texture2D" uid="uid://b8ojstpf32l05" path="res://resources/environment/foliage/bush_large_01.png" id="2_n7eoi"]
+[ext_resource type="Texture2D" uid="uid://byu0o2bkgff0w" path="res://resources/environment/foliage/plant_fern_01.png" id="3_xce43"]
+[ext_resource type="Texture2D" uid="uid://c8yvedrpqhdxa" path="res://resources/environment/trees/stump_base_02.png" id="4_dipgh"]
+[ext_resource type="Texture2D" uid="uid://b0f1g16jk5r0j" path="res://resources/environment/trees/trunk_dark_01.png" id="4_ykwt6"]
+[ext_resource type="Texture2D" uid="uid://dxxfiveey80ab" path="res://resources/environment/foliage/grass_bumpy_01.png" id="5_s3y7u"]
+[ext_resource type="Texture2D" uid="uid://dxdup6f4vi00q" path="res://resources/environment/trees/trunk_full_01.png" id="6_474am"]
+[ext_resource type="Texture2D" uid="uid://c46w5yjhopi3y" path="res://resources/environment/foliage/moss_chunk_01.png" id="8_gmq1w"]
+[ext_resource type="Texture2D" uid="uid://bih3wsvnk0umi" path="res://resources/environment/stones/boulder_mossy_03.png" id="8_n7jlw"]
+[ext_resource type="Texture2D" uid="uid://epcdxdop3hdc" path="res://resources/environment/foliage/lichen_wide_01.png" id="9_n7jlw"]
+[ext_resource type="Texture2D" uid="uid://c2dddhlxedwsn" path="res://resources/environment/foliage/lichen_vertical_01.png" id="10_gwiru"]
+[ext_resource type="Texture2D" uid="uid://bj0xdb7adtjls" path="res://resources/environment/stones_2/moss_patch_soft_02.png" id="11_m5kjs"]
+[ext_resource type="Texture2D" uid="uid://b831wvs0bghqy" path="res://resources/environment/foliage/moss_strip_01.png" id="11_mjylf"]
+[ext_resource type="Texture2D" uid="uid://chqfladxhsejf" path="res://resources/environment/stones_2/moss_patch_soft_03.png" id="12_080uc"]
+[ext_resource type="Texture2D" uid="uid://dbjjiksq76sy1" path="res://resources/environment/foliage/grass_elongated_01.png" id="12_ybnf0"]
+[ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="14_xce43"]
+[ext_resource type="Texture2D" uid="uid://r7xqoq3vw57b" path="res://resources/environment/foliage/grass_lump_02.png" id="15_s3y7u"]
+[ext_resource type="Texture2D" uid="uid://byrmhyj8asu5r" path="res://resources/environment/trees/trunk_full_02.png" id="17_ldci6"]
+[ext_resource type="Texture2D" uid="uid://hp6go22dlsdf" path="res://resources/environment/foliage/grass_coverings_02.png" id="18_gmq1w"]
+[ext_resource type="Texture2D" uid="uid://b8s7uahddi624" path="res://resources/environment/stones_2/moss_strip_02.png" id="18_ykwt6"]
+[ext_resource type="Texture2D" uid="uid://b7y03v81gpvrt" path="res://resources/environment/foliage/grass_coverings_01.png" id="19_n7jlw"]
+[ext_resource type="Texture2D" uid="uid://b4u0e1jglikia" path="res://resources/environment/stones_2/moss_patch_soft_01.png" id="22_4hl25"]
+[ext_resource type="Texture2D" uid="uid://1v5ewvlma87v" path="res://resources/environment/foliage/moss_bark_01.png" id="23_sj30d"]
+[ext_resource type="Texture2D" uid="uid://csw1u1xpmg2uf" path="res://resources/environment/foliage/grass_tuft_02.png" id="24_ldci6"]
+[ext_resource type="Texture2D" uid="uid://cno71e1jovyde" path="res://resources/environment/foliage/grass_muddy_01.png" id="24_ykwt6"]
+[ext_resource type="Texture2D" uid="uid://drddi8mqf4a60" path="res://resources/environment/foliage/grass_lump_01.png" id="25_ykwt6"]
+[ext_resource type="Texture2D" uid="uid://dqp4vpofdepoq" path="res://resources/environment/stones/boulder_mossy_06.png" id="27_m5kjs"]
+[ext_resource type="Texture2D" uid="uid://cqh6hg25rlamn" path="res://resources/environment/foliage/bush_round_medium_02.png" id="28_rlkse"]
+[ext_resource type="Texture2D" uid="uid://rqgis15ileo2" path="res://resources/environment/foliage/bush_small_03.png" id="32_2n6gj"]
+[ext_resource type="Texture2D" uid="uid://dgt38eikxbbaa" path="res://resources/environment/stones_2/rock_flat_01.png" id="33_8tgtq"]
+[ext_resource type="Texture2D" uid="uid://wpig8x4o8s3g" path="res://resources/environment/foliage/plant_spiky_02.png" id="33_vxp5v"]
+[ext_resource type="Texture2D" uid="uid://jycn221mgr4s" path="res://resources/environment/foliage/bush_spiky_01.png" id="34_dd580"]
+[ext_resource type="Texture2D" uid="uid://c8ml55vsse0rb" path="res://resources/environment/foliage/plant_spiky_01.png" id="35_n7eoi"]
+[ext_resource type="Texture2D" uid="uid://bnwsllamfqm78" path="res://resources/environment/foliage/plant_thin_02.png" id="36_xn277"]
+[ext_resource type="Texture2D" uid="uid://dnx02uixk3rub" path="res://resources/environment/foliage/plant_bush_01.png" id="37_uokkw"]
+[ext_resource type="Texture2D" uid="uid://by7fj8w02f428" path="res://resources/environment/foliage/plant_tall_01.png" id="40_uokkw"]
+[ext_resource type="Texture2D" uid="uid://br4qrp4pfuxci" path="res://resources/environment/foliage/plant_thin_01.png" id="42_rlkse"]
+[ext_resource type="Texture2D" uid="uid://cpgyhejrkiv5u" path="res://resources/environment/foliage/shrub_small_01.png" id="43_xbo3w"]
+[ext_resource type="Texture2D" uid="uid://by2iuygdnv5hk" path="res://resources/environment/foliage/mushroom_brown_02.png" id="44_6lly1"]
+[ext_resource type="Texture2D" uid="uid://bmardov2wuttc" path="res://resources/environment/foliage/mushroom_yellow_02.png" id="46_jc1m1"]
+[ext_resource type="Texture2D" uid="uid://dg13uhhne0gde" path="res://resources/environment/foliage/vine_v_01.png" id="47_xbqx1"]
+[ext_resource type="Texture2D" uid="uid://c4t6hp5txh4qq" path="res://resources/environment/foliage/moss_dark_patch_01.png" id="48_jc1m1"]
+[ext_resource type="Texture2D" uid="uid://ciyfemj074qow" path="res://resources/environment/foliage/moss_dark_patch_02.png" id="49_xbqx1"]
+[ext_resource type="Texture2D" uid="uid://cxospy5rurayq" path="res://resources/environment/foliage/lichen-brown_01.png" id="50_2asvv"]
+[ext_resource type="Texture2D" uid="uid://majs6pw2np2q" path="res://resources/environment/foliage/moss_spot_01.png" id="51_hi5hf"]
+[ext_resource type="Texture2D" uid="uid://b5804u0wi6m3l" path="res://resources/environment/foliage/mushroom_brown_01.png" id="52_ybj6v"]
+[ext_resource type="Texture2D" uid="uid://b0bm5520sjxtd" path="res://resources/environment/foliage/mushroom_blue_01.png" id="53_7icmx"]
+[ext_resource type="Texture2D" uid="uid://yrwjvb5fwmlq" path="res://resources/environment/foliage/mushroom_yellow_01.png" id="53_e26gx"]
+[ext_resource type="Texture2D" uid="uid://d3flync55iuse" path="res://resources/environment/foliage/mushroom_yellow_03.png" id="54_e26gx"]
+[ext_resource type="Texture2D" uid="uid://0rcnk6o5rjli" path="res://resources/environment/foliage/mushroom_green_01.png" id="55_mxf0k"]
+[ext_resource type="Texture2D" uid="uid://bcpepf281en7h" path="res://resources/environment/foliage/mushroom_cluster_yellow_01.png" id="56_crqgt"]
+[ext_resource type="Texture2D" uid="uid://4rhwwycaq43w" path="res://resources/environment/stones_2/rock_angular_02.png" id="58_41ubo"]
+[ext_resource type="Texture2D" uid="uid://mmpn2mmetvfk" path="res://resources/environment/stones_2/grass_blade_cluster_01.png" id="59_41ubo"]
+[ext_resource type="Texture2D" uid="uid://bwufq7gw88qr6" path="res://resources/environment/trees/canopy_large_01.png" id="60_1vl5b"]
+[ext_resource type="Texture2D" uid="uid://bxmfyw6q553h0" path="res://resources/environment/stones_2/moss_strip_01.png" id="60_oga15"]
+[ext_resource type="Texture2D" uid="uid://csga4ck7o4grc" path="res://resources/environment/trees/branch_wide_01.png" id="60_ulv2c"]
+[ext_resource type="Texture2D" uid="uid://dinwfr1xly44b" path="res://resources/environment/trees/branch_thin_02.png" id="61_e8dgb"]
+[ext_resource type="Texture2D" uid="uid://o8upeho3osrt" path="res://resources/environment/trees/canopy_medium_01.png" id="61_ul6je"]
+[ext_resource type="Texture2D" uid="uid://dqdqwg7148obu" path="res://resources/environment/trees/canopy_medium_03.png" id="62_m3e6n"]
+[ext_resource type="Texture2D" uid="uid://bht7sd1l3en7l" path="res://resources/environment/trees/branch_wide_04.png" id="62_vcs3c"]
+[ext_resource type="Texture2D" uid="uid://bg052i4o8nmc3" path="res://resources/environment/trees/canopy_medium_02.png" id="66_kyt7w"]
+[ext_resource type="Texture2D" uid="uid://bhkcuv60u6mwo" path="res://resources/environment/trees/canopy_small_03.png" id="67_q1p1y"]
+[ext_resource type="Texture2D" uid="uid://cc5lsed3quc0o" path="res://resources/environment/trees/canopy_small_01.png" id="68_0y0w7"]
+
+[node name="Level" type="Node2D" unique_id=455574578]
+
+[node name="Background" type="Node2D" parent="." unique_id=1700164520]
+
+[node name="BushMedium01" type="Sprite2D" parent="Background" unique_id=1092948738]
+position = Vector2(817, 209)
+scale = Vector2(0.28814718, 0.28814718)
+texture = ExtResource("1_dd580")
+
+[node name="BushLarge01" type="Sprite2D" parent="Background" unique_id=342050411]
+position = Vector2(40, 212)
+scale = Vector2(0.32286823, 0.32286817)
+texture = ExtResource("2_n7eoi")
+
+[node name="BushLarge02" type="Sprite2D" parent="Background" unique_id=1158083239]
+position = Vector2(-61.000004, 181)
+rotation = -0.05200131
+scale = Vector2(-0.3259518, 0.3209661)
+texture = ExtResource("2_n7eoi")
+
+[node name="PlantBush01" type="Sprite2D" parent="Background" unique_id=145718235]
+position = Vector2(1326, 230)
+scale = Vector2(0.18131869, 0.18131867)
+texture = ExtResource("37_uokkw")
+
+[node name="BushSpiky01" type="Sprite2D" parent="Background" unique_id=749639758]
+position = Vector2(2996, 307.00003)
+rotation = 3.1415927
+scale = Vector2(0.17441885, -0.13488239)
+texture = ExtResource("34_dd580")
+
+[node name="Gameplay" type="Node2D" parent="." unique_id=313065877]
+
+[node name="Ground" type="Node2D" parent="Gameplay" unique_id=724122064]
+
+[node name="Boulder04" type="Sprite2D" parent="Gameplay/Ground" unique_id=1737856551]
+position = Vector2(860, 332)
+scale = Vector2(0.37673613, 0.3767361)
+texture = ExtResource("1_ykwt6")
+
+[node name="BoulderMossy15" type="Sprite2D" parent="Gameplay/Ground" unique_id=1002822579]
+position = Vector2(1185, 334)
+rotation = -3.0965457
+scale = Vector2(0.21709074, 0.23052599)
+texture = ExtResource("2_4ke4l")
+
+[node name="BoulderMossy02" type="Sprite2D" parent="Gameplay/Ground" unique_id=2082876798]
+position = Vector2(1097, 295)
+rotation = -3.0965457
+scale = Vector2(0.21709076, 0.23052599)
+texture = ExtResource("2_4ke4l")
+
+[node name="GrassElongated01" type="Sprite2D" parent="Gameplay/Ground" unique_id=1608804437]
+position = Vector2(-43, 261)
+scale = Vector2(0.4388489, 0.4388489)
+texture = ExtResource("12_ybnf0")
+
+[node name="Boulder03" type="Sprite2D" parent="Gameplay/Ground" unique_id=1823070167]
+position = Vector2(553.0928, 334)
+scale = Vector2(-0.44244188, 0.4104124)
+texture = ExtResource("1_ykwt6")
+
+[node name="Boulder02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1350368751]
+position = Vector2(331.80124, 329.0625)
+scale = Vector2(0.39561635, 0.39561632)
+texture = ExtResource("1_ykwt6")
+
+[node name="Boulder01" type="Sprite2D" parent="Gameplay/Ground" unique_id=33129026]
+position = Vector2(40.000004, 329)
+rotation = 0.028536215
+scale = Vector2(0.34913445, 0.34913442)
+texture = ExtResource("1_ykwt6")
+
+[node name="BoulderMossy12" type="Sprite2D" parent="Gameplay/Ground" unique_id=1956104261]
+position = Vector2(2666.4736, 376.871)
+rotation = 0.17500809
+scale = Vector2(0.4897911, 0.48979113)
+texture = ExtResource("1_5qn0k")
+
+[node name="BoulderMossy13" type="Sprite2D" parent="Gameplay/Ground" unique_id=247912777]
+position = Vector2(2767, 374)
+scale = Vector2(0.44736838, 0.4473684)
+texture = ExtResource("1_5qn0k")
+
+[node name="BoulderMossy11" type="Sprite2D" parent="Gameplay/Ground" unique_id=916798589]
+position = Vector2(2498.0422, 374.97046)
+rotation = 0.17141165
+scale = Vector2(0.52529085, 0.5252909)
+texture = ExtResource("1_5qn0k")
+
+[node name="BoulderMossy10" type="Sprite2D" parent="Gameplay/Ground" unique_id=673451849]
+position = Vector2(2875.2778, 372.5861)
+rotation = 0.13667534
+scale = Vector2(0.4599499, 0.45995)
+texture = ExtResource("1_5qn0k")
+
+[node name="BoulderMossy09" type="Sprite2D" parent="Gameplay/Ground" unique_id=177646556]
+position = Vector2(2976.3857, 372.86804)
+rotation = 2.842062
+scale = Vector2(0.4117364, -0.41975406)
+texture = ExtResource("1_5qn0k")
+
+[node name="TrunkFull01" type="Sprite2D" parent="Gameplay/Ground" unique_id=938647114]
+self_modulate = Color(0.68, 0.68, 0.68, 1)
+position = Vector2(1815.0001, 315.00003)
+rotation = -1.5953648
+scale = Vector2(0.2972023, 0.55924934)
+texture = ExtResource("6_474am")
+
+[node name="BoulderMossy08" type="Sprite2D" parent="Gameplay/Ground" unique_id=841486382]
+position = Vector2(2415, 316)
+scale = Vector2(0.1957107, 0.20964922)
+texture = ExtResource("2_4ke4l")
+
+[node name="BoulderMossy07" type="Sprite2D" parent="Gameplay/Ground" unique_id=1376292510]
+position = Vector2(3059.0002, 325.00003)
+rotation = 1.5684478
+scale = Vector2(0.12316386, 0.12316386)
+texture = ExtResource("27_m5kjs")
+
+[node name="TrunkDark01" type="Sprite2D" parent="Gameplay/Ground" unique_id=653139243]
+position = Vector2(1493.2277, 299.38086)
+rotation = 1.6034861
+scale = Vector2(0.23931295, 0.34821755)
+texture = ExtResource("4_ykwt6")
+
+[node name="GrassBumpy04" type="Sprite2D" parent="Gameplay/Ground" unique_id=742558215]
+position = Vector2(1380, 260)
+rotation = -3.1271746
+scale = Vector2(0.16579875, -0.1740769)
+texture = ExtResource("5_s3y7u")
+
+[node name="BoulderMossy05" type="Sprite2D" parent="Gameplay/Ground" unique_id=1765047037]
+position = Vector2(1218, 179)
+rotation = -3.122034
+scale = Vector2(0.16086362, 0.17673607)
+texture = ExtResource("8_n7jlw")
+
+[node name="BoulderMossy03" type="Sprite2D" parent="Gameplay/Ground" unique_id=809122354]
+position = Vector2(1208, 271)
+rotation = 2.827282
+scale = Vector2(0.18600476, 0.18600477)
+texture = ExtResource("8_n7jlw")
+
+[node name="BoulderMossy06" type="Sprite2D" parent="Gameplay/Ground" unique_id=1679319900]
+position = Vector2(1243.0001, 206.00003)
+rotation = 1.5869699
+scale = Vector2(0.17940086, -0.2332889)
+texture = ExtResource("1_gwiru")
+
+[node name="GrassBumpy01" type="Sprite2D" parent="Gameplay/Ground" unique_id=1265356366]
+position = Vector2(173.00002, 229)
+scale = Vector2(0.16037753, 0.16037753)
+texture = ExtResource("5_s3y7u")
+
+[node name="GrassBumpy06" type="Sprite2D" parent="Gameplay/Ground" unique_id=1484180633]
+position = Vector2(618, 231.00003)
+scale = Vector2(0.163522, 0.16352202)
+texture = ExtResource("5_s3y7u")
+
+[node name="GrassBumpy02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1627339215]
+position = Vector2(401.00003, 230)
+scale = Vector2(0.16037753, 0.16037753)
+texture = ExtResource("5_s3y7u")
+
+[node name="GrassBumpy03" type="Sprite2D" parent="Gameplay/Ground" unique_id=2088151684]
+position = Vector2(806, 230.00002)
+rotation = 0.002699282
+scale = Vector2(0.15436994, 0.15436995)
+texture = ExtResource("5_s3y7u")
+
+[node name="BoulderMossy04" type="Sprite2D" parent="Gameplay/Ground" unique_id=819950988]
+position = Vector2(1113.9576, 218.52396)
+rotation = 3.123896
+scale = Vector2(0.20086634, 0.20086636)
+texture = ExtResource("8_n7jlw")
+
+[node name="GrassLump02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1792572230]
+position = Vector2(1041.0001, 212)
+rotation = 0.39049846
+scale = Vector2(0.080369614, 0.07773419)
+texture = ExtResource("15_s3y7u")
+
+[node name="GrassLump03" type="Sprite2D" parent="Gameplay/Ground" unique_id=120114326]
+position = Vector2(1021, 223.99998)
+rotation = -2.9088275
+scale = Vector2(0.07644916, 0.20674618)
+texture = ExtResource("15_s3y7u")
+
+[node name="BoulderMossy14" type="Sprite2D" parent="Gameplay/Ground" unique_id=46902337]
+position = Vector2(1013.5735, 250.46126)
+rotation = 3.1218007
+scale = Vector2(0.18934648, 0.18934648)
+texture = ExtResource("8_n7jlw")
+
+[node name="GrassCoverings02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1612496376]
+position = Vector2(956, 217)
+scale = Vector2(0.117520206, 0.11752023)
+texture = ExtResource("18_gmq1w")
+
+[node name="GrassCoverings04" type="Sprite2D" parent="Gameplay/Ground" unique_id=456911952]
+position = Vector2(1189.0001, 151.00002)
+scale = Vector2(0.13894522, 0.13894524)
+texture = ExtResource("18_gmq1w")
+
+[node name="MossPatchSoft02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1233194712]
+position = Vector2(1233, 99.00001)
+rotation = 3.1392834
+scale = Vector2(0.13934427, 0.13934426)
+texture = ExtResource("11_m5kjs")
+
+[node name="GrassCoverings01" type="Sprite2D" parent="Gameplay/Ground" unique_id=1609440067]
+position = Vector2(1641, 279)
+scale = Vector2(0.18596323, 0.16916017)
+texture = ExtResource("19_n7jlw")
+
+[node name="MossPatchSoft03" type="Sprite2D" parent="Gameplay/Ground" unique_id=23123874]
+position = Vector2(1254, 102.99996)
+rotation = -2.6791604
+scale = Vector2(0.093939446, 0.09393945)
+texture = ExtResource("12_080uc")
+
+[node name="TrunkFull02" type="Sprite2D" parent="Gameplay/Ground" unique_id=68544783]
+self_modulate = Color(0.64, 0.64, 0.64, 1)
+position = Vector2(2197.0002, 315)
+rotation = 4.7581325
+scale = Vector2(0.21657711, 0.35528657)
+texture = ExtResource("17_ldci6")
+
+[node name="LichenWide01" type="Sprite2D" parent="Gameplay/Ground" unique_id=443309020]
+position = Vector2(1295, 293.00006)
+rotation = -0.34376326
+scale = Vector2(0.21060172, 0.21060172)
+texture = ExtResource("9_n7jlw")
+
+[node name="LichenVertical01" type="Sprite2D" parent="Gameplay/Ground" unique_id=949167498]
+position = Vector2(1311, 251)
+scale = Vector2(0.07964573, 0.07964573)
+texture = ExtResource("10_gwiru")
+
+[node name="MossPatchSoft08" type="Sprite2D" parent="Gameplay/Ground" unique_id=350548132]
+position = Vector2(2418, 253.00002)
+rotation = -3.12195
+scale = Vector2(0.26153842, 0.2615385)
+texture = ExtResource("22_4hl25")
+
+[node name="GrassMuddy02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1727455704]
+position = Vector2(2867, 330)
+scale = Vector2(0.18474577, 0.18474579)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassMuddy01" type="Sprite2D" parent="Gameplay/Ground" unique_id=1125250646]
+position = Vector2(2638.9998, 328)
+scale = Vector2(0.16440667, 0.16440667)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassLump04" type="Sprite2D" parent="Gameplay/Ground" unique_id=941080632]
+position = Vector2(2583, 324)
+scale = Vector2(0.17193677, 0.17193677)
+texture = ExtResource("15_s3y7u")
+
+[node name="MossStrip01" type="Sprite2D" parent="Gameplay/Ground" unique_id=847844765]
+position = Vector2(2712, 326)
+scale = Vector2(0.22647075, 0.22647075)
+texture = ExtResource("11_mjylf")
+
+[node name="GrassLump05" type="Sprite2D" parent="Gameplay/Ground" unique_id=594824394]
+position = Vector2(2920, 329)
+scale = Vector2(0.21837941, 0.21837941)
+texture = ExtResource("15_s3y7u")
+
+[node name="MossPatchSoft09" type="Sprite2D" parent="Gameplay/Ground" unique_id=2098523669]
+position = Vector2(2389, 230.00002)
+scale = Vector2(0.22152083, 0.23076941)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft10" type="Sprite2D" parent="Gameplay/Ground" unique_id=289907201]
+position = Vector2(2414, 229)
+rotation = 0.16823795
+scale = Vector2(0.17468826, -0.121204585)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft11" type="Sprite2D" parent="Gameplay/Ground" unique_id=1438142784]
+position = Vector2(2380.256, 237.31319)
+scale = Vector2(0.2151515, 0.21515152)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft12" type="Sprite2D" parent="Gameplay/Ground" unique_id=142144200]
+position = Vector2(2420.0002, 237.00003)
+rotation = 2.941152
+scale = Vector2(0.22270654, 0.22270656)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft13" type="Sprite2D" parent="Gameplay/Ground" unique_id=1943662483]
+position = Vector2(2377.756, 252.81317)
+scale = Vector2(0.21311477, 0.21311475)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft14" type="Sprite2D" parent="Gameplay/Ground" unique_id=1917139346]
+position = Vector2(2400.9998, 243)
+rotation = 3.0644643
+scale = Vector2(0.27653632, 0.37878785)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft15" type="Sprite2D" parent="Gameplay/Ground" unique_id=549844009]
+position = Vector2(2379.0002, 232.00009)
+rotation = -1.9094675
+scale = Vector2(0.1852611, 0.18526113)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft16" type="Sprite2D" parent="Gameplay/Ground" unique_id=1158775552]
+position = Vector2(2476, 270.00003)
+scale = Vector2(0.15611097, 0.17213109)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft17" type="Sprite2D" parent="Gameplay/Ground" unique_id=1938099458]
+position = Vector2(2407, 264)
+rotation = -2.6483274
+scale = Vector2(0.16604047, 0.16604047)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft18" type="Sprite2D" parent="Gameplay/Ground" unique_id=1819036184]
+position = Vector2(2426, 235)
+rotation = -1.8130296
+scale = Vector2(0.15551381, 0.15551382)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft19" type="Sprite2D" parent="Gameplay/Ground" unique_id=1341116567]
+position = Vector2(2421.577, 269.5)
+scale = Vector2(0.23846152, 0.23846154)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft20" type="Sprite2D" parent="Gameplay/Ground" unique_id=467214976]
+position = Vector2(2488, 276)
+scale = Vector2(0.14242426, 0.14242424)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft21" type="Sprite2D" parent="Gameplay/Ground" unique_id=969360313]
+position = Vector2(2450.0002, 262.99997)
+rotation = 3.0353215
+scale = Vector2(0.22131148, 0.22131148)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft22" type="Sprite2D" parent="Gameplay/Ground" unique_id=470834557]
+position = Vector2(2436.9998, 260.99988)
+rotation = 0.7201444
+scale = Vector2(0.1121212, 0.11212121)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft23" type="Sprite2D" parent="Gameplay/Ground" unique_id=1640205990]
+position = Vector2(2486, 263)
+rotation = 0.7792101
+scale = Vector2(0.18442608, 0.18442608)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft24" type="Sprite2D" parent="Gameplay/Ground" unique_id=1878415405]
+position = Vector2(2492.0002, 286.00012)
+rotation = -0.90029633
+scale = Vector2(0.09626172, 0.09626173)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft25" type="Sprite2D" parent="Gameplay/Ground" unique_id=2097453044]
+position = Vector2(2466.0002, 263.00003)
+scale = Vector2(0.2622951, 0.26229507)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft26" type="Sprite2D" parent="Gameplay/Ground" unique_id=1750673170]
+position = Vector2(2504.0002, 297)
+rotation = 0.68125886
+scale = Vector2(0.18484858, 0.18484862)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft27" type="Sprite2D" parent="Gameplay/Ground" unique_id=2035668302]
+position = Vector2(2515, 298)
+scale = Vector2(0.27868855, 0.27868852)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft28" type="Sprite2D" parent="Gameplay/Ground" unique_id=1011742549]
+position = Vector2(2489.9998, 262)
+rotation = 1.6368661
+scale = Vector2(0.1068258, 0.1068258)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft29" type="Sprite2D" parent="Gameplay/Ground" unique_id=1827087725]
+position = Vector2(2490, 293)
+rotation = -0.32364464
+scale = Vector2(0.1692308, 0.1692308)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft30" type="Sprite2D" parent="Gameplay/Ground" unique_id=54155263]
+position = Vector2(2481, 282)
+rotation = -1.4416274
+scale = Vector2(0.23935063, 0.20858355)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft31" type="Sprite2D" parent="Gameplay/Ground" unique_id=1506659436]
+position = Vector2(2536, 298)
+scale = Vector2(0.20303029, 0.2030303)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft32" type="Sprite2D" parent="Gameplay/Ground" unique_id=1529918839]
+position = Vector2(2506.0002, 311.99994)
+rotation = -1.8018923
+scale = Vector2(0.19348747, 0.19348747)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft33" type="Sprite2D" parent="Gameplay/Ground" unique_id=820429820]
+position = Vector2(2541, 310.00012)
+rotation = 0.5132797
+scale = Vector2(0.16005464, 0.16005464)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft34" type="Sprite2D" parent="Gameplay/Ground" unique_id=928243925]
+position = Vector2(2521, 311)
+rotation = 2.9874935
+scale = Vector2(0.22307691, 0.22307691)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft37" type="Sprite2D" parent="Gameplay/Ground" unique_id=1550754394]
+position = Vector2(3016, 306)
+scale = Vector2(0.18333359, 0.18333359)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft38" type="Sprite2D" parent="Gameplay/Ground" unique_id=1674960258]
+position = Vector2(3023, 319)
+rotation = -1.4282418
+scale = Vector2(0.39267015, 0.39267015)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft39" type="Sprite2D" parent="Gameplay/Ground" unique_id=871382319]
+position = Vector2(3015, 288)
+rotation = -1.55591
+scale = Vector2(0.17737497, 0.177375)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft40" type="Sprite2D" parent="Gameplay/Ground" unique_id=579552922]
+position = Vector2(3027, 281.0001)
+rotation = 1.3194151
+scale = Vector2(0.21550535, 0.21550535)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft41" type="Sprite2D" parent="Gameplay/Ground" unique_id=1233276941]
+position = Vector2(3016.9998, 265.99988)
+rotation = -0.97226894
+scale = Vector2(0.2176716, 0.2176716)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft42" type="Sprite2D" parent="Gameplay/Ground" unique_id=473767421]
+position = Vector2(3034, 249.99988)
+rotation = -0.74179333
+scale = Vector2(0.33076924, 0.33076924)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft43" type="Sprite2D" parent="Gameplay/Ground" unique_id=1442253776]
+position = Vector2(3015, 241.00003)
+rotation = -1.4683355
+scale = Vector2(0.32890746, 0.32890746)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft44" type="Sprite2D" parent="Gameplay/Ground" unique_id=1805303244]
+position = Vector2(3033.0002, 233.00005)
+rotation = 0.78383946
+scale = Vector2(0.2051273, 0.2051273)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft45" type="Sprite2D" parent="Gameplay/Ground" unique_id=1723783693]
+position = Vector2(3093.9998, 242)
+rotation = 1.586594
+scale = Vector2(0.31340522, 0.31340522)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft46" type="Sprite2D" parent="Gameplay/Ground" unique_id=1492083118]
+position = Vector2(3051, 231)
+scale = Vector2(0.21538462, 0.21538462)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft47" type="Sprite2D" parent="Gameplay/Ground" unique_id=1047332279]
+position = Vector2(3063, 234)
+rotation = -3.0392504
+scale = Vector2(0.42183593, 0.29233825)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft48" type="Sprite2D" parent="Gameplay/Ground" unique_id=1272857427]
+position = Vector2(3082.0002, 230.00009)
+rotation = -2.8472328
+scale = Vector2(0.15587787, 0.15587789)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft49" type="Sprite2D" parent="Gameplay/Ground" unique_id=1082611649]
+position = Vector2(3072, 241.99991)
+rotation = 0.8387824
+scale = Vector2(0.26913503, 0.26913503)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft50" type="Sprite2D" parent="Gameplay/Ground" unique_id=121564498]
+position = Vector2(3085.0002, 250.00024)
+rotation = 2.3464484
+scale = Vector2(0.22727272, 0.22727273)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft51" type="Sprite2D" parent="Gameplay/Ground" unique_id=1670291963]
+position = Vector2(3094, 259)
+rotation = -1.583973
+scale = Vector2(0.32575366, 0.32575366)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft52" type="Sprite2D" parent="Gameplay/Ground" unique_id=1421631495]
+position = Vector2(3065, 252.00003)
+rotation = 0.79621565
+scale = Vector2(0.29999995, 0.29999995)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft53" type="Sprite2D" parent="Gameplay/Ground" unique_id=1571208026]
+position = Vector2(3097, 271)
+rotation = -1.0584937
+scale = Vector2(0.15833777, 0.15833777)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft54" type="Sprite2D" parent="Gameplay/Ground" unique_id=204647115]
+position = Vector2(3097, 286)
+rotation = 1.8091784
+scale = Vector2(0.23008254, 0.23008253)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft55" type="Sprite2D" parent="Gameplay/Ground" unique_id=1289695471]
+position = Vector2(3089, 271)
+rotation = -1.9265991
+scale = Vector2(0.28607082, 0.28607082)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft56" type="Sprite2D" parent="Gameplay/Ground" unique_id=13582185]
+position = Vector2(3097, 305.99997)
+rotation = -1.5059916
+scale = Vector2(0.19602157, 0.19602156)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft57" type="Sprite2D" parent="Gameplay/Ground" unique_id=828391732]
+position = Vector2(3097.9998, 326)
+rotation = 1.5528185
+scale = Vector2(0.15465716, 0.15465717)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft58" type="Sprite2D" parent="Gameplay/Ground" unique_id=1108453803]
+position = Vector2(3083, 294)
+rotation = 1.5605717
+scale = Vector2(0.32457557, 0.32457557)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft59" type="Sprite2D" parent="Gameplay/Ground" unique_id=1491783405]
+position = Vector2(3092.9998, 343.9999)
+rotation = 2.0953016
+scale = Vector2(0.23005888, 0.2300589)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft60" type="Sprite2D" parent="Gameplay/Ground" unique_id=952668887]
+position = Vector2(3085, 324)
+rotation = 1.653789
+scale = Vector2(0.27980083, 0.2798009)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft61" type="Sprite2D" parent="Gameplay/Ground" unique_id=660619123]
+position = Vector2(2553, 296.99997)
+rotation = -0.9177854
+scale = Vector2(0.14791158, 0.14791158)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft62" type="Sprite2D" parent="Gameplay/Ground" unique_id=401866878]
+position = Vector2(2551, 310)
+scale = Vector2(0.16923088, 0.16923088)
+texture = ExtResource("22_4hl25")
+
+[node name="GrassLump06" type="Sprite2D" parent="Gameplay/Ground" unique_id=1885524235]
+position = Vector2(2460.0002, 256)
+rotation = 0.02837253
+scale = Vector2(0.07608693, 0.07608693)
+texture = ExtResource("15_s3y7u")
+
+[node name="GrassLump01" type="Sprite2D" parent="Gameplay/Ground" unique_id=146093610]
+position = Vector2(2400, 225)
+scale = Vector2(0.07426782, 0.07426783)
+texture = ExtResource("25_ykwt6")
+
+[node name="GrassLump07" type="Sprite2D" parent="Gameplay/Ground" unique_id=636960990]
+position = Vector2(2527, 290)
+scale = Vector2(0.06799165, 0.06799165)
+texture = ExtResource("25_ykwt6")
+
+[node name="MossStrip07" type="Sprite2D" parent="Gameplay/Ground" unique_id=80599856]
+position = Vector2(3012.1677, 297.98846)
+rotation = 1.5530511
+scale = Vector2(0.15434782, 0.15434785)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip08" type="Sprite2D" parent="Gameplay/Ground" unique_id=1048953662]
+position = Vector2(3100.9998, 292)
+rotation = 1.5755525
+scale = Vector2(0.13970613, 0.12526712)
+texture = ExtResource("11_mjylf")
+
+[node name="GrassLump08" type="Sprite2D" parent="Gameplay/Ground" unique_id=1282932433]
+position = Vector2(3052.6692, 229.00002)
+scale = Vector2(0.10887917, 0.08682011)
+texture = ExtResource("25_ykwt6")
+
+[node name="MossPatchSoft63" type="Sprite2D" parent="Gameplay/Ground" unique_id=1562317510]
+position = Vector2(3091.0002, 366)
+rotation = 1.5986285
+scale = Vector2(0.2304237, 0.23042369)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft64" type="Sprite2D" parent="Gameplay/Ground" unique_id=1939411693]
+position = Vector2(3091.9998, 389.99997)
+rotation = 1.6882583
+scale = Vector2(0.30905128, 0.30905128)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft65" type="Sprite2D" parent="Gameplay/Ground" unique_id=1633717243]
+position = Vector2(3091.0002, 420.00012)
+rotation = -1.0124038
+scale = Vector2(0.26610667, 0.2661067)
+texture = ExtResource("12_080uc")
+
+[node name="MossStrip06" type="Sprite2D" parent="Gameplay/Ground" unique_id=1988175162]
+position = Vector2(3100.0002, 393)
+rotation = -1.5716457
+scale = Vector2(0.10866477, 0.10866423)
+skew = -0.0010398626
+texture = ExtResource("11_mjylf")
+
+[node name="GrassCoverings05" type="Sprite2D" parent="Gameplay/Ground" unique_id=1815464502]
+position = Vector2(2250, 284)
+scale = Vector2(0.20171925, 0.18678413)
+texture = ExtResource("19_n7jlw")
+
+[node name="GrassBumpy05" type="Sprite2D" parent="Gameplay/Ground" unique_id=1155235527]
+position = Vector2(1937, 269)
+rotation = -0.023141883
+scale = Vector2(-0.28100628, 0.23899369)
+texture = ExtResource("5_s3y7u")
+
+[node name="GrassCoverings06" type="Sprite2D" parent="Gameplay/Ground" unique_id=1423242378]
+position = Vector2(1076, 185.00002)
+scale = Vector2(0.1586311, 0.12094318)
+texture = ExtResource("18_gmq1w")
+
+[node name="MossStrip02" type="Sprite2D" parent="Gameplay/Ground" unique_id=324636525]
+position = Vector2(1419.9999, 281)
+rotation = -3.1189213
+scale = Vector2(0.26390263, 0.1529412)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip03" type="Sprite2D" parent="Gameplay/Ground" unique_id=338038341]
+position = Vector2(1581.0001, 283.00003)
+rotation = 0.042544063
+scale = Vector2(0.2639026, 0.15294118)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip09" type="Sprite2D" parent="Gameplay/Ground" unique_id=1619309919]
+position = Vector2(1783, 291)
+rotation = 0.022650417
+scale = Vector2(0.2639026, 0.15294118)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip10" type="Sprite2D" parent="Gameplay/Ground" unique_id=898839041]
+position = Vector2(1996, 297)
+rotation = 0.00032728515
+scale = Vector2(0.2639026, 0.15294117)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip11" type="Sprite2D" parent="Gameplay/Ground" unique_id=655260812]
+position = Vector2(2186.0002, 292)
+rotation = -3.1295657
+scale = Vector2(0.26390263, 0.15294118)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip12" type="Sprite2D" parent="Gameplay/Ground" unique_id=1077984568]
+position = Vector2(2321, 289.00003)
+rotation = -0.06749416
+scale = Vector2(0.2639026, 0.15294118)
+texture = ExtResource("11_mjylf")
+
+[node name="RockAngular02" type="Sprite2D" parent="Gameplay/Ground" unique_id=2037342600]
+position = Vector2(2880.9155, 240.6578)
+rotation = 0.01763006
+scale = Vector2(0.1338074, 0.050267108)
+texture = ExtResource("58_41ubo")
+
+[node name="RockAngular03" type="Sprite2D" parent="Gameplay/Ground" unique_id=2061841955]
+position = Vector2(2878.289, 245.11778)
+rotation = -3.1334312
+scale = Vector2(0.12021997, 0.041435894)
+texture = ExtResource("58_41ubo")
+
+[node name="RockFlat01" type="Sprite2D" parent="Gameplay/Ground" unique_id=1877202984]
+position = Vector2(2880, 235.00002)
+scale = Vector2(0.045343097, 0.045343112)
+texture = ExtResource("33_8tgtq")
+
+[node name="MossPatchSoft04" type="Sprite2D" parent="Gameplay/Ground" unique_id=1613577651]
+position = Vector2(2863, 241)
+rotation = -0.5282129
+scale = Vector2(0.12704916, 0.12704916)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft01" type="Sprite2D" parent="Gameplay/Ground" unique_id=779413141]
+position = Vector2(2853, 244)
+rotation = -0.5344915
+scale = Vector2(0.14615385, 0.14615385)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft05" type="Sprite2D" parent="Gameplay/Ground" unique_id=1758909188]
+position = Vector2(2854, 235.99979)
+rotation = -0.5344915
+scale = Vector2(0.14615385, 0.14615385)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft06" type="Sprite2D" parent="Gameplay/Ground" unique_id=1585386976]
+position = Vector2(2877, 236)
+scale = Vector2(0.17642695, 0.13269226)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft07" type="Sprite2D" parent="Gameplay/Ground" unique_id=955906870]
+position = Vector2(2896.0002, 231.99988)
+rotation = 0.5972847
+scale = Vector2(0.14696969, 0.1469697)
+texture = ExtResource("12_080uc")
+
+[node name="MossStrip04" type="Sprite2D" parent="Gameplay/Ground" unique_id=117332876]
+position = Vector2(2881, 231.00002)
+scale = Vector2(0.09691705, 0.123188406)
+texture = ExtResource("18_ykwt6")
+
+[node name="MossStrip05" type="Sprite2D" parent="Gameplay/Ground" unique_id=331927927]
+position = Vector2(2875.9998, 229)
+scale = Vector2(0.080232576, 0.08023255)
+texture = ExtResource("60_oga15")
+
+[node name="RockAngular05" type="Sprite2D" parent="Gameplay/Ground" unique_id=1201994932]
+position = Vector2(2880.9155, 240.6578)
+rotation = 0.01763006
+scale = Vector2(0.1338074, 0.050267108)
+texture = ExtResource("58_41ubo")
+
+[node name="RockAngular06" type="Sprite2D" parent="Gameplay/Ground" unique_id=681908529]
+position = Vector2(2878.289, 245.11778)
+rotation = -3.1334312
+scale = Vector2(0.12021997, 0.041435894)
+texture = ExtResource("58_41ubo")
+
+[node name="RockFlat02" type="Sprite2D" parent="Gameplay/Ground" unique_id=1167448756]
+position = Vector2(2880, 235.00002)
+scale = Vector2(0.045343097, 0.045343112)
+texture = ExtResource("33_8tgtq")
+
+[node name="VineV01" type="Sprite2D" parent="Gameplay/Ground" unique_id=651880843]
+position = Vector2(2858, 252)
+scale = Vector2(0.06905415, 0.06905416)
+texture = ExtResource("47_xbqx1")
+
+[node name="MossPatchSoft35" type="Sprite2D" parent="Gameplay/Ground" unique_id=1946987182]
+position = Vector2(2863, 240)
+rotation = -0.5282129
+scale = Vector2(0.12704916, 0.12704916)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft36" type="Sprite2D" parent="Gameplay/Ground" unique_id=1207317136]
+position = Vector2(2853, 242.00003)
+rotation = -0.5344915
+scale = Vector2(0.14615385, 0.14615385)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft66" type="Sprite2D" parent="Gameplay/Ground" unique_id=851224024]
+position = Vector2(2854, 235.99979)
+rotation = -0.5344915
+scale = Vector2(0.14615385, 0.14615385)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft67" type="Sprite2D" parent="Gameplay/Ground" unique_id=1984432824]
+position = Vector2(2877, 236)
+scale = Vector2(0.17642695, 0.13269226)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft68" type="Sprite2D" parent="Gameplay/Ground" unique_id=1689604666]
+position = Vector2(2896.0002, 231.99988)
+rotation = 0.5972847
+scale = Vector2(0.14696969, 0.1469697)
+texture = ExtResource("12_080uc")
+
+[node name="MossStrip13" type="Sprite2D" parent="Gameplay/Ground" unique_id=139546090]
+position = Vector2(2881, 231.00002)
+scale = Vector2(0.09691705, 0.123188406)
+texture = ExtResource("18_ykwt6")
+
+[node name="MossStrip14" type="Sprite2D" parent="Gameplay/Ground" unique_id=2066219199]
+position = Vector2(2875.9998, 229)
+scale = Vector2(0.080232576, 0.08023255)
+texture = ExtResource("60_oga15")
+
+[node name="RockAngular07" type="Sprite2D" parent="Gameplay/Ground" unique_id=457323592]
+position = Vector2(2719.6362, 241.22177)
+rotation = -3.1239626
+scale = Vector2(0.124730766, -0.04801936)
+texture = ExtResource("58_41ubo")
+
+[node name="RockAngular08" type="Sprite2D" parent="Gameplay/Ground" unique_id=535616721]
+position = Vector2(2717.6067, 243.49394)
+rotation = 0.008161377
+scale = Vector2(0.117063254, -0.037813425)
+texture = ExtResource("58_41ubo")
+
+[node name="MossPatchSoft69" type="Sprite2D" parent="Gameplay/Ground" unique_id=54269136]
+position = Vector2(2747.0002, 247.99992)
+rotation = 1.3008233
+scale = Vector2(0.1311263, -0.12704916)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft70" type="Sprite2D" parent="Gameplay/Ground" unique_id=188282407]
+position = Vector2(2695, 235.99997)
+rotation = 2.9405148
+scale = Vector2(0.14211312, -0.14615384)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft71" type="Sprite2D" parent="Gameplay/Ground" unique_id=56857388]
+position = Vector2(2709, 236.00003)
+rotation = 2.9893978
+scale = Vector2(0.15084404, -0.14615385)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft72" type="Sprite2D" parent="Gameplay/Ground" unique_id=1905939404]
+position = Vector2(2731, 236.99998)
+rotation = 3.1415927
+scale = Vector2(0.1820887, -0.13269226)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft73" type="Sprite2D" parent="Gameplay/Ground" unique_id=1994897372]
+position = Vector2(2745, 239.99995)
+rotation = -2.8955605
+scale = Vector2(0.11914441, -0.11543985)
+texture = ExtResource("12_080uc")
+
+[node name="MossStrip15" type="Sprite2D" parent="Gameplay/Ground" unique_id=931396354]
+position = Vector2(2719.8513, 230)
+rotation = 3.1415927
+scale = Vector2(0.086992405, -0.123188406)
+texture = ExtResource("18_ykwt6")
+
+[node name="MossStrip16" type="Sprite2D" parent="Gameplay/Ground" unique_id=693428537]
+position = Vector2(2720.365, 229.00002)
+rotation = 3.1415927
+scale = Vector2(0.078886166, -0.08023255)
+texture = ExtResource("60_oga15")
+
+[node name="RockAngular09" type="Sprite2D" parent="Gameplay/Ground" unique_id=983184702]
+position = Vector2(2592.9268, 241.97177)
+rotation = -3.1239626
+scale = Vector2(-0.121869266, -0.048205774)
+texture = ExtResource("58_41ubo")
+
+[node name="RockAngular10" type="Sprite2D" parent="Gameplay/Ground" unique_id=44718987]
+position = Vector2(2590.8972, 244.24394)
+rotation = 0.008161377
+scale = Vector2(-0.11437768, -0.03796022)
+texture = ExtResource("58_41ubo")
+
+[node name="MossPatchSoft74" type="Sprite2D" parent="Gameplay/Ground" unique_id=1841973610]
+position = Vector2(2589, 236.99997)
+rotation = 0.28258324
+scale = Vector2(-0.12811808, -0.12754238)
+texture = ExtResource("11_m5kjs")
+
+[node name="MossPatchSoft75" type="Sprite2D" parent="Gameplay/Ground" unique_id=1062331522]
+position = Vector2(2570, 236)
+rotation = 2.9405148
+scale = Vector2(-0.1388528, -0.14615384)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft76" type="Sprite2D" parent="Gameplay/Ground" unique_id=2041779823]
+position = Vector2(2582.2905, 236.75003)
+rotation = 2.9893978
+scale = Vector2(-0.14738345, -0.14672123)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft77" type="Sprite2D" parent="Gameplay/Ground" unique_id=1055028436]
+position = Vector2(2604.2905, 237.74998)
+rotation = 3.1415927
+scale = Vector2(-0.17791131, -0.13320738)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft78" type="Sprite2D" parent="Gameplay/Ground" unique_id=1403306726]
+position = Vector2(2619, 233.99992)
+rotation = -4.1603503
+scale = Vector2(-0.116411075, -0.11588799)
+texture = ExtResource("12_080uc")
+
+[node name="MossStrip17" type="Sprite2D" parent="Gameplay/Ground" unique_id=1486643316]
+position = Vector2(2593.0378, 230.78467)
+rotation = 3.1415927
+scale = Vector2(-0.083006755, -0.118715174)
+texture = ExtResource("18_ykwt6")
+
+[node name="MossStrip18" type="Sprite2D" parent="Gameplay/Ground" unique_id=1424228240]
+position = Vector2(2591.8525, 229.75002)
+rotation = 3.1415927
+scale = Vector2(-0.08139979, -0.08054402)
+texture = ExtResource("60_oga15")
+
+[node name="GrassBladeCluster01" type="Sprite2D" parent="Gameplay/Ground" unique_id=948001765]
+position = Vector2(2564.0002, 242.99995)
+rotation = -2.2960243
+scale = Vector2(0.06389989, 0.06389989)
+texture = ExtResource("59_41ubo")
+
+[node name="MossSpot01" type="Sprite2D" parent="Gameplay/Ground" unique_id=127091848]
+position = Vector2(2689.0002, 240)
+scale = Vector2(0.16666667, 0.16666667)
+texture = ExtResource("51_hi5hf")
+
+[node name="Cosmetic-Back" type="Node2D" parent="Gameplay" unique_id=2066799475]
+
+[node name="PlantThin09" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=406924771]
+position = Vector2(1206, 115)
+scale = Vector2(0.056962024, 0.056962024)
+texture = ExtResource("36_xn277")
+
+[node name="BushRoundMedium04" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=2071626181]
+position = Vector2(494.00006, 203.00003)
+scale = Vector2(0.11951219, 0.11951219)
+texture = ExtResource("28_rlkse")
+
+[node name="PlantThin02" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1044659779]
+position = Vector2(273.00003, 209.00002)
+scale = Vector2(0.072784714, 0.072784714)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin03" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1958166037]
+position = Vector2(361.43747, 210.74997)
+scale = Vector2(0.036392808, 0.036392808)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin04" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1648207206]
+position = Vector2(479, 210)
+scale = Vector2(-0.041281603, 0.0552982)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin05" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1840110986]
+position = Vector2(152.00003, 203.00002)
+scale = Vector2(0.072784714, 0.072784714)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin06" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=262479099]
+position = Vector2(154.00003, 204.00002)
+rotation = 0.12027765
+scale = Vector2(-0.081118934, 0.075430535)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin07" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=928148644]
+position = Vector2(150.00003, 205.00002)
+scale = Vector2(0.072784714, 0.072784714)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin08" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1830034609]
+position = Vector2(357.9375, 209.75002)
+scale = Vector2(0.049050685, 0.049050685)
+texture = ExtResource("36_xn277")
+
+[node name="BushRoundMedium02" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1169211719]
+position = Vector2(491.00003, 211)
+scale = Vector2(0.11585363, 0.11585364)
+texture = ExtResource("28_rlkse")
+
+[node name="BushRoundMedium03" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=906282634]
+position = Vector2(505, 207.99998)
+rotation = 0.73393446
+scale = Vector2(0.16167721, 0.16167721)
+texture = ExtResource("28_rlkse")
+
+[node name="PlantSpiky03" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1319486411]
+position = Vector2(1093, 149)
+scale = Vector2(-0.051667627, 0.061829716)
+texture = ExtResource("35_n7eoi")
+
+[node name="MushroomYellow03" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1605952792]
+position = Vector2(1775, 245)
+rotation = -3.1415925
+scale = Vector2(0.10828355, -0.065902494)
+texture = ExtResource("54_e26gx")
+
+[node name="MushroomYellow05" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1755930966]
+position = Vector2(2260, 241)
+rotation = 3.1415927
+scale = Vector2(0.045989297, -0.053439397)
+texture = ExtResource("53_e26gx")
+
+[node name="MushroomBlue02" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=826235320]
+position = Vector2(2396.0002, 269.00003)
+scale = Vector2(0.065787956, 0.06578798)
+texture = ExtResource("53_7icmx")
+
+[node name="MushroomBlue03" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1782805054]
+position = Vector2(2009, 253)
+scale = Vector2(0.065787956, 0.06578798)
+texture = ExtResource("53_7icmx")
+
+[node name="MushroomBlue04" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=94756424]
+position = Vector2(1355, 248.00002)
+scale = Vector2(0.065787956, 0.06578798)
+texture = ExtResource("53_7icmx")
+
+[node name="MushroomBrown03" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=2100362877]
+position = Vector2(1489, 246)
+scale = Vector2(0.07462686, 0.07462687)
+texture = ExtResource("44_6lly1")
+
+[node name="MushroomYellow06" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1717740316]
+position = Vector2(2014.0001, 251)
+rotation = 3.1415927
+scale = Vector2(0.06645536, -0.052906822)
+texture = ExtResource("46_jc1m1")
+
+[node name="MushroomYellow07" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1318850027]
+position = Vector2(1770.0001, 244)
+scale = Vector2(0.08450704, 0.08450702)
+texture = ExtResource("54_e26gx")
+
+[node name="GrassBladeCluster02" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1969256374]
+position = Vector2(2741, 244)
+rotation = -1.8231095
+scale = Vector2(0.057377037, 0.057377048)
+texture = ExtResource("59_41ubo")
+
+[node name="PlantThin10" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=331574332]
+position = Vector2(2909, 308)
+scale = Vector2(0.056962024, 0.056962024)
+texture = ExtResource("36_xn277")
+
+[node name="PlantTall01" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1884675661]
+position = Vector2(2709.9998, 215.00002)
+scale = Vector2(0.07236942, 0.07236944)
+texture = ExtResource("40_uokkw")
+
+[node name="PlantSpiky02" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1145115277]
+position = Vector2(2669, 297)
+scale = Vector2(0.0882353, 0.08823527)
+texture = ExtResource("33_vxp5v")
+
+[node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
+position = Vector2(146, 44)
+gravity = 500
+
+[node name="Cosmetic-Front" type="Node2D" parent="Gameplay" unique_id=1028504485]
+
+[node name="PlantFern01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=211674295]
+position = Vector2(48.000004, 200)
+scale = Vector2(0.28390557, 0.33928552)
+texture = ExtResource("3_xce43")
+
+[node name="StumpBase02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2057985533]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
+position = Vector2(-42.999996, 196.99998)
+rotation = 3.1415927
+scale = Vector2(0.18706383, -0.2288271)
+texture = ExtResource("4_dipgh")
+
+[node name="TrunkFull01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1275516006]
+self_modulate = Color(0.68, 0.68, 0.68, 1)
+position = Vector2(-11.000001, 26)
+rotation = -0.024495967
+scale = Vector2(0.19887191, 0.32946584)
+texture = ExtResource("6_474am")
+
+[node name="MossChunk01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=122746260]
+self_modulate = Color(0.62, 0.62, 0.62, 1)
+position = Vector2(-14.999998, 218)
+rotation = 0.09127341
+scale = Vector2(0.18437852, 0.24210125)
+texture = ExtResource("8_gmq1w")
+
+[node name="MossPatchSoft04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1791986264]
+position = Vector2(1220.9999, 100.00001)
+rotation = -3.0472245
+scale = Vector2(0.09824531, 0.098245315)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1022629357]
+position = Vector2(1224.0001, 110.00001)
+scale = Vector2(0.15303026, 0.15303026)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=875287393]
+position = Vector2(1264.0001, 103)
+rotation = -3.0022364
+scale = Vector2(0.15536228, 0.15536228)
+texture = ExtResource("22_4hl25")
+
+[node name="MossBark01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=408524102]
+position = Vector2(1312, 112)
+scale = Vector2(0.062700965, 0.062700965)
+texture = ExtResource("23_sj30d")
+
+[node name="GrassTuft02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1144025175]
+position = Vector2(1273, 97)
+scale = Vector2(0.07631578, 0.07631579)
+texture = ExtResource("24_ldci6")
+
+[node name="GrassLump01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2025284238]
+position = Vector2(1264, 99)
+scale = Vector2(0.108303934, 0.07231933)
+texture = ExtResource("25_ykwt6")
+
+[node name="MossPatchSoft05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=557752248]
+position = Vector2(1245, 99.99999)
+rotation = 0.25655183
+scale = Vector2(0.14732914, 0.11681611)
+texture = ExtResource("12_080uc")
+
+[node name="MossPatchSoft06" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=220421560]
+position = Vector2(1236, 104.00001)
+scale = Vector2(0.0828845, 0.082884505)
+texture = ExtResource("22_4hl25")
+
+[node name="MossPatchSoft02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1893506253]
+position = Vector2(1221, 119)
+scale = Vector2(0.099999994, 0.1)
+texture = ExtResource("22_4hl25")
+
+[node name="BushSmall03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1686211514]
+position = Vector2(-227, 212.99998)
+scale = Vector2(0.1674999, 0.1674999)
+texture = ExtResource("32_2n6gj")
+
+[node name="PlantSpiky02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1854423999]
+position = Vector2(-266, 216)
+scale = Vector2(0.20915033, 0.20915031)
+texture = ExtResource("33_vxp5v")
+
+[node name="PlantSpiky01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=977867281]
+position = Vector2(660.8977, 208.29922)
+rotation = 0.0723071
+scale = Vector2(0.13512336, 0.13512334)
+texture = ExtResource("35_n7eoi")
+
+[node name="PlantFern02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1294841272]
+position = Vector2(996, 192)
+rotation = 3.1415927
+scale = Vector2(0.19375908, -0.16451243)
+texture = ExtResource("3_xce43")
+
+[node name="PlantBush01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=694432536]
+position = Vector2(-185.00002, 233)
+rotation = -0.48936197
+scale = Vector2(0.25549448, 0.2554945)
+texture = ExtResource("37_uokkw")
+
+[node name="PlantBush02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1527641245]
+position = Vector2(-295, 240.00002)
+rotation = 0.4282062
+scale = Vector2(0.20604391, 0.20604396)
+texture = ExtResource("37_uokkw")
+
+[node name="PlantTall01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=473068434]
+position = Vector2(1296, 94.99999)
+scale = Vector2(0.07416268, 0.07416267)
+texture = ExtResource("40_uokkw")
+
+[node name="PlantThin09" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1341951421]
+position = Vector2(646, 225.99998)
+scale = Vector2(0.08227848, 0.08227848)
+texture = ExtResource("36_xn277")
+
+[node name="PlantThin01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1121178830]
+position = Vector2(64, 225)
+scale = Vector2(0.16447368, 0.1644737)
+texture = ExtResource("42_rlkse")
+
+[node name="PlantThin02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=648611642]
+position = Vector2(265.00003, 218.99998)
+rotation = 3.1415927
+scale = Vector2(0.16405064, -0.08227848)
+texture = ExtResource("36_xn277")
+
+[node name="PlantTall02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=54528670]
+position = Vector2(906.0001, 191.00006)
+rotation = 0.07006487
+scale = Vector2(0.06937799, 0.069377996)
+texture = ExtResource("40_uokkw")
+
+[node name="PlantThin03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=581038547]
+position = Vector2(1044, 163)
+rotation = 3.1415927
+scale = Vector2(0.073818944, -0.077912375)
+texture = ExtResource("42_rlkse")
+
+[node name="ShrubSmall01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=964388255]
+position = Vector2(1243.9999, 129.99995)
+rotation = 0.1992189
+scale = Vector2(0.06615125, 0.06615125)
+texture = ExtResource("43_xbo3w")
+
+[node name="MushroomYellow02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=854715309]
+position = Vector2(-58, 225)
+rotation = -0.3606899
+scale = Vector2(0.084745765, 0.08474574)
+texture = ExtResource("46_jc1m1")
+
+[node name="MushroomBrown02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=209217734]
+position = Vector2(52, 234.00002)
+scale = Vector2(0.04477612, 0.044776104)
+texture = ExtResource("44_6lly1")
+
+[node name="VineV01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=306149969]
+position = Vector2(-8.932543, 71.18766)
+rotation = -0.29329762
+scale = Vector2(0.2205011, 0.12148339)
+texture = ExtResource("47_xbqx1")
+
+[node name="MossDarkPatch01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=482581271]
+position = Vector2(-49.000004, 76)
+rotation = 3.1415927
+scale = Vector2(0.103636354, -0.13636364)
+texture = ExtResource("48_jc1m1")
+
+[node name="MossDarkPatch02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=94447998]
+position = Vector2(18.999998, 45)
+rotation = 0.046512485
+scale = Vector2(0.121369235, 0.121369235)
+texture = ExtResource("49_xbqx1")
+
+[node name="MossStrip01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1872885894]
+position = Vector2(19, 73.00001)
+rotation = 1.5806417
+scale = Vector2(0.047985237, 0.04034523)
+texture = ExtResource("11_mjylf")
+
+[node name="LichenBrown01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1062311333]
+position = Vector2(18.000011, 106.00001)
+scale = Vector2(0.16666667, 0.16666667)
+texture = ExtResource("50_2asvv")
+
+[node name="LichenBrown02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=991050113]
+position = Vector2(20.000002, 142)
+scale = Vector2(0.23758866, 0.23758866)
+texture = ExtResource("50_2asvv")
+
+[node name="LichenWide01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2121213667]
+position = Vector2(-10.031963, 71.591225)
+rotation = 1.3051071
+scale = Vector2(-0.16962779, -0.17175175)
+texture = ExtResource("9_n7jlw")
+
+[node name="LichenBrown03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1401447930]
+position = Vector2(22.000008, 159)
+rotation = -0.38903525
+scale = Vector2(0.20212767, 0.20212767)
+texture = ExtResource("50_2asvv")
+
+[node name="LichenBrown04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1557067549]
+position = Vector2(-49.999992, 89.00001)
+rotation = 0.0040326566
+scale = Vector2(0.20212767, 0.20212767)
+texture = ExtResource("50_2asvv")
+
+[node name="LichenWide02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1742254008]
+position = Vector2(-5.0000005, 169.00002)
+rotation = 1.7373875
+scale = Vector2(0.17821069, 0.25252753)
+texture = ExtResource("9_n7jlw")
+
+[node name="LichenVertical01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1119158257]
+position = Vector2(-54, 171)
+rotation = 0.17868549
+scale = Vector2(0.1460177, 0.14601772)
+texture = ExtResource("10_gwiru")
+
+[node name="BushSpiky01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=388412022]
+position = Vector2(-122, 221.00002)
+rotation = 0.32391018
+scale = Vector2(0.41414142, 0.41414142)
+texture = ExtResource("34_dd580")
+
+[node name="LichenWide03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2081810099]
+position = Vector2(-9, 119)
+scale = Vector2(0.267192, 0.24342862)
+texture = ExtResource("9_n7jlw")
+
+[node name="LichenBrown05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=945180257]
+position = Vector2(-48, 123)
+scale = Vector2(0.20921986, 0.20921987)
+texture = ExtResource("50_2asvv")
+
+[node name="LichenBrown06" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=376398952]
+position = Vector2(27.000004, 205.00002)
+rotation = -0.27988377
+scale = Vector2(0.23936169, 0.29901302)
+texture = ExtResource("50_2asvv")
+
+[node name="LichenBrown07" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1013076167]
+position = Vector2(48, 246.99998)
+rotation = -0.27163655
+scale = Vector2(0.27994534, 0.29783925)
+texture = ExtResource("50_2asvv")
+
+[node name="MossStrip02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=722397137]
+position = Vector2(15.796585, 60.001095)
+rotation = 1.565431
+scale = Vector2(0.04666224, 0.08796982)
+texture = ExtResource("11_mjylf")
+
+[node name="LichenWide04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=288713307]
+position = Vector2(-12.463447, 169.03381)
+rotation = -1.7227534
+scale = Vector2(0.23055215, 0.17904924)
+texture = ExtResource("9_n7jlw")
+
+[node name="MossSpot01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=598761673]
+position = Vector2(-45, 182.00002)
+rotation = 0.28541973
+scale = Vector2(0.30392158, 0.30392158)
+texture = ExtResource("51_hi5hf")
+
+[node name="LichenWide05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1947730729]
+position = Vector2(-8.463503, -34.131195)
+rotation = 0.15041849
+scale = Vector2(0.236669, 0.24051896)
+texture = ExtResource("9_n7jlw")
+
+[node name="LichenWide06" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1155058353]
+position = Vector2(-17, 20)
+rotation = 1.5427823
+scale = Vector2(0.23676573, 0.17292042)
+texture = ExtResource("9_n7jlw")
+
+[node name="MossStrip03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1331245176]
+position = Vector2(-44, 12)
+rotation = -1.4904238
+scale = Vector2(0.14355029, 0.14355029)
+texture = ExtResource("11_mjylf")
+
+[node name="MossStrip04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=916923761]
+position = Vector2(20, -36.999996)
+rotation = -1.5658628
+scale = Vector2(0.14355029, 0.14355029)
+texture = ExtResource("11_mjylf")
+
+[node name="MossSpot02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2115269814]
+position = Vector2(3, 35)
+scale = Vector2(0.48039216, 0.4803922)
+texture = ExtResource("51_hi5hf")
+
+[node name="MossSpot03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1042043503]
+position = Vector2(-40, 76.00001)
+rotation = 2.5128758
+scale = Vector2(0.4666754, 0.46667543)
+texture = ExtResource("51_hi5hf")
+
+[node name="LichenWide07" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1674515831]
+position = Vector2(-17.670904, 117)
+rotation = 3.1415927
+scale = Vector2(0.24830137, 0.1981501)
+texture = ExtResource("9_n7jlw")
+
+[node name="MushroomBrown01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=318625257]
+position = Vector2(1148, 162)
+rotation = 0.24401948
+scale = Vector2(0.057046983, 0.05704698)
+texture = ExtResource("52_ybj6v")
+
+[node name="PlantThin04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2036313406]
+position = Vector2(762.25, 227.01314)
+scale = Vector2(0.09539491, 0.09539492)
+texture = ExtResource("42_rlkse")
+
+[node name="MushroomYellow01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2012490502]
+position = Vector2(1554.4839, 278.99683)
+rotation = -0.23134348
+scale = Vector2(0.06444401, 0.06444402)
+texture = ExtResource("53_e26gx")
+
+[node name="MushroomBrown03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1290578193]
+position = Vector2(1436, 318.99997)
+scale = Vector2(0.057046983, 0.05704698)
+texture = ExtResource("52_ybj6v")
+
+[node name="MushroomGreen01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1081989367]
+position = Vector2(2067, 301.00003)
+rotation = 2.9608212
+scale = Vector2(0.065709196, -0.07714286)
+texture = ExtResource("55_mxf0k")
+
+[node name="MushroomGreen02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2009454181]
+position = Vector2(1316.0001, 290.00006)
+rotation = 0.42017382
+scale = Vector2(0.07714286, 0.07714285)
+texture = ExtResource("55_mxf0k")
+
+[node name="MushroomBrown04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=159912714]
+position = Vector2(1441.0001, 316.00003)
+rotation = 0.33723336
+scale = Vector2(0.0704698, 0.0704698)
+texture = ExtResource("52_ybj6v")
+
+[node name="MushroomClusterYellow01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=284535953]
+position = Vector2(2352, 293)
+rotation = 0.18489191
+scale = Vector2(0.05, 0.049999997)
+texture = ExtResource("56_crqgt")
+
+[node name="MushroomYellow04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=982235583]
+position = Vector2(2345.625, 292.361)
+scale = Vector2(0.051056404, 0.05105639)
+texture = ExtResource("54_e26gx")
+
+[node name="MushroomBlue01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=30407282]
+position = Vector2(1145, 165)
+scale = Vector2(0.06842105, 0.06842105)
+texture = ExtResource("53_7icmx")
+
+[node name="PlantThin05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1231583260]
+position = Vector2(-240.00002, 253)
+scale = Vector2(0.14473684, 0.14473686)
+texture = ExtResource("42_rlkse")
+
+[node name="MushroomYellow03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1102533061]
+position = Vector2(1561, 282.00003)
+rotation = -3.1415925
+scale = Vector2(0.07245912, -0.0696696)
+texture = ExtResource("46_jc1m1")
+
+[node name="MushroomBrown05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1187619597]
+position = Vector2(-140.00002, 269)
+rotation = 3.1415927
+scale = Vector2(0.052972715, -0.044775795)
+texture = ExtResource("44_6lly1")
+
+[node name="PlantFern03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=449871186]
+position = Vector2(2471, 248)
+rotation = 3.1415927
+scale = Vector2(0.13951556, -0.1387829)
+texture = ExtResource("3_xce43")
+
+[node name="PlantSpiky03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1614600012]
+position = Vector2(2587, 225)
+scale = Vector2(0.03333318, 0.033333175)
+texture = ExtResource("35_n7eoi")
+
+[node name="PlantFern04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=881645745]
+position = Vector2(2885, 336.99997)
+rotation = 3.1415927
+scale = Vector2(0.08725718, -0.07471299)
+texture = ExtResource("3_xce43")
+
+[node name="PlantThin06" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2117490314]
+position = Vector2(2571, 319)
+scale = Vector2(0.08552632, 0.08552631)
+texture = ExtResource("42_rlkse")
+
+[node name="PlantFern05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=363265514]
+position = Vector2(2856, 224.99998)
+rotation = 3.1415927
+scale = Vector2(0.06316249, -0.111315005)
+texture = ExtResource("3_xce43")
+
+[node name="TileMapLayer" parent="." unique_id=1342644550 instance=ExtResource("2_ed30o")]
+self_modulate = Color(1, 1, 1, 0.49411765)
+tile_map_data = PackedByteArray("AAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAAPAAcAAQAAAAAAAAAQAAcAAQAAAAAAAAARAAcAAQAAAAAAAAASAAcAAQAAAAAAAAATAAcAAQAAAAAAAAAUAAcAAQAAAAAAAAAVAAcAAQAAAAAAAAAWAAcAAQAAAAAAAAAXAAcAAQAAAAAAAAAYAAcAAQAAAAAAAAAZAAcAAQAAAAAAAAAaAAcAAQAAAAAAAAAbAAcAAQAAAAAAAAAcAAcAAQAAAAAAAAAcAAYAAQAAAAAAAAAdAAYAAQAAAAAAAAAeAAYAAQAAAAAAAAAfAAYAAQAAAAAAAAAfAAUAAQAAAAAAAAAgAAUAAQAAAAAAAAAhAAUAAQAAAAAAAAAiAAUAAQAAAAAAAAAjAAQAAQAAAAAAAAAkAAQAAQAAAAAAAAAlAAQAAQAAAAAAAAAjAAUAAQAAAAAAAAAnAAMAAQAAAAAAAAAoAAMAAQAAAAAAAAAoAAQAAQAAAAAAAAAoAAUAAQAAAAAAAAAoAAYAAQAAAAAAAAAoAAcAAQAAAAAAAAAmAAQAAQAAAAAAAAAmAAMAAQAAAAAAAAAoAAgAAQAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAArAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAuAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAwAAgAAQAAAAAAAAAxAAgAAQAAAAAAAAAyAAgAAQAAAAAAAAAzAAgAAQAAAAAAAAA0AAgAAQAAAAAAAAA1AAgAAQAAAAAAAAA2AAgAAQAAAAAAAAA3AAgAAQAAAAAAAAA4AAgAAQAAAAAAAAA5AAgAAQAAAAAAAAA6AAgAAQAAAAAAAAA7AAgAAQAAAAAAAAA8AAgAAQAAAAAAAAA9AAgAAQAAAAAAAAA+AAgAAQAAAAAAAAA/AAgAAQAAAAAAAABAAAgAAQAAAAAAAABBAAgAAQAAAAAAAABCAAgAAQAAAAAAAABDAAgAAQAAAAAAAABEAAgAAQAAAAAAAABFAAgAAQAAAAAAAABGAAgAAQAAAAAAAABHAAgAAQAAAAAAAABIAAgAAQAAAAAAAABJAAgAAQAAAAAAAABKAAgAAQAAAAAAAABKAAcAAQAAAAAAAABLAAcAAQAAAAAAAABLAAgAAQAAAAAAAABMAAgAAQAAAAAAAABNAAgAAQAAAAAAAABOAAkAAQAAAAAAAABPAAkAAQAAAAAAAABNAAkAAQAAAAAAAABPAAoAAQAAAAAAAABQAAoAAQAAAAAAAABRAAoAAQAAAAAAAABSAAoAAQAAAAAAAABTAAoAAQAAAAAAAABUAAoAAQAAAAAAAABVAAoAAQAAAAAAAABWAAoAAQAAAAAAAABXAAoAAQAAAAAAAABYAAoAAQAAAAAAAABZAAoAAQAAAAAAAABQAAcAAQAAAAAAAABRAAcAAQAAAAAAAABUAAcAAQAAAAAAAABVAAcAAQAAAAAAAABZAAcAAQAAAAAAAABaAAcAAQAAAAAAAABaAAoAAQAAAAAAAABbAAoAAQAAAAAAAABcAAoAAQAAAAAAAABdAAoAAQAAAAAAAABeAAoAAQAAAAAAAABeAAkAAQAAAAAAAABeAAgAAQAAAAAAAABeAAcAAQAAAAAAAABfAAcAAQAAAAAAAABgAAcAAQAAAAAAAABgAAgAAQAAAAAAAABgAAkAAQAAAAAAAABgAAoAAQAAAAAAAABgAAsAAQAAAAAAAABgAAwAAQAAAAAAAABgAA0AAQAAAAAAAABgAA4AAQAAAAAAAABgAA8AAQAAAAAAAABgABAAAQAAAAAAAABgABEAAQAAAAAAAABgABIAAQAAAAAAAABfABIAAQAAAAAAAABeABIAAQAAAAAAAAA=")
+
+[node name="BranchWide01" type="Sprite2D" parent="." unique_id=527098112]
+position = Vector2(133.03265, -234.14587)
+rotation = 1.1179405
+scale = Vector2(0.6006447, 0.6006447)
+texture = ExtResource("60_ulv2c")
+
+[node name="BranchThin02" type="Sprite2D" parent="." unique_id=1695108043]
+position = Vector2(-19.967365, -307.14587)
+scale = Vector2(0.44238684, 0.4423868)
+texture = ExtResource("61_e8dgb")
+
+[node name="BranchWide04" type="Sprite2D" parent="." unique_id=582016891]
+position = Vector2(-154.27579, -146.40607)
+rotation = -1.126645
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("62_vcs3c")
+
+[node name="CanopyLarge01" type="Sprite2D" parent="." unique_id=1437370170]
+position = Vector2(-182.96735, -314.14587)
+rotation = 0.16489106
+scale = Vector2(0.47300082, 0.4730008)
+texture = ExtResource("60_1vl5b")
+
+[node name="CanopyMedium01" type="Sprite2D" parent="." unique_id=224768235]
+position = Vector2(-3.9673386, -528.1459)
+rotation = 0.47649407
+scale = Vector2(0.56390387, 0.56390387)
+texture = ExtResource("61_ul6je")
+
+[node name="CanopyMedium03" type="Sprite2D" parent="." unique_id=332267860]
+position = Vector2(194.03267, -422.14587)
+rotation = 0.6245078
+scale = Vector2(0.46618357, 0.46618357)
+texture = ExtResource("62_m3e6n")
+
+[node name="CanopyMedium02" type="Sprite2D" parent="." unique_id=583706090]
+position = Vector2(-70.27575, -145.40607)
+rotation = 0.8197795
+scale = Vector2(0.48491943, 0.48491943)
+texture = ExtResource("66_kyt7w")
+
+[node name="CanopySmall03" type="Sprite2D" parent="." unique_id=170317107]
+position = Vector2(267.03265, -239.14587)
+scale = Vector2(0.32666102, 0.32666102)
+texture = ExtResource("67_q1p1y")
+
+[node name="CanopySmall01" type="Sprite2D" parent="." unique_id=275980060]
+position = Vector2(119.03265, -199.14587)
+rotation = 2.477866
+scale = Vector2(0.5846792, 0.5846792)
+texture = ExtResource("68_0y0w7")

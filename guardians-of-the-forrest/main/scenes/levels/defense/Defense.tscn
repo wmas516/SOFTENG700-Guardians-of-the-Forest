@@ -9,6 +9,36 @@
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="6_nn2o5"]
 [ext_resource type="Script" uid="uid://8af6ifjc83pk" path="res://main/scripts/src/main/defense/Tree.gd" id="6_vbpy5"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_e18um"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_1n74u"]
+[ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="10_sx28c"]
+[ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="10_xkn8c"]
+[ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_a68iq"]
+[ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_3sbh2"]
+[ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_501nx"]
+
+[sub_resource type="Resource" id="Resource_1n74u"]
+script = ExtResource("2_e18um")
+normal = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_a68iq"]
+script = ExtResource("2_e18um")
+normal = 2
+elite = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_xkn8c"]
+script = ExtResource("2_e18um")
+elite = 1
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_3sbh2"]
+script = ExtResource("2_e18um")
+normal = 3
+elite = 2
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Resource" id="Resource_1n74u"]
 script = ExtResource("2_e18um")
@@ -101,6 +131,11 @@ collision_mask = 4
 script = ExtResource("8_e18um")
 dest = NodePath("../BackgroundGrass/Tree3")
 damageTimer = NodePath("DamageTimer")
+
+[node name="EatPlayer" type="AudioStreamPlayer" parent="Enemy" unique_id=969975751]
+stream = ExtResource("10_sx28c")
+volume_db = 1.0
+bus = &"SFX"
 
 [node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1082693588]
 
@@ -243,6 +278,11 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 text = "67"
 
+[node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_1n74u")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1784878928]
 visible = false
 layout_mode = 0
@@ -262,6 +302,25 @@ horizontal_alignment = 1
 [node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=384352501]
 layout_mode = 2
 text = "Return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=262987383]
+stream = ExtResource("11_a68iq")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="SpawnPlayer" type="AudioStreamPlayer" parent="." unique_id=376136778]
+stream = ExtResource("10_xkn8c")
+bus = &"SFX"
+
+[node name="DeathPlayer" type="AudioStreamPlayer" parent="." unique_id=1396931562]
+stream = ExtResource("13_3sbh2")
+bus = &"SFX"
+
+[node name="DamageEnemyPlayer" type="AudioStreamPlayer" parent="." unique_id=78109663]
+stream = ExtResource("14_501nx")
+volume_db = 10.551
+bus = &"SFX"
 
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

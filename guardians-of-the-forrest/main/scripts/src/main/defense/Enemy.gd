@@ -7,6 +7,10 @@ const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "e8b409", 3: "d28200"}
 @onready var rangeRay: RayCast2D = $RayCast2D
 @onready var sprite: Sprite2D = $Sprite2D
 
+@onready var deathSoundPlayer: AudioStreamPlayer = $"../DeathPlayer"
+@onready var damageEnemySoundPlayer: AudioStreamPlayer = $"../DamageEnemyPlayer"
+@onready var earSoundPlayer: AudioStreamPlayer = $EatPlayer
+
 @export var enabled = false
 
 @export var dest: CollisionObject2D;
@@ -64,9 +68,10 @@ func damage():
 	velocity =  speed * -global_position.direction_to(destPos)
 		
 	if (health <= 0):
+		deathSoundPlayer.play()
 		queue_free()
 		return
-	
+	damageEnemySoundPlayer.play()
 	setColor()
 	
 
@@ -116,6 +121,7 @@ func damageTargets(damaged):
 			if (damageTimer):
 				if (damageTimer.is_stopped()):
 					damageTimer.start()
+					earSoundPlayer.play()
 				elif (timerOver):
 					target.damage()
 					damage()

@@ -19,6 +19,8 @@ var level_complete: bool = false
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
 
+@onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#enemy.setEnabled(true)
@@ -70,6 +72,7 @@ func spawn():
 			_on_enemy_tree_exited(newEnemy)
 		)
 		enemies.append(newEnemy)
+		spawnAudioPlayer.play()
 		#print("[Enemy Spawned]:")
 		#enemyLog()
 
