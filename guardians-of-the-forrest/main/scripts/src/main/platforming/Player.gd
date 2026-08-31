@@ -89,12 +89,15 @@ func update_animation(direction):
 		return
 	
 	if not is_on_floor():
-		if velocity.y < -25:
-			animated_sprite.play("jump-up")
-		elif -25 < velocity.y and velocity.y < 25:
-			animated_sprite.play("jump-top")
-		else:
-			animated_sprite.play("jump-down")
+		if velocity.y < -25: 
+			if animated_sprite.animation != "jump-up":
+				animated_sprite.play("jump-up")
+		elif -25 <= velocity.y and velocity.y < 25: 
+			if animated_sprite.animation != "jump-top":
+				animated_sprite.play("jump-top")
+		else: 
+			if animated_sprite.animation != "jump-down":
+				animated_sprite.play("jump-down")
 		return
 		
 	if direction == 0:
