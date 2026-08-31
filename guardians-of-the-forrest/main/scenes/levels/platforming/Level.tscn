@@ -3494,3 +3494,4 @@ grow_horizontal = 0
 stream = ExtResource("80_6w1ea")
 autoplay = true
 bus = &"Music"
+
