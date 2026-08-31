@@ -32,11 +32,6 @@ func go_to_tree_trim(_source: Interactable) -> void:
 	PlayerData.save_platforming_position(player.global_position)
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/TreeTrim.tscn")
 
-func go_to_boss(_source: Interactable) -> void:
-	print("Go to tree trim")
-	PlayerData.save_platforming_position(player.global_position)
-	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
-
 
 func heal_tree(source: Interactable) -> void:
 	var sprite: Sprite2D = source.find_child("Sprite2D")

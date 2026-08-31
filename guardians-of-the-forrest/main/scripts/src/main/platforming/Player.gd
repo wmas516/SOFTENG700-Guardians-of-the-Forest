@@ -16,11 +16,6 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_indicator: MeshInstance2D = $MeshInstance2D
 
-@onready var dash_audio_player: AudioStreamPlayer = $DashSound
-@onready var step_audio_player: AudioStreamPlayer = $FootstepSound
-@onready var jump_audio_player: AudioStreamPlayer = $JumpSound
-@onready var damage_audio_player: AudioStreamPlayer = $DamageSound
-
 var active: bool = true
 var direction: int = 0
 var health: int = 100
@@ -46,7 +41,6 @@ func _physics_process(delta: float) -> void:
 	if active:
 		if Input.is_action_just_pressed("Up") && is_on_floor():
 			velocity.y = -jump_force
-			jump_audio_player.play()
 		
 		if Input.is_action_just_pressed("Damage") && can_dash:
 			start_dash()
@@ -77,7 +71,6 @@ func take_damage(collision: KinematicCollision2D) -> void:
 	apply_knockback(collision.get_normal())
 	start_invincibility(1)
 	animated_sprite.play("hurt")
-	damage_audio_player.play()
 	await animated_sprite.animation_finished
 	is_hurt = false
 
@@ -101,8 +94,6 @@ func update_animation(direction):
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
-		if (animated_sprite.frame == 0 or animated_sprite.frame == 3 or animated_sprite.frame == 7):
-			step_audio_player.play()
 
 func check_landing() -> void:
 	if not was_on_floor and is_on_floor() and not is_landing:
@@ -128,7 +119,6 @@ func start_dash() -> void:
 	dashing = true
 	can_dash = false
 	dash_indicator.visible = false
-	dash_audio_player.play()
 	
 	var dash_direction := -1 if animated_sprite.flip_h else 1
 	velocity.x = dash_direction * dash_force

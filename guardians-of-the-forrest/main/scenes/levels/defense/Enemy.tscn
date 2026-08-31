@@ -9,15 +9,12 @@ height = 1046.0
 [node name="Enemy" type="CharacterBody2D" unique_id=959500786]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907736169]
-position = Vector2(1, 4)
 texture = ExtResource("1_57y6x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
-visible = false
 position = Vector2(20, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ya4xx")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=2125186630]
-visible = false
 target_position = Vector2(590, 0)

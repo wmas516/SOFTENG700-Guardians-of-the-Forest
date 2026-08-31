@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var waveEnemies: Array[Wave] = [Wave.new(1,1,1),Wave.new(2,1,0),Wave.new(0,0,2),Wave.new(3,2,1)]
+@export var waveEnemies = [1,2,4,6]
 @export var wave = 0
 @export var aliveEnemies = 0
 @export var enemy: CharacterBody2D
@@ -18,8 +18,6 @@ var level_complete: bool = false
 @onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
-
-@onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,7 +44,7 @@ func _on_spawn_timer_timeout() -> void:
 func nextWave():
 	spawnTimer.start()
 	if (wave < waveEnemies.size()):
-		aliveEnemies = waveEnemies[wave].total()
+		aliveEnemies = waveEnemies[wave]
 		wave = wave + 1
 		enemyLabel.text = str(aliveEnemies)
 		#print("[New Wave]:\n - Wave: ",wave)
@@ -61,7 +59,6 @@ func spawn():
 	if level_complete:
 		return
 	if (enemy):
-		enemy.type = waveEnemies[wave-1].getRandEnemyBossLast()
 		var newEnemy = enemy.duplicate()
 		var spawnPoint = randomSpawn()
 		add_child(newEnemy)
@@ -72,7 +69,6 @@ func spawn():
 			_on_enemy_tree_exited(newEnemy)
 		)
 		enemies.append(newEnemy)
-		spawnAudioPlayer.play()
 		#print("[Enemy Spawned]:")
 		#enemyLog()
 
