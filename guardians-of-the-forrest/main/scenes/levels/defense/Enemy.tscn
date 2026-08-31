@@ -1,20 +1,125 @@
 [gd_scene format=3 uid="uid://bplrvtsqqw2rr"]
 
-[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="1_57y6x"]
+[ext_resource type="Texture2D" uid="uid://b54fvae1tfxy2" path="res://resources/sprites/final/myrtle rust-bite.png" id="1_57y6x"]
+[ext_resource type="Texture2D" uid="uid://cy07mlq0jt0md" path="res://resources/sprites/final/myrtle rust-hurt.png" id="2_ya4xx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57y6x"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wyv7"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(1024, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqi5i"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x020w"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr43t"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(512, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u65s6"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(768, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwulw"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(1024, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv4n8"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(0, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43diw"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(256, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21tyj"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(512, 1024, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6kf7"]
+atlas = ExtResource("2_ya4xx")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya4xx"]
+atlas = ExtResource("1_57y6x")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgdpc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57y6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wyv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqi5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x020w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr43t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u65s6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwulw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv4n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43diw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21tyj")
+}],
+"loop": false,
+"name": &"bite",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6kf7")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ya4xx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ya4xx"]
 radius = 414.0
-height = 1046.0
+height = 926.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=959500786]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=907736169]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1367841391]
 position = Vector2(1, 4)
-texture = ExtResource("1_57y6x")
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_jgdpc")
+animation = &"idle"
+frame_progress = 0.6376259
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
-visible = false
-position = Vector2(20, 6)
+position = Vector2(31, 6)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_ya4xx")
 

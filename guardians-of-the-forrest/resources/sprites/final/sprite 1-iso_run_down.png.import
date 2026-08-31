@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bc1jsnvyoa74x"
-path="res://.godot/imported/Bir-Spirit-fly.png-0b1127689f6c93a756ecb34dafe9064c.ctex"
+uid="uid://djq1p1kwyv00a"
+path="res://.godot/imported/sprite 1-iso_run_down.png-ca98ac4f7481baf4ebf73813189abb33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/final/Bir-Spirit-fly.png"
-dest_files=["res://.godot/imported/Bir-Spirit-fly.png-0b1127689f6c93a756ecb34dafe9064c.ctex"]
+source_file="res://resources/sprites/final/sprite 1-iso_run_down.png"
+dest_files=["res://.godot/imported/sprite 1-iso_run_down.png-ca98ac4f7481baf4ebf73813189abb33.ctex"]
 
 [params]
 

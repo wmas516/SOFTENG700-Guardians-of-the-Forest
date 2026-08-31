@@ -130,14 +130,6 @@ region = Rect2(921, 1228, 307, 307)
 atlas = ExtResource("5_xk8t1")
 region = Rect2(1228, 1228, 307, 307)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vysk2"]
-atlas = ExtResource("5_xk8t1")
-region = Rect2(0, 614, 307, 307)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d42lm"]
-atlas = ExtResource("5_xk8t1")
-region = Rect2(307, 614, 307, 307)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_58jkk"]
 atlas = ExtResource("5_xk8t1")
 region = Rect2(614, 614, 307, 307)
@@ -405,12 +397,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vysk2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d42lm")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_58jkk")
 }],
 "loop": false,
@@ -562,7 +548,7 @@ dash_force = 800
 position = Vector2(0, 5)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_3vyb7")
-animation = &"idle"
+animation = &"jump-down"
 
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=2079283681]
 position = Vector2(-1, 6.5)

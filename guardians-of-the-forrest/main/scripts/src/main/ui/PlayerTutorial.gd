@@ -63,7 +63,7 @@ func update_animation(direction):
 	if direction == 0:
 		animated_sprite.play("idle")
 	else:
-		animated_sprite.play("run")
+		animated_sprite.play("run-side")
 		if (direction == -1):
 			animated_sprite.flip_h = (true)
 		else:

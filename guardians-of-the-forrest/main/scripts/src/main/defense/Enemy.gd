@@ -5,7 +5,7 @@ const HEALTHMAP: Dictionary = {EnemyType.NORMAL: 1, EnemyType.ELITE: 2, EnemyTyp
 const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "e8b409", 3: "d28200"}
 
 @onready var rangeRay: RayCast2D = $RayCast2D
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D
 
 @onready var deathSoundPlayer: AudioStreamPlayer = $"../DeathPlayer"
 @onready var damageEnemySoundPlayer: AudioStreamPlayer = $"../DamageEnemyPlayer"
@@ -44,15 +44,16 @@ func _physics_process(delta: float) -> void:
 		
 		damageTargets(damaged)
 		if (destPos):
-			#moveTowardTarget(targetPos)
 			if (damageTimer && !damageTimer.is_stopped()):
 				velocity = Vector2(0, 0)
 				pass
 			else:
 				var direction = global_position.direction_to(destPos)
-				if (0 > velocity.normalized().dot(direction)):
+				if (velocity.normalized().dot(direction) < 0):
 					velocity += direction * (speed/100)
+					sprite.play("hurt")
 				else:
+					sprite.play("idle")
 					velocity = speed * direction
 					rotation = direction.angle()
 					if (direction.x < 0):
@@ -66,7 +67,6 @@ func _physics_process(delta: float) -> void:
 func damage():
 	health -= 1
 	velocity =  speed * -global_position.direction_to(destPos)
-		
 	if (health <= 0):
 		deathSoundPlayer.play()
 		queue_free()
@@ -122,6 +122,7 @@ func damageTargets(damaged):
 				if (damageTimer.is_stopped()):
 					damageTimer.start()
 					earSoundPlayer.play()
+					sprite.play("bite")
 				elif (timerOver):
 					target.damage()
 					damage()
@@ -135,9 +136,6 @@ func setEnabled(enable):
 	enabled = enable
 	visible = enable
 	return
-
-func moveTowardTarget(pos):
-	global_position.direction_to(pos)
 
 func setColor():
 	sprite.self_modulate = Color(HEALTHCOLORS.get(health))

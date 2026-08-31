@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q0yhgk45b370"
-path="res://.godot/imported/Bir-Spirit-land-take-off.png-f73da35082db2f01524c51ffcc1da494.ctex"
+uid="uid://boho25wuvmhix"
+path="res://.godot/imported/sprite 1-iso_run_up.png-238e03df538cba2f51372395e6903eeb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/final/Bir-Spirit-land-take-off.png"
-dest_files=["res://.godot/imported/Bir-Spirit-land-take-off.png-f73da35082db2f01524c51ffcc1da494.ctex"]
+source_file="res://resources/sprites/final/sprite 1-iso_run_up.png"
+dest_files=["res://.godot/imported/sprite 1-iso_run_up.png-238e03df538cba2f51372395e6903eeb.ctex"]
 
 [params]
 

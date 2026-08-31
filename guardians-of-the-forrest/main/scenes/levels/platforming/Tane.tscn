@@ -302,4 +302,4 @@ animations = [{
 [node name="Tane" type="AnimatedSprite2D" unique_id=469579878]
 sprite_frames = SubResource("SpriteFrames_ciwxk")
 animation = &"takeoff"
-frame_progress = 0.15653086
+frame_progress = 0.7521652
