@@ -1,22 +1,37 @@
 extends CharacterBody2D
+class_name DefenceEnemy
+enum EnemyType {NORMAL, ELITE, BOSS}
+const HEALTHMAP: Dictionary = {EnemyType.NORMAL: 1, EnemyType.ELITE: 2, EnemyType.BOSS: 3}
+const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "e8b409", 3: "d28200"}
 
 @onready var rangeRay: RayCast2D = $RayCast2D
 @onready var sprite: Sprite2D = $Sprite2D
+
+@onready var deathSoundPlayer: AudioStreamPlayer = $"../DeathPlayer"
+@onready var damageEnemySoundPlayer: AudioStreamPlayer = $"../DamageEnemyPlayer"
+@onready var earSoundPlayer: AudioStreamPlayer = $EatPlayer
 
 @export var enabled = false
 
 @export var dest: CollisionObject2D;
 
+@export var type: EnemyType = EnemyType.NORMAL;
+
 @export var damageTimer: Timer
-@export var speed = 0.002
+@export var speed = 100.0
+
 var timerOver = false
 var destPos
+var health = 1
+var color = HEALTHCOLORS.get(health)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rangeRay.collision_mask = self.collision_mask
 	if (dest):
 		destPos = dest.global_position
+	health = HEALTHMAP.get(type)
+	setColor()
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,10 +50,13 @@ func _physics_process(delta: float) -> void:
 				pass
 			else:
 				var direction = global_position.direction_to(destPos)
-				velocity = speed * direction
-				rotation = direction.angle()
-				if (direction.x < 0):
-					sprite.flip_v = true
+				if (0 > velocity.normalized().dot(direction)):
+					velocity += direction * (speed/100)
+				else:
+					velocity = speed * direction
+					rotation = direction.angle()
+					if (direction.x < 0):
+						sprite.flip_v = true
 				
 			
 		move_and_slide()
@@ -46,7 +64,16 @@ func _physics_process(delta: float) -> void:
 	return
 
 func damage():
-	queue_free()
+	health -= 1
+	velocity =  speed * -global_position.direction_to(destPos)
+		
+	if (health <= 0):
+		deathSoundPlayer.play()
+		queue_free()
+		return
+	damageEnemySoundPlayer.play()
+	setColor()
+	
 
 func getTargetsInRange() -> Array[Node]:
 	var collisions: Array[Node] = []
@@ -94,6 +121,7 @@ func damageTargets(damaged):
 			if (damageTimer):
 				if (damageTimer.is_stopped()):
 					damageTimer.start()
+					earSoundPlayer.play()
 				elif (timerOver):
 					target.damage()
 					damage()
@@ -110,3 +138,7 @@ func setEnabled(enable):
 
 func moveTowardTarget(pos):
 	global_position.direction_to(pos)
+
+func setColor():
+	sprite.self_modulate = Color(HEALTHCOLORS.get(health))
+	return
