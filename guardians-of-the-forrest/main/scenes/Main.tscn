@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ce43sj3nptq1q" path="res://main/scenes/backgrounds/Background3.tscn" id="1_5ytih"]
 [ext_resource type="Script" uid="uid://qtmrgmcmpoj" path="res://main/scripts/src/main/Main.gd" id="1_gbeq6"]
 [ext_resource type="Texture2D" uid="uid://bl66ysmcy7qc3" path="res://resources/Title.png" id="2_yqtmx"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="4_ctmia"]
+[ext_resource type="AudioStream" uid="uid://j0vqysxlmo3n" path="res://resources/audio/intro.mp3" id="4_mdq7u"]
 
 [node name="Main" type="Node" unique_id=1114285395]
 script = ExtResource("1_gbeq6")
@@ -14,11 +16,41 @@ position = Vector2(578, 195)
 scale = Vector2(0.44, 0.44)
 texture = ExtResource("2_yqtmx")
 
-[node name="Button" type="Button" parent="." unique_id=1013913491]
-offset_left = 510.0
-offset_top = 361.0
-offset_right = 628.0
-offset_bottom = 429.0
+[node name="Control" type="Control" parent="." unique_id=1605208322]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1112.0
+offset_bottom = -608.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1165981289]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.775002
+anchor_bottom = 16.2
+offset_right = 1.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VolumeMenu" parent="Control/MarginContainer" unique_id=1882963629 instance=ExtResource("4_ctmia")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="Control/MarginContainer" unique_id=1013913491]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Start"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=951489767]
+stream = ExtResource("4_mdq7u")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="Control/MarginContainer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dc732d7xk1lce"]
+
+[ext_resource type="Script" uid="uid://c6epourbohg8o" path="res://main/scripts/src/main/ui/Audio/VolumeMenu.gd" id="1_o3wi1"]
+[ext_resource type="Script" uid="uid://b3t1s6tlxt0bl" path="res://main/scripts/src/main/ui/Audio/AudioOptions.gd" id="2_5tljd"]
+[ext_resource type="Texture2D" uid="uid://cdudoafcmob2r" path="res://resources/icons/audio icon.png" id="3_b6vh5"]
+
+[node name="VolumeMenu" type="Control" unique_id=1882963629]
+custom_minimum_size = Vector2(220, 120)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_o3wi1")
+
+[node name="AudioOptions" type="Control" parent="." unique_id=1467964340]
+custom_minimum_size = Vector2(220, 120)
+layout_mode = 1
+anchor_right = 0.93600005
+anchor_bottom = 0.94100004
+offset_right = -0.01600647
+offset_bottom = -0.03201294
+script = ExtResource("2_5tljd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AudioOptions" unique_id=1336837184]
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 120.0
+
+[node name="MasterLabel" type="Label" parent="AudioOptions/VBoxContainer" unique_id=1686235288]
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="AudioOptions/VBoxContainer" unique_id=230982844]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="MusicLabel" type="Label" parent="AudioOptions/VBoxContainer" unique_id=1151998310]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="AudioOptions/VBoxContainer" unique_id=1602000591]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="SFXLabel" type="Label" parent="AudioOptions/VBoxContainer" unique_id=985727092]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="AudioOptions/VBoxContainer" unique_id=104746003]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="AudioToggle" type="TextureButton" parent="." unique_id=1841948012]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_top = 3.0
+offset_right = 3.0
+offset_bottom = 29.0
+grow_horizontal = 0
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("3_b6vh5")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="drag_ended" from="AudioOptions/VBoxContainer/MasterSlider" to="AudioOptions" method="_on_master_slider_drag_ended"]
+[connection signal="drag_ended" from="AudioOptions/VBoxContainer/MusicSlider" to="AudioOptions" method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="AudioOptions/VBoxContainer/SFXSlider" to="AudioOptions" method="_on_sfx_slider_drag_ended"]
+[connection signal="pressed" from="AudioToggle" to="." method="_on_audio_toggle_pressed"]
