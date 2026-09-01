@@ -4,6 +4,7 @@ extends Node2D
 @export var wave = 0
 @export var aliveEnemies = 0
 @export var enemy: CharacterBody2D
+@export var bossEnemy: CharacterBody2D
 @export var spawnTimer: Timer
 
 var enemies: Array[Node] = []
@@ -62,7 +63,12 @@ func spawn():
 		return
 	if (enemy):
 		enemy.type = waveEnemies[wave-1].getRandEnemyBossLast()
-		var newEnemy = enemy.duplicate()
+		var newEnemy
+		if (enemy.type == DefenceEnemy.EnemyType.BOSS && bossEnemy):
+			bossEnemy.type = DefenceEnemy.EnemyType.BOSS
+			newEnemy = bossEnemy.duplicate()
+		else:
+			newEnemy = enemy.duplicate()
 		var spawnPoint = randomSpawn()
 		add_child(newEnemy)
 		newEnemy.global_position = spawnPoint
