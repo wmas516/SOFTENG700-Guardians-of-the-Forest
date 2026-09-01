@@ -11,6 +11,10 @@ class_name PlayerDef
 @onready var attacking: bool = false
 @onready var damaged: bool = false
 
+@onready var blastSoundPlayer: AudioStreamPlayer = $BlastSound
+@onready var hurtSoundPlayer: AudioStreamPlayer = $DamageSound
+@onready var stepSoundPlayer: AudioStreamPlayer = $FootstepSound
+
 func _ready() -> void:
 	position = Vector2(560.0,375.0)
 	rangeRay.collision_mask = self.collision_mask
@@ -41,6 +45,7 @@ func _physics_process(delta: float) -> void:
 	elif(Input.is_action_just_pressed("Damage") && !attacking):
 		attackTimer.start()
 		attacking = true
+		blastSoundPlayer.play()
 		var damaged = getTargetsInRange()
 
 		for target in damaged:
@@ -84,9 +89,16 @@ func update_animation(x, y):
 				animated_sprite.play("blast-up")	
 		else:
 			animated_sprite.play("blast-side")
+		return
 	elif (damaged):
+		if (!hurtSoundPlayer.playing):
+			hurtSoundPlayer.play()
 		animated_sprite.play("hurt")
-	elif (x && y):
+		return
+	if (animated_sprite.get_frame() % 3 == 0):
+		stepSoundPlayer.play()
+	
+	if (x && y):
 		if y < 0:
 			animated_sprite.play("run-diag-top")
 		if y > 0:
