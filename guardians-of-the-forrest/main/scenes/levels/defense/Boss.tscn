@@ -38,7 +38,6 @@ metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Resource" id="Resource_2vs1w"]
 script = ExtResource("2_qmd71")
-boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Curve2D" id="Curve2D_c0r40"]
