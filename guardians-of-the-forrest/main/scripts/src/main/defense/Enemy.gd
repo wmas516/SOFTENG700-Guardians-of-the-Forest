@@ -9,7 +9,7 @@ const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "e8b409", 3: "d28200"}
 
 @onready var deathSoundPlayer: AudioStreamPlayer = $"../DeathPlayer"
 @onready var damageEnemySoundPlayer: AudioStreamPlayer = $"../DamageEnemyPlayer"
-@onready var earSoundPlayer: AudioStreamPlayer = $EatPlayer
+@onready var eatSoundPlayer: AudioStreamPlayer = $EatPlayer
 
 @export var enabled = false
 
@@ -42,23 +42,27 @@ func _physics_process(delta: float) -> void:
 	if (enabled):
 		var damaged = getTargetsInRange()
 		
-		damageTargets(damaged)
+		var hit = damageTargets(damaged)
+		if (dest):
+			destPos = dest.global_position
+			
 		if (destPos):
-			if (damageTimer && !damageTimer.is_stopped()):
+			var direction = global_position.direction_to(destPos)
+			if (velocity.normalized().dot(direction) < 0):
+				velocity += direction * (speed/100)
+				sprite.play("hurt")
+			elif (hit):
 				velocity = Vector2(0, 0)
-				pass
+				move_and_slide()
+				return
 			else:
-				var direction = global_position.direction_to(destPos)
-				if (velocity.normalized().dot(direction) < 0):
-					velocity += direction * (speed/100)
-					sprite.play("hurt")
-				else:
-					sprite.play("idle")
-					velocity = speed * direction
-					rotation = direction.angle()
-					if (direction.x < 0):
-						sprite.flip_v = true
-				
+				sprite.play("idle")
+				velocity = speed * direction
+				rotation = direction.angle()
+				sprite.flip_v = direction.x < 0
+				sprite.flip_h = false
+			damageTimer.stop()
+			eatSoundPlayer.stop()
 			
 		move_and_slide()
 		
@@ -113,21 +117,27 @@ func getTargetableParent(collider: Node) -> Node:
 	print("valid parent not found")
 	return null
 
-func damageTargets(damaged):
+func damageTargets(damaged) -> bool:
+	var hit: bool = false
+	
 	for target in damaged:
 		if (target 
-		&& target.is_in_group("Tree") 
+		&& target.is_in_group("Target")
 		&& target.has_method("damage")):
+			hit = true
 			if (damageTimer):
 				if (damageTimer.is_stopped()):
 					damageTimer.start()
-					earSoundPlayer.play()
+					eatSoundPlayer.play()
 					sprite.play("bite")
 				elif (timerOver):
 					target.damage()
+					health = 0
 					damage()
 			else:
 				target.damage()
+	
+	return hit
 
 func _on_damage_timer_timeout() -> void:
 	timerOver = true
