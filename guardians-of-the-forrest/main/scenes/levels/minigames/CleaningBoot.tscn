@@ -1,31 +1,39 @@
 [gd_scene format=3 uid="uid://bq0xx0f2ne41i"]
 
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
-[ext_resource type="Texture2D" uid="uid://dpdktiyis885c" path="res://resources/backgrounds/Level4.png" id="1_jdw5w"]
-[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="3_gy606"]
-[ext_resource type="Texture2D" uid="uid://dty80mflvv0fc" path="res://resources/props/shoe.png" id="4_v40sw"]
+[ext_resource type="Texture2D" uid="uid://cgf4w3vcrxsdu" path="res://resources/backgrounds/ShoeClean.png" id="2_hyicb"]
+[ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="5_iwasc"]
+[ext_resource type="Texture2D" uid="uid://cmhak7pmtshlr" path="res://resources/props/shoeDirty.png" id="6_uvyfl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyicb"]
 bg_color = Color(0, 0, 0, 0.55)
 
-[sub_resource type="GDScript" id="GDScript_gy606"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyicb"]
+radius = 94.0
+height = 348.0
 
 [node name="CleaningBoot" type="Node2D" unique_id=965748908 node_paths=PackedStringArray("sprites")]
 script = ExtResource("1_gy606")
-sprites = [NodePath("Sprite2D"), NodePath("Sprite2D2"), NodePath("Sprite2D3"), NodePath("Sprite2D4"), NodePath("Sprite2D5"), NodePath("Sprite2D6")]
+sprites = [NodePath("BootRight/Dirty"), NodePath("BootLeft/Dirty")]
+cleaningRate = 0.002
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1618740350]
 z_index = -2
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("1_jdw5w")
-expand_mode = 2
+offset_left = 2.0
+offset_top = -76.0
+offset_right = 1276.0706
+offset_bottom = 731.0
+texture = ExtResource("2_hyicb")
+expand_mode = 3
+stretch_mode = 4
 
 [node name="HUD" type="Control" parent="." unique_id=1332782465]
+z_index = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=244367267]
 layout_mode = 0
@@ -61,7 +69,7 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
-text = "Spots Left to Clean: "
+text = "Boots Left to Clean: "
 
 [node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=882530717]
 layout_mode = 2
@@ -94,53 +102,47 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Return"
 
-[node name="Shoe" type="Sprite2D" parent="." unique_id=1258363042]
-z_index = -1
-position = Vector2(340, 320)
-rotation = -1.5707964
-texture = ExtResource("4_v40sw")
+[node name="BootRight" type="Sprite2D" parent="." unique_id=1775772366]
+position = Vector2(556, 282)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("5_iwasc")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2013017918]
-position = Vector2(303, 192)
-scale = Vector2(0.052873563, 0.060237985)
-texture = ExtResource("3_gy606")
-script = SubResource("GDScript_gy606")
+[node name="Dirty" type="Sprite2D" parent="BootRight" unique_id=652922604]
+position = Vector2(96.09668, 164.51611)
+rotation = -0.008726647
+scale = Vector2(0.84407467, 0.75197285)
+texture = ExtResource("6_uvyfl")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1699567667]
-position = Vector2(384, 281)
-scale = Vector2(0.052873563, 0.060237985)
-texture = ExtResource("3_gy606")
-script = SubResource("GDScript_gy606")
+[node name="BootLeft" type="Sprite2D" parent="." unique_id=2054885887]
+visible = false
+position = Vector2(556, 282)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("5_iwasc")
+flip_h = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=2123999987]
-position = Vector2(329, 447)
-scale = Vector2(0.052873563, 0.060237985)
-texture = ExtResource("3_gy606")
-script = SubResource("GDScript_gy606")
+[node name="Dirty" type="Sprite2D" parent="BootLeft" unique_id=1588695392]
+visible = false
+position = Vector2(-87.12012, 169.70972)
+rotation = 0.026179941
+scale = Vector2(0.82633173, 0.7432603)
+texture = ExtResource("6_uvyfl")
+flip_h = true
 
-[node name="Shoe2" type="Sprite2D" parent="." unique_id=1399124704]
-z_index = -1
-position = Vector2(808, 324)
-rotation = -1.5707964
-texture = ExtResource("4_v40sw")
-flip_v = true
+[node name="Right" type="StaticBody2D" parent="." unique_id=1907206513]
+visible = false
+position = Vector2(657, 349)
+input_pickable = true
 
-[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=134418159]
-position = Vector2(806, 156)
-scale = Vector2(0.052873563, 0.060237985)
-texture = ExtResource("3_gy606")
-script = SubResource("GDScript_gy606")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=511701918]
+shape = SubResource("CapsuleShape2D_hyicb")
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1472434478]
-position = Vector2(836, 294)
-scale = Vector2(0.052873563, 0.060237985)
-texture = ExtResource("3_gy606")
-script = SubResource("GDScript_gy606")
+[node name="Left" type="StaticBody2D" parent="." unique_id=641744346]
+position = Vector2(454, 347)
+input_pickable = true
 
-[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=1518245265]
-position = Vector2(813.00006, 481)
-scale = Vector2(0.052873563, 0.060237985)
-texture = ExtResource("3_gy606")
-script = SubResource("GDScript_gy606")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1215101745]
+shape = SubResource("CapsuleShape2D_hyicb")
 
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="input_event" from="Right" to="." method="_on_shoe_input_event"]
+[connection signal="input_event" from="Left" to="." method="_on_shoe_input_event"]
