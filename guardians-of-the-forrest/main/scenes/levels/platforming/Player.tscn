@@ -556,6 +556,7 @@ position = Vector2(-1, 6.5)
 shape = SubResource("RectangleShape2D_ifepu")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1614575538 groups=["Player"]]
+position = Vector2(0, -50)
 zoom = Vector2(2.26, 2.26)
 limit_smoothed = true
 
