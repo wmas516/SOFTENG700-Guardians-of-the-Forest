@@ -72,7 +72,8 @@ func damage():
 	health -= 1
 	velocity =  speed * -global_position.direction_to(destPos)
 	if (health <= 0):
-		deathSoundPlayer.play()
+		if (!timerOver):
+			deathSoundPlayer.play()
 		queue_free()
 		return
 	damageEnemySoundPlayer.play()
