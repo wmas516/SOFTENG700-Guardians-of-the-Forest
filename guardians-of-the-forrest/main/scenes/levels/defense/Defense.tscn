@@ -21,7 +21,7 @@ script = ExtResource("2_e18um")
 normal = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
-[sub_resource type="Resource" id="Resource_xkn8c"]
+[sub_resource type="Resource" id="Resource_sx28c"]
 script = ExtResource("2_e18um")
 elite = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
@@ -61,7 +61,7 @@ bg_color = Color(0, 0, 0, 0.55)
 
 [node name="Defense" type="Node2D" unique_id=1123565302 node_paths=PackedStringArray("enemy", "spawnTimer")]
 script = ExtResource("1_1n74u")
-waveEnemies = [SubResource("Resource_1n74u"), SubResource("Resource_xkn8c"), SubResource("Resource_a68iq"), SubResource("Resource_3sbh2")]
+waveEnemies = [SubResource("Resource_1n74u"), SubResource("Resource_sx28c"), SubResource("Resource_a68iq"), SubResource("Resource_3sbh2")]
 enemy = NodePath("Enemy")
 spawnTimer = NodePath("SpawnTimer")
 

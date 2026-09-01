@@ -548,7 +548,8 @@ dash_force = 800
 position = Vector2(0, 5)
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_3vyb7")
-animation = &"jump-down"
+animation = &"jump"
+frame = 12
 
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=2079283681]
 position = Vector2(-1, 6.5)
