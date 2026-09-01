@@ -268,7 +268,7 @@ speed = 200
 jump_force = 300
 
 [node name="Enemy" parent="." unique_id=441802430 instance=ExtResource("11_7dyxv")]
-position = Vector2(3339, 211.99998)
+position = Vector2(3326, 216.99998)
 scale = Vector2(0.355, 0.355)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1160032567]
