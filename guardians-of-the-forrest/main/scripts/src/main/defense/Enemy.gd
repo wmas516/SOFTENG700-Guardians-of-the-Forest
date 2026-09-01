@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name DefenceEnemy
 enum EnemyType {NORMAL, ELITE, BOSS}
 const HEALTHMAP: Dictionary = {EnemyType.NORMAL: 1, EnemyType.ELITE: 2, EnemyType.BOSS: 3}
-const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "e8b409", 3: "d28200"}
+const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "dd9b04", 3: "ffffff"}
 
 @onready var rangeRay: RayCast2D = $RayCast2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
@@ -69,7 +69,8 @@ func _physics_process(delta: float) -> void:
 	return
 
 func damage():
-	health -= 1
+	if (type != EnemyType.BOSS):
+		health -= 1
 	velocity =  speed * -global_position.direction_to(destPos)
 	if (health <= 0):
 		if (!timerOver):
@@ -133,8 +134,10 @@ func damageTargets(damaged) -> bool:
 					sprite.play("bite")
 				elif (timerOver):
 					target.damage()
-					health = 0
-					damage()
+					if (type != EnemyType.BOSS):
+						health = 0
+						damage()
+					timerOver = false
 			else:
 				target.damage()
 	
@@ -149,5 +152,6 @@ func setEnabled(enable):
 	return
 
 func setColor():
-	sprite.self_modulate = Color(HEALTHCOLORS.get(health))
+	if (type != EnemyType.BOSS):
+		sprite.self_modulate = Color(HEALTHCOLORS.get(health))
 	return
