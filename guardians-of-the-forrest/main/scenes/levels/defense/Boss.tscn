@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_ido5u"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
+[ext_resource type="PackedScene" uid="uid://dya3r3fgc4icx" path="res://main/scenes/levels/defense/BossEnemy.tscn" id="13_2vs1w"]
 [ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_iq156"]
 [ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_g34ii"]
 
@@ -31,13 +32,10 @@ metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Resource" id="Resource_g26fa"]
 script = ExtResource("2_qmd71")
-normal = 10
-elite = 3
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Resource" id="Resource_2vs1w"]
 script = ExtResource("2_qmd71")
-boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
 [sub_resource type="Curve2D" id="Curve2D_c0r40"]
@@ -61,10 +59,11 @@ point_count = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c3ut"]
 bg_color = Color(0, 0, 0, 0.55)
 
-[node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "spawnTimer")]
+[node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "bossEnemy", "spawnTimer")]
 script = ExtResource("1_so5yu")
 waveEnemies = Array[Object]([SubResource("Resource_8fsoy"), SubResource("Resource_fgwmm"), SubResource("Resource_uopnk"), SubResource("Resource_g26fa"), SubResource("Resource_2vs1w")])
 enemy = NodePath("Enemy")
+bossEnemy = NodePath("BossEnemy")
 spawnTimer = NodePath("SpawnTimer")
 
 [node name="PlayerDef" parent="." unique_id=868766390 groups=["Player", "Target"] instance=ExtResource("2_8fsoy")]
@@ -92,6 +91,25 @@ volume_db = 1.0
 bus = &"SFX"
 
 [node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1281154601]
+
+[node name="BossEnemy" parent="." unique_id=1996391376 node_paths=PackedStringArray("dest", "damageTimer") groups=["Enemies", "Target"] instance=ExtResource("13_2vs1w")]
+position = Vector2(711, 809)
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("8_4eu1o")
+dest = NodePath("../PlayerDef")
+type = 2
+damageTimer = NodePath("DamageTimer")
+speed = 90.0
+
+[node name="EatPlayer" type="AudioStreamPlayer" parent="BossEnemy" unique_id=1216511007]
+stream = ExtResource("9_8asba")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="DamageTimer" type="Timer" parent="BossEnemy" unique_id=1134566742]
+wait_time = 1.5
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=68595967]
 wait_time = 1.5
@@ -278,4 +296,5 @@ volume_db = 10.551
 bus = &"SFX"
 
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="BossEnemy/DamageTimer" to="BossEnemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
