@@ -6,7 +6,12 @@ class_name PlayerDef
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var rangeRay: RayCast2D = $Range
 
+@onready var attackTimer: Timer = $AttackTimer
+
+@onready var attacking: bool = false
+
 func _ready() -> void:
+	position = Vector2(560.0,375.0)
 	rangeRay.collision_mask = self.collision_mask
 	return
 
@@ -15,8 +20,9 @@ func _physics_process(delta: float) -> void:
 	var x = Input.get_axis("Left", "Right")
 	var y = Input.get_axis("Up", "Down")
 
-	velocity.y = (speed * y)
-	velocity.x = (speed * x)
+	velocity = Vector2(x, y)
+	velocity = velocity.normalized() * speed
+	
 
 	flip(x < 0)
 
@@ -30,7 +36,9 @@ func _physics_process(delta: float) -> void:
 				target.heal()
 
 	
-	if(Input.is_action_just_pressed("Damage")):
+	if(Input.is_action_just_pressed("Damage") && !attacking):
+		attackTimer.start()
+		attacking = true
 		var damaged = getTargetsInRange()
 
 		for target in damaged:
@@ -41,7 +49,8 @@ func _physics_process(delta: float) -> void:
 
 	setTargetAngle(x, y)
 	move_and_slide()
-	update_animation((y || x))
+	update_animation(x, y)
+	await animated_sprite.animation_finished
 	return
 
 func flip(xReverse):
@@ -60,14 +69,32 @@ func setTargetAngle(x, y):
 			angle += 45 * sign(y) * sign(x)
 	elif y != 0:
 			angle = 90 * sign(y)
+		
 
 	if (angle != null):
 		rangeRay.rotation_degrees = angle
 	return
 
-func update_animation(move):
-	if move:
-		animated_sprite.play("run")
+func update_animation(x, y):
+	if (attacking):
+		if (rangeRay.rotation_degrees == 90):
+			animated_sprite.play("blast-down")
+		elif (rangeRay.rotation_degrees == -90):
+				animated_sprite.play("blast-up")	
+		else:
+			animated_sprite.play("blast-side")
+	elif (x && y):
+		if y < 0:
+			animated_sprite.play("run-diag-top")
+		if y > 0:
+			animated_sprite.play("run-diag-bot")
+	elif (y):
+		if y < 0:
+			animated_sprite.play("run-top")
+		if y > 0:
+			animated_sprite.play("run-bot")
+	elif (x):
+		animated_sprite.play("run-side")
 	else:
 		animated_sprite.play("idle")
 	return
@@ -112,3 +139,9 @@ func getTargetableParent(collider: Node) -> Node:
 			break
 	print("valid parent not found")
 	return null
+
+
+
+
+func _on_attack_timer_timeout() -> void:
+	attacking = false;
