@@ -2,13 +2,17 @@
 class_name CutsceneFrame
 extends Control
 
+@export var speed: float = 1
 @export var captions: Array[TimedCaption]
 @onready var label: Label = $MarginContainer/Label
 @onready var timer: Timer = $Timer
 
+var index = 0
+
+signal done
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	nextCaption()
 	pass # Replace with function body.
 
 
@@ -35,11 +39,22 @@ func parallaxRight():
 func parallax(dir: Vector2):
 	assert(false, "Error: 'parallax' method must be overridden in child class: " + get_script().resource_path)
 
+func startFrame() -> void:
+	index = 0
+	timer.stop()
+	nextCaption()
+
+func stopFrame() -> void:
+	timer.stop()
+
 func nextCaption() -> void:
-	if (!captions.is_empty()):
-		label.set_text(captions[0].caption) 
-		timer.start(captions[0].displayTime)
-		captions.remove_at(0)
+	if (captions.size() > index):
+		label.set_text(captions[index].caption) 
+		timer.start(captions[index].displayTime)
+	else:
+		done.emit()
+	
+	index += 1
 	
 
 func _on_timer_timeout() -> void:

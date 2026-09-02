@@ -4,14 +4,101 @@
 [ext_resource type="PackedScene" uid="uid://dwxgornygspgk" path="res://main/scenes/ui/cutscene/Frame2.tscn" id="1_hgqwg"]
 [ext_resource type="PackedScene" uid="uid://rebxd0meupyi" path="res://main/scenes/ui/cutscene/Frame3.tscn" id="2_26j4q"]
 [ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="3_ir5e6"]
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="3_n8tvt"]
+[ext_resource type="Script" uid="uid://tfntdntl178y" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame1.gd" id="3_tb4b6"]
+[ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="7_ov408"]
+
+[sub_resource type="Resource" id="Resource_ov408"]
+script = ExtResource("3_n8tvt")
+caption = "Deep in the forest, Tane Mahuta watches over all the plants and animals."
+displayTime = 6
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_tqvm0"]
+script = ExtResource("3_n8tvt")
+caption = "He loves his forest and keeps it safe."
+displayTime = 3
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_dh585"]
+script = ExtResource("3_n8tvt")
+caption = "But something bad is coming. It's called Myrtle Rust."
+displayTime = 5
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_3o8h0"]
+script = ExtResource("3_n8tvt")
+caption = "Myrtle Rust is a tiny, sneaky sickness"
+displayTime = 4
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_cuc0o"]
+script = ExtResource("3_n8tvt")
+caption = "We need to act quickly it can show infection in 3-5 days and spread in 10-12 days"
+displayTime = 10
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_vnhbu"]
+script = ExtResource("3_n8tvt")
+caption = "It can stick to a hiker's shoe and travel far away"
+displayTime = 8
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_lqsls"]
+script = ExtResource("3_n8tvt")
+caption = "It covers plants and animals like a yucky blanket."
+displayTime = 8
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_tbkxf"]
+script = ExtResource("3_n8tvt")
+caption = "It spreads fast! If we don't stop it, our myrtle plants could disappear forever."
+displayTime = 10
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_e6n5f"]
+script = ExtResource("3_n8tvt")
+caption = "Tane Mahuta cannot fix this alone. He needs help."
+displayTime = 8
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_dywic"]
+script = ExtResource("3_n8tvt")
+caption = "Wake up."
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_8bnwm"]
+script = ExtResource("3_n8tvt")
+caption = "Wake up!"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
+
+[sub_resource type="Resource" id="Resource_dxb4i"]
+script = ExtResource("3_n8tvt")
+caption = "WAKE UP!"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 
 [node name="CutScene" type="Node" unique_id=590531104]
 script = ExtResource("1_26j4q")
 
+[node name="Frame1" parent="." unique_id=226109720 instance=ExtResource("3_ir5e6")]
+offset_left = 128.00002
+offset_right = 129.0791
+offset_bottom = 2.151123
+scale = Vector2(0.388, 0.388)
+script = ExtResource("3_tb4b6")
+speed = 0.1
+captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_ov408"), SubResource("Resource_tqvm0"), SubResource("Resource_dh585"), SubResource("Resource_3o8h0"), SubResource("Resource_cuc0o")])
+
 [node name="Frame2" parent="." unique_id=175296139 instance=ExtResource("1_hgqwg")]
+visible = false
 offset_left = 126.00001
 offset_right = 126.2959
 scale = Vector2(0.388, 0.388)
+speed = 0.1
+captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_vnhbu")])
 
 [node name="Frame3" parent="." unique_id=1151794034 instance=ExtResource("2_26j4q")]
 visible = false
@@ -19,10 +106,24 @@ offset_left = 134.00002
 offset_right = 130.47119
 offset_bottom = 0.22180176
 scale = Vector2(0.388, 0.388)
+speed = 0.1
+captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_lqsls")])
 
-[node name="Frame4" parent="." unique_id=226109720 instance=ExtResource("3_ir5e6")]
+[node name="Frame4" parent="." unique_id=2113569263 instance=ExtResource("3_ir5e6")]
 visible = false
 offset_left = 128.00002
 offset_right = 129.0791
 offset_bottom = 4.7283936
 scale = Vector2(0.388, 0.388)
+speed = 0.1
+captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_tbkxf"), SubResource("Resource_e6n5f"), SubResource("Resource_dywic"), SubResource("Resource_8bnwm"), SubResource("Resource_dxb4i")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1910838241]
+stream = ExtResource("7_ov408")
+autoplay = true
+bus = &"Music"
+
+[connection signal="done" from="Frame1" to="." method="_on_frame_done"]
+[connection signal="done" from="Frame2" to="." method="_on_frame_done"]
+[connection signal="done" from="Frame3" to="." method="_on_frame_done"]
+[connection signal="done" from="Frame4" to="." method="_on_frame_done"]

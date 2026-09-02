@@ -36,41 +36,37 @@ offset_bottom = 0.047973633
 script = ExtResource("1_yfnf5")
 captions = Array[ExtResource("2_24vjh")]([SubResource("Resource_ftqun"), SubResource("Resource_rklfq"), SubResource("Resource_571yf")])
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1261017240]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1861816080]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasModulate" unique_id=1261017240]
+offset_right = 2388.0
+offset_bottom = 1668.0
 texture = ExtResource("2_nlisy")
 
-[node name="Hills" type="TextureRect" parent="." unique_id=1421825893]
-layout_mode = 0
+[node name="Hills" type="TextureRect" parent="CanvasModulate" unique_id=1421825893]
 offset_top = 175.0
 offset_right = 2388.0
 offset_bottom = 999.0
 texture = ExtResource("1_qy0lk")
 
-[node name="Sky" type="TextureRect" parent="." unique_id=1778058823]
-layout_mode = 0
+[node name="Sky" type="TextureRect" parent="CanvasModulate" unique_id=1778058823]
 offset_right = 2388.0
 offset_bottom = 1146.0
 texture = ExtResource("2_yfnf5")
 
-[node name="Forest" type="TextureRect" parent="." unique_id=1828498748]
-layout_mode = 0
+[node name="Forest" type="TextureRect" parent="CanvasModulate" unique_id=1828498748]
 offset_top = 324.0
 offset_right = 2388.0
 offset_bottom = 1522.0
 texture = ExtResource("3_45yg2")
 
-[node name="Dirt" type="TextureRect" parent="." unique_id=272006093]
-layout_mode = 0
+[node name="Dirt" type="TextureRect" parent="CanvasModulate" unique_id=272006093]
 offset_top = 532.0
 offset_right = 2388.0
 offset_bottom = 1668.0
 texture = ExtResource("4_4pgtw")
 
-[node name="Bush" type="TextureRect" parent="." unique_id=1710565197]
-layout_mode = 0
+[node name="Bush" type="TextureRect" parent="CanvasModulate" unique_id=1710565197]
 offset_right = 2388.0
 offset_bottom = 1668.0
 texture = ExtResource("5_44lfp")
