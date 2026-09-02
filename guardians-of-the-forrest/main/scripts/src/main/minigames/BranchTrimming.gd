@@ -12,6 +12,7 @@ const INFECTED_PIECES := [
 @onready var branchesLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
+@onready var trimSoundPlayer: AudioStreamPlayer = $TrimPlayer
 
 var infected_sprites: Array[Sprite2D] = []
 var active_pieces: Array[Sprite2D] = []
@@ -201,6 +202,7 @@ func _apply_cutout_from_sprite(sprite: Sprite2D) -> void:
 			healthy_cut_image.set_pixel(px, py, current_color)
 
 	healthy_cut_texture.update(healthy_cut_image)
+	trimSoundPlayer.play()
 
 func updateBranchLabel(text: String):
 	branchesLabel.text = text
