@@ -62,6 +62,8 @@ point_count = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c3ut"]
 bg_color = Color(0, 0, 0, 0.55)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2vs1w"]
+
 [node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "bossEnemy", "spawnTimer")]
 script = ExtResource("1_so5yu")
 waveEnemies = Array[Object]([SubResource("Resource_8fsoy"), SubResource("Resource_fgwmm"), SubResource("Resource_uopnk"), SubResource("Resource_g26fa"), SubResource("Resource_2vs1w")])
@@ -72,7 +74,7 @@ spawnTimer = NodePath("SpawnTimer")
 [node name="PlayerDef" parent="." unique_id=868766390 groups=["Player", "Target"] instance=ExtResource("2_8fsoy")]
 position = Vector2(560, 375)
 scale = Vector2(0.33, 0.33)
-collision_mask = 6
+collision_mask = 7
 speed = 225
 
 [node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("3_fgwmm")]
@@ -82,8 +84,8 @@ layer = -1
 z_index = 1
 position = Vector2(500, 800)
 scale = Vector2(0.12, 0.13)
-collision_layer = 2
-collision_mask = 5
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("8_4eu1o")
 dest = NodePath("../PlayerDef")
 damageTimer = NodePath("DamageTimer")
@@ -98,8 +100,8 @@ bus = &"SFX"
 [node name="BossEnemy" parent="." unique_id=1996391376 node_paths=PackedStringArray("dest", "damageTimer") groups=["Enemies", "Target"] instance=ExtResource("13_2vs1w")]
 position = Vector2(711, 809)
 scale = Vector2(0.1, 0.1)
-collision_layer = 2
-collision_mask = 5
+collision_layer = 4
+collision_mask = 11
 script = ExtResource("8_4eu1o")
 dest = NodePath("../PlayerDef")
 type = 2
@@ -297,6 +299,41 @@ bus = &"SFX"
 stream = ExtResource("14_g34ii")
 volume_db = 10.551
 bus = &"SFX"
+
+[node name="Boundary" type="Node2D" parent="." unique_id=252164468]
+
+[node name="TopBound" type="StaticBody2D" parent="Boundary" unique_id=1304240480]
+rotation = -3.1415925
+collision_mask = 0
+
+[node name="Top" type="CollisionShape2D" parent="Boundary/TopBound" unique_id=1709718993]
+shape = SubResource("WorldBoundaryShape2D_2vs1w")
+one_way_collision = true
+
+[node name="LeftBound" type="StaticBody2D" parent="Boundary" unique_id=433014845]
+rotation = 1.5707964
+collision_mask = 0
+
+[node name="Left" type="CollisionShape2D" parent="Boundary/LeftBound" unique_id=798969938]
+shape = SubResource("WorldBoundaryShape2D_2vs1w")
+one_way_collision = true
+
+[node name="RightBound" type="StaticBody2D" parent="Boundary" unique_id=1833651916]
+position = Vector2(1152, 0)
+collision_mask = 0
+
+[node name="Right" type="CollisionShape2D" parent="Boundary/RightBound" unique_id=644682736]
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_2vs1w")
+one_way_collision = true
+
+[node name="BotBound" type="StaticBody2D" parent="Boundary" unique_id=303244235]
+position = Vector2(0, 648)
+collision_mask = 0
+
+[node name="Bot" type="CollisionShape2D" parent="Boundary/BotBound" unique_id=2111290885]
+shape = SubResource("WorldBoundaryShape2D_2vs1w")
+one_way_collision = true
 
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="BossEnemy/DamageTimer" to="BossEnemy" method="_on_damage_timer_timeout"]

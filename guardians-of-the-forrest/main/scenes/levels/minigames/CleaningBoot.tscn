@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
 [ext_resource type="Texture2D" uid="uid://cgf4w3vcrxsdu" path="res://resources/backgrounds/ShoeClean.png" id="2_hyicb"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="3_uvyfl"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="5_iwasc"]
 [ext_resource type="AudioStream" uid="uid://bqy8tqlnpx6u8" path="res://resources/audio/bootScrub.mp3" id="5_uvyfl"]
 [ext_resource type="Texture2D" uid="uid://cmhak7pmtshlr" path="res://resources/props/shoeDirty.png" id="6_uvyfl"]
@@ -103,6 +104,17 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Return"
 
+[node name="VolumeMenu" parent="HUD" unique_id=1882963629 instance=ExtResource("3_uvyfl")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_bottom = 120.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
 [node name="BootRight" type="Sprite2D" parent="." unique_id=1775772366]
 position = Vector2(556, 282)
 scale = Vector2(0.375, 0.375)
@@ -146,6 +158,7 @@ shape = SubResource("CapsuleShape2D_hyicb")
 
 [node name="ScrubPlayer" type="AudioStreamPlayer" parent="." unique_id=1794975742]
 stream = ExtResource("5_uvyfl")
+bus = &"SFX"
 
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="input_event" from="Right" to="." method="_on_shoe_input_event"]

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b7gnpn7xk01gg" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame3.gd" id="1_fcd3i"]
 [ext_resource type="Texture2D" uid="uid://cq2m0xa8c1nyd" path="res://resources/cutscene/3/Dirt.png" id="1_t0tvk"]
-[ext_resource type="Texture2D" uid="uid://bbcuf30yxykth" path="res://resources/cutscene/3/Forest.png" id="2_fcd3i"]
 [ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_jb8xw"]
 [ext_resource type="Texture2D" uid="uid://d4m8khmvo8x3b" path="res://resources/cutscene/3/Kea.png" id="3_aq3p8"]
 [ext_resource type="Texture2D" uid="uid://bfw2r1hejk6r8" path="res://resources/cutscene/3/Bush.png" id="4_6j70f"]
@@ -48,12 +47,6 @@ offset_top = 211.0
 offset_right = 2388.0
 offset_bottom = 1669.0
 texture = ExtResource("1_t0tvk")
-
-[node name="Forest" type="TextureRect" parent="." unique_id=1116143859]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_fcd3i")
 
 [node name="Kea" type="TextureRect" parent="." unique_id=1747174915]
 layout_mode = 0

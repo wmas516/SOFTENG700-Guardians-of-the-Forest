@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://pw4yxaq8sm8j" path="res://resources/props/branchParts/infected-Top.png" id="7_ufqbl"]
 [ext_resource type="Texture2D" uid="uid://dinwfr1xly44b" path="res://resources/environment/trees/branch_thin_02.png" id="8_qjx1r"]
 [ext_resource type="Texture2D" uid="uid://bpc6vk55scfdu" path="res://resources/environment/silhouettes_trunk/trunk_branching_dark_01.png" id="9_760op"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="9_gqdpc"]
 [ext_resource type="Texture2D" uid="uid://m6m5s5w6n1pk" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_01.png" id="10_kr6li"]
 [ext_resource type="Texture2D" uid="uid://cc4sco1y38bhs" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_02.png" id="11_gqdpc"]
 [ext_resource type="AudioStream" uid="uid://bv5bk7igwbcwe" path="res://resources/audio/branchTrim.mp3" id="12_kr6li"]
@@ -50,7 +51,7 @@ rotation = 0.87266463
 texture = ExtResource("5_tq68q")
 
 [node name="BranchThin02" type="Sprite2D" parent="." unique_id=1063558222]
-self_modulate = Color(0.6195441, 0.62280494, 0.6179458, 1)
+self_modulate = Color(0.51062673, 0.51461756, 0.51062715, 1)
 position = Vector2(115.333336, 173.33331)
 rotation = 1.1431906
 scale = Vector2(0.6000001, 0.6000001)
@@ -218,6 +219,17 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Return"
 
+[node name="VolumeMenu" parent="HUD" unique_id=1882963629 instance=ExtResource("9_gqdpc")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_bottom = 120.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
 [node name="Background" type="CanvasLayer" parent="." unique_id=1397301246]
 layer = -1
 
@@ -294,5 +306,7 @@ texture = ExtResource("11_gqdpc")
 
 [node name="TrimPlayer" type="AudioStreamPlayer" parent="." unique_id=1009965236]
 stream = ExtResource("12_kr6li")
+volume_db = 4.0
+bus = &"SFX"
 
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
