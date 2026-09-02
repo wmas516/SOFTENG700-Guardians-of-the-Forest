@@ -7,6 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://dbwyd17nsnley" path="res://resources/props/treebranch.png" id="5_tq68q"]
 [ext_resource type="Texture2D" uid="uid://b7hde4uitwbon" path="res://resources/props/branchParts/infected-Right.png" id="6_qjx1r"]
 [ext_resource type="Texture2D" uid="uid://pw4yxaq8sm8j" path="res://resources/props/branchParts/infected-Top.png" id="7_ufqbl"]
+[ext_resource type="Texture2D" uid="uid://dinwfr1xly44b" path="res://resources/environment/trees/branch_thin_02.png" id="8_qjx1r"]
+[ext_resource type="Texture2D" uid="uid://bpc6vk55scfdu" path="res://resources/environment/silhouettes_trunk/trunk_branching_dark_01.png" id="9_760op"]
+[ext_resource type="Texture2D" uid="uid://m6m5s5w6n1pk" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_01.png" id="10_kr6li"]
+[ext_resource type="Texture2D" uid="uid://cc4sco1y38bhs" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_02.png" id="11_gqdpc"]
+[ext_resource type="AudioStream" uid="uid://bv5bk7igwbcwe" path="res://resources/audio/branchTrim.mp3" id="12_kr6li"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr6li"]
 radius = 35.723694
@@ -41,11 +46,22 @@ script = ExtResource("1_qjx1r")
 
 [node name="Healthy" type="Sprite2D" parent="." unique_id=649309411]
 position = Vector2(384, 216)
+rotation = 0.87266463
 texture = ExtResource("5_tq68q")
+
+[node name="BranchThin02" type="Sprite2D" parent="." unique_id=1063558222]
+self_modulate = Color(0.6195441, 0.62280494, 0.6179458, 1)
+position = Vector2(115.333336, 173.33331)
+rotation = 1.1431906
+scale = Vector2(0.6000001, 0.6000001)
+texture = ExtResource("8_qjx1r")
+region_enabled = true
+region_rect = Rect2(0, 384.10223, 242.98096, 290.07977)
 
 [node name="InfectedBot" type="Sprite2D" parent="." unique_id=153945013]
 visible = false
-position = Vector2(320.6667, 289.33334)
+position = Vector2(287.33337, 214.66663)
+rotation = 0.87266463
 scale = Vector2(0.287, 0.287)
 texture = ExtResource("3_vrsdg")
 
@@ -59,7 +75,8 @@ shape = SubResource("CapsuleShape2D_kr6li")
 
 [node name="InfectedLeft" type="Sprite2D" parent="." unique_id=537966983]
 visible = false
-position = Vector2(267.3333, 192.66667)
+position = Vector2(326.6667, 112)
+rotation = 0.87266463
 scale = Vector2(0.287, 0.287)
 texture = ExtResource("4_tq68q")
 
@@ -73,7 +90,8 @@ shape = SubResource("CapsuleShape2D_760op")
 
 [node name="InfectedMid" type="Sprite2D" parent="." unique_id=1734922652]
 visible = false
-position = Vector2(376.66672, 154.66669)
+position = Vector2(425.99994, 171.33334)
+rotation = 0.87266463
 scale = Vector2(0.287, 0.287)
 texture = ExtResource("5_dwokx")
 
@@ -87,7 +105,8 @@ shape = SubResource("CapsuleShape2D_qkkfw")
 
 [node name="InfectedRight" type="Sprite2D" parent="." unique_id=733298720]
 visible = false
-position = Vector2(439.3333, 205.33333)
+position = Vector2(427.33328, 252.00006)
+rotation = 0.87266463
 scale = Vector2(0.287, 0.287)
 texture = ExtResource("6_qjx1r")
 
@@ -106,7 +125,8 @@ shape = SubResource("CapsuleShape2D_ufqbl")
 
 [node name="InfectedTop" type="Sprite2D" parent="." unique_id=1578062109]
 visible = false
-position = Vector2(492.66666, 128.66669)
+position = Vector2(520.6667, 243.33331)
+rotation = 0.87266463
 scale = Vector2(0.287, 0.287)
 texture = ExtResource("7_ufqbl")
 
@@ -197,5 +217,82 @@ horizontal_alignment = 1
 [node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=424820200]
 layout_mode = 2
 text = "Return"
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1397301246]
+layer = -1
+
+[node name="TrunkBranchingDark01" type="Sprite2D" parent="Background" unique_id=1860403291]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -1
+position = Vector2(243, 365.99997)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("9_760op")
+
+[node name="TrunkThickDark01" type="Sprite2D" parent="Background" unique_id=1642067001]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -2
+position = Vector2(480.99994, 360)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("10_kr6li")
+
+[node name="TrunkThickDark02" type="Sprite2D" parent="Background" unique_id=1306707690]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -1
+position = Vector2(945.9999, 359.0001)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("11_gqdpc")
+
+[node name="TrunkBranchingDark02" type="Sprite2D" parent="Background" unique_id=914758483]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -1
+position = Vector2(629.9999, 361)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("9_760op")
+
+[node name="TrunkBranchingDark03" type="Sprite2D" parent="Background" unique_id=590377216]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -1
+position = Vector2(1083, 379)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("9_760op")
+
+[node name="TrunkThickDark03" type="Sprite2D" parent="Background" unique_id=764328356]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -1
+position = Vector2(163, 360.00006)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("11_gqdpc")
+flip_h = true
+
+[node name="TrunkBranchingDark04" type="Sprite2D" parent="Background" unique_id=1005253931]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -3
+position = Vector2(732, 359)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("9_760op")
+
+[node name="TrunkBranchingDark05" type="Sprite2D" parent="Background" unique_id=2015797868]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -3
+position = Vector2(320.00006, 249.00003)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("9_760op")
+
+[node name="TrunkBranchingDark06" type="Sprite2D" parent="Background" unique_id=715930115]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -3
+position = Vector2(764.99994, 334.00003)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("9_760op")
+
+[node name="TrunkThickDark04" type="Sprite2D" parent="Background" unique_id=1765251849]
+self_modulate = Color(0.35899657, 0.50897294, 0.34027803, 1)
+z_index = -4
+position = Vector2(719.99994, 284.99997)
+scale = Vector2(0.435, 0.435)
+texture = ExtResource("11_gqdpc")
+
+[node name="TrimPlayer" type="AudioStreamPlayer" parent="." unique_id=1009965236]
+stream = ExtResource("12_kr6li")
 
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
