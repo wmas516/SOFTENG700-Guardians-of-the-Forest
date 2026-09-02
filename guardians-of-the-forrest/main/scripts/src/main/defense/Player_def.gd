@@ -16,8 +16,14 @@ class_name PlayerDef
 @onready var stepSoundPlayer: AudioStreamPlayer = $FootstepSound
 
 func _ready() -> void:
-	position = Vector2(560.0,375.0)
+	position = Vector2(560.0,375.0)	
 	rangeRay.collision_mask = self.collision_mask
+	damaged = false
+	attacking = false
+	attackTimer.stop()
+	blastSoundPlayer.stop()
+	hurtSoundPlayer.stop()
+	stepSoundPlayer.stop()
 	return
 
 func _physics_process(delta: float) -> void:

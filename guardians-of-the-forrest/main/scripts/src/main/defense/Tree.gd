@@ -11,6 +11,7 @@ signal clicked(tree_name: String)
 func _ready() -> void:
 	input_pickable = true
 	setVisibleHealth()
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

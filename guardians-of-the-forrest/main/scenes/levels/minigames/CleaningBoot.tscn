@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bq0xx0f2ne41i"]
 
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
-[ext_resource type="Texture2D" uid="uid://cgf4w3vcrxsdu" path="res://resources/backgrounds/ShoeClean.png" id="2_hyicb"]
+[ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="2_uvyfl"]
 [ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="3_uvyfl"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="5_iwasc"]
 [ext_resource type="AudioStream" uid="uid://bqy8tqlnpx6u8" path="res://resources/audio/bootScrub.mp3" id="5_uvyfl"]
@@ -21,11 +21,10 @@ cleaningRate = 0.002
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1618740350]
 z_index = -2
-offset_left = 2.0
-offset_top = -76.0
-offset_right = 1276.0706
-offset_bottom = 731.0
-texture = ExtResource("2_hyicb")
+offset_top = -81.0
+offset_right = 1152.5262
+offset_bottom = 725.0
+texture = ExtResource("2_uvyfl")
 expand_mode = 3
 stretch_mode = 4
 

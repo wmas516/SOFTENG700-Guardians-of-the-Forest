@@ -104,7 +104,7 @@ func update_animation(direction):
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
-		if (animated_sprite.frame == 0 or animated_sprite.frame == 3 or animated_sprite.frame == 7):
+		if (animated_sprite.get_frame() % 3 == 0):
 			step_audio_player.play()
 
 func check_landing() -> void:
