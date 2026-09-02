@@ -60,7 +60,17 @@ func _process(delta: float) -> void:
 	_update_bounds()
 
 func update_animation(direction):
-	if direction == 0:
+	if (jumping):
+		if velocity.y < -25: 
+			if animated_sprite.animation != "jump-up":
+				animated_sprite.play("jump-up")
+		elif -25 <= velocity.y and velocity.y < 25: 
+			if animated_sprite.animation != "jump-top":
+				animated_sprite.play("jump-top")
+		else: 
+			if animated_sprite.animation != "jump-down":
+				animated_sprite.play("jump-down")
+	elif direction == 0:
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run-side")
