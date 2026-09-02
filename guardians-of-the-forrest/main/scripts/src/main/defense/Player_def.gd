@@ -9,6 +9,11 @@ class_name PlayerDef
 @onready var attackTimer: Timer = $AttackTimer
 
 @onready var attacking: bool = false
+@onready var damaged: bool = false
+
+@onready var blastSoundPlayer: AudioStreamPlayer = $BlastSound
+@onready var hurtSoundPlayer: AudioStreamPlayer = $DamageSound
+@onready var stepSoundPlayer: AudioStreamPlayer = $FootstepSound
 
 func _ready() -> void:
 	position = Vector2(560.0,375.0)
@@ -24,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.normalized() * speed
 	
 
-	flip(x < 0)
+	flip(rangeRay.rotation_degrees < -90 || rangeRay.rotation_degrees > 90)
 
 	if(Input.is_action_just_pressed("Heal")):
 		var healed = getTargetsInRange()
@@ -35,10 +40,12 @@ func _physics_process(delta: float) -> void:
 			&& target.has_method("heal")):
 				target.heal()
 
-	
-	if(Input.is_action_just_pressed("Damage") && !attacking):
+	if (animated_sprite.get_animation() == "hurt" && damaged && attackTimer.is_stopped()):
+		attackTimer.start()
+	elif(Input.is_action_just_pressed("Damage") && !attacking):
 		attackTimer.start()
 		attacking = true
+		blastSoundPlayer.play()
 		var damaged = getTargetsInRange()
 
 		for target in damaged:
@@ -50,7 +57,6 @@ func _physics_process(delta: float) -> void:
 	setTargetAngle(x, y)
 	move_and_slide()
 	update_animation(x, y)
-	await animated_sprite.animation_finished
 	return
 
 func flip(xReverse):
@@ -83,7 +89,16 @@ func update_animation(x, y):
 				animated_sprite.play("blast-up")	
 		else:
 			animated_sprite.play("blast-side")
-	elif (x && y):
+		return
+	elif (damaged):
+		if (!hurtSoundPlayer.playing):
+			hurtSoundPlayer.play()
+		animated_sprite.play("hurt")
+		return
+	if (animated_sprite.get_frame() % 3 == 0):
+		stepSoundPlayer.play()
+	
+	if (x && y):
 		if y < 0:
 			animated_sprite.play("run-diag-top")
 		if y > 0:
@@ -97,6 +112,7 @@ func update_animation(x, y):
 		animated_sprite.play("run-side")
 	else:
 		animated_sprite.play("idle")
+		animated_sprite.flip_h = false
 	return
 
 
@@ -140,8 +156,12 @@ func getTargetableParent(collider: Node) -> Node:
 	print("valid parent not found")
 	return null
 
-
-
+func damage():
+	#PlayerData.take_damage(10)
+	damaged = true
+	animated_sprite.play("hurt")
+	await animated_sprite.animation_finished
 
 func _on_attack_timer_timeout() -> void:
 	attacking = false;
+	damaged = false;

@@ -1,24 +1,300 @@
 [gd_scene format=3 uid="uid://ku3lb7vtrpvf"]
 
-[ext_resource type="PackedScene" uid="uid://c27j283kd57ee" path="res://main/scenes/levels/defense/Defense.tscn" id="1_ikfqk"]
+[ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_so5yu"]
+[ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_8fsoy"]
 [ext_resource type="Script" uid="uid://cl86ypf08bfjf" path="res://main/scripts/src/main/defense/Wave.gd" id="2_qmd71"]
+[ext_resource type="PackedScene" uid="uid://ctqsgrenq75cf" path="res://main/scenes/backgrounds/BackgroundGrass.tscn" id="3_fgwmm"]
+[ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="7_5fu0h"]
+[ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_4eu1o"]
+[ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="9_8asba"]
+[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_ido5u"]
+[ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
+[ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
+[ext_resource type="PackedScene" uid="uid://dya3r3fgc4icx" path="res://main/scenes/levels/defense/BossEnemy.tscn" id="13_2vs1w"]
+[ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_iq156"]
+[ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_g34ii"]
 
-[sub_resource type="Resource" id="Resource_pepik"]
+[sub_resource type="Resource" id="Resource_8fsoy"]
 script = ExtResource("2_qmd71")
 boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
-[sub_resource type="Resource" id="Resource_ikfqk"]
+[sub_resource type="Resource" id="Resource_fgwmm"]
+script = ExtResource("2_qmd71")
+normal = 5
+elite = 2
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_uopnk"]
 script = ExtResource("2_qmd71")
 boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
-[sub_resource type="Resource" id="Resource_qmd71"]
+[sub_resource type="Resource" id="Resource_g26fa"]
 script = ExtResource("2_qmd71")
-boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
-[node name="Boss" type="Node2D" unique_id=19613511]
+[sub_resource type="Resource" id="Resource_2vs1w"]
+script = ExtResource("2_qmd71")
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
-[node name="Defense" parent="." unique_id=1123565302 instance=ExtResource("1_ikfqk")]
-waveEnemies = [SubResource("Resource_pepik"), SubResource("Resource_ikfqk"), SubResource("Resource_qmd71")]
+[sub_resource type="Curve2D" id="Curve2D_c0r40"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, 0, 0, 0, 0, 0, -50, 650)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_tsff0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1200, 0, 0, 0, 0, 0, 1200, 650)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_yfhyi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -50, 700, 0, 0, 0, 0, 1200, 700)
+}
+point_count = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c3ut"]
+bg_color = Color(0, 0, 0, 0.55)
+
+[node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "bossEnemy", "spawnTimer")]
+script = ExtResource("1_so5yu")
+waveEnemies = Array[Object]([SubResource("Resource_8fsoy"), SubResource("Resource_fgwmm"), SubResource("Resource_uopnk"), SubResource("Resource_g26fa"), SubResource("Resource_2vs1w")])
+enemy = NodePath("Enemy")
+bossEnemy = NodePath("BossEnemy")
+spawnTimer = NodePath("SpawnTimer")
+
+[node name="PlayerDef" parent="." unique_id=868766390 groups=["Player", "Target"] instance=ExtResource("2_8fsoy")]
+position = Vector2(560, 375)
+scale = Vector2(0.33, 0.33)
+collision_mask = 6
+speed = 225
+
+[node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("3_fgwmm")]
+layer = -1
+
+[node name="Enemy" parent="." unique_id=959500786 node_paths=PackedStringArray("dest", "damageTimer") groups=["Enemies", "Target"] instance=ExtResource("7_5fu0h")]
+z_index = 1
+position = Vector2(500, 800)
+scale = Vector2(0.12, 0.13)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("8_4eu1o")
+dest = NodePath("../PlayerDef")
+damageTimer = NodePath("DamageTimer")
+
+[node name="EatPlayer" type="AudioStreamPlayer" parent="Enemy" unique_id=1481609643]
+stream = ExtResource("9_8asba")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="DamageTimer" type="Timer" parent="Enemy" unique_id=1281154601]
+
+[node name="BossEnemy" parent="." unique_id=1996391376 node_paths=PackedStringArray("dest", "damageTimer") groups=["Enemies", "Target"] instance=ExtResource("13_2vs1w")]
+position = Vector2(711, 809)
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("8_4eu1o")
+dest = NodePath("../PlayerDef")
+type = 2
+damageTimer = NodePath("DamageTimer")
+speed = 90.0
+
+[node name="EatPlayer" type="AudioStreamPlayer" parent="BossEnemy" unique_id=1216511007]
+stream = ExtResource("9_8asba")
+volume_db = 1.0
+bus = &"SFX"
+
+[node name="DamageTimer" type="Timer" parent="BossEnemy" unique_id=1134566742]
+wait_time = 1.5
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=68595967]
+wait_time = 1.5
+
+[node name="Left" type="Path2D" parent="." unique_id=1463614043]
+curve = SubResource("Curve2D_c0r40")
+
+[node name="Position" type="PathFollow2D" parent="Left" unique_id=1259441257]
+position = Vector2(-50, 0)
+rotation = 1.5707964
+
+[node name="Right" type="Path2D" parent="." unique_id=939140184]
+curve = SubResource("Curve2D_tsff0")
+
+[node name="Position" type="PathFollow2D" parent="Right" unique_id=1770457576]
+position = Vector2(1200, 0)
+rotation = 1.5707964
+
+[node name="Bottom" type="Path2D" parent="." unique_id=526647900]
+curve = SubResource("Curve2D_yfhyi")
+
+[node name="Position" type="PathFollow2D" parent="Bottom" unique_id=547886034]
+position = Vector2(-50, 700)
+
+[node name="HUD" type="Control" parent="." unique_id=158890247]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="CompletionPanel" type="Control" parent="HUD" unique_id=1861883240]
+visible = false
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=465581352]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1319984553]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=1062001064]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1c3ut")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=1278880438]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=938133714]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=1893433320]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Wave: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1145079315]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="CurrentWave" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1824403626]
+layout_mode = 2
+text = "67"
+
+[node name="MarginContainer3" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=856821265]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Divisor" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer3" unique_id=1258635618]
+layout_mode = 2
+text = "/"
+
+[node name="MarginContainer4" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=910460531]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="TotalWave" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4" unique_id=629076354]
+layout_mode = 2
+text = "69"
+
+[node name="Enemies" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=104465672]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_1c3ut")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Enemies" unique_id=89649767]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=1839082054]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer" unique_id=344213573]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Enemies Left: "
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=708130915]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Count" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=1881905367]
+layout_mode = 2
+text = "67"
+
+[node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_ido5u")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1710171856]
+visible = false
+layout_mode = 0
+offset_left = 516.0
+offset_top = 295.0
+offset_right = 635.0
+offset_bottom = 353.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=1360818450]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete"
+horizontal_alignment = 1
+
+[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=83633541]
+layout_mode = 2
+text = "Return"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254563325]
+stream = ExtResource("11_krpyx")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="SpawnPlayer" type="AudioStreamPlayer" parent="." unique_id=253188182]
+stream = ExtResource("12_7pjxo")
+bus = &"SFX"
+
+[node name="DeathPlayer" type="AudioStreamPlayer" parent="." unique_id=531188374]
+stream = ExtResource("13_iq156")
+bus = &"SFX"
+
+[node name="DamageEnemyPlayer" type="AudioStreamPlayer" parent="." unique_id=1826265761]
+stream = ExtResource("14_g34ii")
+volume_db = 10.551
+bus = &"SFX"
+
+[connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="BossEnemy/DamageTimer" to="BossEnemy" method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
