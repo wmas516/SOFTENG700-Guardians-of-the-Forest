@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
 [ext_resource type="Texture2D" uid="uid://cgf4w3vcrxsdu" path="res://resources/backgrounds/ShoeClean.png" id="2_hyicb"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="5_iwasc"]
+[ext_resource type="AudioStream" uid="uid://bqy8tqlnpx6u8" path="res://resources/audio/bootScrub.mp3" id="5_uvyfl"]
 [ext_resource type="Texture2D" uid="uid://cmhak7pmtshlr" path="res://resources/props/shoeDirty.png" id="6_uvyfl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyicb"]
@@ -142,6 +143,9 @@ input_pickable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=1215101745]
 shape = SubResource("CapsuleShape2D_hyicb")
+
+[node name="ScrubPlayer" type="AudioStreamPlayer" parent="." unique_id=1794975742]
+stream = ExtResource("5_uvyfl")
 
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="input_event" from="Right" to="." method="_on_shoe_input_event"]

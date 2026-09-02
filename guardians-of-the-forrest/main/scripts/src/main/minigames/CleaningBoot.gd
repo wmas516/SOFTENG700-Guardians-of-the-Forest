@@ -15,6 +15,8 @@ extends Node2D
 @onready var areaLeft: StaticBody2D = $Left
 @onready var areaRight: StaticBody2D = $Right
 
+@onready var scrubSoundPlayer: AudioStreamPlayer = $ScrubPlayer
+
 var rightFocused: bool = true
 
 var isDragging = false
@@ -44,16 +46,24 @@ func _input(event):
 		var curSprite = isPointInsideSprite(event.global_position)
 		if curSprite:
 			dragSprite(curSprite)
+		else:
+			scrubSoundPlayer.stop()
+	else:
+		scrubSoundPlayer.stop()
 
 func dragSprite(curSprite):
 	if level_complete:
 		return
 	if curSprite.modulate.a > 0.05:
 		curSprite.modulate.a = curSprite.modulate.a - cleaningRate
+		if (!scrubSoundPlayer.is_playing()):
+			scrubSoundPlayer.play()
+			
 	else:
 		curSprite.modulate.a = 0
 		sprites.erase(curSprite)
 		curSprite.queue_free()
+		scrubSoundPlayer.stop()
 		if sprites.size() <= 0:
 			clearedSprite(sprites.size())
 			miniGameOver()
