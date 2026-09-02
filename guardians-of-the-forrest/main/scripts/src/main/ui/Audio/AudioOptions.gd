@@ -13,9 +13,10 @@ func _ready() -> void:
 	master_slider.release_focus()
 	music_slider.release_focus()
 	sfx_slider.release_focus()
-	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))
-	AudioServer.set_bus_volume_db(1, linear_to_db(sfx_slider.value))
-	AudioServer.set_bus_volume_db(2, linear_to_db(music_slider.value))
+	
+	master_slider.set_value(db_to_linear(AudioServer.get_bus_volume_db(0)))
+	sfx_slider.set_value(db_to_linear(AudioServer.get_bus_volume_db(1)))
+	music_slider.set_value(db_to_linear(AudioServer.get_bus_volume_db(2)))
 
 func _on_master_slider_drag_ended(value_changed: bool) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))

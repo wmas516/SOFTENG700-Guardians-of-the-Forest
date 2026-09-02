@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 
 	flip(rangeRay.rotation_degrees < -90 || rangeRay.rotation_degrees > 90)
 
-	if(Input.is_action_just_pressed("Heal")):
+	if(Input.is_action_just_pressed("Interact")):
 		var healed = getTargetsInRange()
 
 		for target in healed:
