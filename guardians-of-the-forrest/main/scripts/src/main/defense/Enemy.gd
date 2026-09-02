@@ -20,6 +20,8 @@ const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "dd9b04", 3: "ffffff"}
 @export var damageTimer: Timer
 @export var speed = 100.0
 
+signal damagedTarget
+
 var timerOver = false
 var destPos
 var health = 1
@@ -39,6 +41,8 @@ func _process(delta: float) -> void:
 	pass
 
 func _physics_process(delta: float) -> void:
+	if (!enabled || !is_inside_tree() || !is_node_ready()):
+		return
 	if (enabled):
 		var damaged = getTargetsInRange()
 		
@@ -53,7 +57,8 @@ func _physics_process(delta: float) -> void:
 				sprite.play("hurt")
 			elif (hit):
 				velocity = Vector2(0, 0)
-				move_and_slide()
+				if (enabled):
+					move_and_slide()
 				return
 			else:
 				sprite.play("idle")
@@ -63,14 +68,12 @@ func _physics_process(delta: float) -> void:
 				sprite.flip_h = false
 			damageTimer.stop()
 			eatSoundPlayer.stop()
-			
-		move_and_slide()
+		if (enabled):
+			move_and_slide()
 		
 	return
 
 func damage():
-	print(health)
-	print("dmg")
 	health -= 1
 	velocity =  speed * -global_position.direction_to(destPos)
 	if (health <= 0):
@@ -137,6 +140,7 @@ func damageTargets(damaged) -> bool:
 					sprite.play("bite")
 				elif (timerOver):
 					target.damage()
+					damagedTarget.emit()
 					if (type != EnemyType.BOSS):
 						health = 0
 						damage()
@@ -158,3 +162,4 @@ func setColor():
 	if (type != EnemyType.BOSS):
 		sprite.self_modulate = Color(HEALTHCOLORS.get(health))
 	return
+	

@@ -6,6 +6,7 @@ extends Node2D
 @export var enemy: CharacterBody2D
 @export var bossEnemy: CharacterBody2D
 @export var spawnTimer: Timer
+@export var lives: int = 5
 
 var enemies: Array[Node] = []
 var level_complete: bool = false
@@ -16,23 +17,43 @@ var level_complete: bool = false
 
 @onready var waveLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentWave
 @onready var waveTotalLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4/TotalWave
+@onready var hpLabel: Label = $HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/Count
 @onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 @onready var completion_container: Container = $HUD/ReturnBox
-@onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
-
+@onready var tryAgain_container: Container = $HUD/TryAgainBox
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
+
+var curWaveEnemies = waveEnemies
+var originalWaveEnemies: Array[Wave] = []
+var curLives = lives
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#enemy.setEnabled(true)
-	waveTotalLabel.text = str(waveEnemies.size())
+	curLives = lives
+	for enemy_node in enemies.duplicate():
+		if is_instance_valid(enemy_node):
+			enemy_node.queue_free()
+	enemies.clear()
+	hpLabel.text = str(curLives)
+	if originalWaveEnemies.is_empty():
+		originalWaveEnemies = copy_waves(waveEnemies)
+	curWaveEnemies = copy_waves(originalWaveEnemies)
+	waveTotalLabel.text = str(curWaveEnemies.size())
 	completion_container.visible = false
+	wave = 0
 	nextWave()
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func copy_waves(waves: Array[Wave]) -> Array[Wave]:
+	var copied_waves: Array[Wave] = []
+	for wave_resource in waves:
+		copied_waves.append(Wave.new(wave_resource.normal, wave_resource.elite, wave_resource.boss))
+	return copied_waves
 
 
 func _on_spawn_timer_timeout() -> void:
@@ -46,8 +67,8 @@ func _on_spawn_timer_timeout() -> void:
 
 func nextWave():
 	spawnTimer.start()
-	if (wave < waveEnemies.size()):
-		aliveEnemies = waveEnemies[wave].total()
+	if (wave < curWaveEnemies.size()):
+		aliveEnemies = curWaveEnemies[wave].total()
 		wave = wave + 1
 		enemyLabel.text = str(aliveEnemies)
 		#print("[New Wave]:\n - Wave: ",wave)
@@ -62,7 +83,7 @@ func spawn():
 	if level_complete:
 		return
 	if (enemy):
-		enemy.type = waveEnemies[wave-1].getRandEnemyBossLast()
+		enemy.type = curWaveEnemies[wave-1].getRandEnemyBossLast()
 		var newEnemy
 		if (enemy.type == DefenceEnemy.EnemyType.BOSS && bossEnemy):
 			bossEnemy.type = DefenceEnemy.EnemyType.BOSS
@@ -113,3 +134,41 @@ func _show_completion() -> void:
 func _on_return_button_pressed() -> void:
 	print("return pressed")
 	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Platforming.tscn")
+
+func _on_try_again_button_pressed() -> void:
+	print("try again")
+	revertLoss()
+	_ready()
+
+func _on_boss_enemy_damaged_target() -> void:
+	targetDamage()
+
+
+func _on_enemy_damaged_target() -> void:
+	targetDamage()
+
+func targetDamage() -> void:
+	curLives -= 1
+	hpLabel.text = str(curLives)
+	if (curLives <= 0):
+		loss()
+
+func loss() -> void:
+	tryAgain_container.visible = true
+	for child in get_children():
+		if !(child is Control):
+			child.process_mode = Node.PROCESS_MODE_DISABLED
+			child.set_physics_process(false)
+	for enemy in enemies:
+		if enemy is DefenceEnemy: 
+			(enemy as DefenceEnemy).setEnabled(false)
+			(enemy as DefenceEnemy).set_physics_process(false)
+
+func revertLoss() -> void:
+	tryAgain_container.visible = false
+	for child in get_children():
+		if !(child is Control):
+			child.process_mode = Node.PROCESS_MODE_INHERIT
+			child.set_physics_process(true)
+			if (child.has_method("_ready()")):
+				child._ready()
