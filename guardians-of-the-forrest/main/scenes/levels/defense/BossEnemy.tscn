@@ -170,7 +170,8 @@ height = 2260.0
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1367841391]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_jgdpc")
-animation = &"bite"
+animation = &"idle"
+frame_progress = 0.76883763
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
 position = Vector2(-89, 10)
@@ -178,3 +179,4 @@ shape = SubResource("CapsuleShape2D_ya4xx")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=2125186630]
 target_position = Vector2(1000, 6)
+collision_mask = 2

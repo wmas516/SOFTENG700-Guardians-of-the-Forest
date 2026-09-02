@@ -69,8 +69,8 @@ func _physics_process(delta: float) -> void:
 	return
 
 func damage():
-	if (type != EnemyType.BOSS):
-		health -= 1
+#if (type != EnemyType.BOSS):
+	health -= 1
 	velocity =  speed * -global_position.direction_to(destPos)
 	if (health <= 0):
 		if (!timerOver):
