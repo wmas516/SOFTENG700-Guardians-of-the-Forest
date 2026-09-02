@@ -23,7 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://chqfladxhsejf" path="res://resources/environment/stones_2/moss_patch_soft_03.png" id="12_080uc"]
 [ext_resource type="Texture2D" uid="uid://dbjjiksq76sy1" path="res://resources/environment/foliage/grass_elongated_01.png" id="12_ybnf0"]
 [ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="14_xce43"]
+[ext_resource type="Texture2D" uid="uid://bd35vhqhxpdvt" path="res://resources/environment/stones/boulder_dark_01.png" id="15_d24a7"]
 [ext_resource type="Texture2D" uid="uid://r7xqoq3vw57b" path="res://resources/environment/foliage/grass_lump_02.png" id="15_s3y7u"]
+[ext_resource type="Texture2D" uid="uid://drsydrpypj6sk" path="res://resources/environment/stones/boulder_mossy_01.png" id="16_bachh"]
 [ext_resource type="Texture2D" uid="uid://byrmhyj8asu5r" path="res://resources/environment/trees/trunk_full_02.png" id="17_ldci6"]
 [ext_resource type="Texture2D" uid="uid://hp6go22dlsdf" path="res://resources/environment/foliage/grass_coverings_02.png" id="18_gmq1w"]
 [ext_resource type="Texture2D" uid="uid://b8s7uahddi624" path="res://resources/environment/stones_2/moss_strip_02.png" id="18_ykwt6"]
@@ -34,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cno71e1jovyde" path="res://resources/environment/foliage/grass_muddy_01.png" id="24_ykwt6"]
 [ext_resource type="Texture2D" uid="uid://drddi8mqf4a60" path="res://resources/environment/foliage/grass_lump_01.png" id="25_ykwt6"]
 [ext_resource type="Texture2D" uid="uid://dqp4vpofdepoq" path="res://resources/environment/stones/boulder_mossy_06.png" id="27_m5kjs"]
+[ext_resource type="Texture2D" uid="uid://i2ytuxh8i0au" path="res://resources/environment/foliage/grass_wave_01.png" id="28_2sdgq"]
 [ext_resource type="Texture2D" uid="uid://cqh6hg25rlamn" path="res://resources/environment/foliage/bush_round_medium_02.png" id="28_rlkse"]
 [ext_resource type="Texture2D" uid="uid://rqgis15ileo2" path="res://resources/environment/foliage/bush_small_03.png" id="32_2n6gj"]
 [ext_resource type="Texture2D" uid="uid://dgt38eikxbbaa" path="res://resources/environment/stones_2/rock_flat_01.png" id="33_8tgtq"]
@@ -77,6 +80,10 @@
 [ext_resource type="Texture2D" uid="uid://4qg1ialydilo" path="res://resources/environment/trees/stump_base_01.png" id="70_vcs3c"]
 [ext_resource type="Texture2D" uid="uid://bh4d5i73pw5jv" path="res://resources/environment/trees/branch_wide_05.png" id="71_q1p1y"]
 [ext_resource type="Texture2D" uid="uid://h0d3wnlwtaih" path="res://resources/environment/trees/branch_thin_01.png" id="72_q1p1y"]
+[ext_resource type="Texture2D" uid="uid://ce3o8f0o10340" path="res://resources/environment/foliage/grass_round_01.png" id="79_6w1ea"]
+[ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
+[ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
+[ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
 
 [node name="Level" type="Node2D" unique_id=455574578]
 
@@ -157,13 +164,13 @@ scale = Vector2(0.45346627, 0.45346627)
 texture = ExtResource("62_vcs3c")
 
 [node name="TrunkDark01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=567004531]
-position = Vector2(1044, 139)
+position = Vector2(1044.9999, 98)
 scale = Vector2(0.2478992, 0.24789916)
 texture = ExtResource("4_ykwt6")
 
 [node name="BranchThin01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=31463448]
 self_modulate = Color(0.6, 0.6, 0.6, 1)
-position = Vector2(1142.9999, 14)
+position = Vector2(1154.0001, -25)
 rotation = -4.709857
 scale = Vector2(0.39658344, 0.44325718)
 texture = ExtResource("72_q1p1y")
@@ -186,11 +193,83 @@ scale = Vector2(0.30077568, 0.30077577)
 texture = ExtResource("70_vcs3c")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=514990213]
+motion_scale = Vector2(0.6, 0.6)
+
+[node name="BoulderDark05" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1039270083]
+position = Vector2(1021.4044, 528.9551)
+scale = Vector2(0.4858607, -0.525331)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark08" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=787506169]
+position = Vector2(190.00002, 615.99994)
+rotation = 3.1187918
+scale = Vector2(0.4858607, -0.525331)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark07" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=759898527]
+position = Vector2(1510.0001, 508.99997)
+rotation = -0.027460337
+scale = Vector2(0.32748175, -0.49456835)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark10" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1047229065]
+position = Vector2(2743.9998, 561.00006)
+rotation = 3.1282444
+scale = Vector2(0.3547752, -0.5958015)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark11" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=720923681]
+position = Vector2(2311.4043, 604.9551)
+rotation = -3.0921483
+scale = Vector2(0.30430207, -0.41886637)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark09" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1620956847]
+position = Vector2(1965.9999, 504.00003)
+rotation = -3.1415925
+scale = Vector2(0.39316174, 0.6278329)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark12" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=399693620]
+position = Vector2(539.9999, 602)
+rotation = -3.1415925
+scale = Vector2(0.39316174, 0.6278329)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark01" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=2115288992]
+position = Vector2(2432.4043, 503.95502)
+rotation = 3.1415927
+scale = Vector2(0.37288672, 0.3920667)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark02" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=867149934]
+position = Vector2(1295, 634.00006)
+rotation = -3.1373928
+scale = Vector2(0.43440384, -0.46215388)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark06" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1817062215]
+position = Vector2(798.99994, 624)
+rotation = -3.1247485
+scale = Vector2(0.43440384, -0.46215388)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark03" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=651044188]
+position = Vector2(1806.9999, 598)
+rotation = -0.0040877736
+scale = Vector2(0.47875538, 0.5018657)
+texture = ExtResource("15_d24a7")
+
+[node name="BoulderDark14" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=2124058046]
+position = Vector2(516.0644, 754.07837)
+rotation = 0.008124264
+scale = Vector2(0.33691666, 0.3393237)
+texture = ExtResource("15_d24a7")
 
 [node name="Background" type="Node2D" parent="." unique_id=1700164520]
 
 [node name="BushMedium01" type="Sprite2D" parent="Background" unique_id=1092948738]
-position = Vector2(858.3867, 185.9375)
+position = Vector2(779.00006, 192)
 scale = Vector2(0.29393736, 0.29393736)
 texture = ExtResource("1_dd580")
 
@@ -218,183 +297,671 @@ texture = ExtResource("34_dd580")
 
 [node name="Gameplay" type="Node2D" parent="." unique_id=313065877]
 
+[node name="Ground_3" type="Node2D" parent="Gameplay" unique_id=1226719876]
+
+[node name="BoulderDark08" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=33673186]
+position = Vector2(3833.1072, 2026.253)
+rotation = 3.129994
+scale = Vector2(0.21049947, -0.3214978)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark09" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1748750498]
+position = Vector2(4249.7256, 2014.2893)
+rotation = 3.129994
+scale = Vector2(0.24676998, -0.17032099)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark10" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=258240358]
+position = Vector2(4014.866, 2007.426)
+rotation = 3.129994
+scale = Vector2(-0.22823541, -0.2456846)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark06" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1648450384]
+position = Vector2(4470, 1976)
+rotation = -6.2929697
+scale = Vector2(0.29532784, 0.30658022)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark11" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1981461622]
+position = Vector2(4912.88, 1916.867)
+rotation = -6.6276875
+scale = Vector2(0.31992936, 0.30658022)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark07" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1075511491]
+position = Vector2(3725, 1934.0002)
+rotation = -7.019006
+scale = Vector2(-0.21049948, 0.2922598)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1258618193]
+position = Vector2(3807, 1907.9998)
+rotation = -3.063951
+scale = Vector2(0.24598496, 0.30952278)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=165284605]
+position = Vector2(4042.0002, 1905)
+rotation = -3.1398206
+scale = Vector2(-0.23343205, 0.28200728)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1721079514]
+position = Vector2(4240.9995, 1911)
+rotation = -3.1398206
+scale = Vector2(0.27213424, 0.2825029)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderDark05" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1860555888]
+position = Vector2(4626, 1900.9999)
+rotation = -3.1398206
+scale = Vector2(-0.27022094, 0.3046084)
+texture = ExtResource("81_23chx")
+
+[node name="BoulderMossy18" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=588316185]
+position = Vector2(137.9999, 1777.9999)
+rotation = 0.4853721
+scale = Vector2(0.35632148, 0.37958407)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy27" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1152857019]
+position = Vector2(-25.999996, 1814)
+rotation = 0.16383979
+scale = Vector2(0.35632148, 0.36723655)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy19" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1341308824]
+position = Vector2(141.99991, 1798)
+rotation = 0.4735476
+scale = Vector2(0.734348, 0.73434794)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy20" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1512736266]
+position = Vector2(104.00001, 1866.0001)
+rotation = -0.022079661
+scale = Vector2(-0.6587719, 0.9006611)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy28" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1676245561]
+position = Vector2(-38, 1673.0001)
+rotation = 0.20353343
+scale = Vector2(-0.6587719, 0.9006611)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy26" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1905195224]
+position = Vector2(174.00002, 1923.9999)
+rotation = -0.002629429
+scale = Vector2(0.54129285, 0.77264184)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy25" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=430635041]
+position = Vector2(1690.9999, 1952.0001)
+rotation = -3.142293
+scale = Vector2(0.19516903, 0.24643297)
+texture = ExtResource("80_esh1t")
+
+[node name="BoulderMossy24" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=227913757]
+position = Vector2(1741, 1952.0002)
+rotation = -3.119204
+scale = Vector2(0.29412994, 0.29412994)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1616222029]
+position = Vector2(1600, 1852)
+rotation = -0.026522707
+scale = Vector2(0.44233903, 0.442339)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy23" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1014728712]
+position = Vector2(1828, 1851.0001)
+rotation = -0.025172003
+scale = Vector2(-0.6744161, 0.5393825)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy22" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=2063581639]
+position = Vector2(1718.0001, 1857)
+rotation = 0.052716363
+scale = Vector2(0.44233903, 0.442339)
+texture = ExtResource("16_bachh")
+
+[node name="BoulderMossy21" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=150779229]
+position = Vector2(827, 2009)
+rotation = 2.9611769
+scale = Vector2(0.2934067, 0.284192)
+texture = ExtResource("80_esh1t")
+
+[node name="BoulderMossy16" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1906830673]
+position = Vector2(709.00006, 1934.9998)
+rotation = 3.1404443
+scale = Vector2(0.32227752, 0.2815001)
+texture = ExtResource("80_esh1t")
+
+[node name="BoulderMossy17" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1191159998]
+position = Vector2(1131.9999, 1967.0002)
+rotation = 0.009227513
+scale = Vector2(-0.3667914, 0.44189432)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy14" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1745585372]
+position = Vector2(341.99997, 1932)
+rotation = -3.1195152
+scale = Vector2(0.37371123, 0.37371123)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy15" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1786468142]
+position = Vector2(1152.0001, 1919.0001)
+rotation = -3.1374788
+scale = Vector2(0.33174628, 0.3115141)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy11" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1039148957]
+position = Vector2(2800.0002, 2034.0002)
+rotation = -0.036843516
+scale = Vector2(0.2959148, 0.28386456)
+texture = ExtResource("2_4ke4l")
+
+[node name="BoulderMossy13" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1581245794]
+position = Vector2(3039.4602, 2018.7418)
+rotation = 0.021031613
+scale = Vector2(-0.2776873, 0.3063938)
+texture = ExtResource("2_4ke4l")
+
+[node name="BoulderMossy02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=628552736]
+position = Vector2(2631.395, 2007.77)
+rotation = -1.5307317
+scale = Vector2(0.18975021, -0.2733054)
+texture = ExtResource("2_4ke4l")
+
+[node name="BoulderMossy06" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1265934074]
+position = Vector2(3165, 2040.0001)
+rotation = 0.005800247
+scale = Vector2(0.3225323, 0.25859204)
+texture = ExtResource("8_n7jlw")
+
+[node name="BoulderMossy04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=149854815]
+position = Vector2(3033.0002, 1960)
+rotation = 3.1155052
+scale = Vector2(0.2553654, 0.2553654)
+texture = ExtResource("2_4ke4l")
+
+[node name="BoulderMossy03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=985862518]
+position = Vector2(2791, 1962.0001)
+rotation = 3.1191995
+scale = Vector2(0.25581232, 0.23729768)
+texture = ExtResource("8_n7jlw")
+
+[node name="BoulderMossy12" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1559198360]
+position = Vector2(3355.883, 2008.8878)
+rotation = -1.5997189
+scale = Vector2(0.1906437, 0.2521117)
+texture = ExtResource("8_n7jlw")
+
+[node name="BoulderMossy05" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=273343359]
+position = Vector2(2366.1921, 1989.9434)
+rotation = 1.598351
+scale = Vector2(0.13268942, 0.10092074)
+texture = ExtResource("80_esh1t")
+
+[node name="BoulderMossy09" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=375151680]
+position = Vector2(2175.8281, 1985.9963)
+rotation = 1.5724168
+scale = Vector2(0.13268942, 0.09745281)
+texture = ExtResource("80_esh1t")
+
+[node name="BoulderMossy07" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1896226339]
+position = Vector2(2365.6436, 1986.1395)
+rotation = 1.5501556
+scale = Vector2(0.16140345, -0.12580813)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy08" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=992790391]
+position = Vector2(2177, 1985)
+rotation = 1.5501556
+scale = Vector2(0.17571849, -0.11846553)
+texture = ExtResource("1_gwiru")
+
+[node name="BoulderMossy10" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=255852772]
+position = Vector2(3247.9995, 1960.9999)
+rotation = -3.16768
+scale = Vector2(-0.28884542, 0.30226123)
+texture = ExtResource("2_4ke4l")
+
+[node name="GrassMuddy05" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1192501683]
+position = Vector2(1652.5896, 1823)
+scale = Vector2(0.15885554, 0.20676883)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassMuddy01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1465196112]
+position = Vector2(631.00006, 1833)
+scale = Vector2(0.24152526, 0.26652533)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassMuddy02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=380679270]
+position = Vector2(1795, 1818.9998)
+rotation = 3.1493213
+scale = Vector2(-0.16783088, -0.19180416)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassMuddy04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=947862618]
+position = Vector2(887.9999, 1831.9999)
+rotation = 3.1415927
+scale = Vector2(-0.21931557, -0.2603454)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassMuddy03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=172772159]
+position = Vector2(341.7569, 1825.8105)
+rotation = 3.1415927
+scale = Vector2(0.28451464, -0.24287501)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassMuddy06" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1785266968]
+position = Vector2(1177, 1825)
+rotation = 3.1501834
+scale = Vector2(0.24529275, -0.26528716)
+texture = ExtResource("24_ykwt6")
+
+[node name="GrassRound01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=841172797]
+self_modulate = Color(1, 1, 1, 0.5647059)
+position = Vector2(462.90134, 1833.375)
+scale = Vector2(0.33349463, 0.24588826)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1921973246]
+self_modulate = Color(1, 1, 1, 0.5647059)
+position = Vector2(320.0987, 1831.375)
+scale = Vector2(0.27303705, 0.23930945)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=858158917]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(765.99994, 1837.625)
+scale = Vector2(0.31478968, 0.26069054)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1991097497]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(1137, 1833.625)
+scale = Vector2(0.31478968, 0.23437549)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound05" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1588310445]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(1726, 1821.0001)
+scale = Vector2(0.31478968, 0.17187501)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassLump01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=471720803]
+position = Vector2(2178.5, 1877.0625)
+scale = Vector2(0.07314627, 0.14278273)
+texture = ExtResource("25_ykwt6")
+
+[node name="GrassLump04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=927779941]
+position = Vector2(2366.3906, 1883.0625)
+scale = Vector2(0.07239478, 0.14278273)
+texture = ExtResource("25_ykwt6")
+
+[node name="GrassLump02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1973197308]
+position = Vector2(2178.086, 1883.8093)
+rotation = 0.02297017
+scale = Vector2(0.07702269, 0.1657763)
+texture = ExtResource("25_ykwt6")
+
+[node name="GrassLump03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1127043790]
+position = Vector2(2368.365, 1888.0131)
+rotation = 0.02297017
+scale = Vector2(-0.07447715, 0.14846326)
+texture = ExtResource("25_ykwt6")
+
+[node name="GrassElongated01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=2044812086]
+position = Vector2(2674, 1892.0001)
+scale = Vector2(0.1546764, 0.15467642)
+texture = ExtResource("12_ybnf0")
+
+[node name="GrassElongated02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1748793253]
+position = Vector2(2979.8335, 1891.0001)
+scale = Vector2(0.1998267, 0.15467642)
+texture = ExtResource("12_ybnf0")
+
+[node name="GrassElongated03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=549745009]
+position = Vector2(2769.292, 1889)
+scale = Vector2(-0.1467842, 0.15371685)
+texture = ExtResource("12_ybnf0")
+
+[node name="GrassElongated04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1137029603]
+position = Vector2(3126, 1889.0001)
+scale = Vector2(0.1546764, 0.15467642)
+texture = ExtResource("12_ybnf0")
+
+[node name="GrassElongated05" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1312145879]
+position = Vector2(3312, 1888)
+scale = Vector2(0.1546764, 0.15467642)
+texture = ExtResource("12_ybnf0")
+
+[node name="GrassWave03" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1616960466]
+position = Vector2(3727.0002, 1824)
+scale = Vector2(0.1451042, 0.14510421)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassWave07" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=340690192]
+position = Vector2(4533.0005, 1825.0001)
+scale = Vector2(0.1451042, 0.14510421)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassWave04" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1363273583]
+position = Vector2(3928.0002, 1826.0001)
+scale = Vector2(0.1451042, 0.14510421)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassWave08" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=82186876]
+position = Vector2(4714, 1826.0001)
+scale = Vector2(0.1451042, 0.14510421)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassWave05" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=2109745648]
+position = Vector2(4390, 1824.0001)
+scale = Vector2(0.1451042, 0.14510421)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassWave06" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1249410774]
+position = Vector2(4159, 1824)
+rotation = 3.1415927
+scale = Vector2(0.1748958, -0.14510421)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassRound06" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1502429956]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(2841, 1891.0001)
+scale = Vector2(0.31478968, 0.17187501)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound07" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=201212318]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(3229.1743, 1890.0001)
+scale = Vector2(0.285663, 0.17187501)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound09" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1829630050]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(3766.9998, 1825.0001)
+scale = Vector2(0.285663, 0.10567385)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound10" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=540934296]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(4039.9998, 1826)
+scale = Vector2(0.285663, 0.10567385)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound11" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1558276851]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(4409, 1824.0001)
+scale = Vector2(0.285663, 0.10567385)
+texture = ExtResource("79_6w1ea")
+
+[node name="GrassRound12" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=323881838]
+self_modulate = Color(1, 1, 1, 0.6745098)
+position = Vector2(4665.9995, 1827.0001)
+scale = Vector2(0.285663, 0.10567385)
+texture = ExtResource("79_6w1ea")
+
+[node name="MushroomGreen01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=828600593]
+position = Vector2(2174.918, 1842.4602)
+rotation = -2.9852304
+scale = Vector2(0.52913165, -0.34527493)
+texture = ExtResource("55_mxf0k")
+
+[node name="MushroomYellow01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=74815098]
+position = Vector2(2366.2732, 1831.4951)
+rotation = 0.13534796
+scale = Vector2(0.54827785, 0.4213538)
+texture = ExtResource("53_e26gx")
+
+[node name="MushroomBrown01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=1978457419]
+position = Vector2(2559, 1869)
+rotation = 0.22218737
+scale = Vector2(0.39104322, 0.42162514)
+texture = ExtResource("52_ybj6v")
+
+[node name="GrassWave01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=2051251006]
+position = Vector2(124.000046, 1658.9999)
+rotation = 0.2770769
+scale = Vector2(0.12587412, 0.12587413)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassWave02" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=657791234]
+position = Vector2(-44.99999, 1599)
+rotation = 0.4384213
+scale = Vector2(0.12587412, 0.12587413)
+texture = ExtResource("28_2sdgq")
+
+[node name="GrassRound08" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=679088233]
+self_modulate = Color(1, 1, 1, 0.5647059)
+position = Vector2(29.000034, 1632.9999)
+rotation = 0.35228693
+scale = Vector2(0.14297242, 0.10731804)
+texture = ExtResource("79_6w1ea")
+
+[node name="MushroomClusterYellow01" type="Sprite2D" parent="Gameplay/Ground_3" unique_id=553232287]
+position = Vector2(3403.0002, 1867.0001)
+rotation = 0.16194399
+scale = Vector2(0.5142863, 0.26020348)
+texture = ExtResource("56_crqgt")
+
 [node name="Ground_2" type="Node2D" parent="Gameplay" unique_id=556174170]
 
 [node name="RockAngular112" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1564274006]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2821.9514, 545.30664)
 rotation = -2.46564
 scale = Vector2(0.33019963, -0.2267254)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular114" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1714859369]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2853, 456.00003)
 rotation = 1.6006197
 scale = Vector2(-0.2839932, -0.14313927)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular110" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1668510451]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(947, 607.00006)
 rotation = -1.5755695
 scale = Vector2(0.36604673, 0.61296123)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular105" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=562397243]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(917, 663)
 rotation = -2.860415
 scale = Vector2(0.6889378, 0.20819247)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular106" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1787662323]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1906, 621.00006)
 rotation = 0.019064754
 scale = Vector2(0.73441225, -0.30392846)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular91" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=545983531]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1624.9999, 703.99994)
 rotation = 3.7586975
 scale = Vector2(0.07469851, 0.14375079)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular107" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=190316036]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(757, 722.99994)
 rotation = -0.03123498
 scale = Vector2(0.08418033, -0.1294375)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular100" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1813972735]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1542, 609.0001)
 rotation = 3.0001593
 scale = Vector2(0.43852028, 0.31497815)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular103" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=2048469148]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1192.0248, 617.8202)
 rotation = 3.150594
 scale = Vector2(-0.5332316, 0.31497815)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular95" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1728302085]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2935.5366, 485.7295)
 rotation = 3.0973127
 scale = Vector2(0.2967632, 0.25154915)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular93" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1497685769]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2058, 559.0001)
 rotation = -1.2699533
 scale = Vector2(0.40705937, -0.67707354)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular99" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1644623597]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1685.9999, 636)
 rotation = -0.24341619
 scale = Vector2(0.2858032, -0.26032513)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular101" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=779543301]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1349, 642)
 rotation = 0.26520735
 scale = Vector2(-0.25705174, -0.29035938)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular104" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=719649932]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1416, 655.99994)
 rotation = -0.182607
 scale = Vector2(0.30322927, -0.2744802)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular96" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=39175947]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2160.7646, 629.2832)
 rotation = -3.2667518
 scale = Vector2(-0.45059657, 0.20514394)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular97" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=469464369]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(543, 612)
 rotation = -3.1919715
 scale = Vector2(-0.44605803, 0.30164385)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular87" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1287781666]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2707.0002, 627)
 rotation = -1.6446512
 scale = Vector2(0.34443533, 0.2340192)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular84" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1921246593]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2300, 642)
 rotation = 1.1500096
 scale = Vector2(0.34950554, -0.18983771)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular92" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=257729959]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2394, 648)
 rotation = -0.34980652
 scale = Vector2(0.107358605, -0.16932322)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular102" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=364013361]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2391.9998, 581)
 rotation = -1.6838187
 scale = Vector2(0.3695521, 0.48807168)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular90" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1569925751]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2493.0002, 629.00006)
 rotation = 1.6222432
 scale = Vector2(0.18735342, -0.2820942)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular98" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=726056139]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(677.99994, 640.00006)
 rotation = 0.08100447
 scale = Vector2(0.4898329, -0.26032513)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular89" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=96431877]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2609.381, 629.067)
 rotation = -1.9308995
 scale = Vector2(0.3625734, 0.31729516)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular88" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1674858994]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2673.6711, 628.02185)
 rotation = 3.0562198
 scale = Vector2(0.20122874, 0.25558263)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular86" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=188055410]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2801.1504, 612.38)
 rotation = -1.6376644
 scale = Vector2(0.33466157, 0.2927731)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular94" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=7627205]
-position = Vector2(2920, 562.00006)
-rotation = -2.2205944
-scale = Vector2(0.22633788, 0.25154915)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(2951, 599)
+rotation = -2.364494
+scale = Vector2(0.26277953, 0.29204997)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular85" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=318718580]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2855.42, 611.43)
 rotation = 2.9522116
 scale = Vector2(0.29210874, 0.18794948)
 texture = ExtResource("58_41ubo")
 
 [node name="RockFlat04" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=49839074]
-position = Vector2(385, 964.9998)
-rotation = 0.049078118
-scale = Vector2(0.1436682, 0.22380126)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(390.99997, 966)
+rotation = 0.04402569
+scale = Vector2(0.13542356, 0.22380126)
 texture = ExtResource("33_8tgtq")
 
+[node name="RockAngular62" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1844945338]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(646.607, 1367.0536)
+rotation = 0.03389606
+scale = Vector2(0.26098415, -0.09448421)
+texture = ExtResource("42_1p11v")
+
 [node name="RockAngular71" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=804903240]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(366.00003, 842.9999)
 rotation = -3.2363443
 scale = Vector2(0.22763985, 0.31497815)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular70" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1486988365]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(222.99998, 944)
 rotation = -1.1861132
 scale = Vector2(0.18892457, -0.18666176)
@@ -402,6 +969,7 @@ skew = 0.008691072
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular111" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1360428821]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(258, 692)
 rotation = -0.9695397
 scale = Vector2(0.37817612, -0.2003459)
@@ -409,533 +977,594 @@ skew = 0.104645014
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular67" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=384455805]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(236.00003, 832)
 rotation = -3.132173
 scale = Vector2(0.27874872, 0.28745314)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular109" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=302407449]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(364.933, 599.4917)
 rotation = -2.2607265
 scale = Vector2(0.36604673, 0.36049104)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular69" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=838082976]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(275.00003, 891.99994)
 rotation = -3.939323
 scale = Vector2(0.22763985, 0.197892)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular83" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=589537649]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(325.00003, 812)
 rotation = -3.584647
 scale = Vector2(-0.18667404, 0.21247877)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular108" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1955933023]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(369.77692, 677.2155)
 rotation = -4.1444006
 scale = Vector2(-0.554396, 0.21247877)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular81" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=908177325]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(315.99997, 1371)
 rotation = -2.958855
 scale = Vector2(0.27643046, -0.18736504)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular59" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=415702798]
-position = Vector2(498.13452, 1198.0066)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(497.99997, 1227.0001)
 rotation = -1.5744871
-scale = Vector2(0.0828568, -0.13290368)
+scale = Vector2(0.088313736, -0.13712667)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular79" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1445957373]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(237.8371, 1031.329)
 rotation = -3.220463
 scale = Vector2(0.24490985, -0.28920484)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular80" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1462861771]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(255, 1211)
 rotation = -3.2466903
 scale = Vector2(0.3040581, 0.4283941)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular75" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1317269185]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(295.00003, 1000)
 rotation = 1.1598299
 scale = Vector2(0.39957938, -0.14999124)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular76" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1525704100]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(335.99997, 1193.0001)
 rotation = 1.8528688
 scale = Vector2(0.39957938, -0.14999124)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular78" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1135485497]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(353.18967, 1322.1205)
 rotation = -0.25427094
 scale = Vector2(-0.33004084, 0.24547261)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular77" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=40035747]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(839.27277, 1347.8181)
 rotation = -0.9657767
 scale = Vector2(0.49123704, -0.22802804)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular68" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=176119785]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(358, 1008.00006)
 rotation = -4.8694787
 scale = Vector2(0.44916075, -0.13954675)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular65" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1509685653]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(826.8973, 1248.6603)
 rotation = -1.1680938
 scale = Vector2(0.32339704, -0.38938925)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular74" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1976543920]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(752.00006, 1341.9999)
 rotation = 0.033783585
 scale = Vector2(-0.36622703, -0.2990117)
 texture = ExtResource("41_1p11v")
 
-[node name="RockAngular62" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1844945338]
-position = Vector2(621, 1321)
-rotation = 0.033896055
-scale = Vector2(0.27643046, -0.13830474)
-texture = ExtResource("42_1p11v")
-
 [node name="RockAngular55" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=903512712]
-position = Vector2(642.00006, 1202)
-rotation = 0.1309006
-scale = Vector2(0.3268308, -0.06927638)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(535.726, 1100.5002)
+rotation = -0.031777665
+scale = Vector2(-0.38013944, -0.06927638)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockFlat05" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1201116974]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(678, 981.99994)
 rotation = 0.0021352842
 scale = Vector2(-0.15145646, 0.11786014)
 texture = ExtResource("33_8tgtq")
 
-[node name="RockAngular56" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=183556461]
-position = Vector2(674.9999, 1101)
-rotation = 1.9719344
-scale = Vector2(0.05731649, -0.11642409)
-texture = ExtResource("42_1p11v")
+[node name="RockAngular28" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=69125211]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(727, 1273)
+rotation = -3.0740073
+scale = Vector2(0.26780167, -0.30333066)
+texture = ExtResource("41_gt5jh")
 
-[node name="RockAngular11" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1845007977]
-position = Vector2(2256.2415, 923.5552)
-rotation = 1.9629164
-scale = Vector2(0.13028976, -0.2698583)
+[node name="RockAngular56" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=183556461]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(663, 1228)
+rotation = 1.8698659
+scale = Vector2(0.077308364, -0.17946413)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular02" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=129277992]
-position = Vector2(469.00006, 979.00006)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(467.99997, 977.99994)
 rotation = -0.008460626
-scale = Vector2(0.18726742, 0.05558344)
-texture = ExtResource("58_41ubo")
-
-[node name="RockAngular57" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1461085636]
-position = Vector2(506.469, 1105.0356)
-rotation = -0.0054324875
-scale = Vector2(-0.20087755, 0.058629364)
-texture = ExtResource("58_41ubo")
-
-[node name="RockAngular113" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1756995269]
-position = Vector2(540, 1106.9999)
-rotation = -0.0054324875
-scale = Vector2(0.16632442, 0.06586465)
+scale = Vector2(0.1962641, 0.06263428)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular64" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1845463145]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(408, 1231.9999)
 rotation = 0.037593264
 scale = Vector2(-0.2941802, 0.30527145)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular82" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1179037886]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(296.00003, 1112)
 rotation = 1.1585262
 scale = Vector2(0.18023172, -0.18980494)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular72" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=963668508]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(386.99997, 1123.0001)
 rotation = 0.043586615
 scale = Vector2(-0.22763985, -0.31497818)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular73" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1208540882]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(418.6679, 1356.901)
 rotation = -0.053646773
 scale = Vector2(0.2480448, -0.25283954)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular31" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1299452265]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3298.9998, 1083)
 rotation = -0.5515652
 scale = Vector2(0.4877602, -0.29744482)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular37" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1029866068]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3165.3616, 1021.3327)
 rotation = 0.7907268
 scale = Vector2(0.3809923, 0.45983917)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular54" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1717794525]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(908.99994, 1160)
 rotation = -0.120572306
 scale = Vector2(0.52082795, -0.24339604)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular27" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1539577715]
-position = Vector2(745, 1157)
-rotation = 3.1204772
-scale = Vector2(0.29641655, -0.31324002)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(746.3172, 1027.7128)
+rotation = 3.0876288
+scale = Vector2(0.31592193, -0.31324002)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular53" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1265061638]
-position = Vector2(908.00006, 1019)
-rotation = 4.439126
-scale = Vector2(0.4293928, -0.2800008)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(881.18646, 1011.60834)
+rotation = 4.535161
+scale = Vector2(0.43219426, -0.3005647)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular45" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1015895105]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1271.0001, 1115)
 rotation = -2.6940513
 scale = Vector2(0.53086454, 0.2800008)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular24" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1938722120]
-position = Vector2(1316, 1006.00006)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1313, 1006.00006)
 rotation = -1.2735765
 scale = Vector2(0.40044558, 0.22863755)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular51" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1539443432]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1756.0001, 1096)
 rotation = 1.5618933
 scale = Vector2(0.43404672, 0.538048)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular50" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1323749527]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1548.1357, 1116.001)
 rotation = 1.5066557
 scale = Vector2(0.43404675, -0.41102988)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular61" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=407954157]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(442, 1147)
 rotation = 3.3387203
 scale = Vector2(0.22224188, -0.28306293)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular48" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1331057464]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2433, 1011.9999)
 rotation = -0.27357382
 scale = Vector2(0.33970854, 0.33970854)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular01" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1201043832]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3186.0005, 1139)
 rotation = 1.5404716
 scale = Vector2(0.28321624, 0.50368893)
 texture = ExtResource("41_gt5jh")
 
-[node name="RockFlat01" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1174299097]
-position = Vector2(777.0242, 965.7093)
-rotation = 0.0021352842
-scale = Vector2(0.15361127, 0.21504001)
-texture = ExtResource("33_8tgtq")
-
 [node name="RockAngular46" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=485278935]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3445, 1042.0001)
 rotation = -0.7110555
 scale = Vector2(0.60176176, -0.371903)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular03" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1511087970]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3080, 976)
 rotation = 0.8404205
 scale = Vector2(0.305097, 0.3073919)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular23" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=152693984]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1089.0001, 1142.0001)
 rotation = 0.0866634
 scale = Vector2(0.4293928, -0.2800008)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular44" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=937023224]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3469.6538, 879.6471)
 rotation = -1.4812558
 scale = Vector2(0.63220006, -0.27839646)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular39" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=765732147]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3477.9998, 375)
 scale = Vector2(0.38568404, -0.45139387)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular43" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1405046649]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3493.0002, 117.000015)
 rotation = 0.017370746
 scale = Vector2(0.32218394, -0.47432905)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular42" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=5205910]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3431.0002, 222.99998)
 rotation = -1.5926212
 scale = Vector2(0.37920645, 0.26890287)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular115" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1188198203]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3425, 100)
 rotation = -1.5926212
 scale = Vector2(-0.26500496, 0.26890287)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular41" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1843857048]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3421.9998, -26.000072)
 rotation = -1.4044157
 scale = Vector2(0.36197206, 0.33943287)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular52" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=124492813]
-position = Vector2(763, 1038.9999)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(765.00006, 1155)
 rotation = 2.875334
 scale = Vector2(0.4293928, -0.2800008)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular40" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=39233999]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3475, 631.00006)
 rotation = -0.043676645
 scale = Vector2(0.41093197, 0.49071822)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular38" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1814140102]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3421.9995, 461)
 rotation = -6.360606
 scale = Vector2(0.3765355, -0.2701067)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular36" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=2086462520]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3350, 96)
 rotation = -3.0334833
 scale = Vector2(0.2459649, 0.33392182)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular35" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1984275915]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3346, 205.99998)
 rotation = -1.4774619
 scale = Vector2(0.19331865, 0.1571705)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular33" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=895883593]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2719, 1021)
 rotation = 0.1685003
 scale = Vector2(0.25395423, 0.3602503)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular32" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=792550868]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3362.9998, 457)
 rotation = 2.9610758
 scale = Vector2(0.3312124, -0.2622557)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular29" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=854789547]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3355, 581.00006)
 rotation = 3.1415927
 scale = Vector2(0.25842696, 0.38833335)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular63" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1574991369]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3355, 581.00006)
 rotation = 3.1415927
 scale = Vector2(0.25842696, 0.38833335)
 texture = ExtResource("58_41ubo")
 
-[node name="RockAngular28" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=69125211]
-position = Vector2(723.00006, 1271)
-rotation = 0.06758541
-scale = Vector2(-0.26780167, 0.30333066)
-texture = ExtResource("41_gt5jh")
-
 [node name="RockAngular30" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=245953028]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3374, 836)
 rotation = 0.008776527
 scale = Vector2(0.30333063, 0.30333066)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular26" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=840922176]
-position = Vector2(1046, 1001.00006)
-rotation = 0.9378433
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1037.0001, 997.9999)
+rotation = 0.98238623
 scale = Vector2(0.4917273, 0.53611654)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular25" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=699723379]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1443.9999, 1106.9999)
 rotation = 3.0874588
 scale = Vector2(0.35589603, 0.35229582)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular21" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1454912790]
-position = Vector2(1616.0001, 982.0001)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1618.0001, 985.0001)
 rotation = 1.0190101
 scale = Vector2(0.41656432, 0.41656435)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular19" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=2060444580]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2931.0002, 1093)
 rotation = 1.6841692
 scale = Vector2(0.43404675, 0.538048)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular17" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1723809879]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3337.0002, 739.99994)
 rotation = -0.6752189
 scale = Vector2(0.23173368, 0.23173368)
 texture = ExtResource("42_1p11v")
 
 [node name="RockAngular16" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1827736105]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3351.9998, 903.00006)
 rotation = 2.9538915
 scale = Vector2(0.27151722, -0.2657554)
 texture = ExtResource("41_1p11v")
 
-[node name="RockAngular08" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=606061607]
-position = Vector2(2412.1265, 904.94775)
-rotation = -0.046223022
-scale = Vector2(-0.33742478, 0.14875935)
-texture = ExtResource("58_41ubo")
-
 [node name="RockAngular34" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=690169467]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3350.0002, 313.00003)
 rotation = 3.0010686
 scale = Vector2(0.27151722, -0.2657554)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular07" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=747120551]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2966.83, 1027.5524)
 rotation = -3.0022755
 scale = Vector2(0.6322001, -0.28515828)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular49" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1573740263]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(1877, 1082)
 rotation = -0.28217143
 scale = Vector2(0.4246386, 0.30578387)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular06" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=410743661]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2830, 1001)
 rotation = -2.76204
 scale = Vector2(0.27756503, 0.23731303)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular10" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1307169787]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2186.0269, 1082.8566)
 rotation = -3.0549293
 scale = Vector2(0.39906156, 0.24266833)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular47" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1069987896]
-position = Vector2(1898, 984.99994)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1897.9999, 986)
 rotation = -1.479464
 scale = Vector2(0.3057839, 0.30578387)
 texture = ExtResource("41_1p11v")
 
-[node name="RockAngular14" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1086851996]
-position = Vector2(2329, 1027)
-rotation = -3.579165
-scale = Vector2(0.47064605, 0.29604575)
-texture = ExtResource("41_1p11v")
-
 [node name="RockAngular20" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1987247822]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2575, 1040.9999)
 rotation = -3.233504
 scale = Vector2(0.47064605, 0.29604575)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular09" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1162926886]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2029.0001, 1085.0001)
 rotation = 0.09514868
 scale = Vector2(0.33970854, 0.33970854)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular13" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1962467169]
-position = Vector2(2025, 988)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(2025.0001, 981.00006)
 rotation = 0.056399107
 scale = Vector2(0.3229883, 0.19304582)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular15" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1386684832]
-position = Vector2(1207, 1010)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1203.0001, 1009)
 rotation = 0.049442478
 scale = Vector2(0.35701683, 0.27404904)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular04" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=576677275]
-position = Vector2(1462, 988.99994)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1462, 986.00006)
 rotation = -0.034225326
 scale = Vector2(-0.49877807, 0.20325686)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular12" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=2072296797]
-position = Vector2(2132, 981.00006)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(2132, 974.99994)
 rotation = 0.9541096
 scale = Vector2(0.34388554, 0.39103162)
 texture = ExtResource("41_gt5jh")
 
+[node name="RockAngular11" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1845007977]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(2266.0002, 919.0001)
+rotation = 1.9629164
+scale = Vector2(0.13028976, -0.2698583)
+texture = ExtResource("42_1p11v")
+
+[node name="RockAngular08" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=606061607]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(2412.1265, 904.94775)
+rotation = 3.0953696
+scale = Vector2(0.33742478, -0.14875935)
+texture = ExtResource("58_41ubo")
+
+[node name="RockAngular14" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1086851996]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(2329, 1027)
+rotation = 2.7040203
+scale = Vector2(0.47064605, 0.29604575)
+texture = ExtResource("41_1p11v")
+
 [node name="RockAngular05" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1496064445]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2580, 943)
 rotation = 0.004851781
 scale = Vector2(0.5086739, 0.2520867)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular22" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=898576802]
-position = Vector2(1750.9999, 1004)
+self_modulate = Color(0.73, 0.73, 0.73, 1)
+position = Vector2(1752.9999, 1007.00006)
 rotation = -1.3191893
 scale = Vector2(0.40044558, 0.22863755)
 texture = ExtResource("41_1p11v")
 
 [node name="RockFlat03" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=827194811]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2496.0002, 859)
 rotation = 0.03299385
 scale = Vector2(0.14017463, 0.16680056)
 texture = ExtResource("33_8tgtq")
 
 [node name="RockAngular18" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=544366116]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(2695.0005, 921.9999)
 rotation = 4.64137
 scale = Vector2(0.11864695, -0.2912869)
 texture = ExtResource("58_41ubo")
 
 [node name="RockFlat02" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=1090625873]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(3313.9998, -13.000004)
 rotation = 1.5783275
 scale = Vector2(0.13582033, -0.120275095)
 texture = ExtResource("33_8tgtq")
 
 [node name="RockAngular58" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=721922020]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(432, 1032)
 rotation = 0.21688944
 scale = Vector2(0.216618, 0.216618)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular60" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=2030252399]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(445, 1093)
 rotation = 1.8505386
 scale = Vector2(0.32795444, 0.11362245)
 texture = ExtResource("41_1p11v")
 
 [node name="RockAngular66" type="Sprite2D" parent="Gameplay/Ground_2" unique_id=471297735]
+self_modulate = Color(0.73, 0.73, 0.73, 1)
 position = Vector2(426, 701.00006)
 rotation = 2.4213161
 scale = Vector2(0.37761876, 0.16008309)
@@ -1058,11 +1687,11 @@ rotation = 2.827282
 scale = Vector2(0.18712722, 0.18600477)
 texture = ExtResource("8_n7jlw")
 
-[node name="BoulderMossy06" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1679319900]
-position = Vector2(1243.0001, 206.00003)
-rotation = 1.5869699
-scale = Vector2(0.17940086, -0.2332889)
-texture = ExtResource("1_gwiru")
+[node name="BoulderMossy06" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=855133651]
+position = Vector2(1235.2396, 240.30856)
+rotation = 4.6914897
+scale = Vector2(0.22965685, 0.27537227)
+texture = ExtResource("8_n7jlw")
 
 [node name="GrassBumpy01" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1265356366]
 position = Vector2(173.00002, 229)
@@ -1116,7 +1745,7 @@ scale = Vector2(0.18934648, 0.18934648)
 texture = ExtResource("8_n7jlw")
 
 [node name="GrassCoverings02" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1612496376]
-position = Vector2(956, 217)
+position = Vector2(951.99994, 213)
 scale = Vector2(0.117520206, 0.11752023)
 texture = ExtResource("18_gmq1w")
 
@@ -1623,238 +2252,238 @@ scale = Vector2(0.2639026, 0.15294118)
 texture = ExtResource("11_mjylf")
 
 [node name="RockAngular02" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=2037342600]
-position = Vector2(2880.9155, 240.6578)
+position = Vector2(2911.9482, 238.08136)
 rotation = 0.01763006
 scale = Vector2(0.1338074, 0.050267108)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular03" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=2061841955]
-position = Vector2(2878.289, 245.11778)
+position = Vector2(2909.3218, 242.54134)
 rotation = -3.1334312
 scale = Vector2(0.12021997, 0.041435894)
 texture = ExtResource("58_41ubo")
 
 [node name="RockFlat01" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1877202984]
-position = Vector2(2880, 235.00002)
+position = Vector2(2911.0327, 232.42357)
 scale = Vector2(0.045343097, 0.045343112)
 texture = ExtResource("33_8tgtq")
 
 [node name="MossPatchSoft04" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1613577651]
-position = Vector2(2863, 241)
+position = Vector2(2894.0327, 238.42355)
 rotation = -0.5282129
 scale = Vector2(0.12704916, 0.12704916)
 texture = ExtResource("11_m5kjs")
 
 [node name="MossPatchSoft01" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=779413141]
-position = Vector2(2853, 244)
+position = Vector2(2884.0327, 241.42355)
 rotation = -0.5344915
 scale = Vector2(0.14615385, 0.14615385)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft05" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1758909188]
-position = Vector2(2854, 235.99979)
+position = Vector2(2885.0327, 233.42334)
 rotation = -0.5344915
 scale = Vector2(0.14615385, 0.14615385)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft06" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1585386976]
-position = Vector2(2877, 236)
+position = Vector2(2908.0327, 233.42355)
 scale = Vector2(0.17642695, 0.13269226)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft07" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=955906870]
-position = Vector2(2896.0002, 231.99988)
+position = Vector2(2927.033, 229.42343)
 rotation = 0.5972847
 scale = Vector2(0.14696969, 0.1469697)
 texture = ExtResource("12_080uc")
 
 [node name="MossStrip04" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=117332876]
-position = Vector2(2881, 231.00002)
+position = Vector2(2912.0327, 228.42357)
 scale = Vector2(0.09691705, 0.123188406)
 texture = ExtResource("18_ykwt6")
 
 [node name="MossStrip05" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=331927927]
-position = Vector2(2875.9998, 229)
+position = Vector2(2907.0325, 226.42355)
 scale = Vector2(0.080232576, 0.08023255)
 texture = ExtResource("60_oga15")
 
 [node name="RockAngular05" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1201994932]
-position = Vector2(2880.9155, 240.6578)
+position = Vector2(2911.9482, 238.08136)
 rotation = 0.01763006
 scale = Vector2(0.1338074, 0.050267108)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular06" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=681908529]
-position = Vector2(2878.289, 245.11778)
+position = Vector2(2909.3218, 242.54134)
 rotation = -3.1334312
 scale = Vector2(0.12021997, 0.041435894)
 texture = ExtResource("58_41ubo")
 
 [node name="RockFlat02" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1167448756]
-position = Vector2(2880, 235.00002)
+position = Vector2(2911.0327, 232.42357)
 scale = Vector2(0.045343097, 0.045343112)
 texture = ExtResource("33_8tgtq")
 
 [node name="VineV01" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=651880843]
-position = Vector2(2858, 252)
+position = Vector2(2889.0327, 249.42355)
 scale = Vector2(0.06905415, 0.06905416)
 texture = ExtResource("47_xbqx1")
 
 [node name="MossPatchSoft35" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1946987182]
-position = Vector2(2863, 240)
+position = Vector2(2894.0327, 237.42355)
 rotation = -0.5282129
 scale = Vector2(0.12704916, 0.12704916)
 texture = ExtResource("11_m5kjs")
 
 [node name="MossPatchSoft36" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1207317136]
-position = Vector2(2853, 242.00003)
+position = Vector2(2884.0327, 239.42358)
 rotation = -0.5344915
 scale = Vector2(0.14615385, 0.14615385)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft66" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=851224024]
-position = Vector2(2854, 235.99979)
+position = Vector2(2885.0327, 233.42334)
 rotation = -0.5344915
 scale = Vector2(0.14615385, 0.14615385)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft67" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1984432824]
-position = Vector2(2877, 236)
+position = Vector2(2908.0327, 233.42355)
 scale = Vector2(0.17642695, 0.13269226)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft68" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1689604666]
-position = Vector2(2896.0002, 231.99988)
+position = Vector2(2927.033, 229.42343)
 rotation = 0.5972847
 scale = Vector2(0.14696969, 0.1469697)
 texture = ExtResource("12_080uc")
 
 [node name="MossStrip13" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=139546090]
-position = Vector2(2881, 231.00002)
+position = Vector2(2912.0327, 228.42357)
 scale = Vector2(0.09691705, 0.123188406)
 texture = ExtResource("18_ykwt6")
 
 [node name="MossStrip14" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=2066219199]
-position = Vector2(2875.9998, 229)
+position = Vector2(2907.0325, 226.42355)
 scale = Vector2(0.080232576, 0.08023255)
 texture = ExtResource("60_oga15")
 
 [node name="RockAngular07" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=457323592]
-position = Vector2(2719.6362, 241.22177)
+position = Vector2(2752.9268, 238.02782)
 rotation = -3.1239626
 scale = Vector2(0.124730766, -0.04801936)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular08" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=535616721]
-position = Vector2(2717.6067, 243.49394)
+position = Vector2(2750.8972, 240.29999)
 rotation = 0.008161377
 scale = Vector2(0.117063254, -0.037813425)
 texture = ExtResource("58_41ubo")
 
 [node name="MossPatchSoft69" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=54269136]
-position = Vector2(2747.0002, 247.99992)
+position = Vector2(2780.2908, 244.80597)
 rotation = 1.3008233
 scale = Vector2(0.1311263, -0.12704916)
 texture = ExtResource("11_m5kjs")
 
 [node name="MossPatchSoft70" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=188282407]
-position = Vector2(2695, 235.99997)
-rotation = 2.9405148
+position = Vector2(2726, 228.00009)
+rotation = 4.359358
 scale = Vector2(0.14211312, -0.14615384)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft71" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=56857388]
-position = Vector2(2709, 236.00003)
+position = Vector2(2742.2905, 232.80608)
 rotation = 2.9893978
 scale = Vector2(0.15084404, -0.14615385)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft72" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1905939404]
-position = Vector2(2731, 236.99998)
+position = Vector2(2764.2905, 233.80603)
 rotation = 3.1415927
 scale = Vector2(0.1820887, -0.13269226)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft73" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1994897372]
-position = Vector2(2745, 239.99995)
+position = Vector2(2778.2905, 236.806)
 rotation = -2.8955605
 scale = Vector2(0.11914441, -0.11543985)
 texture = ExtResource("12_080uc")
 
 [node name="MossStrip15" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=931396354]
-position = Vector2(2719.8513, 230)
+position = Vector2(2753.1418, 226.80605)
 rotation = 3.1415927
 scale = Vector2(0.086992405, -0.123188406)
 texture = ExtResource("18_ykwt6")
 
 [node name="MossStrip16" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=693428537]
-position = Vector2(2720.365, 229.00002)
+position = Vector2(2753.6555, 225.80606)
 rotation = 3.1415927
 scale = Vector2(0.078886166, -0.08023255)
 texture = ExtResource("60_oga15")
 
 [node name="RockAngular09" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=983184702]
-position = Vector2(2592.9268, 241.97177)
+position = Vector2(2623.933, 238.47412)
 rotation = -3.1239626
 scale = Vector2(-0.121869266, -0.048205774)
 texture = ExtResource("58_41ubo")
 
 [node name="RockAngular10" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=44718987]
-position = Vector2(2590.8972, 244.24394)
+position = Vector2(2621.9036, 240.74629)
 rotation = 0.008161377
 scale = Vector2(-0.11437768, -0.03796022)
 texture = ExtResource("58_41ubo")
 
 [node name="MossPatchSoft74" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1841973610]
-position = Vector2(2589, 236.99997)
+position = Vector2(2620.0063, 233.50232)
 rotation = 0.28258324
 scale = Vector2(-0.12811808, -0.12754238)
 texture = ExtResource("11_m5kjs")
 
 [node name="MossPatchSoft75" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1062331522]
-position = Vector2(2570, 236)
+position = Vector2(2601.0063, 232.50235)
 rotation = 2.9405148
 scale = Vector2(-0.1388528, -0.14615384)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft76" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=2041779823]
-position = Vector2(2582.2905, 236.75003)
+position = Vector2(2613.2969, 233.25238)
 rotation = 2.9893978
 scale = Vector2(-0.14738345, -0.14672123)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft77" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1055028436]
-position = Vector2(2604.2905, 237.74998)
+position = Vector2(2635.2969, 234.25233)
 rotation = 3.1415927
 scale = Vector2(-0.17791131, -0.13320738)
 texture = ExtResource("22_4hl25")
 
 [node name="MossPatchSoft78" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1403306726]
-position = Vector2(2619, 233.99992)
+position = Vector2(2650.0063, 230.50227)
 rotation = -4.1603503
 scale = Vector2(-0.116411075, -0.11588799)
 texture = ExtResource("12_080uc")
 
 [node name="MossStrip17" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1486643316]
-position = Vector2(2593.0378, 230.78467)
+position = Vector2(2624.0442, 227.28702)
 rotation = 3.1415927
 scale = Vector2(-0.083006755, -0.118715174)
 texture = ExtResource("18_ykwt6")
 
 [node name="MossStrip18" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=1424228240]
-position = Vector2(2591.8525, 229.75002)
+position = Vector2(2622.859, 226.25237)
 rotation = 3.1415927
 scale = Vector2(-0.08139979, -0.08054402)
 texture = ExtResource("60_oga15")
 
 [node name="GrassBladeCluster01" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=948001765]
-position = Vector2(2564.0002, 242.99995)
+position = Vector2(2595.0066, 239.5023)
 rotation = -2.2960243
 scale = Vector2(0.06389989, 0.06389989)
 texture = ExtResource("59_41ubo")
 
 [node name="MossSpot01" type="Sprite2D" parent="Gameplay/Ground_1" unique_id=127091848]
-position = Vector2(2689.0002, 240)
+position = Vector2(2722.2908, 236.80605)
 scale = Vector2(0.16666667, 0.16666667)
 texture = ExtResource("51_hi5hf")
 
@@ -2061,7 +2690,7 @@ scale = Vector2(0.08450704, 0.08450702)
 texture = ExtResource("54_e26gx")
 
 [node name="GrassBladeCluster02" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1969256374]
-position = Vector2(2741, 244)
+position = Vector2(2774.2905, 240.80605)
 rotation = -1.8231095
 scale = Vector2(0.057377037, 0.057377048)
 texture = ExtResource("59_41ubo")
@@ -2072,7 +2701,7 @@ scale = Vector2(0.056962024, 0.056962024)
 texture = ExtResource("36_xn277")
 
 [node name="PlantTall01" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=1884675661]
-position = Vector2(2709.9998, 215.00002)
+position = Vector2(2743.2903, 211.80606)
 scale = Vector2(0.07236942, 0.07236944)
 texture = ExtResource("40_uokkw")
 
@@ -2082,7 +2711,7 @@ scale = Vector2(0.0882353, 0.08823527)
 texture = ExtResource("33_vxp5v")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
-position = Vector2(153, 152)
+position = Vector2(3056, 173)
 gravity = 500
 speed = 175
 jump_force = 250
@@ -2122,8 +2751,8 @@ scale = Vector2(0.09824531, 0.098245315)
 texture = ExtResource("12_080uc")
 
 [node name="MossPatchSoft03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1022629357]
-position = Vector2(1224.0001, 110.00001)
-scale = Vector2(0.15303026, 0.15303026)
+position = Vector2(1226.3732, 112.18751)
+scale = Vector2(0.17954539, 0.17954542)
 texture = ExtResource("12_080uc")
 
 [node name="MossPatchSoft01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=875287393]
@@ -2133,7 +2762,7 @@ scale = Vector2(0.15536228, 0.15536228)
 texture = ExtResource("22_4hl25")
 
 [node name="MossBark01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=408524102]
-position = Vector2(1312, 112)
+position = Vector2(1311, 116)
 scale = Vector2(0.062700965, 0.062700965)
 texture = ExtResource("23_sj30d")
 
@@ -2143,8 +2772,8 @@ scale = Vector2(0.07631578, 0.07631579)
 texture = ExtResource("24_ldci6")
 
 [node name="GrassLump01" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2025284238]
-position = Vector2(1264, 99)
-scale = Vector2(0.108303934, 0.07231933)
+position = Vector2(1264.4781, 99)
+scale = Vector2(0.1092622, 0.07231933)
 texture = ExtResource("25_ykwt6")
 
 [node name="MossPatchSoft05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=557752248]
@@ -2427,9 +3056,9 @@ scale = Vector2(0.065709196, -0.07714286)
 texture = ExtResource("55_mxf0k")
 
 [node name="MushroomGreen02" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=2009454181]
-position = Vector2(1316.0001, 290.00006)
+position = Vector2(1316.189, 284.66513)
 rotation = 0.42017382
-scale = Vector2(0.07714286, 0.07714285)
+scale = Vector2(0.072070025, 0.072070025)
 texture = ExtResource("55_mxf0k")
 
 [node name="MushroomBrown04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=159912714]
@@ -2478,7 +3107,7 @@ scale = Vector2(0.13951556, -0.1387829)
 texture = ExtResource("3_xce43")
 
 [node name="PlantSpiky03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1614600012]
-position = Vector2(2587, 225)
+position = Vector2(2618.0063, 223.04997)
 scale = Vector2(0.03333318, 0.033333175)
 texture = ExtResource("35_n7eoi")
 
@@ -2494,7 +3123,7 @@ scale = Vector2(0.08552632, 0.08552631)
 texture = ExtResource("42_rlkse")
 
 [node name="PlantFern05" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=363265514]
-position = Vector2(2856, 224.99998)
+position = Vector2(2887.0327, 222.42354)
 rotation = 3.1415927
 scale = Vector2(0.06316249, -0.111315005)
 texture = ExtResource("3_xce43")
@@ -2557,6 +3186,18 @@ position = Vector2(102.999985, -165)
 rotation = 2.477866
 scale = Vector2(0.41721827, 0.38591087)
 texture = ExtResource("68_0y0w7")
+
+[node name="StumpBase04" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1945141666]
+position = Vector2(5140, 1786.0001)
+rotation = -1.4249004
+scale = Vector2(0.33958092, -0.7028241)
+texture = ExtResource("84_apd0o")
+
+[node name="StumpBase03" type="Sprite2D" parent="Gameplay/Cosmetic-Front" unique_id=1270735651]
+position = Vector2(4801, 1732.9998)
+rotation = 1.5722586
+scale = Vector2(0.32377824, -0.5164704)
+texture = ExtResource("84_apd0o")
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1697288657]
 
@@ -2834,4 +3475,4 @@ texture = ExtResource("67_q1p1y")
 
 [node name="TileMapLayer" parent="." unique_id=1342644550 instance=ExtResource("2_ed30o")]
 self_modulate = Color(1, 1, 1, 0.49411765)
-tile_map_data = PackedByteArray("AAAAAAYAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAcAAQAAAAAAAAABAAcAAQAAAAAAAAACAAcAAQAAAAAAAAADAAcAAQAAAAAAAAAEAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAGAAcAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQAAAAAAAAAMAAcAAQAAAAAAAAANAAcAAQAAAAAAAAAOAAcAAQAAAAAAAAAPAAcAAQAAAAAAAAAQAAcAAQAAAAAAAAARAAcAAQAAAAAAAAASAAcAAQAAAAAAAAATAAcAAQAAAAAAAAAUAAcAAQAAAAAAAAAVAAcAAQAAAAAAAAAWAAcAAQAAAAAAAAAXAAcAAQAAAAAAAAAYAAcAAQAAAAAAAAAZAAcAAQAAAAAAAAAaAAcAAQAAAAAAAAAbAAcAAQAAAAAAAAAcAAcAAQAAAAAAAAAcAAYAAQAAAAAAAAAdAAYAAQAAAAAAAAAeAAYAAQAAAAAAAAAfAAYAAQAAAAAAAAAfAAUAAQAAAAAAAAAgAAUAAQAAAAAAAAAhAAUAAQAAAAAAAAAiAAUAAQAAAAAAAAAjAAQAAQAAAAAAAAAkAAQAAQAAAAAAAAAlAAQAAQAAAAAAAAAjAAUAAQAAAAAAAAAnAAMAAQAAAAAAAAAoAAMAAQAAAAAAAAAoAAQAAQAAAAAAAAAoAAUAAQAAAAAAAAAoAAYAAQAAAAAAAAAoAAcAAQAAAAAAAAAmAAQAAQAAAAAAAAAmAAMAAQAAAAAAAAAoAAgAAQAAAAAAAAApAAgAAQAAAAAAAAAqAAgAAQAAAAAAAAArAAgAAQAAAAAAAAAsAAgAAQAAAAAAAAAtAAgAAQAAAAAAAAAuAAgAAQAAAAAAAAAvAAgAAQAAAAAAAAAwAAgAAQAAAAAAAAAxAAgAAQAAAAAAAAAyAAgAAQAAAAAAAAAzAAgAAQAAAAAAAAA0AAgAAQAAAAAAAAA1AAgAAQAAAAAAAAA2AAgAAQAAAAAAAAA3AAgAAQAAAAAAAAA4AAgAAQAAAAAAAAA5AAgAAQAAAAAAAAA6AAgAAQAAAAAAAAA7AAgAAQAAAAAAAAA8AAgAAQAAAAAAAAA9AAgAAQAAAAAAAAA+AAgAAQAAAAAAAAA/AAgAAQAAAAAAAABAAAgAAQAAAAAAAABBAAgAAQAAAAAAAABCAAgAAQAAAAAAAABDAAgAAQAAAAAAAABEAAgAAQAAAAAAAABFAAgAAQAAAAAAAABGAAgAAQAAAAAAAABHAAgAAQAAAAAAAABIAAgAAQAAAAAAAABJAAgAAQAAAAAAAABKAAgAAQAAAAAAAABKAAcAAQAAAAAAAABLAAcAAQAAAAAAAABLAAgAAQAAAAAAAABMAAgAAQAAAAAAAABNAAgAAQAAAAAAAABOAAkAAQAAAAAAAABPAAkAAQAAAAAAAABNAAkAAQAAAAAAAABPAAoAAQAAAAAAAABQAAoAAQAAAAAAAABRAAoAAQAAAAAAAABSAAoAAQAAAAAAAABTAAoAAQAAAAAAAABUAAoAAQAAAAAAAABVAAoAAQAAAAAAAABWAAoAAQAAAAAAAABXAAoAAQAAAAAAAABYAAoAAQAAAAAAAABZAAoAAQAAAAAAAABQAAcAAQAAAAAAAABRAAcAAQAAAAAAAABUAAcAAQAAAAAAAABVAAcAAQAAAAAAAABZAAcAAQAAAAAAAABaAAcAAQAAAAAAAABaAAoAAQAAAAAAAABbAAoAAQAAAAAAAABcAAoAAQAAAAAAAABdAAoAAQAAAAAAAABeAAoAAQAAAAAAAABeAAkAAQAAAAAAAABeAAgAAQAAAAAAAABeAAcAAQAAAAAAAABfAAcAAQAAAAAAAABgAAcAAQAAAAAAAABgAAgAAQAAAAAAAABgAAkAAQAAAAAAAABgAAoAAQAAAAAAAABgAAsAAQAAAAAAAABgAAwAAQAAAAAAAABgAA0AAQAAAAAAAABgAA4AAQAAAAAAAABgAA8AAQAAAAAAAABgABAAAQAAAAAAAABgABEAAQAAAAAAAABgABIAAQAAAAAAAABfABIAAQAAAAAAAABeABIAAQAAAAAAAABnAAUAAQAAAAAAAABnAAYAAQAAAAAAAABnAAcAAQAAAAAAAABnAAgAAQAAAAAAAABnAAkAAQAAAAAAAABnAAoAAQAAAAAAAABnAAsAAQAAAAAAAABnAAwAAQAAAAAAAABnAA0AAQAAAAAAAABnAA4AAQAAAAAAAABnAA8AAQAAAAAAAABnABAAAQAAAAAAAABnABEAAQAAAAAAAABnABIAAQAAAAAAAABnABMAAQAAAAAAAABnABQAAQAAAAAAAABnABUAAQAAAAAAAABnABYAAQAAAAAAAABnABcAAQAAAAAAAABnABgAAQAAAAAAAABgAB0AAQAAAAAAAABhAB0AAQAAAAAAAABiAB0AAQAAAAAAAABjAB0AAQAAAAAAAABkAB0AAQAAAAAAAABlAB0AAQAAAAAAAABmAB0AAQAAAAAAAABnAB0AAQAAAAAAAABnABwAAQAAAAAAAABnABsAAQAAAAAAAABnABoAAQAAAAAAAABnABkAAQAAAAAAAABfAB0AAQAAAAAAAABeAB0AAQAAAAAAAABdAB0AAQAAAAAAAABcAB0AAQAAAAAAAABbAB0AAQAAAAAAAABaAB0AAQAAAAAAAABZAB0AAQAAAAAAAABYAB0AAQAAAAAAAABXAB0AAQAAAAAAAABWAB0AAQAAAAAAAABWABwAAQAAAAAAAABVABwAAQAAAAAAAABUABwAAQAAAAAAAABTABwAAQAAAAAAAABTABsAAQAAAAAAAABSABsAAQAAAAAAAABRABsAAQAAAAAAAABQABsAAQAAAAAAAABQABoAAQAAAAAAAABPABoAAQAAAAAAAABOABoAAQAAAAAAAABNABoAAQAAAAAAAABMABoAAQAAAAAAAABLABoAAQAAAAAAAABLABsAAQAAAAAAAABKABsAAQAAAAAAAABJABsAAQAAAAAAAABJABwAAQAAAAAAAABIABwAAQAAAAAAAABHABwAAQAAAAAAAABGABwAAQAAAAAAAABFABwAAQAAAAAAAABEABwAAQAAAAAAAABEAB0AAQAAAAAAAABDAB0AAQAAAAAAAABCAB0AAQAAAAAAAABBAB0AAQAAAAAAAABAAB0AAQAAAAAAAAA/AB0AAQAAAAAAAAA+AB0AAQAAAAAAAAA9AB0AAQAAAAAAAAA8AB0AAQAAAAAAAAA7AB0AAQAAAAAAAAA6AB0AAQAAAAAAAAA5AB0AAQAAAAAAAAA4AB0AAQAAAAAAAAA3AB0AAQAAAAAAAAA2AB0AAQAAAAAAAAA1AB0AAQAAAAAAAAA0AB0AAQAAAAAAAAAzAB0AAQAAAAAAAAAyAB0AAQAAAAAAAAAxAB0AAQAAAAAAAAAwAB0AAQAAAAAAAAAvAB0AAQAAAAAAAAAuAB0AAQAAAAAAAAAtAB0AAQAAAAAAAAAsAB0AAQAAAAAAAAArAB0AAQAAAAAAAAAqAB0AAQAAAAAAAAApAB0AAQAAAAAAAAAoAB0AAQAAAAAAAAAnAB0AAQAAAAAAAAAmAB0AAQAAAAAAAAAlAB0AAQAAAAAAAAAkAB0AAQAAAAAAAAAjAB0AAQAAAAAAAAAiAB0AAQAAAAAAAAAhAB0AAQAAAAAAAAAgAB0AAQAAAAAAAAAfAB0AAQAAAAAAAAAeAB0AAQAAAAAAAAAdAB0AAQAAAAAAAAAcAB0AAQAAAAAAAAAbAB0AAQAAAAAAAAAaAB0AAQAAAAAAAAAZAB0AAQAAAAAAAAAYAB0AAQAAAAAAAAAXAB0AAQAAAAAAAAAWAB0AAQAAAAAAAAAVAB0AAQAAAAAAAAAVAB4AAQAAAAAAAAAVAB8AAQAAAAAAAAAVACAAAQAAAAAAAAAVACEAAQAAAAAAAAAVACIAAQAAAAAAAAAVACMAAQAAAAAAAAAVACQAAQAAAAAAAABnAAQAAQAAAAAAAABnAAMAAQAAAAAAAABnAAIAAQAAAAAAAABnAAEAAQAAAAAAAAAOAB0AAQAAAAAAAAANAB0AAQAAAAAAAAAMAB0AAQAAAAAAAAAOAB4AAQAAAAAAAAAOAB8AAQAAAAAAAAAOACAAAQAAAAAAAAAOACEAAQAAAAAAAAAOACIAAQAAAAAAAAAOACMAAQAAAAAAAAAOACQAAQAAAAAAAAAOACUAAQAAAAAAAAAOACYAAQAAAAAAAAAVACUAAQAAAAAAAAAVACYAAQAAAAAAAAAVACcAAQAAAAAAAAAVACgAAQAAAAAAAAAVACkAAQAAAAAAAAAOACcAAQAAAAAAAAAOACgAAQAAAAAAAAAOACkAAQAAAAAAAAAUACIAAQAAAAAAAAARACIAAQAAAAAAAAAQACIAAQAAAAAAAAAPACIAAQAAAAAAAAAPACUAAQAAAAAAAAAQACUAAQAAAAAAAAATACUAAQAAAAAAAAAUACUAAQAAAAAAAAASACUAAQAAAAAAAAAQACgAAQAAAAAAAAARACgAAQAAAAAAAAASACgAAQAAAAAAAAATACgAAQAAAAAAAAAUACgAAQAAAAAAAAAVACoAAQAAAAAAAAAVACsAAQAAAAAAAAAOACoAAQAAAAAAAAAOACsAAQAAAAAAAAAOACwAAQAAAAAAAAAVACwAAQAAAAAAAAAMABwAAQAAAAAAAAAMABsAAQAAAAAAAAAMABoAAQAAAAAAAAAMABkAAQAAAAAAAAAMABgAAQAAAAAAAAAPAB4AAQAAAAAAAAASAB4AAQAAAAAAAAATAB4AAQAAAAAAAAAUAB4AAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("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AAA5ADkAAQAAAAAAAAA6ADkAAQAAAAAAAAA7ADkAAQAAAAAAAAA7ADoAAQAAAAAAAAA7ADsAAQAAAAAAAAA7ADwAAQAAAAAAAAA7AD0AAQAAAAAAAAA7AD4AAQAAAAAAAAA7AD8AAQAAAAAAAABDAD8AAQAAAAAAAABDAD4AAQAAAAAAAABDAD0AAQAAAAAAAABDADwAAQAAAAAAAABDADsAAQAAAAAAAABDADoAAQAAAAAAAABDADkAAQAAAAAAAABEADkAAQAAAAAAAABEADoAAQAAAAAAAABEADsAAQAAAAAAAABEADwAAQAAAAAAAABEAD0AAQAAAAAAAABEAD4AAQAAAAAAAABEAD8AAQAAAAAAAABJAD8AAQAAAAAAAABJAD4AAQAAAAAAAABJAD0AAQAAAAAAAABJADwAAQAAAAAAAABJADsAAQAAAAAAAABJADoAAQAAAAAAAABJADkAAQAAAAAAAABJADgAAQAAAAAAAABKADgAAQAAAAAAAABKADkAAQAAAAAAAABKADoAAQAAAAAAAABKADsAAQAAAAAAAABKADwAAQAAAAAAAABKAD0AAQAAAAAAAABKAD4AAQAAAAAAAABKAD8AAQAAAAAAAABdABIAAQAAAAAAAABqADsAAQAAAAAAAABqADwAAQAAAAAAAABqAD0AAQAAAAAAAABqAD4AAQAAAAAAAABqAD8AAQAAAAAAAABxAD8AAQAAAAAAAABxAD4AAQAAAAAAAABxAD0AAQAAAAAAAABxADwAAQAAAAAAAABxADsAAQAAAAAAAABxADoAAQAAAAAAAABxADkAAQAAAAAAAAByADkAAQAAAAAAAABzADkAAQAAAAAAAAB0ADkAAQAAAAAAAAB1ADkAAQAAAAAAAAB2ADkAAQAAAAAAAAB3ADkAAQAAAAAAAAB4ADkAAQAAAAAAAAB5ADkAAQAAAAAAAAB6ADkAAQAAAAAAAAB7ADkAAQAAAAAAAAB8ADkAAQAAAAAAAAB9ADkAAQAAAAAAAAB+ADkAAQAAAAAAAAB/ADkAAQAAAAAAAACAADkAAQAAAAAAAACBADkAAQAAAAAAAACCADkAAQAAAAAAAACDADkAAQAAAAAAAACEADkAAQAAAAAAAACFADkAAQAAAAAAAACGADkAAQAAAAAAAACHADkAAQAAAAAAAACIADkAAQAAAAAAAACJADkAAQAAAAAAAACKADkAAQAAAAAAAACLADkAAQAAAAAAAACMADkAAQAAAAAAAACNADkAAQAAAAAAAACOADkAAQAAAAAAAACPADkAAQAAAAAAAACQADkAAQAAAAAAAACRADkAAQAAAAAAAACSADkAAQAAAAAAAACTADkAAQAAAAAAAACUADkAAQAAAAAAAACVADkAAQAAAAAAAACWADkAAQAAAAAAAACXADkAAQAAAAAAAACXADgAAQAAAAAAAACXADcAAQAAAAAAAACXADYAAQAAAAAAAACXADUAAQAAAAAAAACXADQAAQAAAAAAAACXADMAAQAAAAAAAACXADIAAQAAAAAAAACXADEAAQAAAAAAAACXADAAAQAAAAAAAACXAC8AAQAAAAAAAABQADoAAQAAAAAAAABQADsAAQAAAAAAAABQADwAAQAAAAAAAABQAD0AAQAAAAAAAABQAD4AAQAAAAAAAABQAD8AAQAAAAAAAABPADoAAQAAAAAAAABRADsAAQAAAAAAAABSADsAAQAAAAAAAABTADsAAQAAAAAAAABUADsAAQAAAAAAAABVADsAAQAAAAAAAABWADsAAQAAAAAAAABXADsAAQAAAAAAAABYADsAAQAAAAAAAABZADsAAQAAAAAAAABaADsAAQAAAAAAAABbADsAAQAAAAAAAABcADsAAQAAAAAAAABdADsAAQAAAAAAAABeADsAAQAAAAAAAABfADsAAQAAAAAAAABgADsAAQAAAAAAAABhADsAAQAAAAAAAABiADsAAQAAAAAAAABjADsAAQAAAAAAAABkADsAAQAAAAAAAABlADsAAQAAAAAAAABmADsAAQAAAAAAAABnADsAAQAAAAAAAABoADsAAQAAAAAAAABpADsAAQAAAAAAAABSAAcAAQAAAAAAAABWAAcAAQAAAAAAAABbAAcAAQAAAAAAAAARACoAAQAAAAAAAAASACoAAQAAAAAAAAATACoAAQAAAAAAAAAUACoAAQAAAAAAAAAPACYAAQAAAAAAAAAQACYAAQAAAAAAAAATACYAAQAAAAAAAAAUACYAAQAAAAAAAABqADoAAQAAAAAAAAApAEAAAQAAAAAAAAAwAEAAAQAAAAAAAAApAEEAAQAAAAAAAAAwAEEAAQAAAAAAAAA7AEAAAQAAAAAAAAA7AEEAAQAAAAAAAABDAEAAAQAAAAAAAABDAEEAAQAAAAAAAABEAEAAAQAAAAAAAABEAEEAAQAAAAAAAABJAEAAAQAAAAAAAABJAEEAAQAAAAAAAABKAEAAAQAAAAAAAABKAEEAAQAAAAAAAABQAEAAAQAAAAAAAABQAEEAAQAAAAAAAABqAEAAAQAAAAAAAABqAEEAAQAAAAAAAABxAEAAAQAAAAAAAABxAEEAAQAAAAAAAAASACIAAQAAAAAAAAA=")
