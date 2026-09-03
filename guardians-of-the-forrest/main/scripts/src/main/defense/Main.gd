@@ -9,9 +9,13 @@ extends Node2D
 @export var spawnTimer: Timer
 @export var lives: int = 5
 
+@export var freeze_entries: Array[FreezeEntry] = []
+
 var enemies: Array[Node] = []
 var level_complete: bool = false
-var frozen: bool = true
+var frozen: bool = false
+var active_freeze_nodes: Array[Node] = []
+var active_freeze_actions: Array[StringName] = []
 
 @onready var leftFollow: PathFollow2D = $Left/Position
 @onready var rightFollow: PathFollow2D = $Right/Position
@@ -23,7 +27,6 @@ var frozen: bool = true
 @onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var tryAgain_container: Container = $HUD/TryAgainBox
-@onready var tutorial: Control = $HUD/MarginContainer/Tutorial
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
 @onready var spawnBossAudioPlayer: AudioStreamPlayer = get_node_or_null("SpawnPlayerBoss") as AudioStreamPlayer
 
@@ -48,9 +51,6 @@ func _ready() -> void:
 	waveTotalLabel.text = str(curWaveEnemies.size())
 	completion_container.visible = false
 	wave = 0
-	frozen = true
-	tutorial.show()
-	_apply_frozen_state(true)
 	nextWave()
 	
 
@@ -74,13 +74,15 @@ func _on_spawn_timer_timeout() -> void:
 		spawnTimer.stop()
 
 func nextWave():
-	spawnTimer.start()
 	if (wave < curWaveEnemies.size()):
 		aliveEnemies = curWaveEnemies[wave].total()
 		wave = wave + 1
 		enemyLabel.text = str(aliveEnemies)
 		#print("[New Wave]:\n - Wave: ",wave)
 		waveLabel.text = str(wave)
+		_check_freeze_for_wave(wave)
+		if not frozen:
+			spawnTimer.start()
 	else:
 		spawnTimer.stop()
 		level_complete = true
@@ -151,11 +153,43 @@ func _on_try_again_button_pressed() -> void:
 	revertLoss()
 	_ready()
 
-func _on_defense_tutorial_done() -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not frozen:
 		return
-	frozen = false
-	call_deferred("_apply_frozen_state", false)
+	if event is InputEventKey and event.pressed and not event.echo and _matches_freeze_action(event):
+		for node in active_freeze_nodes:
+			if is_instance_valid(node):
+				node.hide()
+		active_freeze_nodes.clear()
+		frozen = false
+		call_deferred("_apply_frozen_state", false)
+		if aliveEnemies > 0:
+			spawnTimer.start()
+		get_viewport().set_input_as_handled()
+
+func _matches_freeze_action(event: InputEvent) -> bool:
+	for action in active_freeze_actions:
+		if event.is_action_pressed(action):
+			return true
+	return false
+
+func _check_freeze_for_wave(wave_number: int) -> void:
+	active_freeze_nodes.clear()
+	active_freeze_actions.clear()
+	for entry in freeze_entries:
+		if entry.wave != wave_number:
+			continue
+		var node := get_node_or_null(entry.node) as CanvasItem
+		if node == null:
+			continue
+		node.show()
+		active_freeze_nodes.append(node)
+		active_freeze_actions.append(entry.action)
+
+	if active_freeze_nodes.is_empty():
+		return
+	frozen = true
+	call_deferred("_apply_frozen_state", true)
 
 func _apply_frozen_state(should_freeze: bool) -> void:
 	for child in get_children():

@@ -17,6 +17,8 @@ extends Node2D
 
 @onready var scrubSoundPlayer: AudioStreamPlayer = $ScrubPlayer
 
+@onready var objectiveLabel: Label = $HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title
+
 var rightFocused: bool = true
 
 var isDragging = false
@@ -69,6 +71,7 @@ func dragSprite(curSprite):
 			miniGameOver()
 		else:
 			clearedSprite(sprites.size())
+			objectiveLabel.set_text("Select the other boot")
 
 func isPointInsideSprite(globalPoint: Vector2) -> Sprite2D:
 	if sprites == null:
@@ -121,3 +124,4 @@ func swapFoot():
 	if (dirtyRight):
 		dirtyRight.visible = rightFocused
 	bootRight.visible = rightFocused
+	objectiveLabel.set_text("Scrub the boot to clear the myrtle rust")
