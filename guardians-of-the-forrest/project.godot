@@ -37,6 +37,7 @@ Enemies=""
 Tree=""
 Target=""
 Player=""
+Narrative="Elements that are involved with the narrative"
 
 [input]
 

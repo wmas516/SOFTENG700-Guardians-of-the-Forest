@@ -49,7 +49,6 @@ func _input(event: InputEvent) -> void:
 		nextDialog()
 	
 func setDialog(text: String) -> void:
-	
 	textArray.clear()
 	splitTextIntoDialog(text)
 	nextDialog()

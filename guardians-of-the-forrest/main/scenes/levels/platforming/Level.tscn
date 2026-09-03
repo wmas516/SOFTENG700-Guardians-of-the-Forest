@@ -123,7 +123,6 @@
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="121_valmb"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
-[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="122_58nxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
@@ -4006,7 +4005,7 @@ position = Vector2(205, 106)
 collision_layer = 8
 collision_mask = 2
 
-[node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=608557752 node_paths=PackedStringArray("fadable") instance=ExtResource("83_ihyw1")]
+[node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=608557752 node_paths=PackedStringArray("fadable") groups=["Narrative"] instance=ExtResource("83_ihyw1")]
 position = Vector2(554, 130)
 collision_mask = 2
 fadable = [NodePath("../../../UI/Dialog")]
@@ -5498,9 +5497,7 @@ anchor_bottom = 1.0
 offset_top = 0.0079956055
 offset_bottom = 0.0
 grow_vertical = 0
-speakerName = "Tāne Mahuta"
 text = "Kaimanaki, the forest needs you! Myrtle Rust is spreading everywhere. Please save our plants and clear away this sickness!"
-speaker = ExtResource("122_58nxx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
