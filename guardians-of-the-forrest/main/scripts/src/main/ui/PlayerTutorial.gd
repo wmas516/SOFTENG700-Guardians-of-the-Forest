@@ -8,6 +8,7 @@ enum Direction {FORWARD, LEFT, RIGHT}
 
 @export var direction: Direction = Direction.FORWARD
 @export var jumping: bool
+@export var attacking: bool
 @export var switch: bool
 @export var switchTime: int
 
@@ -70,6 +71,8 @@ func update_animation(direction):
 		else: 
 			if animated_sprite.animation != "jump-down":
 				animated_sprite.play("jump-down")
+	elif(attacking):
+		animated_sprite.play("blast-down")
 	elif direction == 0:
 		animated_sprite.play("idle")
 	else:

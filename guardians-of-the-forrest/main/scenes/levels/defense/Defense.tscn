@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="10_sx28c"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="10_xkn8c"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_a68iq"]
+[ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="11_sx28c"]
+[ext_resource type="Script" uid="uid://cqfsmrp31c6hk" path="res://main/scripts/src/main/ui/DefenseTutorial.gd" id="12_cel8w"]
 [ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_3sbh2"]
 [ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_501nx"]
 
@@ -73,6 +75,7 @@ spawnTimer = NodePath("SpawnTimer")
 position = Vector2(560, 375)
 scale = Vector2(0.33, 0.33)
 collision_mask = 13
+speed = 225
 
 [node name="BackgroundGrass" parent="." unique_id=1215222339 instance=ExtResource("4_e18um")]
 layer = -1
@@ -276,10 +279,40 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 text = "5"
 
+[node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=301180694]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_stat_bg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/Objective" unique_id=1193175475]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=343777915]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=126209379]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Stop the Myrtle Spores from reaching Tāne Mahuta"
+
 [node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_1n74u")]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+
+[node name="Tutorial" parent="HUD/MarginContainer" unique_id=1434005533 instance=ExtResource("11_sx28c")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("12_cel8w")
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1784878928]
 visible = false
@@ -388,5 +421,6 @@ one_way_collision = true
 [connection signal="damagedTarget" from="Enemy" to="." method="_on_enemy_damaged_target"]
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="done" from="HUD/MarginContainer/Tutorial" to="." method="_on_defense_tutorial_done"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="HUD/TryAgainBox/TryAgainButton" to="." method="_on_try_again_button_pressed"]

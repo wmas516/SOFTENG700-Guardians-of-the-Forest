@@ -11,6 +11,7 @@ extends Node2D
 
 var enemies: Array[Node] = []
 var level_complete: bool = false
+var frozen: bool = true
 
 @onready var leftFollow: PathFollow2D = $Left/Position
 @onready var rightFollow: PathFollow2D = $Right/Position
@@ -22,6 +23,7 @@ var level_complete: bool = false
 @onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var tryAgain_container: Container = $HUD/TryAgainBox
+@onready var tutorial: Control = $HUD/MarginContainer/Tutorial
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
 @onready var spawnBossAudioPlayer: AudioStreamPlayer = get_node_or_null("SpawnPlayerBoss") as AudioStreamPlayer
 
@@ -46,6 +48,9 @@ func _ready() -> void:
 	waveTotalLabel.text = str(curWaveEnemies.size())
 	completion_container.visible = false
 	wave = 0
+	frozen = true
+	tutorial.show()
+	_apply_frozen_state(true)
 	nextWave()
 	
 
@@ -145,6 +150,23 @@ func _on_try_again_button_pressed() -> void:
 	print("try again")
 	revertLoss()
 	_ready()
+
+func _on_defense_tutorial_done() -> void:
+	if not frozen:
+		return
+	frozen = false
+	call_deferred("_apply_frozen_state", false)
+
+func _apply_frozen_state(should_freeze: bool) -> void:
+	for child in get_children():
+		if child is CanvasLayer or child is AudioStreamPlayer or child is Control:
+			continue
+		child.set_physics_process(!should_freeze)
+		child.process_mode = (
+			Node.PROCESS_MODE_DISABLED
+			if should_freeze
+			else Node.PROCESS_MODE_INHERIT
+		)
 
 func _on_boss_enemy_damaged_target() -> void:
 	targetDamage()
