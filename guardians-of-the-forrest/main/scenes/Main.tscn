@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bj4p7h8cuq2r7"]
 
-[ext_resource type="PackedScene" uid="uid://ce43sj3nptq1q" path="res://main/scenes/backgrounds/Background3.tscn" id="1_5ytih"]
 [ext_resource type="Script" uid="uid://qtmrgmcmpoj" path="res://main/scripts/src/main/Main.gd" id="1_gbeq6"]
+[ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="2_tcrm2"]
 [ext_resource type="Texture2D" uid="uid://bl66ysmcy7qc3" path="res://resources/Title.png" id="2_yqtmx"]
 [ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="4_ctmia"]
 [ext_resource type="AudioStream" uid="uid://j0vqysxlmo3n" path="res://resources/audio/intro.mp3" id="4_mdq7u"]
@@ -9,7 +9,19 @@
 [node name="Main" type="Node" unique_id=1114285395]
 script = ExtResource("1_gbeq6")
 
-[node name="Background2" parent="." unique_id=1169487791 instance=ExtResource("1_5ytih")]
+[node name="Frame4" parent="." unique_id=226109720 instance=ExtResource("2_tcrm2")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -324.0
+offset_right = 1941.1753
+offset_bottom = 1343.5259
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.388, 0.388)
 
 [node name="Title" type="Sprite2D" parent="." unique_id=519688581]
 position = Vector2(578, 195)
