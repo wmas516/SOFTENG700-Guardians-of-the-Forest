@@ -63,18 +63,6 @@ region = Rect2(0, 768, 256, 256)
 atlas = ExtResource("1_ebb8u")
 region = Rect2(256, 768, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_atfvm"]
-atlas = ExtResource("1_ebb8u")
-region = Rect2(512, 768, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_54a4p"]
-atlas = ExtResource("1_ebb8u")
-region = Rect2(768, 768, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7h0lj"]
-atlas = ExtResource("1_ebb8u")
-region = Rect2(1024, 768, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pq2g"]
 atlas = ExtResource("2_2pq2g")
 region = Rect2(1024, 512, 256, 256)
@@ -130,15 +118,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_asiq8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_atfvm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_54a4p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7h0lj")
 }],
 "loop": true,
 "name": &"bite",
@@ -170,8 +149,8 @@ height = 1782.0
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1367841391]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_jgdpc")
-animation = &"hurt"
-frame_progress = 0.83797914
+animation = &"bite"
+frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
 position = Vector2(-116, 48)
