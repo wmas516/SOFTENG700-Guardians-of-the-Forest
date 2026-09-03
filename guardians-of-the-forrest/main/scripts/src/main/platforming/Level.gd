@@ -73,6 +73,7 @@ func _on_dialog_interactable_toggle_freeze_children() -> void:
 	frozen = !frozen
 	if frozen:
 		dialog.show()
+		dialog.modulate.a = 1.0
 	print("Toggle emitted new value:",frozen)
 	call_deferred("_apply_frozen_state", frozen)
 
