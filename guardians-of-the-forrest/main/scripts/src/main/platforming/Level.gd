@@ -44,6 +44,7 @@ func _update_interactables() -> void:
 	if progress >= 3:
 		minigame_trim_interactable.interactable_enabled = false
 		minigame_trim_blocker.disable_collision(true)
+		minigame_trim_blocker.visible = false
 
 func _restore_player_position() -> void:
 	if PlayerData.has_saved_platforming_position:
