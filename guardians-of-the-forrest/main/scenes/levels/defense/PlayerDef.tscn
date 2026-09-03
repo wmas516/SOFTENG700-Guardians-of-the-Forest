@@ -1186,6 +1186,7 @@ stream = ExtResource("16_eoms6")
 bus = &"SFX"
 
 [node name="Range" type="RayCast2D" parent="." unique_id=107181061]
+rotation = 1.5707964
 target_position = Vector2(200, 0)
 metadata/_edit_lock_ = true
 

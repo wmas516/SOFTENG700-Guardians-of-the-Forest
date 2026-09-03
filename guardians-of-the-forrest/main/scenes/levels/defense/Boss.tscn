@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_so5yu"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_8fsoy"]
 [ext_resource type="Script" uid="uid://cl86ypf08bfjf" path="res://main/scripts/src/main/defense/Wave.gd" id="2_qmd71"]
+[ext_resource type="Script" uid="uid://bw3e5enegklu2" path="res://main/scripts/src/main/defense/FreezeEntry.gd" id="3_2k7vr"]
 [ext_resource type="PackedScene" uid="uid://ctqsgrenq75cf" path="res://main/scenes/backgrounds/BackgroundGrass.tscn" id="3_fgwmm"]
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="7_5fu0h"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_4eu1o"]
@@ -10,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://c78aaqw8taap4" path="res://resources/audio/bossDamage.mp3" id="9_so5yu"]
 [ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_ido5u"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
+[ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="11_p4iqy"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
 [ext_resource type="PackedScene" uid="uid://dya3r3fgc4icx" path="res://main/scenes/levels/defense/BossEnemy.tscn" id="13_2vs1w"]
 [ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_iq156"]
@@ -45,6 +47,11 @@ script = ExtResource("2_qmd71")
 boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
+[sub_resource type="Resource" id="Resource_5fu0h"]
+script = ExtResource("3_2k7vr")
+node = NodePath("HUD/Dialog")
+wave = 3
+
 [sub_resource type="Curve2D" id="Curve2D_c0r40"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -50, 0, 0, 0, 0, 0, -50, 650)
@@ -66,6 +73,9 @@ point_count = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1c3ut"]
 bg_color = Color(0, 0, 0, 0.55)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uopnk"]
+bg_color = Color(0, 0, 0, 0.55)
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2vs1w"]
 
 [node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "bossEnemy", "spawnTimer")]
@@ -75,6 +85,7 @@ boss = true
 enemy = NodePath("Enemy")
 bossEnemy = NodePath("BossEnemy")
 spawnTimer = NodePath("SpawnTimer")
+freeze_entries = Array[ExtResource("3_2k7vr")]([SubResource("Resource_5fu0h")])
 
 [node name="PlayerDef" parent="." unique_id=868766390 groups=["Player", "Target"] instance=ExtResource("2_8fsoy")]
 position = Vector2(560, 375)
@@ -172,6 +183,7 @@ layout_mode = 2
 theme_override_constants/separation = 1
 
 [node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=1062001064]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_1c3ut")
@@ -297,6 +309,30 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 text = "5"
 
+[node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=310026628]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uopnk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/Objective" unique_id=1431532061]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=276931356]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=815881432]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Stop the Myrtle Spores from reaching Kaimanaki (You)"
+
 [node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_ido5u")]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -348,6 +384,15 @@ horizontal_alignment = 1
 [node name="TryAgainButton" type="Button" parent="HUD/TryAgainBox" unique_id=1049131055]
 layout_mode = 2
 text = "Try Again"
+
+[node name="Dialog" parent="HUD" unique_id=445186671 instance=ExtResource("11_p4iqy")]
+visible = false
+layout_mode = 1
+offset_left = 1.0
+offset_top = 356.0
+offset_right = 1.0
+offset_bottom = 356.04797
+grow_vertical = 0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254563325]
 stream = ExtResource("11_krpyx")
