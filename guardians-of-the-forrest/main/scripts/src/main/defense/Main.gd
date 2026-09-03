@@ -138,17 +138,17 @@ func _on_try_again_button_pressed() -> void:
 	revertLoss()
 	_ready()
 
-func _on_boss_enemy_damaged_target(target) -> void:
-	targetDamage(target)
+func _on_boss_enemy_damaged_target() -> void:
+	targetDamage()
 
-func _on_enemy_damaged_target(target) -> void:
-	targetDamage(target)
+func _on_enemy_damaged_target() -> void:
+	targetDamage()
 
-func targetDamage(target) -> void:
+func targetDamage() -> void:
 	curLives -= 1
 	hpLabel.text = str(curLives)
-	if (target.has_method("setVisibleHealth")):
-		target.setVisibleHealth(curLives)
+	if (enemy.dest.has_method("setVisibleHealth")):
+		enemy.dest.setVisibleHealth(curLives)
 	if (curLives <= 0):
 		loss()
 
