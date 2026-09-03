@@ -20,7 +20,7 @@ const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "dd9b04", 3: "ffffff"}
 @export var damageTimer: Timer
 @export var speed = 100.0
 
-signal damagedTarget
+signal damagedTarget(target)
 
 var timerOver = false
 var destPos
@@ -140,14 +140,13 @@ func damageTargets(damaged) -> bool:
 					sprite.play("bite")
 				elif (timerOver):
 					target.damage()
-					damagedTarget.emit()
+					damagedTarget.emit(target)
 					if (type != EnemyType.BOSS):
 						health = 0
 						damage()
 					timerOver = false
 			else:
 				target.damage()
-	
 	return hit
 
 func _on_damage_timer_timeout() -> void:
