@@ -78,6 +78,7 @@ func _on_dialog_caption_done() -> void:
 	if freeze and not _dialog_finished:
 		_dialog_finished = true
 		toggleFreeze()
+		interactable_enabled = false
 
 func toggleFreeze():
 	if (freeze):

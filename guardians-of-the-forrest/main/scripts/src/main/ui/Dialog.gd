@@ -2,11 +2,11 @@ extends Control
 
 @onready var speakerLabel: Label = $PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
 @onready var textLabel: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/RichTextLabel
-@onready var speakerImg: TextureRect = $TextureRect
+@onready var imageLabel: TextureRect = $TextureRect
 
-@export var speakerName: String
+@export var speaker: String
 @export var text: String
-@export var speaker: Texture2D
+@export var speakerImage: CompressedTexture2D
 
 var textArray: Array[String] = []
 var textLabelWidth: int
@@ -24,10 +24,10 @@ func _ready() -> void:
 	
 	textLabelWidth = int($PanelContainer.size.x) - 60
 	
-	if (speakerName):
-		setSpeakerName(speakerName)
 	if (speaker):
-		setSpeakerImg(speaker)
+		setSpeaker(speaker)
+	if (speakerImage):
+		setImage(speakerImage)
 	if (text):
 		setDialog(text)
 	
@@ -65,11 +65,11 @@ func nextDialog() -> void:
 	textLabel.text = text
 	textIndex += 1
 
-func setSpeakerName(name: String) -> void:
+func setSpeaker(name: String) -> void:
 	speakerLabel.text = name
 	
-func setSpeakerImg(img: Texture2D) -> void:
-	speakerImg.texture = img
+func setImage(speakerImage: CompressedTexture2D) -> void:
+	imageLabel.texture = speakerImage
 
 func splitTextIntoDialog(text: String) -> void:
 	var words: Array[Word] = []
