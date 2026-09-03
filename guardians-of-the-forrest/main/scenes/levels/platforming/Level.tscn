@@ -4130,7 +4130,7 @@ scale = Vector2(0.014160191, 0.014160191)
 texture = ExtResource("121_y6fx6")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
-position = Vector2(240, 65)
+position = Vector2(2742, 1808)
 gravity = 500
 speed = 175
 jump_force = 220

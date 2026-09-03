@@ -22,6 +22,7 @@ func _ready() -> void:
 	defense_interactable.interacted.connect(go_to_defense)
 	minigame_boot_interactable.interacted.connect(go_to_boot_clean)
 	minigame_trim_interactable.interacted.connect(go_to_tree_trim)
+	boss_interactable.interacted.connect(go_to_boss)
 	
 func _update_interactables() -> void:
 	var progress: int = PlayerData.game_progress_stage
@@ -32,14 +33,13 @@ func _update_interactables() -> void:
 	
 	# Boot Minigame has been finished
 	if progress >= 2:
-		minigame_boot_interactable.interacted.connect(go_to_boot_clean)
+		minigame_boot_interactable.interactable_enabled = false
 		minigame_boot_blocker.disable_collision(true)
 		
 	# Boot Minigame has been finished
 	if progress >= 3:
-		minigame_boot_interactable.interacted.connect(go_to_tree_trim)
-		minigame_boot_blocker.disable_collision(true)
-	
+		minigame_trim_interactable.interactable_enabled = false
+		minigame_trim_blocker.disable_collision(true)
 
 func _restore_player_position() -> void:
 	if PlayerData.has_saved_platforming_position:
@@ -63,8 +63,6 @@ func go_to_tree_trim(_source: Interactable) -> void:
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/TreeTrim.tscn")
 	
 func go_to_boss(_source: Interactable) -> void:
-	print("Go to tree trim")
-	PlayerData.save_platforming_position(player.global_position)
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
 
 func _on_deathzone_body_entered(body: Node2D) -> void:

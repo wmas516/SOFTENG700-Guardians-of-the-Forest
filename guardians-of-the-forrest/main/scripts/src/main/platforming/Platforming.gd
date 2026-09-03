@@ -46,7 +46,7 @@ func _on_player_health_changed(new_health: int, _max_health: int) -> void:
 	if player_dead:
 		current_hp_label.text = "0"
 		return
-
+		
 	_update_current_hp(new_health, _max_health)
 
 func _on_player_died() -> void:
