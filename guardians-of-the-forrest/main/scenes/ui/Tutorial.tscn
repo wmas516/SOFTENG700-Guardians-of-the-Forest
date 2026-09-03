@@ -58,6 +58,7 @@ jump_force = 200
 gravity = 400
 direction = 1
 jumping = false
+attacking = false
 switch = false
 switchTime = 1
 
@@ -95,6 +96,7 @@ jump_force = 200
 gravity = 400
 direction = 0
 jumping = true
+attacking = false
 switch = false
 switchTime = 1
 
@@ -132,6 +134,7 @@ jump_force = 200
 gravity = 400
 direction = 2
 jumping = false
+attacking = false
 switch = false
 switchTime = 1
 
