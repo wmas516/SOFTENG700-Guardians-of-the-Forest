@@ -143,7 +143,8 @@ func damageTargets(damaged, frame_changed: bool = false) -> bool:
 			if (damageTimer):
 				if (damageTimer.is_stopped()):
 					damageTimer.start()
-					
+					if (type != EnemyType.BOSS):
+						eatSoundPlayer.play()
 					sprite.play("bite")
 				elif ((timerOver && type != EnemyType.BOSS) 
 				|| (!damageTimer.is_stopped() && type == EnemyType.BOSS

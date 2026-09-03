@@ -6,24 +6,32 @@ extends Node2D
 @onready var branchesLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches
 
 func _ready() -> void:
-	
-	print(PlayerData.trimed_trees)
-	print(tree_nodes)
-	
+	if PlayerData.infected_trees.is_empty() and PlayerData.trimed_trees.is_empty():
+		_randomize_infected_trees()
+
 	for i in range(tree_nodes.size() - 1, -1, -1):
-		var node = tree_nodes[i]
-		
-		if node.name in PlayerData.trimed_trees:
-			node.infected = false
-			node._ready()
-			tree_nodes.remove_at(i)
-		elif not node.infected:
+		var node: TreeTrim = tree_nodes[i]
+		node.infected = (
+			node.name in PlayerData.infected_trees
+		and node.name not in PlayerData.trimed_trees
+		)
+		node._ready()
+
+		if not node.infected:
 			tree_nodes.remove_at(i)
 	
 	branchesLabel.text = str(tree_nodes.size())
 	
 	if (_all_trees_cleared()):
 		completion_container.visible = true
+
+func _randomize_infected_trees() -> void:
+	var shuffled_trees: Array[TreeTrim] = tree_nodes.duplicate()
+	shuffled_trees.shuffle()
+	var infected_count := randi_range(1, shuffled_trees.size())
+
+	for i in range(infected_count):
+		PlayerData.infected_trees.append(shuffled_trees[i].name)
 
 
 func _on_static_body_clicked(viewport: Viewport, event: InputEvent, shape_idx: int, treeName: String) -> void:

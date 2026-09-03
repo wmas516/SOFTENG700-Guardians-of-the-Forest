@@ -33,6 +33,8 @@ var curLives = lives
 func _ready() -> void:
 	#enemy.setEnabled(true)
 	curLives = lives
+	if (enemy.dest.has_method("setVisibleHealth")):
+		enemy.dest.setVisibleHealth(curLives)
 	for enemy_node in enemies.duplicate():
 		if is_instance_valid(enemy_node):
 			enemy_node.queue_free()
