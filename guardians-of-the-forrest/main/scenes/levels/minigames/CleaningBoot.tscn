@@ -10,6 +10,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyicb"]
 bg_color = Color(0, 0, 0, 0.55)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvyfl"]
+bg_color = Color(0, 0, 0, 0.55)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyicb"]
 radius = 94.0
 height = 348.0
@@ -82,6 +85,30 @@ theme_override_constants/margin_bottom = 4
 [node name="CurrentSpots" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=701112630]
 layout_mode = 2
 text = "67"
+
+[node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=1142590230]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_uvyfl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/Objective" unique_id=1320682189]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=925980293]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=771553209]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Scrub the boot to clear the myrtle rust"
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1526241117]
 visible = false

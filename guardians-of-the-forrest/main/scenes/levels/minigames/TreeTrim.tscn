@@ -11,6 +11,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vk8mo"]
 bg_color = Color(0, 0, 0, 0.55)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qldv1"]
+bg_color = Color(0, 0, 0, 0.55)
+
 [node name="TreeTrim" type="Node2D" unique_id=303672061]
 script = ExtResource("1_vk8mo")
 
@@ -43,8 +46,8 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=1448145577]
 layout_mode = 0
-offset_right = 217.0
-offset_bottom = 81.0
+offset_right = 1152.0
+offset_bottom = 648.0
 theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
@@ -87,6 +90,30 @@ theme_override_constants/margin_bottom = 4
 [node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=320933632]
 layout_mode = 2
 text = "67"
+
+[node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=1933427523]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qldv1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/Objective" unique_id=1046482303]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=1528682136]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=419279328]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Select an infected tree to begin treatment"
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1965514459]
 visible = false

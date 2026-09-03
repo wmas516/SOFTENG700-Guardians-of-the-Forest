@@ -41,6 +41,9 @@ height = 243.46063
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwokx"]
 bg_color = Color(0, 0, 0, 0.55)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqdpc"]
+bg_color = Color(0, 0, 0, 0.55)
+
 [node name="BranchTrimming" type="Node2D" unique_id=513680572]
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_qjx1r")
@@ -191,6 +194,30 @@ theme_override_constants/margin_bottom = 4
 [node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1700819724]
 layout_mode = 2
 text = "67"
+
+[node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=119562108]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gqdpc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/Objective" unique_id=736132376]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=1734204285]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=1879707019]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Trim the base of infected branches"
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=376418556]
 visible = false
