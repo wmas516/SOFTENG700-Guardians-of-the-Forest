@@ -3,8 +3,8 @@ class_name TreeTrim
 
 @export var infected: bool = false
 	
-@onready var healthSprite : Sprite2D = $Healthy
-@onready var infectedSprite : Sprite2D = $Infected
+@onready var healthSprite : Node2D = $Healthy
+@onready var infectedSprite : Node2D = $Infected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
