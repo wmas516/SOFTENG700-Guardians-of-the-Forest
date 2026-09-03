@@ -2,6 +2,7 @@ extends Node2D
 
 @export var waveEnemies: Array[Wave] = [Wave.new(1,1,1),Wave.new(2,1,0),Wave.new(0,0,2),Wave.new(3,2,1)]
 @export var wave = 0
+@export var boss: bool = false
 @export var aliveEnemies = 0
 @export var enemy: CharacterBody2D
 @export var bossEnemy: CharacterBody2D
@@ -22,6 +23,7 @@ var level_complete: bool = false
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var tryAgain_container: Container = $HUD/TryAgainBox
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
+@onready var spawnBossAudioPlayer: AudioStreamPlayer = get_node_or_null("SpawnPlayerBoss") as AudioStreamPlayer
 
 var curWaveEnemies = waveEnemies
 var originalWaveEnemies: Array[Wave] = []
@@ -31,6 +33,8 @@ var curLives = lives
 func _ready() -> void:
 	#enemy.setEnabled(true)
 	curLives = lives
+	if (enemy.dest.has_method("setVisibleHealth")):
+		enemy.dest.setVisibleHealth(curLives)
 	for enemy_node in enemies.duplicate():
 		if is_instance_valid(enemy_node):
 			enemy_node.queue_free()
@@ -76,6 +80,8 @@ func nextWave():
 		spawnTimer.stop()
 		level_complete = true
 		_show_completion()
+		if (boss):
+			$DeathPlayerBoss.play()
 	
 func spawn():
 	if level_complete:
@@ -86,8 +92,11 @@ func spawn():
 		if (enemy.type == DefenceEnemy.EnemyType.BOSS && bossEnemy):
 			bossEnemy.type = DefenceEnemy.EnemyType.BOSS
 			newEnemy = bossEnemy.duplicate()
+			if spawnBossAudioPlayer:
+				spawnBossAudioPlayer.play()
 		else:
 			newEnemy = enemy.duplicate()
+			spawnAudioPlayer.play()
 		var spawnPoint = randomSpawn()
 		add_child(newEnemy)
 		newEnemy.global_position = spawnPoint
@@ -97,7 +106,6 @@ func spawn():
 			_on_enemy_tree_exited(newEnemy)
 		)
 		enemies.append(newEnemy)
-		spawnAudioPlayer.play()
 		#print("[Enemy Spawned]:")
 		#enemyLog()
 

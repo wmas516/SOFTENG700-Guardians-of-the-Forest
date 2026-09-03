@@ -142,6 +142,7 @@ position = Vector2(844, 327)
 fadable = [NodePath("../../UI/Dialog")]
 behaviour = 0
 keep = true
+freeze = true
 
 [node name="Tree3" parent="Interactables" unique_id=1960927500 instance=ExtResource("5_qdg80")]
 z_index = -1
@@ -276,7 +277,9 @@ stream = ExtResource("16_jr0vh")
 autoplay = true
 bus = &"Music"
 
+[connection signal="captionDone" from="UI/Dialog" to="Interactables/DialogInteractable" method="_on_dialog_caption_done"]
 [connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="toggleFreezeChildren" from="Interactables/DialogInteractable" to="." method="_on_dialog_interactable_toggle_freeze_children"]
 [connection signal="interacted" from="Interactables/Tree3" to="." method="go_to_boot_clean"]
 [connection signal="interacted" from="Interactables/Tree4" to="." method="go_to_tree_trim"]
 [connection signal="interacted" from="Interactables/Tree5" to="." method="go_to_boss"]
