@@ -3,7 +3,6 @@ extends Control
 @onready var speakerLabel: Label = $PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
 @onready var textLabel: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/RichTextLabel
 @onready var imageLabel: TextureRect = $TextureRect
-
 @export var speaker: String
 @export var text: String
 @export var speakerImage: CompressedTexture2D
@@ -30,7 +29,9 @@ func _ready() -> void:
 		setImage(speakerImage)
 	if (text):
 		setDialog(text)
-	
+		
+	if (speakerImage):
+		setImage(speakerImage)
 	pass # Replace with function body.
 
 
@@ -41,11 +42,11 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if not visible:
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var click_event := event as InputEventMouseButton
-		if $PanelContainer.get_global_rect().has_point(click_event.global_position):
-			nextDialog()
-	elif event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("Skip"):
+	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#var click_event := event as InputEventMouseButton
+		#if $PanelContainer.get_global_rect().has_point(click_event.global_position):
+			#nextDialog()
+	if event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("Skip"):
 		nextDialog()
 	
 func setDialog(text: String) -> void:
@@ -64,9 +65,9 @@ func nextDialog() -> void:
 	textLabel.text = text
 	textIndex += 1
 
-func setSpeaker(name: String) -> void:
-	speakerLabel.text = name
-	
+func setSpeaker(speaker: String) -> void:
+	speakerLabel.text = speaker
+
 func setImage(speakerImage: CompressedTexture2D) -> void:
 	imageLabel.texture = speakerImage
 
@@ -106,4 +107,4 @@ func splitTextIntoDialog(text: String) -> void:
 func finished():
 	visible = false
 	captionDone.emit()
-	queue_free()
+	self.hide()
