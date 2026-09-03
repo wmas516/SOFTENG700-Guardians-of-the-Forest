@@ -23,6 +23,7 @@ const HEALTHCOLORS: Dictionary = {1: "ffffff", 2: "dd9b04", 3: "ffffff"}
 signal damagedTarget()
 
 var timerOver = false
+var previous_frame: int = 0
 var destPos
 var health = 1
 var color = HEALTHCOLORS.get(health)
@@ -33,6 +34,7 @@ func _ready() -> void:
 	if (dest):
 		destPos = dest.global_position
 	health = HEALTHMAP.get(type)
+	previous_frame = sprite.frame
 	setColor()
 	pass # Replace with function body.
 
@@ -45,8 +47,10 @@ func _physics_process(delta: float) -> void:
 		return
 	if (enabled):
 		var damaged = getTargetsInRange()
-		
-		var hit = damageTargets(damaged)
+		var frame_changed := sprite.frame != previous_frame
+		previous_frame = sprite.frame
+
+		var hit = damageTargets(damaged, frame_changed)
 		if (dest):
 			destPos = dest.global_position
 			
@@ -125,7 +129,7 @@ func getTargetableParent(collider: Node) -> Node:
 	print("valid parent not found")
 	return null
 
-func damageTargets(damaged) -> bool:
+func damageTargets(damaged, frame_changed: bool = false) -> bool:
 	var hit: bool = false
 	
 	for target in damaged:
@@ -138,7 +142,9 @@ func damageTargets(damaged) -> bool:
 					damageTimer.start()
 					eatSoundPlayer.play()
 					sprite.play("bite")
-				elif (timerOver):
+				elif ((timerOver && type != EnemyType.BOSS) 
+				|| (!damageTimer.is_stopped() && type == EnemyType.BOSS
+				&& sprite.frame == 8 && frame_changed)):
 					target.damage()
 					damagedTarget.emit()
 					if (type != EnemyType.BOSS):

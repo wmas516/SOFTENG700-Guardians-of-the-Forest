@@ -6,6 +6,7 @@ extends Node2D
 @onready var current_hp_label: Label = $UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentHP
 
 var player_dead: bool = false
+var frozen: bool = false
 
 # In any parent node or level script
 func _ready() -> void:
@@ -64,3 +65,19 @@ func _restore_player_position() -> void:
 		player.global_position = PlayerData.saved_platforming_position
 	else:
 		player.global_position = start_position.global_position
+
+func _on_dialog_interactable_toggle_freeze_children() -> void:
+	frozen = !frozen
+	print("Toggle emitted new value:",frozen)
+	call_deferred("_apply_frozen_state", frozen)
+
+func _apply_frozen_state(should_freeze: bool) -> void:
+	for child in get_children():
+		if !(child is CanvasLayer || child is AudioStreamPlayer):
+			child.set_physics_process(!should_freeze)
+			if should_freeze:
+				child.process_mode = Node.PROCESS_MODE_DISABLED
+			else:
+				child.process_mode = Node.PROCESS_MODE_INHERIT
+			
+	

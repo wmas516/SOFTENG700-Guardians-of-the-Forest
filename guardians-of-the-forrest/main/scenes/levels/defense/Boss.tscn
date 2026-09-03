@@ -114,7 +114,7 @@ volume_db = 1.0
 bus = &"SFX"
 
 [node name="DamageTimer" type="Timer" parent="BossEnemy" unique_id=1134566742]
-wait_time = 1.5
+wait_time = 1.2
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=68595967]
 wait_time = 1.5
