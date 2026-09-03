@@ -119,6 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="113_i13x0"]
 [ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
+[ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2476, 162.5)
@@ -4122,6 +4123,11 @@ texture = ExtResource("22_4hl25")
 position = Vector2(1221, 119)
 scale = Vector2(0.099999994, 0.1)
 texture = ExtResource("22_4hl25")
+
+[node name="BootSimple" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=674115876]
+position = Vector2(2499, 822)
+scale = Vector2(0.014160191, 0.014160191)
+texture = ExtResource("121_y6fx6")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
 position = Vector2(240, 65)
