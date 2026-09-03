@@ -10,6 +10,8 @@ var textArray: Array[String] = []
 var textLabelWidth: int
 var textIndex = 0
 
+signal captionDone 
+
 class Word:
 	var text: String
 	var length: int
@@ -40,7 +42,7 @@ func _input(event: InputEvent) -> void:
 		var click_event := event as InputEventMouseButton
 		if $PanelContainer.get_global_rect().has_point(click_event.global_position):
 			nextDialog()
-	elif event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_SPACE:
+	elif event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("Skip"):
 		nextDialog()
 	
 func setDialog(text: String) -> void:
@@ -51,8 +53,7 @@ func setDialog(text: String) -> void:
 	
 func nextDialog() -> void:
 	if (textArray.size()-1 < textIndex):
-		visible = false
-		queue_free()
+		finished()
 		return
 	text = textArray[textIndex]
 	if (textArray.size()-1 > textIndex):
@@ -97,3 +98,8 @@ func splitTextIntoDialog(text: String) -> void:
 	if (curText != ""):
 		curText.remove_char(-1)
 		textArray.append(curText)
+
+func finished():
+	visible = false
+	captionDone.emit()
+	queue_free()
