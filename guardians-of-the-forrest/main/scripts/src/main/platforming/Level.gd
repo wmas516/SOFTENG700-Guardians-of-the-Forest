@@ -3,11 +3,13 @@ extends Node2D
 @onready var player: PlatformPlayer = $Gameplay/Player
 @onready var start: Marker2D = $Markers/StartPos
 @onready var defense_interactable: Interactable = $Gameplay/Interactables/DefenseInteractable
+@onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	defense_interactable.interacted.connect(go_to_defense)
+	minigame_boot_interactable.interacted.connect(go_to_boot_clean)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -23,6 +25,11 @@ func go_to_defense(_source: Interactable) -> void:
 	print("Go to defense")
 	PlayerData.save_platforming_position(player.global_position)
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Defense.tscn")
+	
+func go_to_boot_clean(_source: Interactable) -> void:
+	print("Go to boot clean")
+	PlayerData.save_platforming_position(player.global_position)
+	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/CleaningBoot.tscn")
 
 func _on_deathzone_body_entered(body: Node2D) -> void:
 	_restore_player_position()

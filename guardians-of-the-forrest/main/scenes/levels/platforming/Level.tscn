@@ -4123,7 +4123,7 @@ scale = Vector2(0.099999994, 0.1)
 texture = ExtResource("22_4hl25")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
-position = Vector2(646, 1713)
+position = Vector2(116, 151)
 gravity = 500
 speed = 175
 jump_force = 220
@@ -4620,8 +4620,13 @@ shape = SubResource("RectangleShape2D_5dgl0")
 [node name="Interactables" type="Node2D" parent="Gameplay" unique_id=748738245]
 
 [node name="DefenseInteractable" parent="Gameplay/Interactables" unique_id=1553916585 instance=ExtResource("109_kpbni")]
-position = Vector2(1932, 218)
-label_offset = Vector2(-75, -60)
+position = Vector2(1932, 232)
+popup_text = "Protect This Tree []"
+label_offset = Vector2(-80, -60)
+
+[node name="MinigameBootInteractable" parent="Gameplay/Interactables" unique_id=766318692 instance=ExtResource("109_kpbni")]
+position = Vector2(2498, 806)
+label_offset = Vector2(-80, -60)
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1697288657]
 
