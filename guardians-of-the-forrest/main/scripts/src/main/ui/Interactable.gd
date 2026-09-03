@@ -34,7 +34,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if _dialog_finished or _player_inside:
 		return
-	print("Area entered")
+	print("Blank Area entered")
 	if interactable_enabled and body.is_in_group("Player"):
 		_player_inside = true
 		_show_label()

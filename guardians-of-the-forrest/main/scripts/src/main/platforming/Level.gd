@@ -5,6 +5,7 @@ extends Node2D
 @onready var defense_pos: Marker2D = $Markers/DefensePos
 @onready var minigame_boot_pos: Marker2D = $Markers/MinigameBootPos
 @onready var minigame_trim_pos: Marker2D = $Markers/MinigameTrimPos
+@onready var forest_floor_pos: Marker2D = $Markers/ForestFloorPos
 
 @onready var defense_interactable: Interactable = $Gameplay/Interactables/DefenseInteractable
 @onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
@@ -68,3 +69,6 @@ func go_to_boss(_source: Interactable) -> void:
 func _on_deathzone_body_entered(body: Node2D) -> void:
 	print("death")
 	_restore_player_position()
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	PlayerData.save_platforming_position(forest_floor_pos.global_position)

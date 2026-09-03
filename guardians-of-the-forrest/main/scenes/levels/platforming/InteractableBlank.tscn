@@ -6,9 +6,10 @@
 size = Vector2(277, 206)
 
 [node name="Interactable2" type="Area2D" unique_id=1553916585 node_paths=PackedStringArray("fadable")]
-collision_layer = 4
+collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_dw3dy")
-fadable = [NodePath("")]
+fadable = [null]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584256101]
 position = Vector2(0, 1)

@@ -111,6 +111,7 @@
 [ext_resource type="AudioStream" uid="uid://drbeyt01a7tyf" path="res://resources/audio/main.mp3" id="80_6w1ea"]
 [ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
+[ext_resource type="PackedScene" uid="uid://3g0wfp4sckok" path="res://main/scenes/levels/platforming/InteractableBlank.tscn" id="83_ihyw1"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
 [ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
@@ -120,10 +121,15 @@
 [ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="113_i13x0"]
 [ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
+[ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="121_valmb"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="122_58nxx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
-size = Vector2(2476, 162.5)
+size = Vector2(2596, 162.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihyw1"]
+size = Vector2(235.5, 108)
 
 [node name="Level" type="Node2D" unique_id=455574578]
 script = ExtResource("1_8yxmo")
@@ -3965,6 +3971,48 @@ texture = ExtResource("22_4hl25")
 
 [node name="Gameplay" type="Node2D" parent="." unique_id=313065877]
 
+[node name="Blockers" type="Node2D" parent="Gameplay" unique_id=1035388026]
+
+[node name="DefenseBlocker" parent="Gameplay/Blockers" unique_id=88690672 instance=ExtResource("110_32mwg")]
+position = Vector2(2073, 156)
+
+[node name="MinigameBootBlocker" parent="Gameplay/Blockers" unique_id=707621775 instance=ExtResource("110_32mwg")]
+position = Vector2(2397, 732)
+
+[node name="MinigameTrimBlocker" parent="Gameplay/Blockers" unique_id=724280019 instance=ExtResource("110_32mwg")]
+position = Vector2(3084, 1754)
+
+[node name="Interactables" type="Node2D" parent="Gameplay" unique_id=748738245]
+
+[node name="DefenseInteractable" parent="Gameplay/Interactables" unique_id=1553916585 instance=ExtResource("109_kpbni")]
+position = Vector2(1932, 232)
+popup_text = "Protect This Tree []"
+label_offset = Vector2(-80, -60)
+
+[node name="MinigameBootInteractable" parent="Gameplay/Interactables" unique_id=766318692 instance=ExtResource("109_kpbni")]
+position = Vector2(2498, 806)
+label_offset = Vector2(-80, -60)
+
+[node name="MinigameTrimInteractable" parent="Gameplay/Interactables" unique_id=990329024 instance=ExtResource("109_kpbni")]
+position = Vector2(2988, 1864)
+label_offset = Vector2(-80, -60)
+
+[node name="BossInteractable" parent="Gameplay/Interactables" unique_id=1984729510 instance=ExtResource("109_kpbni")]
+position = Vector2(4810, 1800)
+label_offset = Vector2(-80, -60)
+
+[node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
+position = Vector2(205, 106)
+collision_layer = 8
+collision_mask = 2
+
+[node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=608557752 node_paths=PackedStringArray("fadable") instance=ExtResource("83_ihyw1")]
+position = Vector2(524, 107)
+collision_mask = 2
+fadable = [NodePath("../../../UI/Dialog")]
+keep = true
+freeze = true
+
 [node name="Cosmetic-Back" type="Node2D" parent="Gameplay" unique_id=2066799475]
 
 [node name="PlantThin09" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=406924771]
@@ -4131,7 +4179,9 @@ scale = Vector2(0.014160191, 0.014160191)
 texture = ExtResource("121_y6fx6")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
-position = Vector2(2742, 1808)
+position = Vector2(103, 105)
+collision_layer = 2
+collision_mask = 15
 gravity = 500
 speed = 175
 jump_force = 220
@@ -4620,45 +4670,22 @@ texture = ExtResource("84_apd0o")
 
 [node name="Deathzone" type="Area2D" parent="Gameplay" unique_id=292345760]
 position = Vector2(2505, 2216)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Deathzone" unique_id=1535334945]
-position = Vector2(-37, 89)
+position = Vector2(-19, 89)
 shape = SubResource("RectangleShape2D_5dgl0")
 
-[node name="Interactables" type="Node2D" parent="Gameplay" unique_id=748738245]
+[node name="Area2D" type="Area2D" parent="Gameplay" unique_id=967690440]
+position = Vector2(553, 1494)
+collision_mask = 2
 
-[node name="DefenseInteractable" parent="Gameplay/Interactables" unique_id=1553916585 instance=ExtResource("109_kpbni")]
-position = Vector2(1932, 232)
-popup_text = "Protect This Tree []"
-label_offset = Vector2(-80, -60)
-
-[node name="MinigameBootInteractable" parent="Gameplay/Interactables" unique_id=766318692 instance=ExtResource("109_kpbni")]
-position = Vector2(2498, 806)
-label_offset = Vector2(-80, -60)
-
-[node name="MinigameTrimInteractable" parent="Gameplay/Interactables" unique_id=990329024 instance=ExtResource("109_kpbni")]
-position = Vector2(2988, 1864)
-label_offset = Vector2(-80, -60)
-
-[node name="BossInteractable" parent="Gameplay/Interactables" unique_id=1984729510 instance=ExtResource("109_kpbni")]
-position = Vector2(4810, 1800)
-label_offset = Vector2(-80, -60)
-
-[node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
-position = Vector2(205, 106)
-
-[node name="Blockers" type="Node2D" parent="Gameplay" unique_id=1035388026]
-
-[node name="DefenseBlocker" parent="Gameplay/Blockers" unique_id=88690672 instance=ExtResource("110_32mwg")]
-position = Vector2(2073, 156)
-
-[node name="MinigameBootBlocker" parent="Gameplay/Blockers" unique_id=707621775 instance=ExtResource("110_32mwg")]
-position = Vector2(2397, 732)
-
-[node name="MinigameTrimBlocker" parent="Gameplay/Blockers" unique_id=724280019 instance=ExtResource("110_32mwg")]
-position = Vector2(3084, 1754)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Area2D" unique_id=479114984]
+position = Vector2(21, 2)
+shape = SubResource("RectangleShape2D_ihyw1")
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1697288657]
+visible = false
 
 [node name="CanopyMedium07" type="Sprite2D" parent="Foreground" unique_id=2076555633]
 position = Vector2(175.99998, -63.999992)
@@ -5451,6 +5478,9 @@ position = Vector2(2385, 600)
 [node name="MinigameTrimPos" type="Marker2D" parent="Markers" unique_id=347439943]
 position = Vector2(2875, 1636)
 
+[node name="ForestFloorPos" type="Marker2D" parent="Markers" unique_id=1423411037]
+position = Vector2(951, 1570)
+
 [node name="UI" type="CanvasLayer" parent="." unique_id=342041360]
 layer = 3
 
@@ -5463,9 +5493,20 @@ offset_bottom = 120.0
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="Dialog" parent="UI" unique_id=445186671 instance=ExtResource("121_valmb")]
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_top = 355.0
+offset_bottom = -2.0
+speakerName = "Tāne Mahuta"
+text = "Kaimanaki, the forest needs you! Myrtle Rust is spreading everywhere. Please save our plants and clear away this sickness!"
+speaker = ExtResource("122_58nxx")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
 autoplay = true
 bus = &"Music"
 
 [connection signal="body_entered" from="Gameplay/Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="body_entered" from="Gameplay/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="captionDone" from="UI/Dialog" to="Gameplay/Interactables/DialogInteractable" method="_on_dialog_caption_done"]
