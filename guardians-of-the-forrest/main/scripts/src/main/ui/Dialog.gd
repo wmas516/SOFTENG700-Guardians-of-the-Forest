@@ -3,7 +3,6 @@ extends Control
 @onready var speakerLabel: Label = $PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
 @onready var textLabel: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/RichTextLabel
 @onready var imageLabel: TextureRect = $TextureRect
-
 @export var speaker: String
 @export var text: String
 @export var speakerImage: CompressedTexture2D
@@ -30,7 +29,9 @@ func _ready() -> void:
 		setImage(speakerImage)
 	if (text):
 		setDialog(text)
-	
+		
+	if (speakerImage):
+		setImage(speakerImage)
 	pass # Replace with function body.
 
 
@@ -64,9 +65,9 @@ func nextDialog() -> void:
 	textLabel.text = text
 	textIndex += 1
 
-func setSpeaker(name: String) -> void:
-	speakerLabel.text = name
-	
+func setSpeaker(speaker: String) -> void:
+	speakerLabel.text = speaker
+
 func setImage(speakerImage: CompressedTexture2D) -> void:
 	imageLabel.texture = speakerImage
 
@@ -106,4 +107,4 @@ func splitTextIntoDialog(text: String) -> void:
 func finished():
 	visible = false
 	captionDone.emit()
-	queue_free()
+	self.hide()
