@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://smy2wpjv51fi" path="res://resources/sprites/final/sprite 1-dash.png" id="4_fnlx1"]
 [ext_resource type="Texture2D" uid="uid://3evie7dqvuim" path="res://resources/sprites/final/sprite 1-iso_custom_basic_blast_up.png" id="4_oo6y0"]
 [ext_resource type="Texture2D" uid="uid://cojnnhn3tnu6y" path="res://resources/sprites/final/sprite 1-hit_react.png" id="5_vj04w"]
+[ext_resource type="Texture2D" uid="uid://cl5a8mxp6dx4g" path="res://resources/sprites/final/sprite 1-iso_idle_resized.png" id="7_eoms6"]
 [ext_resource type="Texture2D" uid="uid://u50n3r1j1r2m" path="res://resources/sprites/final/sprite 1-run.png" id="7_oo6y0"]
 [ext_resource type="Texture2D" uid="uid://dbrdwjtwkytod" path="res://resources/sprites/final/sprite 1-jump.png" id="8_e5bmr"]
 [ext_resource type="Texture2D" uid="uid://djq1p1kwyv00a" path="res://resources/sprites/final/sprite 1-iso_run_down.png" id="8_eoms6"]
-[ext_resource type="Texture2D" uid="uid://ce7makhsc32be" path="res://resources/sprites/final/sprite 1-iso_idle_down.png" id="8_lrrs1"]
 [ext_resource type="Texture2D" uid="uid://8v60ytrf85ub" path="res://resources/sprites/final/sprite 1-iso_run_southeast.png" id="8_oo6y0"]
 [ext_resource type="AudioStream" uid="uid://c2rtf46f114h" path="res://resources/audio/footstep.mp3" id="9_eoms6"]
 [ext_resource type="Texture2D" uid="uid://c4bg5d82rtxil" path="res://resources/sprites/final/sprite 1-iso_run_northeast.png" id="9_t7l8m"]
@@ -102,8 +102,8 @@ atlas = ExtResource("5_vj04w")
 region = Rect2(256, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcjeq"]
-atlas = ExtResource("8_lrrs1")
-region = Rect2(0, 0, 396, 396)
+atlas = ExtResource("7_eoms6")
+region = Rect2(0, 0, 332, 332)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_58jkk"]
 atlas = ExtResource("8_e5bmr")
@@ -722,7 +722,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1164,12 +1164,13 @@ collision_mask = 14
 script = ExtResource("1_x4re3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1817466178]
-scale = Vector2(1.75, 1.75)
+position = Vector2(-3.8146973e-06, -1.9073486e-06)
+scale = Vector2(1.4570313, 1.4570313)
 sprite_frames = SubResource("SpriteFrames_pbbhh")
-animation = &"jump-down"
+animation = &"idle"
 
 [node name="BaseShape" type="CollisionShape2D" parent="." unique_id=1230606022]
-position = Vector2(-8, 3)
+position = Vector2(6, 9)
 shape = SubResource("RectangleShape2D_pb7iy")
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=1542958768]

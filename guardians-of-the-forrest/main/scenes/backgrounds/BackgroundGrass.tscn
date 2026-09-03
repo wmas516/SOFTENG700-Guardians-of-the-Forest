@@ -1,11 +1,142 @@
 [gd_scene format=3 uid="uid://ctqsgrenq75cf"]
 
-[ext_resource type="Texture2D" uid="uid://c33l13ucmprhr" path="res://resources/backgrounds/grass.jpg" id="1_l3213"]
+[ext_resource type="Texture2D" uid="uid://dbjjiksq76sy1" path="res://resources/environment/foliage/grass_elongated_01.png" id="1_el81y"]
+[ext_resource type="Texture2D" uid="uid://ce3o8f0o10340" path="res://resources/environment/foliage/grass_round_01.png" id="2_lxymf"]
+[ext_resource type="Texture2D" uid="uid://hp6go22dlsdf" path="res://resources/environment/foliage/grass_coverings_02.png" id="3_jckyr"]
+[ext_resource type="Texture2D" uid="uid://csw1u1xpmg2uf" path="res://resources/environment/foliage/grass_tuft_02.png" id="4_lxymf"]
 
 [node name="BackgroundGrass" type="CanvasLayer" unique_id=1215222339]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=426818906]
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = ExtResource("1_l3213")
-expand_mode = 3
+[node name="GrassElongated06" type="Sprite2D" parent="." unique_id=1700937022]
+position = Vector2(541.9328, 331.99994)
+scale = Vector2(1.1768413, 4.4244604)
+texture = ExtResource("1_el81y")
+
+[node name="GrassRound04" type="Sprite2D" parent="." unique_id=2088287124]
+position = Vector2(985.99994, 82.999985)
+rotation = 0.06708666
+scale = Vector2(0.96710527, 0.96710527)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassCoverings08" type="Sprite2D" parent="." unique_id=698543487]
+position = Vector2(244, 129.00002)
+rotation = -3.1323678
+scale = Vector2(0.7311146, -0.66888535)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassElongated02" type="Sprite2D" parent="." unique_id=1758313688]
+position = Vector2(676, 110.99999)
+scale = Vector2(-0.5698391, 0.75247306)
+texture = ExtResource("1_el81y")
+
+[node name="GrassCoverings07" type="Sprite2D" parent="." unique_id=620744883]
+position = Vector2(297, 716)
+scale = Vector2(0.64811563, 0.6481157)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassElongated04" type="Sprite2D" parent="." unique_id=1408484936]
+position = Vector2(818, 598)
+scale = Vector2(0.7571943, 0.7571943)
+texture = ExtResource("1_el81y")
+
+[node name="GrassRound07" type="Sprite2D" parent="." unique_id=829371456]
+position = Vector2(245.00002, 170)
+rotation = 0.0035580576
+scale = Vector2(0.79605275, 0.79605275)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassCoverings03" type="Sprite2D" parent="." unique_id=1872520739]
+position = Vector2(925, 295.00003)
+rotation = 3.169547
+scale = Vector2(0.6718844, -0.6481157)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassElongated05" type="Sprite2D" parent="." unique_id=1962811572]
+position = Vector2(432.70618, 283.64117)
+scale = Vector2(0.7275358, 0.72753596)
+texture = ExtResource("1_el81y")
+
+[node name="GrassRound05" type="Sprite2D" parent="." unique_id=356085826]
+position = Vector2(336, 369.00003)
+rotation = 0.0035580574
+scale = Vector2(0.79605293, 0.79605293)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassCoverings06" type="Sprite2D" parent="." unique_id=2104667513]
+position = Vector2(242.00003, 527.00006)
+rotation = -0.021285012
+scale = Vector2(0.64811563, 0.7403039)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassCoverings09" type="Sprite2D" parent="." unique_id=617520230]
+position = Vector2(1058, 334.99997)
+rotation = -3.1238384
+scale = Vector2(0.5927617, -0.591512)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassRound03" type="Sprite2D" parent="." unique_id=102746408]
+position = Vector2(1430.0001, 338)
+scale = Vector2(0.79605263, 0.79605263)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassCoverings05" type="Sprite2D" parent="." unique_id=273051695]
+position = Vector2(959.00006, 416.99997)
+rotation = 3.1593468
+scale = Vector2(0.5927617, -0.591512)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassRound01" type="Sprite2D" parent="." unique_id=1088358269]
+position = Vector2(930.99994, 446.99997)
+rotation = -0.044285912
+scale = Vector2(0.79605263, 0.79605263)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassRound02" type="Sprite2D" parent="." unique_id=962475940]
+position = Vector2(288, 549)
+scale = Vector2(0.79605263, 0.79605263)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassRound06" type="Sprite2D" parent="." unique_id=2057580337]
+position = Vector2(989, 546)
+rotation = 0.0035580578
+scale = Vector2(0.474778, 0.38922364)
+texture = ExtResource("2_lxymf")
+
+[node name="GrassCoverings04" type="Sprite2D" parent="." unique_id=278911986]
+position = Vector2(715.00006, 724.00006)
+rotation = -0.021285012
+scale = Vector2(0.64811563, 0.7403039)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassCoverings02" type="Sprite2D" parent="." unique_id=2010134973]
+position = Vector2(297, 716)
+scale = Vector2(0.64811563, 0.6481157)
+texture = ExtResource("3_jckyr")
+
+[node name="GrassTuft02" type="Sprite2D" parent="." unique_id=1081941723]
+position = Vector2(760.1109, 504.49393)
+rotation = -0.009646201
+scale = Vector2(0.42105266, 0.30005816)
+texture = ExtResource("4_lxymf")
+
+[node name="GrassTuft05" type="Sprite2D" parent="." unique_id=501357707]
+position = Vector2(929.99994, 350)
+rotation = -0.009646201
+scale = Vector2(0.42105266, 0.30005816)
+texture = ExtResource("4_lxymf")
+
+[node name="GrassTuft06" type="Sprite2D" parent="." unique_id=610660366]
+position = Vector2(997.99994, 37)
+rotation = -0.009646201
+scale = Vector2(0.42105266, 0.30005816)
+texture = ExtResource("4_lxymf")
+
+[node name="GrassTuft03" type="Sprite2D" parent="." unique_id=606732386]
+position = Vector2(136, 510)
+scale = Vector2(0.32631582, 0.3263158)
+texture = ExtResource("4_lxymf")
+
+[node name="GrassTuft04" type="Sprite2D" parent="." unique_id=220102760]
+position = Vector2(124.999985, 136)
+scale = Vector2(0.42105266, 0.42105263)
+texture = ExtResource("4_lxymf")

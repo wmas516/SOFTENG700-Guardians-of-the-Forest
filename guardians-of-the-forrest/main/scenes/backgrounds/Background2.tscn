@@ -1,17 +1,53 @@
 [gd_scene format=3 uid="uid://hvuda7qthsar"]
 
-[ext_resource type="Texture2D" uid="uid://dvrtx24ppcjv0" path="res://resources/backgrounds/Level2.png" id="1_qjxk2"]
+[ext_resource type="Texture2D" uid="uid://cjqqu6wyn3lru" path="res://resources/backgrounds/blurred-background.png" id="1_a51e2"]
+[ext_resource type="Texture2D" uid="uid://dbjjiksq76sy1" path="res://resources/environment/foliage/grass_elongated_01.png" id="1_bf45u"]
+[ext_resource type="Texture2D" uid="uid://ce3o8f0o10340" path="res://resources/environment/foliage/grass_round_01.png" id="2_a51e2"]
+[ext_resource type="Texture2D" uid="uid://hp6go22dlsdf" path="res://resources/environment/foliage/grass_coverings_02.png" id="3_3hl3b"]
 
 [node name="Background2" type="CanvasLayer" unique_id=1169487791]
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=586273658]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
 anchors_preset = -1
-anchor_right = 1.6880904
-anchor_bottom = 1.0046914
-offset_right = 0.31982422
-offset_bottom = -0.040039063
-texture = ExtResource("1_qjxk2")
+anchor_top = 0.002
+anchor_right = 1.0
+anchor_bottom = 1.030926
+offset_left = -658.0
+offset_top = -0.296
+offset_right = 291.1599
+offset_bottom = 25.95996
+texture = ExtResource("1_a51e2")
 expand_mode = 3
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
+
+[node name="GrassElongated03" type="Sprite2D" parent="." unique_id=1604534899]
+position = Vector2(930.8975, 578.00006)
+rotation = -3.1415927
+scale = Vector2(0.574891, -0.75247306)
+texture = ExtResource("1_bf45u")
+
+[node name="GrassCoverings08" type="Sprite2D" parent="." unique_id=2038348856]
+position = Vector2(315, 643)
+rotation = -3.1323678
+scale = Vector2(0.839437, -0.76798797)
+texture = ExtResource("3_3hl3b")
+
+[node name="GrassCoverings09" type="Sprite2D" parent="." unique_id=1079662346]
+position = Vector2(836.99994, 711)
+rotation = -3.1254122
+scale = Vector2(0.9211588, -0.8427539)
+texture = ExtResource("3_3hl3b")
+
+[node name="GrassRound05" type="Sprite2D" parent="GrassCoverings09" unique_id=852863214]
+position = Vector2(-203.4269, 1.8421793)
+rotation = -3.1277962
+scale = Vector2(0.99781215, -1.0906116)
+skew = -0.0022485256
+texture = ExtResource("2_a51e2")
+
+[node name="GrassElongated02" type="Sprite2D" parent="." unique_id=1163670678]
+position = Vector2(263, 647)
+scale = Vector2(-0.5698391, 0.75247306)
+texture = ExtResource("1_bf45u")

@@ -55,7 +55,6 @@ func copy_waves(waves: Array[Wave]) -> Array[Wave]:
 		copied_waves.append(Wave.new(wave_resource.normal, wave_resource.elite, wave_resource.boss))
 	return copied_waves
 
-
 func _on_spawn_timer_timeout() -> void:
 	if level_complete:
 		return
@@ -78,7 +77,6 @@ func nextWave():
 		level_complete = true
 		_show_completion()
 	
-
 func spawn():
 	if level_complete:
 		return
@@ -143,13 +141,14 @@ func _on_try_again_button_pressed() -> void:
 func _on_boss_enemy_damaged_target() -> void:
 	targetDamage()
 
-
 func _on_enemy_damaged_target() -> void:
 	targetDamage()
 
 func targetDamage() -> void:
 	curLives -= 1
 	hpLabel.text = str(curLives)
+	if (enemy.dest.has_method("setVisibleHealth")):
+		enemy.dest.setVisibleHealth(curLives)
 	if (curLives <= 0):
 		loss()
 
