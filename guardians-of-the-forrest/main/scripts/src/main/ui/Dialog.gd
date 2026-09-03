@@ -42,11 +42,11 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if not visible:
 		return
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		var click_event := event as InputEventMouseButton
-		if $PanelContainer.get_global_rect().has_point(click_event.global_position):
-			nextDialog()
-	elif event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("Skip"):
+	#if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		#var click_event := event as InputEventMouseButton
+		#if $PanelContainer.get_global_rect().has_point(click_event.global_position):
+			#nextDialog()
+	if event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("Skip"):
 		nextDialog()
 	
 func setDialog(text: String) -> void:
