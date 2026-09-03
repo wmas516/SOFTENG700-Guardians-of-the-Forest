@@ -2272,9 +2272,9 @@ texture = ExtResource("41_1p11v")
 
 [node name="RockAngular89" type="Sprite2D" parent="Ground/Ground_2" unique_id=96431877]
 self_modulate = Color(0.73, 0.73, 0.73, 1)
-position = Vector2(2609.381, 629.067)
+position = Vector2(2618.8625, 613.32544)
 rotation = -1.9308995
-scale = Vector2(0.3625734, 0.31729516)
+scale = Vector2(0.41125274, 0.3598954)
 texture = ExtResource("41_gt5jh")
 
 [node name="RockAngular88" type="Sprite2D" parent="Ground/Ground_2" unique_id=1674858994]
@@ -4123,7 +4123,7 @@ scale = Vector2(0.099999994, 0.1)
 texture = ExtResource("22_4hl25")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
-position = Vector2(116, 151)
+position = Vector2(102, 61)
 gravity = 500
 speed = 175
 jump_force = 220
@@ -4626,6 +4626,10 @@ label_offset = Vector2(-80, -60)
 
 [node name="MinigameBootInteractable" parent="Gameplay/Interactables" unique_id=766318692 instance=ExtResource("109_kpbni")]
 position = Vector2(2498, 806)
+label_offset = Vector2(-80, -60)
+
+[node name="MinigameTrimInteractable" parent="Gameplay/Interactables" unique_id=990329024 instance=ExtResource("109_kpbni")]
+position = Vector2(2988, 1864)
 label_offset = Vector2(-80, -60)
 
 [node name="Foreground" type="Node2D" parent="." unique_id=1697288657]
