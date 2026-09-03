@@ -143,9 +143,10 @@ func enemyLog():
 
 func _show_completion() -> void:
 	completion_container.visible = true
+	_check_freeze_for_wave(0)
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Level.tscn")
+	get_tree().change_scene_to_file("res://main/scenes/Main.tscn")
 
 func _on_try_again_button_pressed() -> void:
 	revertLoss()

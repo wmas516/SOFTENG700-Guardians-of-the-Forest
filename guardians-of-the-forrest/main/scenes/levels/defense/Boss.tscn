@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="11_p4iqy"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
 [ext_resource type="PackedScene" uid="uid://dya3r3fgc4icx" path="res://main/scenes/levels/defense/BossEnemy.tscn" id="13_2vs1w"]
+[ext_resource type="Texture2D" uid="uid://c0qcteufdl8tm" path="res://resources/sprites/final/Boss.png" id="13_5fu0h"]
 [ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_iq156"]
 [ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_g34ii"]
 [ext_resource type="AudioStream" uid="uid://doh2fjfqepnsx" path="res://resources/audio/bossSpawn.mp3" id="15_uopnk"]
@@ -47,10 +48,39 @@ script = ExtResource("2_qmd71")
 boss = 1
 metadata/_custom_type_script = "uid://cl86ypf08bfjf"
 
-[sub_resource type="Resource" id="Resource_5fu0h"]
+[sub_resource type="Resource" id="Resource_4eu1o"]
 script = ExtResource("3_2k7vr")
 node = NodePath("HUD/Dialog")
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_8asba"]
+script = ExtResource("3_2k7vr")
+node = NodePath("HUD/Dialog2")
+wave = 2
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_5fu0h"]
+script = ExtResource("3_2k7vr")
+node = NodePath("HUD/Dialog3")
 wave = 3
+
+[sub_resource type="Resource" id="Resource_ido5u"]
+script = ExtResource("3_2k7vr")
+node = NodePath("HUD/Dialog4")
+wave = 4
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_krpyx"]
+script = ExtResource("3_2k7vr")
+node = NodePath("HUD/Dialog5")
+wave = 5
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_7pjxo"]
+script = ExtResource("3_2k7vr")
+node = NodePath("HUD/Dialog6")
+wave = 0
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
 
 [sub_resource type="Curve2D" id="Curve2D_c0r40"]
 _data = {
@@ -85,7 +115,7 @@ boss = true
 enemy = NodePath("Enemy")
 bossEnemy = NodePath("BossEnemy")
 spawnTimer = NodePath("SpawnTimer")
-freeze_entries = Array[ExtResource("3_2k7vr")]([SubResource("Resource_5fu0h")])
+freeze_entries = Array[ExtResource("3_2k7vr")]([SubResource("Resource_4eu1o"), SubResource("Resource_8asba"), SubResource("Resource_5fu0h"), SubResource("Resource_ido5u"), SubResource("Resource_krpyx"), SubResource("Resource_7pjxo")])
 
 [node name="PlayerDef" parent="." unique_id=868766390 groups=["Player", "Target"] instance=ExtResource("2_8fsoy")]
 position = Vector2(560, 375)
@@ -339,24 +369,30 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1710171856]
-visible = false
-layout_mode = 0
-offset_left = 516.0
-offset_top = 295.0
-offset_right = 635.0
-offset_bottom = 353.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = -29.0
+offset_right = 108.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=1360818450]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Level Complete"
+text = "Congratulations you've won"
 horizontal_alignment = 1
 
 [node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=83633541]
 layout_mode = 2
-text = "Return"
+text = "Play again"
 
 [node name="TryAgainBox" type="VBoxContainer" parent="HUD" unique_id=2061347946]
 visible = false
@@ -388,11 +424,62 @@ text = "Try Again"
 [node name="Dialog" parent="HUD" unique_id=445186671 instance=ExtResource("11_p4iqy")]
 visible = false
 layout_mode = 1
-offset_left = 1.0
-offset_top = 356.0
-offset_right = 1.0
-offset_bottom = 356.04797
+offset_top = 355.0
+offset_bottom = 355.04797
 grow_vertical = 0
+speaker = "Myrtle King"
+text = "Well well Kaimanaki you have come so far to stop me but this is where your quest ends. Prepair yourself for a swift demise."
+speakerImage = ExtResource("13_5fu0h")
+
+[node name="Dialog2" parent="HUD" unique_id=1171226700 instance=ExtResource("11_p4iqy")]
+visible = false
+layout_mode = 1
+offset_top = 355.0
+offset_bottom = 355.04797
+grow_vertical = 0
+speaker = "Myrtle King"
+text = "AH FOOL YOU THINK YOU CAN STOP ME. SEIZE HIM."
+speakerImage = ExtResource("13_5fu0h")
+
+[node name="Dialog3" parent="HUD" unique_id=1691568528 instance=ExtResource("11_p4iqy")]
+visible = false
+layout_mode = 1
+offset_top = 355.0
+offset_bottom = 355.04797
+grow_vertical = 0
+speaker = "Myrtle King"
+text = "Fine I guess I'll do it myself"
+speakerImage = ExtResource("13_5fu0h")
+
+[node name="Dialog4" parent="HUD" unique_id=155943204 instance=ExtResource("11_p4iqy")]
+visible = false
+layout_mode = 1
+offset_top = 355.0
+offset_bottom = 355.04797
+grow_vertical = 0
+speaker = "Myrtle King"
+text = "AH you're more powerful that I expected. So be it. I will show no mercy. Everyone ATTACK."
+speakerImage = ExtResource("13_5fu0h")
+
+[node name="Dialog5" parent="HUD" unique_id=1979733464 instance=ExtResource("11_p4iqy")]
+visible = false
+layout_mode = 1
+offset_top = 355.0
+offset_bottom = 355.04797
+grow_vertical = 0
+speaker = "Myrtle King"
+text = "You are but an ant in this game and I shall be your boot."
+speakerImage = ExtResource("13_5fu0h")
+
+[node name="Dialog6" parent="HUD" unique_id=1817342037 instance=ExtResource("11_p4iqy")]
+visible = false
+layout_mode = 1
+offset_top = 355.0
+offset_bottom = 355.04797
+grow_vertical = 0
+speaker = "Myrtle King"
+text = "ARRRRRHHHHHHHHHHHhhhhhhh......."
+speakerImage = ExtResource("13_5fu0h")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1254563325]
 stream = ExtResource("11_krpyx")
