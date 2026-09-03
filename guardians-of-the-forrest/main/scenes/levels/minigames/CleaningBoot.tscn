@@ -123,7 +123,7 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=469975197]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Level Complete"
+text = "Boots Are Now Clean!"
 horizontal_alignment = 1
 
 [node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=206448421]

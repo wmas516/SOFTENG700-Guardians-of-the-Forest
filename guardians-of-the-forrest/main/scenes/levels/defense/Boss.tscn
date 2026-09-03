@@ -392,7 +392,7 @@ horizontal_alignment = 1
 
 [node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=83633541]
 layout_mode = 2
-text = "Play again"
+text = "End Game"
 
 [node name="TryAgainBox" type="VBoxContainer" parent="HUD" unique_id=2061347946]
 visible = false

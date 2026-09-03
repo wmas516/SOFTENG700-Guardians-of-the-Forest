@@ -149,11 +149,6 @@ position = Vector2(958.0001, 574.79504)
 scale = Vector2(0.50677085, 0.44304177)
 texture = ExtResource("2_j4jqo")
 
-[node name="Level4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=605816211]
-position = Vector2(-1253, 989)
-scale = Vector2(0.28811926, 0.2881192)
-texture = ExtResource("2_j4jqo")
-
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=514990213]
 motion_scale = Vector2(0.6, 0.6)
 
@@ -3982,6 +3977,24 @@ position = Vector2(2397, 732)
 [node name="MinigameTrimBlocker" parent="Gameplay/Blockers" unique_id=724280019 instance=ExtResource("110_32mwg")]
 position = Vector2(3084, 1754)
 
+[node name="BranchWide01" type="Sprite2D" parent="Gameplay/Blockers/MinigameTrimBlocker" unique_id=1412574090]
+self_modulate = Color(0.56, 0.56, 0.56, 1)
+position = Vector2(69, 80)
+scale = Vector2(0.15272287, 0.1527229)
+texture = ExtResource("60_ulv2c")
+
+[node name="RustedCanopyMedium17" type="Sprite2D" parent="Gameplay/Blockers/MinigameTrimBlocker" unique_id=1381876708]
+position = Vector2(28, 43)
+rotation = -1.1272235
+scale = Vector2(0.11173242, 0.11173242)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopySmall18" type="Sprite2D" parent="Gameplay/Blockers/MinigameTrimBlocker" unique_id=945713121]
+position = Vector2(96, 40)
+rotation = -3.7166944
+scale = Vector2(0.062033694, 0.06203369)
+texture = ExtResource("115_8yxmo")
+
 [node name="Interactables" type="Node2D" parent="Gameplay" unique_id=748738245]
 
 [node name="DefenseInteractable" parent="Gameplay/Interactables" unique_id=1553916585 instance=ExtResource("109_kpbni")]
@@ -3991,14 +4004,17 @@ label_offset = Vector2(-80, -60)
 
 [node name="MinigameBootInteractable" parent="Gameplay/Interactables" unique_id=766318692 instance=ExtResource("109_kpbni")]
 position = Vector2(2498, 806)
+popup_text = "Clean the Infected Boots []"
 label_offset = Vector2(-80, -60)
 
 [node name="MinigameTrimInteractable" parent="Gameplay/Interactables" unique_id=990329024 instance=ExtResource("109_kpbni")]
 position = Vector2(2988, 1864)
+popup_text = "Trim the Rusted Leaves []"
 label_offset = Vector2(-80, -60)
 
 [node name="BossInteractable" parent="Gameplay/Interactables" unique_id=1984729510 instance=ExtResource("109_kpbni")]
 position = Vector2(4810, 1800)
+popup_text = "Challenge the Myrtle King []"
 label_offset = Vector2(-80, -60)
 
 [node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
