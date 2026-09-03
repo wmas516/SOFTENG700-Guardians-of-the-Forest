@@ -111,7 +111,11 @@
 [ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
+[ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://jojw3htxfsly" path="res://resources/environment/trees/canopy_tiny_01.png" id="110_jfi1t"]
+[ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="113_i13x0"]
+[ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
+[ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
 
 [node name="Level" type="Node2D" unique_id=455574578]
 
@@ -4087,7 +4091,7 @@ scale = Vector2(0.099999994, 0.1)
 texture = ExtResource("22_4hl25")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
-position = Vector2(126, 118)
+position = Vector2(113, 191)
 gravity = 500
 speed = 175
 jump_force = 220
@@ -4646,12 +4650,6 @@ rotation = 7.117428
 scale = Vector2(0.30025077, 0.30025077)
 texture = ExtResource("67_q1p1y")
 
-[node name="CanopySmall52" type="Sprite2D" parent="Foreground" unique_id=2040469028]
-position = Vector2(93.00003, 1538)
-rotation = 5.952104
-scale = Vector2(0.30025077, 0.30025077)
-texture = ExtResource("67_q1p1y")
-
 [node name="CanopyLarge05" type="Sprite2D" parent="Foreground" unique_id=691205696]
 position = Vector2(962, 1474.0001)
 rotation = 0.7029594
@@ -4664,21 +4662,9 @@ rotation = 0.7029594
 scale = Vector2(0.28568655, 0.28568652)
 texture = ExtResource("60_1vl5b")
 
-[node name="CanopyMedium22" type="Sprite2D" parent="Foreground" unique_id=1580645197]
-position = Vector2(925.0001, 1572.0001)
-rotation = 0.8248192
-scale = Vector2(0.4386576, 0.43865758)
-texture = ExtResource("61_ul6je")
-
 [node name="CanopyMedium35" type="Sprite2D" parent="Foreground" unique_id=1357322547]
 position = Vector2(1714, 1563)
 rotation = 3.3402166
-scale = Vector2(0.4386576, 0.43865758)
-texture = ExtResource("61_ul6je")
-
-[node name="CanopyMedium24" type="Sprite2D" parent="Foreground" unique_id=308083702]
-position = Vector2(321.00003, 1556)
-rotation = 1.4833416
 scale = Vector2(0.4386576, 0.43865758)
 texture = ExtResource("61_ul6je")
 
@@ -4687,6 +4673,18 @@ position = Vector2(420, 1459)
 rotation = 1.2651238
 scale = Vector2(0.4386576, 0.43865758)
 texture = ExtResource("61_ul6je")
+
+[node name="RustedCanopyLarge01" type="Sprite2D" parent="Foreground" unique_id=1671540315]
+position = Vector2(4837, 1498.0001)
+rotation = 0.0065006316
+scale = Vector2(0.3595957, 0.3595957)
+texture = ExtResource("108_5dgl0")
+
+[node name="RustedCanopyLarge02" type="Sprite2D" parent="Foreground" unique_id=1902812816]
+position = Vector2(4437, 1462)
+rotation = 3.392231
+scale = Vector2(0.3595957, 0.3595957)
+texture = ExtResource("108_5dgl0")
 
 [node name="CanopyMedium59" type="Sprite2D" parent="Foreground" unique_id=1728843908]
 position = Vector2(659.99994, 1557.9999)
@@ -4707,10 +4705,16 @@ scale = Vector2(0.25068736, 0.25068736)
 texture = ExtResource("62_m3e6n")
 
 [node name="CanopyMedium26" type="Sprite2D" parent="Foreground" unique_id=1745063635]
-position = Vector2(1922.9999, 1511)
+position = Vector2(1790, 1447.0001)
 rotation = 1.4485357
 scale = Vector2(0.35943308, 0.35943308)
 texture = ExtResource("62_m3e6n")
+
+[node name="RustedCanopyMedium03" type="Sprite2D" parent="Foreground" unique_id=156645011]
+position = Vector2(307, 1534)
+rotation = -2.4720707
+scale = Vector2(0.13690372, 0.13690372)
+texture = ExtResource("113_i13x0")
 
 [node name="CanopySmall32" type="Sprite2D" parent="Foreground" unique_id=245705548]
 position = Vector2(789, 1547)
@@ -4854,23 +4858,184 @@ rotation = -1.78474
 scale = Vector2(0.30744186, 0.30744186)
 texture = ExtResource("68_0y0w7")
 
-[node name="CanopyMedium42" type="Sprite2D" parent="Foreground" unique_id=201643737]
-position = Vector2(4950, 1588.9999)
-rotation = 0.30281606
-scale = Vector2(0.3477664, 0.3477664)
-texture = ExtResource("66_kyt7w")
+[node name="RustedCanopyMedium01" type="Sprite2D" parent="Foreground" unique_id=807803347]
+position = Vector2(1190.0001, 1440)
+scale = Vector2(0.11569577, 0.115695775)
+texture = ExtResource("113_i13x0")
+
+[node name="RustedCanopyMedium06" type="Sprite2D" parent="Foreground" unique_id=34900167]
+position = Vector2(2906, 1590.0001)
+rotation = -3.141543
+scale = Vector2(0.15688817, 0.1568882)
+texture = ExtResource("113_i13x0")
+
+[node name="RustedCanopyMedium09" type="Sprite2D" parent="Foreground" unique_id=1209212793]
+position = Vector2(4088, 1599.0001)
+rotation = -2.5948026
+scale = Vector2(0.15688817, 0.1568882)
+texture = ExtResource("113_i13x0")
+
+[node name="RustedCanopyMedium14" type="Sprite2D" parent="Foreground" unique_id=208616327]
+position = Vector2(3977.9995, 1534)
+rotation = -3.3071625
+scale = Vector2(0.15688817, 0.1568882)
+texture = ExtResource("113_i13x0")
+
+[node name="RustedCanopyMedium10" type="Sprite2D" parent="Foreground" unique_id=24394146]
+position = Vector2(3266, 1563.0002)
+rotation = -3.141543
+scale = Vector2(0.15688817, 0.1568882)
+texture = ExtResource("113_i13x0")
+
+[node name="RustedCanopyMedium02" type="Sprite2D" parent="Foreground" unique_id=2131233061]
+position = Vector2(1344, 1565)
+rotation = -2.8028426
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium05" type="Sprite2D" parent="Foreground" unique_id=746573160]
+position = Vector2(2593, 1572)
+rotation = -2.8028426
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium07" type="Sprite2D" parent="Foreground" unique_id=1140744466]
+position = Vector2(3421.0002, 1592.0001)
+rotation = -3.016911
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium15" type="Sprite2D" parent="Foreground" unique_id=1203326658]
+position = Vector2(3891.9995, 1512.9999)
+rotation = -4.4268694
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium08" type="Sprite2D" parent="Foreground" unique_id=1740662295]
+position = Vector2(3813.0002, 1585.0001)
+rotation = -2.7917597
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium13" type="Sprite2D" parent="Foreground" unique_id=144713288]
+position = Vector2(4233, 1588)
+rotation = 0.23335886
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium11" type="Sprite2D" parent="Foreground" unique_id=1724745175]
+position = Vector2(2829, 1456.9999)
+rotation = -3.016911
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium12" type="Sprite2D" parent="Foreground" unique_id=1938624168]
+position = Vector2(2674, 1469)
+rotation = 0.0519917
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopyMedium04" type="Sprite2D" parent="Foreground" unique_id=646602759]
+position = Vector2(802, 1428.9999)
+rotation = 0.122584164
+scale = Vector2(0.18652344, 0.18652344)
+texture = ExtResource("114_5dgl0")
+
+[node name="RustedCanopySmall01" type="Sprite2D" parent="Foreground" unique_id=1866503565]
+position = Vector2(946, 1554)
+rotation = -1.1185262
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall06" type="Sprite2D" parent="Foreground" unique_id=999296650]
+position = Vector2(2723, 1547.9999)
+rotation = -1.9280567
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall09" type="Sprite2D" parent="Foreground" unique_id=1569188668]
+position = Vector2(3691.9998, 1576)
+rotation = -0.3499045
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall03" type="Sprite2D" parent="Foreground" unique_id=1541545801]
+position = Vector2(1902.0001, 1530)
+rotation = -2.1080208
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall04" type="Sprite2D" parent="Foreground" unique_id=535760731]
+position = Vector2(1831, 1560)
+rotation = -2.3373861
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall05" type="Sprite2D" parent="Foreground" unique_id=1233133142]
+position = Vector2(3059.0002, 1607.0001)
+rotation = -0.99212813
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall07" type="Sprite2D" parent="Foreground" unique_id=686900016]
+position = Vector2(3227, 1623.0001)
+rotation = -1.3485912
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall08" type="Sprite2D" parent="Foreground" unique_id=1083399168]
+position = Vector2(3748, 1504)
+rotation = -4.621707
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall12" type="Sprite2D" parent="Foreground" unique_id=1532868078]
+position = Vector2(4147, 1504)
+rotation = -4.9375296
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall02" type="Sprite2D" parent="Foreground" unique_id=1707128101]
+position = Vector2(87.000015, 1539)
+rotation = -0.89780045
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall10" type="Sprite2D" parent="Foreground" unique_id=286733733]
+position = Vector2(3953.9998, 1597.9999)
+rotation = -1.1291165
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall13" type="Sprite2D" parent="Foreground" unique_id=1729778167]
+position = Vector2(4917.0005, 1597.0002)
+rotation = -1.2961961
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall14" type="Sprite2D" parent="Foreground" unique_id=1195564495]
+position = Vector2(5028.0005, 1555.0001)
+rotation = -4.621707
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall15" type="Sprite2D" parent="Foreground" unique_id=1631140011]
+position = Vector2(5095.0005, 1599)
+rotation = -0.77256507
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
+
+[node name="RustedCanopySmall11" type="Sprite2D" parent="Foreground" unique_id=1013678594]
+position = Vector2(4389, 1592.9999)
+rotation = -1.6137305
+scale = Vector2(0.14044107, 0.14044107)
+texture = ExtResource("115_8yxmo")
 
 [node name="CanopyMedium43" type="Sprite2D" parent="Foreground" unique_id=411652460]
 position = Vector2(3357, 1511)
 rotation = 1.0036209
 scale = Vector2(0.3477664, 0.3477664)
 texture = ExtResource("66_kyt7w")
-
-[node name="CanopySmall45" type="Sprite2D" parent="Foreground" unique_id=1675297452]
-position = Vector2(5080, 1585.0001)
-rotation = -4.6700554
-scale = Vector2(0.30744186, 0.30744186)
-texture = ExtResource("68_0y0w7")
 
 [node name="CanopySmall04" type="Sprite2D" parent="Foreground" unique_id=808825074]
 position = Vector2(1246.0001, -87.00001)
@@ -4992,12 +5157,6 @@ rotation = -1.8460933
 scale = Vector2(0.30744186, 0.30744186)
 texture = ExtResource("68_0y0w7")
 
-[node name="CanopySmall42" type="Sprite2D" parent="Foreground" unique_id=1594922954]
-position = Vector2(1182, 1441.0001)
-rotation = 1.1668954
-scale = Vector2(0.30744186, 0.30744186)
-texture = ExtResource("68_0y0w7")
-
 [node name="CanopySmall43" type="Sprite2D" parent="Foreground" unique_id=1986190572]
 position = Vector2(1128, 1530.0001)
 rotation = 2.8978398
@@ -5045,120 +5204,6 @@ rotation = -1.3077691
 scale = Vector2(0.4417853, 0.4417853)
 texture = ExtResource("61_ul6je")
 
-[node name="CanopyMedium45" type="Sprite2D" parent="Foreground" unique_id=35835673]
-position = Vector2(4268, 1533.9999)
-rotation = 3.573135
-scale = Vector2(0.27696782, 0.27696782)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium46" type="Sprite2D" parent="Foreground" unique_id=1322404359]
-position = Vector2(4358.9995, 1453)
-rotation = 0.6476188
-scale = Vector2(0.27696782, 0.27696782)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopySmall46" type="Sprite2D" parent="Foreground" unique_id=1950330208]
-position = Vector2(3921.9255, 1522.4618)
-rotation = -0.3893624
-scale = Vector2(0.35031348, 0.35031345)
-texture = ExtResource("70_kyt7w")
-
-[node name="CanopySmall47" type="Sprite2D" parent="Foreground" unique_id=1662087267]
-position = Vector2(4163, 1478)
-rotation = 1.4901894
-scale = Vector2(0.36221823, 0.36221823)
-texture = ExtResource("67_q1p1y")
-
-[node name="CanopyMedium47" type="Sprite2D" parent="Foreground" unique_id=493832024]
-position = Vector2(4050.0002, 1462.0002)
-rotation = 0.13195443
-scale = Vector2(0.35936236, 0.3067483)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium48" type="Sprite2D" parent="Foreground" unique_id=797257220]
-position = Vector2(3870, 1579)
-rotation = 0.43703663
-scale = Vector2(0.32554135, 0.31189048)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium49" type="Sprite2D" parent="Foreground" unique_id=689138625]
-position = Vector2(4125, 1557)
-rotation = -1.3077691
-scale = Vector2(0.4417853, 0.4417853)
-texture = ExtResource("61_ul6je")
-
-[node name="CanopyMedium55" type="Sprite2D" parent="Foreground" unique_id=1966072371]
-position = Vector2(3991, 1566.9999)
-rotation = 3.573135
-scale = Vector2(0.27696782, 0.27696782)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopySmall50" type="Sprite2D" parent="Foreground" unique_id=1328647985]
-position = Vector2(3658.9255, 1535.6613)
-rotation = -0.3893624
-scale = Vector2(0.35031348, 0.35031345)
-texture = ExtResource("70_kyt7w")
-
-[node name="CanopySmall51" type="Sprite2D" parent="Foreground" unique_id=260267711]
-position = Vector2(3861.9998, 1471)
-rotation = 1.4901894
-scale = Vector2(0.36221823, 0.36221823)
-texture = ExtResource("67_q1p1y")
-
-[node name="CanopyMedium56" type="Sprite2D" parent="Foreground" unique_id=1870420465]
-position = Vector2(3753, 1487)
-rotation = 0.13195443
-scale = Vector2(0.35936236, 0.3067483)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium58" type="Sprite2D" parent="Foreground" unique_id=43485131]
-position = Vector2(3746, 1584)
-rotation = -1.3077691
-scale = Vector2(0.4417853, 0.4417853)
-texture = ExtResource("61_ul6je")
-
-[node name="CanopyMedium50" type="Sprite2D" parent="Foreground" unique_id=28227058]
-position = Vector2(4691, 1536.0001)
-rotation = 6.503616
-scale = Vector2(0.27696782, 0.27696782)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium51" type="Sprite2D" parent="Foreground" unique_id=646706444]
-position = Vector2(4810.0005, 1522)
-rotation = 3.5780997
-scale = Vector2(0.27696782, 0.27696782)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopySmall48" type="Sprite2D" parent="Foreground" unique_id=1954237884]
-position = Vector2(4479.1694, 1506.0636)
-rotation = 2.5411186
-scale = Vector2(0.35031348, 0.35031345)
-texture = ExtResource("70_kyt7w")
-
-[node name="CanopySmall49" type="Sprite2D" parent="Foreground" unique_id=414400366]
-position = Vector2(4632.169, 1440.0636)
-rotation = 4.4206705
-scale = Vector2(0.36221823, 0.36221823)
-texture = ExtResource("67_q1p1y")
-
-[node name="CanopyMedium52" type="Sprite2D" parent="Foreground" unique_id=1097981463]
-position = Vector2(4465, 1421)
-rotation = 3.0624354
-scale = Vector2(0.35936236, 0.3067483)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium53" type="Sprite2D" parent="Foreground" unique_id=1544355390]
-position = Vector2(4405.0005, 1572)
-rotation = 3.3675175
-scale = Vector2(0.32554135, 0.31189048)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium54" type="Sprite2D" parent="Foreground" unique_id=515025454]
-position = Vector2(4563.0005, 1555.9999)
-rotation = 1.6227119
-scale = Vector2(0.4417853, 0.4417853)
-texture = ExtResource("61_ul6je")
-
 [node name="CanopyMedium11" type="Sprite2D" parent="Foreground" unique_id=1897819679]
 position = Vector2(2695.0002, -161.0001)
 rotation = 1.109333
@@ -5177,12 +5222,6 @@ rotation = -1.5346572
 scale = Vector2(0.29656267, 0.29656276)
 texture = ExtResource("67_q1p1y")
 
-[node name="CanopyMedium27" type="Sprite2D" parent="Foreground" unique_id=1825893437]
-position = Vector2(3447, 1565.9999)
-rotation = 3.573135
-scale = Vector2(0.27696782, 0.27696782)
-texture = ExtResource("66_kyt7w")
-
 [node name="CanopySmall35" type="Sprite2D" parent="Foreground" unique_id=1259145088]
 position = Vector2(3083.9995, 1502.9999)
 rotation = -0.3893624
@@ -5190,76 +5229,34 @@ scale = Vector2(0.35031348, 0.35031345)
 texture = ExtResource("70_kyt7w")
 
 [node name="CanopySmall36" type="Sprite2D" parent="Foreground" unique_id=2039133717]
-position = Vector2(2553, 1467.0002)
+position = Vector2(2564, 1490)
 rotation = 2.3157163
 scale = Vector2(0.35031348, 0.35031345)
 texture = ExtResource("70_kyt7w")
 
 [node name="CanopySmall37" type="Sprite2D" parent="Foreground" unique_id=1652344311]
-position = Vector2(3207.9998, 1518)
+position = Vector2(3148, 1568.9999)
 rotation = 1.4901894
 scale = Vector2(0.36221823, 0.36221823)
 texture = ExtResource("67_q1p1y")
 
-[node name="CanopyMedium28" type="Sprite2D" parent="Foreground" unique_id=2002486348]
-position = Vector2(2675, 1424)
-rotation = 0.41706705
-scale = Vector2(0.35936236, 0.3067483)
-texture = ExtResource("66_kyt7w")
-
 [node name="CanopyMedium40" type="Sprite2D" parent="Foreground" unique_id=152346820]
-position = Vector2(2831, 1515.9999)
+position = Vector2(2767.0002, 1538)
 rotation = -1.5838935
 scale = Vector2(0.35936236, 0.3067483)
 texture = ExtResource("66_kyt7w")
 
 [node name="CanopyMedium34" type="Sprite2D" parent="Foreground" unique_id=1506382695]
-position = Vector2(2993, 1436.0001)
+position = Vector2(2988, 1495)
 rotation = 0.6810184
 scale = Vector2(0.35936236, 0.3067483)
 texture = ExtResource("66_kyt7w")
 
-[node name="CanopyMedium41" type="Sprite2D" parent="Foreground" unique_id=1283209662]
-position = Vector2(2838.0005, 1418.0001)
-rotation = 0.09693152
+[node name="CanopyMedium45" type="Sprite2D" parent="Foreground" unique_id=98026820]
+position = Vector2(3171, 1449.9999)
+rotation = 0.47842452
 scale = Vector2(0.35936236, 0.3067483)
 texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium33" type="Sprite2D" parent="Foreground" unique_id=332561223]
-position = Vector2(3251, 1580)
-rotation = -0.022135228
-scale = Vector2(0.35936236, 0.3067483)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium29" type="Sprite2D" parent="Foreground" unique_id=1792330699]
-position = Vector2(2949, 1550)
-rotation = 0.43703663
-scale = Vector2(0.32554135, 0.31189048)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopyMedium30" type="Sprite2D" parent="Foreground" unique_id=534010479]
-position = Vector2(2556, 1576.0001)
-rotation = 3.0827694
-scale = Vector2(0.4419942, 0.4419942)
-texture = ExtResource("61_ul6je")
-
-[node name="CanopyMedium31" type="Sprite2D" parent="Foreground" unique_id=884579834]
-position = Vector2(3089.0005, 1563.0001)
-rotation = -1.3077691
-scale = Vector2(0.4417853, 0.4417853)
-texture = ExtResource("61_ul6je")
-
-[node name="CanopyMedium32" type="Sprite2D" parent="Foreground" unique_id=544969704]
-position = Vector2(2666.0002, 1544)
-rotation = 1.109333
-scale = Vector2(0.35024762, 0.35123214)
-texture = ExtResource("66_kyt7w")
-
-[node name="CanopySmall38" type="Sprite2D" parent="Foreground" unique_id=835812494]
-position = Vector2(1842, 1550.9999)
-rotation = -2.404102
-scale = Vector2(0.29656267, 0.29656276)
-texture = ExtResource("67_q1p1y")
 
 [node name="CanopyMedium39" type="Sprite2D" parent="Foreground" unique_id=312308317]
 position = Vector2(1343, 1461)
@@ -5267,21 +5264,62 @@ rotation = 3.5307832
 scale = Vector2(0.35943308, 0.35943308)
 texture = ExtResource("62_m3e6n")
 
-[node name="CanopySmall44" type="Sprite2D" parent="Foreground" unique_id=183114159]
-position = Vector2(1380, 1536)
-rotation = -1.2291942
-scale = Vector2(0.29656267, 0.29656276)
-texture = ExtResource("67_q1p1y")
-
 [node name="CanopyTiny01" type="Sprite2D" parent="Foreground" unique_id=694976981]
 position = Vector2(497.99997, 1450)
 scale = Vector2(0.25875488, 0.25875485)
 texture = ExtResource("110_jfi1t")
 
+[node name="CanopyTiny02" type="Sprite2D" parent="Foreground" unique_id=1351504690]
+position = Vector2(2973, 1578.0001)
+rotation = 2.5816562
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
+[node name="CanopyTiny03" type="Sprite2D" parent="Foreground" unique_id=2141330881]
+position = Vector2(3744.0005, 1641)
+rotation = 6.222587
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
+[node name="CanopyTiny04" type="Sprite2D" parent="Foreground" unique_id=340683072]
+position = Vector2(4457, 1616)
+rotation = 0.86300445
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
+[node name="CanopyTiny05" type="Sprite2D" parent="Foreground" unique_id=8557358]
+position = Vector2(3843, 1588.0001)
+rotation = 5.965043
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
+[node name="CanopyTiny06" type="Sprite2D" parent="Foreground" unique_id=847451947]
+position = Vector2(4026, 1619.0001)
+rotation = 6.293973
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
+[node name="CanopyTiny07" type="Sprite2D" parent="Foreground" unique_id=1794392857]
+position = Vector2(4230, 1613.0001)
+rotation = 2.5287786
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
+[node name="CanopyTiny08" type="Sprite2D" parent="Foreground" unique_id=1615727875]
+position = Vector2(4698, 1524.0001)
+rotation = 3.8115454
+scale = Vector2(0.25875488, 0.25875485)
+texture = ExtResource("110_jfi1t")
+
 [node name="TileMapLayer" parent="." unique_id=1342644550 instance=ExtResource("2_ed30o")]
-visible = false
 self_modulate = Color(1, 1, 1, 0.49411765)
 tile_map_data = PackedByteArray("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AAA5ADkAAQAAAAAAAAA6ADkAAQAAAAAAAAA7ADkAAQAAAAAAAAA7ADoAAQAAAAAAAAA7ADsAAQAAAAAAAAA7ADwAAQAAAAAAAAA7AD0AAQAAAAAAAAA7AD4AAQAAAAAAAAA7AD8AAQAAAAAAAABDAD8AAQAAAAAAAABDAD4AAQAAAAAAAABDAD0AAQAAAAAAAABDADwAAQAAAAAAAABDADsAAQAAAAAAAABDADoAAQAAAAAAAABDADkAAQAAAAAAAABEADkAAQAAAAAAAABEADoAAQAAAAAAAABEADsAAQAAAAAAAABEADwAAQAAAAAAAABEAD0AAQAAAAAAAABEAD4AAQAAAAAAAABEAD8AAQAAAAAAAABJAD8AAQAAAAAAAABJAD4AAQAAAAAAAABJAD0AAQAAAAAAAABJADwAAQAAAAAAAABJADsAAQAAAAAAAABJADoAAQAAAAAAAABJADkAAQAAAAAAAABJADgAAQAAAAAAAABKADgAAQAAAAAAAABKADkAAQAAAAAAAABKADoAAQAAAAAAAABKADsAAQAAAAAAAABKADwAAQAAAAAAAABKAD0AAQAAAAAAAABKAD4AAQAAAAAAAABKAD8AAQAAAAAAAABdABIAAQAAAAAAAABqADsAAQAAAAAAAABqADwAAQAAAAAAAABqAD0AAQAAAAAAAABqAD4AAQAAAAAAAABqAD8AAQAAAAAAAABxAD8AAQAAAAAAAABxAD4AAQAAAAAAAABxAD0AAQAAAAAAAABxADwAAQAAAAAAAABxADsAAQAAAAAAAABxADoAAQAAAAAAAABxADkAAQAAAAAAAAByADkAAQAAAAAAAABzADkAAQAAAAAAAAB0ADkAAQAAAAAAAAB1ADkAAQAAAAAAAAB2ADkAAQAAAAAAAAB3ADkAAQAAAAAAAAB4ADkAAQAAAAAAAAB5ADkAAQAAAAAAAAB6ADkAAQAAAAAAAAB7ADkAAQAAAAAAAAB8ADkAAQAAAAAAAAB9ADkAAQAAAAAAAAB+ADkAAQAAAAAAAAB/ADkAAQAAAAAAAACAADkAAQAAAAAAAACBADkAAQAAAAAAAACCADkAAQAAAAAAAACDADkAAQAAAAAAAACEADkAAQAAAAAAAACFADkAAQAAAAAAAACGADkAAQAAAAAAAACHADkAAQAAAAAAAACIADkAAQAAAAAAAACJADkAAQAAAAAAAACKADkAAQAAAAAAAACLADkAAQAAAAAAAACMADkAAQAAAAAAAACNADkAAQAAAAAAAACOADkAAQAAAAAAAACPADkAAQAAAAAAAACQADkAAQAAAAAAAACRADkAAQAAAAAAAACSADkAAQAAAAAAAACTADkAAQAAAAAAAACUADkAAQAAAAAAAACVADkAAQAAAAAAAACWADkAAQAAAAAAAACXADkAAQAAAAAAAACXADgAAQAAAAAAAACXADcAAQAAAAAAAACXADYAAQAAAAAAAACXADUAAQAAAAAAAACXADQAAQAAAAAAAACXADMAAQAAAAAAAACXADIAAQAAAAAAAACXADEAAQAAAAAAAACXADAAAQAAAAAAAACXAC8AAQAAAAAAAABQADoAAQAAAAAAAABQADsAAQAAAAAAAABQADwAAQAAAAAAAABQAD0AAQAAAAAAAABQAD4AAQAAAAAAAABQAD8AAQAAAAAAAABPADoAAQAAAAAAAABRADsAAQAAAAAAAABSADsAAQAAAAAAAABTADsAAQAAAAAAAABUADsAAQAAAAAAAABVADsAAQAAAAAAAABWADsAAQAAAAAAAABXADsAAQAAAAAAAABYADsAAQAAAAAAAABZADsAAQAAAAAAAABaADsAAQAAAAAAAABbADsAAQAAAAAAAABcADsAAQAAAAAAAABdADsAAQAAAAAAAABeADsAAQAAAAAAAABfADsAAQAAAAAAAABgADsAAQAAAAAAAABhADsAAQAAAAAAAABiADsAAQAAAAAAAABjADsAAQAAAAAAAABkADsAAQAAAAAAAABlADsAAQAAAAAAAABmADsAAQAAAAAAAABnADsAAQAAAAAAAABoADsAAQAAAAAAAABpADsAAQAAAAAAAABSAAcAAQAAAAAAAABWAAcAAQAAAAAAAABbAAcAAQAAAAAAAAARACoAAQAAAAAAAAASACoAAQAAAAAAAAATACoAAQAAAAAAAAAUACoAAQAAAAAAAAAPACYAAQAAAAAAAAAQACYAAQAAAAAAAAATACYAAQAAAAAAAAAUACYAAQAAAAAAAABqADoAAQAAAAAAAAApAEAAAQAAAAAAAAAwAEAAAQAAAAAAAAApAEEAAQAAAAAAAAAwAEEAAQAAAAAAAAA7AEAAAQAAAAAAAAA7AEEAAQAAAAAAAABDAEAAAQAAAAAAAABDAEEAAQAAAAAAAABEAEAAAQAAAAAAAABEAEEAAQAAAAAAAABJAEAAAQAAAAAAAABJAEEAAQAAAAAAAABKAEAAAQAAAAAAAABKAEEAAQAAAAAAAABQAEAAAQAAAAAAAABQAEEAAQAAAAAAAABqAEAAAQAAAAAAAABqAEEAAQAAAAAAAABxAEAAAQAAAAAAAABxAEEAAQAAAAAAAAASACIAAQAAAAAAAAA=")
+
+[node name="Markers" type="Node2D" parent="." unique_id=1264575733]
+position = Vector2(113, 191)
+
+[node name="Defense_1" type="Marker2D" parent="Markers" unique_id=1099202019]
+position = Vector2(1834, 30)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=342041360]
 layer = 3
