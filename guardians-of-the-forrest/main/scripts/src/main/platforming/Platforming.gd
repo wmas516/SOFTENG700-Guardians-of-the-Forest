@@ -12,8 +12,6 @@ func _ready() -> void:
 	PlayerData.set_health(100)
 	tree.interacted.connect(heal_tree)
 	tree_2.interacted.connect(go_to_defense)
-	PlayerData.health_changed.connect(_on_player_health_changed)
-	PlayerData.player_died.connect(_on_player_died)
 	_update_current_hp(PlayerData.current_health, PlayerData.max_health)
 	_restore_player_position()
 	
@@ -36,7 +34,6 @@ func go_to_boss(_source: Interactable) -> void:
 	print("Go to tree trim")
 	PlayerData.save_platforming_position(player.global_position)
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
-
 
 func heal_tree(source: Interactable) -> void:
 	var sprite: Sprite2D = source.find_child("Sprite2D")
