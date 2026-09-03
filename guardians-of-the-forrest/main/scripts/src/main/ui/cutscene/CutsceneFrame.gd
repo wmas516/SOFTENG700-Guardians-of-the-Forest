@@ -4,6 +4,7 @@ extends Control
 
 @export var speed: float = 1
 @export var captions: Array[TimedCaption]
+@export var nonNarrativeCaptions: Array[TimedCaption]
 @onready var label: Label = $MarginContainer/Label
 @onready var timer: Timer = $Timer
 
@@ -49,7 +50,7 @@ func stopFrame() -> void:
 
 func nextCaption() -> void:
 	if (captions.size() > index):
-		label.set_text(captions[index].caption) 
+		label.set_text(captions[index].caption)
 		timer.start(captions[index].displayTime)
 	else:
 		done.emit()

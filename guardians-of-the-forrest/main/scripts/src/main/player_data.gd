@@ -5,6 +5,7 @@ var has_saved_platforming_position: bool = false
 var trimed_trees: Array[String] = []
 var infected_trees: Array[String] = []
 var game_progress_stage: int = 0
+var skip_narrative: bool = false
 
 func update_progress_stage(stage: int) -> void:
 	game_progress_stage = stage

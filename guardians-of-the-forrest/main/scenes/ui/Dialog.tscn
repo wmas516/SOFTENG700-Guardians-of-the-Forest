@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bs3bf0pyoanhi"]
 
 [ext_resource type="Script" uid="uid://bhy3yybish4yt" path="res://main/scripts/src/main/ui/Dialog.gd" id="1_dcvgk"]
-[ext_resource type="Texture2D" uid="uid://mf58lw5qq7re" path="res://resources/enemies/Dirty_Bubble.png" id="1_qq16h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qq16h"]
 bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.95)
@@ -23,14 +22,12 @@ offset_bottom = 0.047973633
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dcvgk")
-speaker = "Character Name"
 text = "Dialog"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=942660067]
 layout_mode = 0
 offset_right = 360.0
 offset_bottom = 252.0
-texture = ExtResource("1_qq16h")
 expand_mode = 1
 stretch_mode = 5
 

@@ -32,9 +32,11 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 		
 func _on_body_entered(body: Node2D) -> void:
+	if PlayerData.skip_narrative and self.is_in_group("Narrative"):
+		return
 	if _dialog_finished or _player_inside:
 		return
-	print("Area entered")
+	print("Blank Area entered")
 	if interactable_enabled and body.is_in_group("Player"):
 		_player_inside = true
 		_show_label()
@@ -78,6 +80,7 @@ func _on_dialog_caption_done() -> void:
 	if freeze and not _dialog_finished:
 		_dialog_finished = true
 		toggleFreeze()
+		interactable_enabled = false
 
 func toggleFreeze():
 	if (freeze):

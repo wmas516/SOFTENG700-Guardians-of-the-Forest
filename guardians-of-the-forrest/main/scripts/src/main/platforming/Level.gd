@@ -5,6 +5,7 @@ extends Node2D
 @onready var defense_pos: Marker2D = $Markers/DefensePos
 @onready var minigame_boot_pos: Marker2D = $Markers/MinigameBootPos
 @onready var minigame_trim_pos: Marker2D = $Markers/MinigameTrimPos
+@onready var forest_floor_pos: Marker2D = $Markers/ForestFloorPos
 
 @onready var defense_interactable: Interactable = $Gameplay/Interactables/DefenseInteractable
 @onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
@@ -14,6 +15,9 @@ extends Node2D
 @onready var defense_blocker: StaticBody2D = $Gameplay/Blockers/DefenseBlocker
 @onready var minigame_boot_blocker: StaticBody2D = $Gameplay/Blockers/MinigameBootBlocker
 @onready var minigame_trim_blocker: StaticBody2D = $Gameplay/Blockers/MinigameTrimBlocker
+@onready var dialog: Control = $UI/Dialog
+
+var frozen: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -65,6 +69,27 @@ func go_to_tree_trim(_source: Interactable) -> void:
 func go_to_boss(_source: Interactable) -> void:
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
 
+func _on_dialog_interactable_toggle_freeze_children() -> void:
+	frozen = !frozen
+	if frozen:
+		dialog.show()
+		dialog.modulate.a = 1.0
+	print("Toggle emitted new value:",frozen)
+	call_deferred("_apply_frozen_state", frozen)
+
+func _apply_frozen_state(should_freeze: bool) -> void:
+	print("freeze")
+	for child in get_children():
+		if !(child is CanvasLayer || child is AudioStreamPlayer):
+			child.set_physics_process(!should_freeze)
+			if should_freeze:
+				child.process_mode = Node.PROCESS_MODE_DISABLED
+			else:
+				child.process_mode = Node.PROCESS_MODE_INHERIT
+
 func _on_deathzone_body_entered(body: Node2D) -> void:
 	print("death")
 	_restore_player_position()
+	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	PlayerData.save_platforming_position(forest_floor_pos.global_position)
