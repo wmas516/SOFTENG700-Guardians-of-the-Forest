@@ -50,8 +50,8 @@ func stopFrame() -> void:
 
 func nextCaption() -> void:
 	if (captions.size() > index):
-		label.set_text(captions[index].caption if PlayerData.skip_narrative else nonNarrativeCaptions[index.caption].caption)
-		timer.start(captions[index].displayTime if PlayerData.skip_narrative else nonNarrativeCaptions[index.caption].displayTime)
+		label.set_text(captions[index].caption)
+		timer.start(captions[index].displayTime)
 	else:
 		done.emit()
 	
