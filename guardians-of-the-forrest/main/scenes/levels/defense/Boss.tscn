@@ -7,12 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="7_5fu0h"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_4eu1o"]
 [ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="9_8asba"]
+[ext_resource type="AudioStream" uid="uid://c78aaqw8taap4" path="res://resources/audio/bossDamage.mp3" id="9_so5yu"]
 [ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_ido5u"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
 [ext_resource type="PackedScene" uid="uid://dya3r3fgc4icx" path="res://main/scenes/levels/defense/BossEnemy.tscn" id="13_2vs1w"]
 [ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_iq156"]
 [ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_g34ii"]
+[ext_resource type="AudioStream" uid="uid://doh2fjfqepnsx" path="res://resources/audio/bossSpawn.mp3" id="15_uopnk"]
+[ext_resource type="AudioStream" uid="uid://6qayyt61yngb" path="res://resources/audio/bossDeath.mp3" id="16_p4iqy"]
+[ext_resource type="AudioStream" uid="uid://cexmgvwaa0ook" path="res://resources/audio/bossHurt.mp3" id="17_2k7vr"]
 
 [sub_resource type="Resource" id="Resource_8fsoy"]
 script = ExtResource("2_qmd71")
@@ -67,6 +71,7 @@ bg_color = Color(0, 0, 0, 0.55)
 [node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "bossEnemy", "spawnTimer")]
 script = ExtResource("1_so5yu")
 waveEnemies = Array[Object]([SubResource("Resource_8fsoy"), SubResource("Resource_fgwmm"), SubResource("Resource_uopnk"), SubResource("Resource_g26fa"), SubResource("Resource_2vs1w")])
+boss = true
 enemy = NodePath("Enemy")
 bossEnemy = NodePath("BossEnemy")
 spawnTimer = NodePath("SpawnTimer")
@@ -109,8 +114,9 @@ damageTimer = NodePath("DamageTimer")
 speed = 90.0
 
 [node name="EatPlayer" type="AudioStreamPlayer" parent="BossEnemy" unique_id=1216511007]
-stream = ExtResource("9_8asba")
+stream = ExtResource("9_so5yu")
 volume_db = 1.0
+pitch_scale = 0.9
 bus = &"SFX"
 
 [node name="DamageTimer" type="Timer" parent="BossEnemy" unique_id=1134566742]
@@ -360,6 +366,21 @@ bus = &"SFX"
 [node name="DamageEnemyPlayer" type="AudioStreamPlayer" parent="." unique_id=1826265761]
 stream = ExtResource("14_g34ii")
 volume_db = 10.551
+bus = &"SFX"
+
+[node name="SpawnPlayerBoss" type="AudioStreamPlayer" parent="." unique_id=2005828193]
+stream = ExtResource("15_uopnk")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="DeathPlayerBoss" type="AudioStreamPlayer" parent="." unique_id=1117513544]
+stream = ExtResource("16_p4iqy")
+volume_db = 8.0
+bus = &"SFX"
+
+[node name="DamageEnemyPlayerBoss" type="AudioStreamPlayer" parent="." unique_id=2076243843]
+stream = ExtResource("17_2k7vr")
+volume_db = 8.0
 bus = &"SFX"
 
 [node name="Boundary" type="Node2D" parent="." unique_id=252164468]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dya3r3fgc4icx"]
 
 [ext_resource type="Texture2D" uid="uid://bq6bapcfwiyjy" path="res://resources/sprites/final/Boss-swipe.png" id="1_ebb8u"]
-[ext_resource type="Texture2D" uid="uid://0aj11cacqg32" path="res://resources/sprites/final/Boss-iso_custom_hurt_right.png" id="2_2pq2g"]
+[ext_resource type="Texture2D" uid="uid://bw0ieg3smwk25" path="res://resources/sprites/final/Boss-hurt.png" id="2_jmrg3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmrg3"]
 atlas = ExtResource("1_ebb8u")
@@ -64,8 +64,8 @@ atlas = ExtResource("1_ebb8u")
 region = Rect2(256, 768, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2pq2g"]
-atlas = ExtResource("2_2pq2g")
-region = Rect2(1024, 512, 256, 256)
+atlas = ExtResource("2_jmrg3")
+region = Rect2(1024, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4iti6"]
 atlas = ExtResource("1_ebb8u")
@@ -149,8 +149,8 @@ height = 1782.0
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1367841391]
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_jgdpc")
-animation = &"bite"
-frame = 10
+animation = &"hurt"
+frame_progress = 0.58393794
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
 position = Vector2(-116, 48)
