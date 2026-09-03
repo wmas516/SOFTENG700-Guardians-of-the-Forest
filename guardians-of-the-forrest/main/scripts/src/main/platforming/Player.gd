@@ -44,11 +44,11 @@ func _physics_process(delta: float) -> void:
 			velocity.y = 500
 		
 	if active:
-		if Input.is_action_just_pressed("Up") && is_on_floor():
+		if Input.is_action_just_pressed("Jump") && is_on_floor():
 			velocity.y = -jump_force
 			jump_audio_player.play()
 		
-		if Input.is_action_just_pressed("Damage") && can_dash:
+		if Input.is_action_just_pressed("Dash") && can_dash:
 			start_dash()
 			
 		direction = Input.get_axis("Left", "Right")

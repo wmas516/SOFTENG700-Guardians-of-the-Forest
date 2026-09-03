@@ -147,7 +147,7 @@ keep = true
 z_index = -1
 position = Vector2(1269, 398)
 size = Vector2(128, 128)
-popup_text = "Press [E] to Clean Boots"
+popup_text = "Press [] to Clean Boots"
 label_offset = Vector2(-75, -60)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree3" unique_id=1629835510]
@@ -160,7 +160,7 @@ texture = ExtResource("6_qdg80")
 z_index = -1
 position = Vector2(5269, 466)
 size = Vector2(128, 128)
-popup_text = "Press [E] to Treat Forest"
+popup_text = "Press [] to Treat Forest"
 label_offset = Vector2(-75, -60)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree4" unique_id=1590409085]
@@ -173,7 +173,7 @@ texture = ExtResource("6_qdg80")
 z_index = -1
 position = Vector2(5479, 464)
 size = Vector2(128, 128)
-popup_text = "Press [E] to Enter Boss"
+popup_text = "Press [] to Enter Boss"
 label_offset = Vector2(-75, -60)
 
 [node name="Sprite2D" type="Sprite2D" parent="Interactables/Tree5" unique_id=1788380599]

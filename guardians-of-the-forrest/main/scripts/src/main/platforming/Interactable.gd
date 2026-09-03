@@ -9,7 +9,7 @@ signal interacted(interactable: Interactable)
 		if is_node_ready():
 			_fit_shape_to_size()
 @export var interact_action: String = "Heal"
-@export var popup_text: String = "Press [E] to interact":
+@export var popup_text: String = "Press [] to interact":
 	set(value):
 		popup_text = value
 		if label:
@@ -26,6 +26,13 @@ var interactable_enabled: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = popup_text
+	
+	var keys = InputMap.action_get_events("Interact")
+	var newText: Array[String] = []
+	for key in keys:
+		newText.append("["+OS.get_keycode_string(key.physical_keycode)+"]")
+		
+	label.text = popup_text.replace("[]", " or ".join(newText))
 	label.hide()
 	
 	label.position = Vector2(label_offset.x, label_offset.y)
@@ -35,7 +42,7 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 	
 func _unhandled_input(event_input) -> void:
-	if interactable_enabled and _player_inside and event_input.is_action_pressed(interact_action):
+	if interactable_enabled and _player_inside and event_input.is_action_pressed("Interact"):
 		interacted.emit(self)
 		get_viewport().set_input_as_handled()
 		
