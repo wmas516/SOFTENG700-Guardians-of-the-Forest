@@ -1,83 +1,70 @@
 extends Node2D
-@onready var start_position: Marker2D = $StartPosition
-@onready var tree: Interactable = $Interactables/Tree
-@onready var tree_2: Interactable = $Interactables/Tree2
-@onready var player: PlatformPlayer = $Player
-@onready var current_hp_label: Label = $UI/HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentHP
 
-var player_dead: bool = false
-var frozen: bool = false
+@onready var player: PlatformPlayer = $Gameplay/Player
+@onready var start_pos: Marker2D = $Markers/StartPos
+@onready var defense_pos: Marker2D = $Markers/DefensePos
+@onready var minigame_boot_pos: Marker2D = $Markers/MinigameBootPos
+@onready var minigame_trim_pos: Marker2D = $Markers/MinigameTrimPos
 
-# In any parent node or level script
+@onready var defense_interactable: Interactable = $Gameplay/Interactables/DefenseInteractable
+@onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
+@onready var minigame_trim_interactable: Interactable = $Gameplay/Interactables/MinigameTrimInteractable
+@onready var boss_interactable: Interactable = $Gameplay/Interactables/BossInteractable
+
+@onready var defense_blocker: StaticBody2D = $Gameplay/Blockers/DefenseBlocker
+@onready var minigame_boot_blocker: StaticBody2D = $Gameplay/Blockers/MinigameBootBlocker
+@onready var minigame_trim_blocker: StaticBody2D = $Gameplay/Blockers/MinigameTrimBlocker
+
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerData.set_health(100)
-	tree.interacted.connect(heal_tree)
-	tree_2.interacted.connect(go_to_defense)
-	PlayerData.health_changed.connect(_on_player_health_changed)
-	PlayerData.player_died.connect(_on_player_died)
-	_update_current_hp(PlayerData.current_health, PlayerData.max_health)
 	_restore_player_position()
+	_update_interactables()
+	defense_interactable.interacted.connect(go_to_defense)
+	minigame_boot_interactable.interacted.connect(go_to_boot_clean)
+	minigame_trim_interactable.interacted.connect(go_to_tree_trim)
+	boss_interactable.interacted.connect(go_to_boss)
 	
-func go_to_defense(_source: Interactable) -> void:
-	print("Go to defense")
-	PlayerData.save_platforming_position(player.global_position)
-	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Defense.tscn")
-
-func go_to_boot_clean(_source: Interactable) -> void:
-	print("Go to boot clean")
-	PlayerData.save_platforming_position(player.global_position)
-	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/CleaningBoot.tscn")
-
-func go_to_tree_trim(_source: Interactable) -> void:
-	print("Go to tree trim")
-	PlayerData.save_platforming_position(player.global_position)
-	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/TreeTrim.tscn")
-
-func go_to_boss(_source: Interactable) -> void:
-	print("Go to tree trim")
-	PlayerData.save_platforming_position(player.global_position)
-	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
-
-
-func heal_tree(source: Interactable) -> void:
-	var sprite: Sprite2D = source.find_child("Sprite2D")
-	sprite.texture = preload("uid://cofm40o8eagvr")
-	source.interactable_enabled = false
-	source._hide_label()
-	print("Tree Healed!")
-
-func _on_player_health_changed(new_health: int, _max_health: int) -> void:
-	if player_dead:
-		current_hp_label.text = "0"
-		return
-
-	_update_current_hp(new_health, _max_health)
-
-func _on_player_died() -> void:
-	player_dead = true
-	current_hp_label.text = "0"
-
-func _update_current_hp(new_health: int, _max_health: int) -> void:
-	current_hp_label.text = str(maxi(new_health, 0))
+func _update_interactables() -> void:
+	var progress: int = PlayerData.game_progress_stage
+	# Defense has been finished
+	if progress >= 1:
+		defense_interactable.interactable_enabled = false
+		defense_blocker.disable_collision(true)
+	
+	# Boot Minigame has been finished
+	if progress >= 2:
+		minigame_boot_interactable.interactable_enabled = false
+		minigame_boot_blocker.disable_collision(true)
+		
+	# Boot Minigame has been finished
+	if progress >= 3:
+		minigame_trim_interactable.interactable_enabled = false
+		minigame_trim_blocker.disable_collision(true)
 
 func _restore_player_position() -> void:
 	if PlayerData.has_saved_platforming_position:
 		player.global_position = PlayerData.saved_platforming_position
 	else:
-		player.global_position = start_position.global_position
+		player.global_position = start_pos.global_position
 
-func _on_dialog_interactable_toggle_freeze_children() -> void:
-	frozen = !frozen
-	print("Toggle emitted new value:",frozen)
-	call_deferred("_apply_frozen_state", frozen)
-
-func _apply_frozen_state(should_freeze: bool) -> void:
-	for child in get_children():
-		if !(child is CanvasLayer || child is AudioStreamPlayer):
-			child.set_physics_process(!should_freeze)
-			if should_freeze:
-				child.process_mode = Node.PROCESS_MODE_DISABLED
-			else:
-				child.process_mode = Node.PROCESS_MODE_INHERIT
-			
+func go_to_defense(_source: Interactable) -> void:
+	PlayerData.save_platforming_position(defense_pos.global_position)
+	PlayerData.update_progress_stage(1)
+	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Defense.tscn")
 	
+func go_to_boot_clean(_source: Interactable) -> void:
+	PlayerData.save_platforming_position(minigame_boot_pos.global_position)
+	PlayerData.update_progress_stage(2)
+	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/CleaningBoot.tscn")
+	
+func go_to_tree_trim(_source: Interactable) -> void:
+	PlayerData.save_platforming_position(minigame_trim_pos.global_position)
+	PlayerData.update_progress_stage(3)
+	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/TreeTrim.tscn")
+	
+func go_to_boss(_source: Interactable) -> void:
+	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
+
+func _on_deathzone_body_entered(body: Node2D) -> void:
+	print("death")
+	_restore_player_position()

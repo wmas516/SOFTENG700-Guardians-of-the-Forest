@@ -96,7 +96,7 @@ func miniGameOver():
 	completion_panel.visible = true
 
 func _on_return_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Platforming.tscn")
+	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Level.tscn")
 
 
 func _on_shoe_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:

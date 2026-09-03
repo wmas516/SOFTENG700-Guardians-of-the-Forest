@@ -138,11 +138,9 @@ func _show_completion() -> void:
 	completion_container.visible = true
 
 func _on_return_button_pressed() -> void:
-	print("return pressed")
-	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Platforming.tscn")
+	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Level.tscn")
 
 func _on_try_again_button_pressed() -> void:
-	print("try again")
 	revertLoss()
 	_ready()
 
