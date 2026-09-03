@@ -36,6 +36,9 @@ func _ready() -> void:
 	health = HEALTHMAP.get(type)
 	previous_frame = sprite.frame
 	setColor()
+	if (type == EnemyType.BOSS):
+		damageEnemySoundPlayer = $"../DamageEnemyPlayerBoss"
+		pass
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -140,12 +143,13 @@ func damageTargets(damaged, frame_changed: bool = false) -> bool:
 			if (damageTimer):
 				if (damageTimer.is_stopped()):
 					damageTimer.start()
-					eatSoundPlayer.play()
+					
 					sprite.play("bite")
 				elif ((timerOver && type != EnemyType.BOSS) 
 				|| (!damageTimer.is_stopped() && type == EnemyType.BOSS
 				&& sprite.frame == 8 && frame_changed)):
 					target.damage()
+					eatSoundPlayer.play()
 					damagedTarget.emit()
 					if (type != EnemyType.BOSS):
 						health = 0
