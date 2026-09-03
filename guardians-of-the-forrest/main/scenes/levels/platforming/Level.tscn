@@ -116,6 +116,7 @@
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
 [ext_resource type="PackedScene" uid="uid://gk23ayu0jtr3" path="res://main/scenes/levels/platforming/Blocker.tscn" id="110_32mwg"]
 [ext_resource type="Texture2D" uid="uid://jojw3htxfsly" path="res://resources/environment/trees/canopy_tiny_01.png" id="110_jfi1t"]
+[ext_resource type="PackedScene" uid="uid://c1gpfvhc7g1gn" path="res://main/scenes/levels/platforming/TutorialInteractable.tscn" id="112_valmb"]
 [ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="113_i13x0"]
 [ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
@@ -4642,6 +4643,9 @@ label_offset = Vector2(-80, -60)
 [node name="BossInteractable" parent="Gameplay/Interactables" unique_id=1984729510 instance=ExtResource("109_kpbni")]
 position = Vector2(4810, 1800)
 label_offset = Vector2(-80, -60)
+
+[node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
+position = Vector2(205, 106)
 
 [node name="Blockers" type="Node2D" parent="Gameplay" unique_id=1035388026]
 
