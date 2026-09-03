@@ -154,7 +154,6 @@ scale = Vector2(0.3467203, 0.3467203)
 texture = ExtResource("9_3rbro")
 
 [node name="Infected" type="Node2D" parent="." unique_id=1276031670]
-visible = false
 
 [node name="BranchWide01" type="Sprite2D" parent="Infected" unique_id=454565710]
 self_modulate = Color(0.8578721, 0.83885884, 1.6469207, 1)
@@ -192,97 +191,97 @@ scale = Vector2(0.39228037, 0.4134401)
 texture = ExtResource("3_ntm5t")
 
 [node name="RustedCanopyMedium01" type="Sprite2D" parent="Infected" unique_id=1837498533]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(-110.99997, -252.99998)
 scale = Vector2(0.11650489, 0.116504885)
 texture = ExtResource("9_uxgb3")
 
 [node name="RustedCanopyMedium04" type="Sprite2D" parent="Infected" unique_id=1514146365]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(168.00002, -274.00003)
 rotation = 0.49622905
 scale = Vector2(0.11650489, 0.116504885)
 texture = ExtResource("9_uxgb3")
 
 [node name="RustedCanopyMedium03" type="Sprite2D" parent="Infected" unique_id=2036004019]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(6.1693983, -127.46236)
 rotation = -0.8271885
 scale = Vector2(0.12572809, 0.12572809)
 texture = ExtResource("9_uxgb3")
 
 [node name="RustedCanopyMedium02" type="Sprite2D" parent="Infected" unique_id=646752162]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(103.87964, -129.2813)
 rotation = 2.2962322
 scale = Vector2(0.1364995, 0.1382388)
 texture = ExtResource("10_kdy3b")
 
 [node name="RustedCanopyMedium05" type="Sprite2D" parent="Infected" unique_id=486237546]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(-81.99999, -238)
 rotation = 2.503368
 scale = Vector2(0.1364995, 0.1382388)
 texture = ExtResource("10_kdy3b")
 
 [node name="RustedCanopyMedium06" type="Sprite2D" parent="Infected" unique_id=1990690750]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(66, -278)
 rotation = 0.43829226
 scale = Vector2(0.1364995, 0.13823882)
 texture = ExtResource("10_kdy3b")
 
 [node name="RustedCanopySmall01" type="Sprite2D" parent="Infected" unique_id=1646995792]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(-104, -69)
 rotation = -1.1959192
 scale = Vector2(0.087011084, 0.087011084)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall04" type="Sprite2D" parent="Infected" unique_id=838462650]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(38, 7.9999924)
 rotation = 1.7556962
 scale = Vector2(0.08701108, -0.099989966)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall02" type="Sprite2D" parent="Infected" unique_id=1174089336]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(-163.00002, -82.000015)
 rotation = 2.3561943
 scale = Vector2(0.087011084, 0.087011084)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall08" type="Sprite2D" parent="Infected" unique_id=1008819083]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(-192.78062, -232.7887)
 rotation = -0.19240157
 scale = Vector2(0.115875125, 0.11587512)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall06" type="Sprite2D" parent="Infected" unique_id=458847986]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(79, -83)
 rotation = -1.0225463
 scale = Vector2(0.087011084, 0.087011084)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall05" type="Sprite2D" parent="Infected" unique_id=43749943]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(154, -120.00001)
 rotation = -2.83832
 scale = Vector2(0.097446844, 0.09744684)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall03" type="Sprite2D" parent="Infected" unique_id=899000449]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(12.999985, 38.999992)
 rotation = 2.2577384
 scale = Vector2(0.087011084, 0.087011084)
 texture = ExtResource("11_b4hd0")
 
 [node name="RustedCanopySmall07" type="Sprite2D" parent="Infected" unique_id=814772235]
-self_modulate = Color(0.69099766, 0.23345798, 0.23623092, 1)
+self_modulate = Color(1, 0.626, 0.33999997, 1)
 position = Vector2(41, -317.00003)
 rotation = 1.8208144
 scale = Vector2(0.101614326, 0.101614326)

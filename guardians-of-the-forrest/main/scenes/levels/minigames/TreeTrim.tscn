@@ -17,21 +17,21 @@ script = ExtResource("1_vk8mo")
 [node name="Background2" parent="." unique_id=1169487791 instance=ExtResource("1_amdy5")]
 
 [node name="Tree" parent="." unique_id=616234793 instance=ExtResource("2_4qsu2")]
-position = Vector2(367.00003, 425.00003)
-scale = Vector2(0.38, 0.38)
+position = Vector2(268.865, 425)
+scale = Vector2(0.495, 0.495)
 input_pickable = true
 script = ExtResource("3_vk8mo")
 
 [node name="Tree2" parent="." unique_id=1849605979 instance=ExtResource("4_qldv1")]
 position = Vector2(898.99994, 439)
-scale = Vector2(0.38, 0.38)
+scale = Vector2(0.5, 0.5)
 input_pickable = true
 script = ExtResource("3_vk8mo")
 infected = true
 
 [node name="Tree3" parent="." unique_id=839699836 instance=ExtResource("5_vk8mo")]
-position = Vector2(631, 415)
-scale = Vector2(0.38, 0.38)
+position = Vector2(580.44, 415)
+scale = Vector2(0.475, 0.475)
 input_pickable = true
 script = ExtResource("3_vk8mo")
 infected = true
