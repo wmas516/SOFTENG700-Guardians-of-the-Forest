@@ -1,22 +1,289 @@
 [gd_scene format=3 uid="uid://bgxy6l7ed5p4d"]
 
-[ext_resource type="Texture2D" uid="uid://cl3ks7lam227e" path="res://resources/props/pohutakawa 1.png" id="1_a3jpf"]
-[ext_resource type="Texture2D" uid="uid://dou4a6p3vnepk" path="res://resources/props/pohutakawa 1_low_infection.png" id="2_3kcfx"]
+[ext_resource type="Texture2D" uid="uid://ds7p1khweinm5" path="res://resources/environment/trees/branch_thin_06.png" id="2_0gx30"]
+[ext_resource type="Texture2D" uid="uid://bro1mr2yfhb2t" path="res://resources/environment/trees/branch_wide_03.png" id="2_laoqj"]
+[ext_resource type="Texture2D" uid="uid://csga4ck7o4grc" path="res://resources/environment/trees/branch_wide_01.png" id="2_sm7gd"]
+[ext_resource type="Texture2D" uid="uid://bh4d5i73pw5jv" path="res://resources/environment/trees/branch_wide_05.png" id="3_0gx30"]
+[ext_resource type="Texture2D" uid="uid://dxdup6f4vi00q" path="res://resources/environment/trees/trunk_full_01.png" id="4_4ae8i"]
+[ext_resource type="Texture2D" uid="uid://b2lan5qf7cnq2" path="res://resources/environment/trees/trunk_broken_01.png" id="5_laoqj"]
+[ext_resource type="Texture2D" uid="uid://4qg1ialydilo" path="res://resources/environment/trees/stump_base_01.png" id="6_rqoup"]
+[ext_resource type="Texture2D" uid="uid://h0d3wnlwtaih" path="res://resources/environment/trees/branch_thin_01.png" id="7_qxahl"]
+[ext_resource type="Texture2D" uid="uid://bht7sd1l3en7l" path="res://resources/environment/trees/branch_wide_04.png" id="8_4idur"]
+[ext_resource type="Texture2D" uid="uid://bwufq7gw88qr6" path="res://resources/environment/trees/canopy_large_01.png" id="12_rqoup"]
+[ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="13_4idur"]
+[ext_resource type="Texture2D" uid="uid://bhkcuv60u6mwo" path="res://resources/environment/trees/canopy_small_03.png" id="13_qoi3m"]
+[ext_resource type="Texture2D" uid="uid://bg052i4o8nmc3" path="res://resources/environment/trees/canopy_medium_02.png" id="13_rqoup"]
+[ext_resource type="Texture2D" uid="uid://o8upeho3osrt" path="res://resources/environment/trees/canopy_medium_01.png" id="14_qxahl"]
+[ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="14_xxd8u"]
+[ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="15_qoi3m"]
+[ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="16_xxd8u"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a3jpf"]
-radius = 312.02563
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rqoup"]
+radius = 135.0
+height = 474.0
 
 [node name="Tree" type="StaticBody2D" unique_id=616234793]
 
-[node name="Healthy" type="Sprite2D" parent="." unique_id=1526073718]
-texture = ExtResource("1_a3jpf")
-metadata/_edit_lock_ = true
+[node name="Healthy" type="Node2D" parent="." unique_id=60524113]
+scale = Vector2(1, 0.99734116)
 
-[node name="Infected" type="Sprite2D" parent="." unique_id=554847086]
+[node name="BranchWide03" type="Sprite2D" parent="Healthy" unique_id=1106233758]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(122.938354, -120.738235)
+rotation = 1.1588342
+scale = Vector2(0.5140486, 0.5140486)
+texture = ExtResource("2_laoqj")
+
+[node name="BranchThin06" type="Sprite2D" parent="Healthy" unique_id=620373964]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(67.93872, -141.73827)
+rotation = 0.7847662
+scale = Vector2(0.18148415, 0.18148416)
+texture = ExtResource("2_0gx30")
+
+[node name="BranchWide01" type="Sprite2D" parent="Healthy" unique_id=1598220812]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-75.06152, -189.73824)
+scale = Vector2(0.35148516, 0.35148516)
+texture = ExtResource("2_sm7gd")
+
+[node name="BranchWide05" type="Sprite2D" parent="Healthy" unique_id=1573688461]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(20.938478, -171.7383)
+rotation = -2.8589468
+scale = Vector2(0.21066973, -0.29903135)
+texture = ExtResource("3_0gx30")
+
+[node name="TrunkFull05" type="Sprite2D" parent="Healthy" unique_id=1548086108]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-59.99695, 20.51677)
+rotation = -0.15043585
+scale = Vector2(0.21829316, 0.32269427)
+texture = ExtResource("4_4ae8i")
+
+[node name="TrunkFull06" type="Sprite2D" parent="Healthy" unique_id=1636445858]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(4.5384536, 26.658981)
+rotation = 3.1054962
+scale = Vector2(0.2713264, 0.30352342)
+texture = ExtResource("4_4ae8i")
+
+[node name="TrunkBroken01" type="Sprite2D" parent="Healthy" unique_id=528161777]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-96.23706, 83.95262)
+rotation = -0.472584
+scale = Vector2(0.18449347, 0.18449345)
+texture = ExtResource("5_laoqj")
+
+[node name="TrunkBroken02" type="Sprite2D" parent="Healthy" unique_id=1932254808]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(59.538208, 26.658875)
+rotation = -3.0221245
+scale = Vector2(0.21250218, -0.30750334)
+texture = ExtResource("5_laoqj")
+
+[node name="StumpBase01" type="Sprite2D" parent="Healthy" unique_id=610235281]
+self_modulate = Color(0.97, 0.97, 0.97, 1)
+position = Vector2(-2.461792, 148.659)
+scale = Vector2(0.30077568, 0.30077577)
+texture = ExtResource("6_rqoup")
+
+[node name="BranchThin01" type="Sprite2D" parent="Healthy" unique_id=48054012]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-169.06152, -123.7383)
+rotation = -0.56490576
+scale = Vector2(0.50819784, 0.50819784)
+texture = ExtResource("7_qxahl")
+
+[node name="BranchWide04" type="Sprite2D" parent="Healthy" unique_id=172211203]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-159.06152, -164.7383)
+rotation = -0.2180733
+scale = Vector2(0.46232578, 0.46232578)
+texture = ExtResource("8_4idur")
+
+[node name="CanopyLarge01" type="Sprite2D" parent="Healthy" unique_id=179687809]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-137.00002, -239.63716)
+rotation = 0.5401594
+scale = Vector2(0.31470698, 0.3151036)
+skew = -0.0023456812
+texture = ExtResource("12_rqoup")
+
+[node name="CanopyMedium02" type="Sprite2D" parent="Healthy" unique_id=342889964]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-126.99999, -119.317245)
+rotation = -2.769052
+scale = Vector2(0.3580119, 0.3587144)
+skew = -0.0018017292
+texture = ExtResource("13_rqoup")
+
+[node name="CanopyMedium04" type="Sprite2D" parent="Healthy" unique_id=1467919049]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(153.00002, -262.6985)
+rotation = -5.10584
+scale = Vector2(0.3580119, 0.3587144)
+skew = -0.0018017292
+texture = ExtResource("13_rqoup")
+
+[node name="CanopyMedium03" type="Sprite2D" parent="Healthy" unique_id=525523827]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(176.00002, -146.38925)
+rotation = -3.6980214
+scale = Vector2(0.28227466, 0.28282854)
+skew = -0.0018017292
+texture = ExtResource("13_rqoup")
+
+[node name="CanopyMedium01" type="Sprite2D" parent="Healthy" unique_id=1498273173]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(39.000004, -191.50922)
+rotation = 2.035421
+scale = Vector2(0.45091873, 0.45039672)
+skew = -0.0023972988
+texture = ExtResource("14_qxahl")
+
+[node name="CanopyMedium05" type="Sprite2D" parent="Healthy" unique_id=330495551]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(30.999996, -333.88773)
+rotation = 2.136759
+scale = Vector2(0.45091873, 0.45039672)
+skew = -0.0023972988
+texture = ExtResource("14_qxahl")
+
+[node name="CanopySmall03" type="Sprite2D" parent="Healthy" unique_id=923138655]
+self_modulate = Color(0.82, 0.82, 0.82, 1)
+position = Vector2(59.000008, -92.24528)
+rotation = -1.6115808
+scale = Vector2(0.28705287, 0.28705287)
+texture = ExtResource("13_qoi3m")
+
+[node name="Infected" type="Node2D" parent="." unique_id=178718588]
 visible = false
-texture = ExtResource("2_3kcfx")
+
+[node name="BranchWide03" type="Sprite2D" parent="Infected" unique_id=1738142287]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(122.938354, -120.738235)
+rotation = 1.1588342
+scale = Vector2(0.5140486, 0.5140486)
+texture = ExtResource("2_laoqj")
+
+[node name="BranchThin06" type="Sprite2D" parent="Infected" unique_id=1881085133]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(67.93872, -141.73827)
+rotation = 0.7847662
+scale = Vector2(0.18148415, 0.18148416)
+texture = ExtResource("2_0gx30")
+
+[node name="BranchWide01" type="Sprite2D" parent="Infected" unique_id=979862573]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-75.06152, -189.73824)
+scale = Vector2(0.35148516, 0.35148516)
+texture = ExtResource("2_sm7gd")
+
+[node name="BranchWide05" type="Sprite2D" parent="Infected" unique_id=753788690]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(20.938478, -171.7383)
+rotation = -2.8589468
+scale = Vector2(0.21066973, -0.29903135)
+texture = ExtResource("3_0gx30")
+
+[node name="TrunkFull05" type="Sprite2D" parent="Infected" unique_id=1677312156]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-59.99695, 20.51677)
+rotation = -0.15043585
+scale = Vector2(0.21829316, 0.32269427)
+texture = ExtResource("4_4ae8i")
+
+[node name="TrunkFull06" type="Sprite2D" parent="Infected" unique_id=944805643]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(4.5384536, 26.658981)
+rotation = 3.1054962
+scale = Vector2(0.2713264, 0.30352342)
+texture = ExtResource("4_4ae8i")
+
+[node name="TrunkBroken01" type="Sprite2D" parent="Infected" unique_id=1121579709]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(-96.23706, 83.95262)
+rotation = -0.472584
+scale = Vector2(0.18449347, 0.18449345)
+texture = ExtResource("5_laoqj")
+
+[node name="TrunkBroken02" type="Sprite2D" parent="Infected" unique_id=1276812403]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
+position = Vector2(59.538208, 26.658875)
+rotation = -3.0221245
+scale = Vector2(0.21250218, -0.30750334)
+texture = ExtResource("5_laoqj")
+
+[node name="StumpBase01" type="Sprite2D" parent="Infected" unique_id=357396956]
+self_modulate = Color(0.97, 0.97, 0.97, 1)
+position = Vector2(-2.461792, 148.659)
+scale = Vector2(0.30077568, 0.30077577)
+texture = ExtResource("6_rqoup")
+
+[node name="BranchThin01" type="Sprite2D" parent="Infected" unique_id=2087289670]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-169.06152, -123.7383)
+rotation = -0.56490576
+scale = Vector2(0.50819784, 0.50819784)
+texture = ExtResource("7_qxahl")
+
+[node name="BranchWide04" type="Sprite2D" parent="Infected" unique_id=837005677]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-159.06152, -164.7383)
+rotation = -0.2180733
+scale = Vector2(0.46232578, 0.46232578)
+texture = ExtResource("8_4idur")
+
+[node name="RustedCanopyLarge01" type="Sprite2D" parent="Infected" unique_id=1832112307]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-183.00002, -244.00002)
+rotation = -1.1677779
+scale = Vector2(0.2819538, 0.322228)
+texture = ExtResource("13_4idur")
+
+[node name="RustedCanopySmall01" type="Sprite2D" parent="Infected" unique_id=1201508735]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(26.000008, -318)
+rotation = 1.9822925
+scale = Vector2(0.17689888, 0.17689888)
+texture = ExtResource("15_qoi3m")
+
+[node name="RustedCanopyMedium01" type="Sprite2D" parent="Infected" unique_id=1369496635]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(154, -270)
+rotation = -3.2179177
+scale = Vector2(0.16338049, 0.16338049)
+texture = ExtResource("14_xxd8u")
+
+[node name="RustedCanopyMedium03" type="Sprite2D" parent="Infected" unique_id=1947204568]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-136, -106)
+rotation = -2.5740795
+scale = Vector2(0.16338049, 0.16338049)
+texture = ExtResource("14_xxd8u")
+
+[node name="RustedCanopyMedium04" type="Sprite2D" parent="Infected" unique_id=1382020493]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-72.999985, -314)
+rotation = -1.343734
+scale = Vector2(0.16338049, 0.16338049)
+texture = ExtResource("14_xxd8u")
+
+[node name="RustedCanopyMedium05" type="Sprite2D" parent="Infected" unique_id=501839898]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(-15, -179)
+rotation = -2.432642
+scale = Vector2(0.16338049, 0.16338049)
+texture = ExtResource("14_xxd8u")
+
+[node name="RustedCanopyMedium02" type="Sprite2D" parent="Infected" unique_id=1540342495]
+self_modulate = Color(0.7, 0.7, 0.7, 1)
+position = Vector2(126, -133)
+rotation = -2.5355113
+scale = Vector2(0.21813487, 0.21813487)
+texture = ExtResource("16_xxd8u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=403409876]
-visible = false
-position = Vector2(5, -46)
-shape = SubResource("CircleShape2D_a3jpf")
+position = Vector2(-3, 1)
+shape = SubResource("CapsuleShape2D_rqoup")

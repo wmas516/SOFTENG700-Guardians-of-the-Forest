@@ -2,8 +2,8 @@ extends StaticBody2D
 
 signal clicked(tree_name: String)
 
-@onready var healthySprite: Sprite2D = $Healthy
-@onready var infectedSprite: Sprite2D = $Infected
+@onready var healthySprite: Node2D = $Healthy
+@onready var infectedSprite: Node2D = $Infected
 
 @export var healthy = true
 
