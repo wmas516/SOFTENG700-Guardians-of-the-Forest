@@ -10,4 +10,5 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_button_pressed() -> void:
+	PlayerData.update_progress_stage(0)
 	get_tree().change_scene_to_file("res://main/scenes/ui/cutscene/CutScene.tscn")
