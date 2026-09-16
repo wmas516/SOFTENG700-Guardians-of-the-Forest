@@ -13,6 +13,9 @@ extends CharacterBody2D
 @export var dash_duration: float = 0.15
 @export var dash_cooldown: float = 1
 
+@export var coyote_time: float = 0.12
+@export var jump_buffer_time: float = 0.12
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_indicator: MeshInstance2D = $MeshInstance2D
 
@@ -33,6 +36,10 @@ var is_hurt: bool = false
 var was_on_floor: bool = false
 var is_landing: bool = false
 
+# Jump Assistance Variables
+var coyote_timer: float = 0.0
+var jump_buffer_timer: float = 0.0
+
 func _physics_process(delta: float) -> void:
 	if dashing:
 		spawn_ghost()
@@ -42,11 +49,25 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity*delta
 		if velocity.y > 500:
 			velocity.y = 500
+	
+	# Coyote time
+	if is_on_floor():
+		coyote_timer = coyote_time
+	else:
+		coyote_timer -= delta
 		
+	# Jump buffer
+	if Input.is_action_just_pressed("Jump"):
+		jump_buffer_timer = jump_buffer_time
+	else:
+		jump_buffer_timer -= delta
+	
 	if active:
-		if Input.is_action_just_pressed("Jump") && is_on_floor():
+		if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 			velocity.y = -jump_force
 			jump_audio_player.play()
+			coyote_timer = 0.0
+			jump_buffer_timer = 0.0
 		
 		if Input.is_action_just_pressed("Dash") && can_dash:
 			start_dash()
