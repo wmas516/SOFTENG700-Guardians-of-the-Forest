@@ -70,11 +70,13 @@ func handle_collisions() -> void:
 		
 		if collider.is_in_group("Enemies"):
 			take_damage(get_slide_collision(i))
+		elif collider.is_in_group("Bounce"):
+			bounce_up(collider.bounce_force)
 
 func take_damage(collision: KinematicCollision2D) -> void:
 	is_hurt = true
 	PlayerData.take_damage(10)
-	apply_knockback(collision.get_normal())
+	bounce_up(knockback_force)
 	start_invincibility(1)
 	animated_sprite.play("hurt")
 	damage_audio_player.play()
@@ -119,9 +121,9 @@ func start_invincibility(duration: float) -> void:
 	invincible = true
 	await get_tree().create_timer(duration).timeout
 	invincible = false
-	
-func apply_knockback(normal: Vector2) -> void:
-	velocity = normal * knockback_force
+
+func bounce_up(force: int) -> void:
+	velocity.y = -force
 	active = false
 	await get_tree().create_timer(knockback_duration).timeout
 	active = true
