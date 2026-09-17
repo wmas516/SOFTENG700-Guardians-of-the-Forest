@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b27nfnasxkbnl"]
+
+[ext_resource type="Script" uid="uid://cv0rjn5gp6g8u" path="res://main/scripts/src/main/dialog_box.gd" id="1_5oe3o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oe3o"]
+bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2, 0.2, 0.2, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="DialogBox" type="CanvasLayer" unique_id=2143990973]
+script = ExtResource("1_5oe3o")
+
+[node name="PortraitRect" type="TextureRect" parent="." unique_id=2014574986]
+offset_right = 360.0
+offset_bottom = 252.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1731395727]
+offset_top = 160.0
+offset_right = 1152.0
+offset_bottom = 289.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_5oe3o")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=888207914]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = -18
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=669755154]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer" unique_id=71343380]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=192354133]
+layout_mode = 2
+text = "Name"
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=685417377]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2" unique_id=387845375]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="TextLabel" type="RichTextLabel" parent="PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1698306143]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Dialog text goes here. "
+fit_content = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=970574642]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer3" unique_id=1317306159]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="ContinueLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer" unique_id=1694488005]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Click to continue"
