@@ -122,7 +122,6 @@
 [ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="113_i13x0"]
 [ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
-[ext_resource type="PackedScene" uid="uid://b27nfnasxkbnl" path="res://main/scenes/ui/DialogBox.tscn" id="121_58nxx"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
 [ext_resource type="PackedScene" uid="uid://b6bn5om7sek8q" path="res://main/scenes/levels/platforming/BounceObject.tscn" id="125_ejyt0"]
 
@@ -5711,9 +5710,6 @@ offset_left = -220.0
 offset_bottom = 120.0
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
-
-[node name="DialogBox" parent="UI" unique_id=2143990973 instance=ExtResource("121_58nxx")]
-visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
