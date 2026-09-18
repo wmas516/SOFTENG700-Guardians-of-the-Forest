@@ -112,6 +112,8 @@
 [ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
+[ext_resource type="PackedScene" uid="uid://dxf487ah20c3t" path="res://main/scenes/levels/platforming/DialogInteractable.tscn" id="87_ihyw1"]
+[ext_resource type="Resource" uid="uid://ccxt2pun8h8ch" path="res://main/scripts/src/main/dialog/TaneIntro.tres" id="88_ejyt0"]
 [ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
 [ext_resource type="PackedScene" uid="uid://gk23ayu0jtr3" path="res://main/scenes/levels/platforming/Blocker.tscn" id="110_32mwg"]
@@ -120,6 +122,7 @@
 [ext_resource type="Texture2D" uid="uid://bwxycdxabkcy0" path="res://resources/environment/trees/rusted_canopy_medium_01.png" id="113_i13x0"]
 [ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
+[ext_resource type="PackedScene" uid="uid://b27nfnasxkbnl" path="res://main/scenes/ui/DialogBox.tscn" id="121_58nxx"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
 [ext_resource type="PackedScene" uid="uid://b6bn5om7sek8q" path="res://main/scenes/levels/platforming/BounceObject.tscn" id="125_ejyt0"]
 
@@ -149,6 +152,7 @@ texture = ExtResource("2_j4jqo")
 
 [node name="ParallaxLayerMedium" type="ParallaxLayer" parent="ParallaxBackground" unique_id=514990213]
 motion_scale = Vector2(0.6, 0.6)
+metadata/_edit_lock_ = true
 
 [node name="Mountain" type="Node2D" parent="ParallaxBackground/ParallaxLayerMedium" unique_id=1378529181]
 
@@ -1327,6 +1331,7 @@ texture = ExtResource("13_kpbni")
 
 [node name="ParallaxLayerClose" type="ParallaxLayer" parent="ParallaxBackground" unique_id=261751099]
 motion_scale = Vector2(0.8, 0.8)
+metadata/_edit_lock_ = true
 
 [node name="Mountain" type="Node2D" parent="ParallaxBackground/ParallaxLayerClose" unique_id=2044392480]
 
@@ -1742,6 +1747,7 @@ scale = Vector2(0.17441885, -0.13488239)
 texture = ExtResource("34_dd580")
 
 [node name="Ground" type="Node2D" parent="." unique_id=1700164520]
+metadata/_edit_lock_ = true
 
 [node name="Ground_Forest" type="Node2D" parent="Ground" unique_id=1226719876]
 
@@ -4274,7 +4280,12 @@ position = Vector2(205, 106)
 collision_layer = 8
 collision_mask = 2
 
+[node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=310783337 instance=ExtResource("87_ihyw1")]
+position = Vector2(1268, 75)
+dialog_line = ExtResource("88_ejyt0")
+
 [node name="Cosmetic-Back" type="Node2D" parent="Gameplay" unique_id=2066799475]
+metadata/_edit_lock_ = true
 
 [node name="BootSimple" type="Sprite2D" parent="Gameplay/Cosmetic-Back" unique_id=674115876]
 position = Vector2(2499, 822)
@@ -4426,6 +4437,7 @@ coyote_time = 0.5
 jump_buffer_time = 0.5
 
 [node name="Cosmetic-Front" type="Node2D" parent="Gameplay" unique_id=1028504485]
+metadata/_edit_lock_ = true
 
 [node name="BossStump" type="Node2D" parent="Gameplay/Cosmetic-Front" unique_id=1171720504]
 
@@ -4853,15 +4865,16 @@ collision_mask = 2
 position = Vector2(-19, 89)
 shape = SubResource("RectangleShape2D_5dgl0")
 
-[node name="Area2D" type="Area2D" parent="Gameplay" unique_id=967690440]
+[node name="NewSpawn" type="Area2D" parent="Gameplay" unique_id=967690440]
 position = Vector2(553, 1494)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/Area2D" unique_id=479114984]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gameplay/NewSpawn" unique_id=479114984]
 position = Vector2(21, 2)
 shape = SubResource("RectangleShape2D_ihyw1")
 
 [node name="Canopies" type="Node2D" parent="." unique_id=1697288657]
+metadata/_edit_lock_ = true
 
 [node name="Mountain" type="Node2D" parent="Canopies" unique_id=1790682856]
 
@@ -5698,6 +5711,9 @@ offset_bottom = 120.0
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
+[node name="DialogBox" parent="UI" unique_id=2143990973 instance=ExtResource("121_58nxx")]
+visible = false
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
 autoplay = true
@@ -5724,9 +5740,10 @@ scale = Vector2(0.5, 0.22)
 bounce_force = 300
 
 [node name="BounceObject5" parent="." unique_id=868108962 instance=ExtResource("125_ejyt0")]
-position = Vector2(3405, 1877)
-scale = Vector2(0.3535872, 0.2754387)
+position = Vector2(3407, 1871)
+scale = Vector2(0.294, 0.228)
 bounce_force = 450
 
 [connection signal="body_entered" from="Gameplay/Deathzone" to="." method="_on_deathzone_body_entered"]
-[connection signal="body_entered" from="Gameplay/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Gameplay/NewSpawn" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Gameplay/NewSpawn" to="." method="_on_new_spawn_body_entered"]

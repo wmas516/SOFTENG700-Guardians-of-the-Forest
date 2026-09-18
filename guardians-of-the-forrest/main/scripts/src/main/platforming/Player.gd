@@ -24,7 +24,6 @@ extends CharacterBody2D
 @onready var jump_audio_player: AudioStreamPlayer = $JumpSound
 @onready var damage_audio_player: AudioStreamPlayer = $DamageSound
 
-var active: bool = true
 var direction: int = 0
 var health: int = 100
 var invincible: bool = false
@@ -62,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		jump_buffer_timer -= delta
 	
-	if active:
+	if PlayerData.player_active:
 		if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
 			velocity.y = -jump_force
 			jump_audio_player.play()
@@ -145,9 +144,7 @@ func start_invincibility(duration: float) -> void:
 
 func bounce_up(force: int) -> void:
 	velocity.y = -force
-	active = false
 	await get_tree().create_timer(knockback_duration).timeout
-	active = true
 	
 func start_dash() -> void:
 	print("dashing (direction: ", direction, ")")

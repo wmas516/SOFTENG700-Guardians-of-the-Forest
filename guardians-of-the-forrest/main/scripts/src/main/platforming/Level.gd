@@ -92,5 +92,5 @@ func _on_deathzone_body_entered(body: Node2D) -> void:
 	print("death")
 	_restore_player_position()
 	
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_new_spawn_body_entered(body: Node2D) -> void:
 	PlayerData.save_platforming_position(forest_floor_pos.global_position)

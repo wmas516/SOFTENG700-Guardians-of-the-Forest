@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://ccxt2pun8h8ch"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="1_ankyt"]
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="1_ehcrs"]
+
+[resource]
+script = ExtResource("1_ankyt")
+speaker = "Tāne Mahuta"
+text = "Kaimanaki, the forest needs you! Myrtle Rust is spreading everywhere. Please save our plants and clear away this sickness!"
+portrait = ExtResource("1_ehcrs")
+metadata/_custom_type_script = "uid://xxvberhow7ro"
