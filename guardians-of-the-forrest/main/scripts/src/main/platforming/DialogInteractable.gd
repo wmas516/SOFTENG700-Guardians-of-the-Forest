@@ -72,6 +72,9 @@ func _on_body_exited(body: Node2D) -> void:
 		if need_to_interact:
 			interactable_enabled = true
 			_hide_label()
+		else:
+			# Disable interactable after leaving for walk in dialogs
+			interactable_enabled = false
 		
 func _show_label() -> void:
 	if fade_tween:
