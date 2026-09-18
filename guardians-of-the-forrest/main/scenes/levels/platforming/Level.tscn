@@ -4283,6 +4283,7 @@ collision_mask = 2
 [node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=310783337 instance=ExtResource("87_ihyw1")]
 position = Vector2(1268, 75)
 dialog_line = ExtResource("88_ejyt0")
+need_to_interact = false
 
 [node name="Cosmetic-Back" type="Node2D" parent="Gameplay" unique_id=2066799475]
 metadata/_edit_lock_ = true
