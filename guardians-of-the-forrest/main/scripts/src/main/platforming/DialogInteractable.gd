@@ -61,6 +61,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if interactable_enabled and body.is_in_group("Player"):
 		_player_inside = true
 		if need_to_interact:
+			interactable_enabled = false
 			_show_label()
 		else:
 			_on_interact()
@@ -69,6 +70,7 @@ func _on_body_exited(body: Node2D) -> void:
 	if interactable_enabled and body.is_in_group("Player"):
 		_player_inside = false
 		if need_to_interact:
+			interactable_enabled = true
 			_hide_label()
 		
 func _show_label() -> void:

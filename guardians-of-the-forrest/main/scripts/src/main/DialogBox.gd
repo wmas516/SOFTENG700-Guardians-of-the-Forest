@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var text_label: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
 
 var typing: bool = false
+var typing_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,15 +20,16 @@ func on_line_changed(line: DialogLine) -> void:
 	text_label.text = line.text
 	typing = true
 	
-	var tween := create_tween()
-	tween.tween_property(text_label, "visible_characters", line.text.length(), line.text.length() * 0.02)
-	tween.tween_callback(func(): typing = false)
+	typing_tween = create_tween()
+	typing_tween.tween_property(text_label, "visible_characters", line.text.length(), line.text.length() * 0.02)
+	typing_tween.tween_callback(func(): typing = false)
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible: return
 	
 	if event.is_action_pressed("Skip"):
 		if typing: 
+			typing_tween.kill()
 			text_label.visible_characters = -1
 			typing = false
 		else:
