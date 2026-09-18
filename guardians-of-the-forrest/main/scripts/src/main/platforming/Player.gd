@@ -43,40 +43,51 @@ func _physics_process(delta: float) -> void:
 	if dashing:
 		spawn_ghost()
 	
+	# Gravity
 	if is_on_floor() == false:
-		# Gravity
 		velocity.y += gravity*delta
 		if velocity.y > 500:
 			velocity.y = 500
+	
+	# Disabled Character
+	if not PlayerData.player_active:
+		velocity.x = 0
+		check_landing()
+		if not is_landing:
+			if velocity.y > 25:
+				animated_sprite.play("jump-down")
+			else:
+				animated_sprite.play("idle")
+		move_and_slide()
+		return
 	
 	# Coyote time
 	if is_on_floor():
 		coyote_timer = coyote_time
 	else:
 		coyote_timer -= delta
-		
+	
 	# Jump buffer
 	if Input.is_action_just_pressed("Jump"):
 		jump_buffer_timer = jump_buffer_time
 	else:
 		jump_buffer_timer -= delta
+		
+	if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
+		velocity.y = -jump_force
+		jump_audio_player.play()
+		coyote_timer = 0.0
+		jump_buffer_timer = 0.0
 	
-	if PlayerData.player_active:
-		if jump_buffer_timer > 0.0 and coyote_timer > 0.0:
-			velocity.y = -jump_force
-			jump_audio_player.play()
-			coyote_timer = 0.0
-			jump_buffer_timer = 0.0
+	if Input.is_action_just_pressed("Dash") && can_dash:
+		start_dash()
 		
-		if Input.is_action_just_pressed("Dash") && can_dash:
-			start_dash()
-			
-		direction = Input.get_axis("Left", "Right")
-		if direction != 0:
-			animated_sprite.flip_h = (direction == -1)
-		
-		if not dashing:
-			velocity.x = direction * speed
+	direction = Input.get_axis("Left", "Right")
+	if direction != 0:
+		animated_sprite.flip_h = (direction == -1)
+	
+	if not dashing:
+		velocity.x = direction * speed
 		
 	move_and_slide()
 	check_landing()

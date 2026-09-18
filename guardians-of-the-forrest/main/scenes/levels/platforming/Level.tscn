@@ -4432,7 +4432,7 @@ position = Vector2(103, 105)
 collision_layer = 2
 collision_mask = 15
 gravity = 500
-speed = 175
+speed = 150
 jump_force = 220
 coyote_time = 0.5
 jump_buffer_time = 0.5
@@ -5732,8 +5732,8 @@ bounce_force = 300
 
 [node name="BounceObject3" parent="." unique_id=2000657007 instance=ExtResource("125_ejyt0")]
 position = Vector2(2144.6665, 1809.5383)
-scale = Vector2(0.38003907, 0.18)
-bounce_force = 300
+scale = Vector2(0.42003906, 0.18)
+bounce_force = 350
 
 [node name="BounceObject4" parent="." unique_id=1511887581 instance=ExtResource("125_ejyt0")]
 position = Vector2(1954.3461, 1838.7932)

@@ -6,12 +6,11 @@ signal dialog_ended
 
 var current_lines: Array[DialogLine] = []
 var current_index: int = -1
-var active: bool = false
 
 func start_dialog(lines: Array[DialogLine]) -> void:
+	PlayerData.player_active = false
 	current_lines = lines
 	current_index = -1
-	active = true
 	dialog_started.emit()
 	advance()
 
@@ -23,7 +22,7 @@ func advance() -> void:
 	line_changed.emit(current_lines[current_index])
 	
 func end_dialog() -> void:
-	active = false
+	PlayerData.player_active = true
 	current_lines = []
 	current_index = -1
 	dialog_ended.emit()
