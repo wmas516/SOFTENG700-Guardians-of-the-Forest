@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6bn5om7sek8q"]
 
-[ext_resource type="Script" uid="uid://ddqgsewft4n0l" path="res://main/scripts/src/main/platforming/bounce_object.gd" id="1_33inf"]
+[ext_resource type="Script" uid="uid://ddqgsewft4n0l" path="res://main/scripts/src/main/platforming/BounceObject.gd" id="1_33inf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m5rpj"]
 radius = 65.03076
