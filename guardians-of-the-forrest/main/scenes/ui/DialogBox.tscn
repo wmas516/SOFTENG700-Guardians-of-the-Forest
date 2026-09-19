@@ -15,7 +15,6 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="DialogBox" type="CanvasLayer" unique_id=2143990973]
-visible = false
 script = ExtResource("1_5oe3o")
 
 [node name="PortraitRect" type="TextureRect" parent="." unique_id=2014574986]
@@ -95,4 +94,4 @@ theme_override_constants/separation = 8
 [node name="ContinueLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer" unique_id=1694488005]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-text = "Click to continue"
+text = "Click [] to continue"

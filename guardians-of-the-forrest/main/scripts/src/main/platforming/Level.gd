@@ -15,7 +15,6 @@ extends Node2D
 @onready var defense_blocker: StaticBody2D = $Gameplay/Blockers/DefenseBlocker
 @onready var minigame_boot_blocker: StaticBody2D = $Gameplay/Blockers/MinigameBootBlocker
 @onready var minigame_trim_blocker: StaticBody2D = $Gameplay/Blockers/MinigameTrimBlocker
-@onready var dialog: Control = $UI/Dialog
 
 var frozen: bool = false
 
@@ -69,14 +68,6 @@ func go_to_tree_trim(_source: Interactable) -> void:
 	
 func go_to_boss(_source: Interactable) -> void:
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
-
-func _on_dialog_interactable_toggle_freeze_children() -> void:
-	frozen = !frozen
-	if frozen:
-		dialog.show()
-		dialog.modulate.a = 1.0
-	print("Toggle emitted new value:",frozen)
-	call_deferred("_apply_frozen_state", frozen)
 
 func _apply_frozen_state(should_freeze: bool) -> void:
 	print("freeze")

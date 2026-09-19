@@ -3,15 +3,24 @@ extends CanvasLayer
 @onready var portrait_rect: TextureRect = $PortraitRect
 @onready var name_label: Label = $PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
 @onready var text_label: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
+@onready var continue_label: Label = $PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer/ContinueLabel
 
 var typing: bool = false
 var typing_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	visible = false
 	DialogManager.dialog_started.connect(func(): visible = true)
 	DialogManager.dialog_ended.connect(func(): visible = false)
 	DialogManager.line_changed.connect(on_line_changed)
+	
+	var keys = InputMap.action_get_events("Skip")
+	var newText: Array[String] = []
+	for key in keys:
+		newText.append("["+OS.get_keycode_string(key.physical_keycode)+"]")
+		
+	continue_label.text = continue_label.text.replace("[]", " or ".join(newText))
 
 func on_line_changed(line: DialogLine) -> void:
 	name_label.text = line.speaker
