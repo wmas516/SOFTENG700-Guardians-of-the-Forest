@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6bn5om7sek8q"]
 
-[ext_resource type="Script" uid="uid://ddqgsewft4n0l" path="res://main/scripts/src/main/platforming/bounce_object.gd" id="1_33inf"]
+[ext_resource type="Script" uid="uid://ddqgsewft4n0l" path="res://main/scripts/src/main/platforming/BounceObject.gd" id="1_33inf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33inf"]
 size = Vector2(129, 111)
