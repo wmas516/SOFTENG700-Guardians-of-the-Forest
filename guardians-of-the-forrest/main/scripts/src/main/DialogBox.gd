@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var name_label: Label = $PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
 @onready var text_label: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
 @onready var continue_label: Label = $PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer/ContinueLabel
+@onready var panel_container: PanelContainer = $PanelContainer
 
 var typing: bool = false
 var typing_tween: Tween

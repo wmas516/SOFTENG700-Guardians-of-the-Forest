@@ -21,9 +21,9 @@ buses/default_bus_layout="uid://k1ic2ba1olo6"
 
 [autoload]
 
+DialogBox="*uid://b27nfnasxkbnl"
 PlayerData="*uid://cgw664gw5wods"
 DialogManager="*uid://bma3lgj4pioje"
-DialogBox="*uid://b27nfnasxkbnl"
 
 [display]
 

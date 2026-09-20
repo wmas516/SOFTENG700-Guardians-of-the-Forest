@@ -20,15 +20,6 @@ extends Area2D
 @onready var label: Label = $Label
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-func _on_interact() -> void:
-	if dialog_sequence:
-		DialogManager.start_dialog(dialog_sequence.lines)
-	elif dialog_line:
-		DialogManager.start_dialog([dialog_line])
-	else:
-		print("Interactable has no associated dialog sequence or line.")
-		pass
-
 var _player_inside: bool = false
 var fade_tween: Tween
 var interactable_enabled: bool = true
@@ -50,7 +41,16 @@ func _ready() -> void:
 	
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	
+
+func _on_interact() -> void:
+	if dialog_sequence:
+		DialogManager.start_dialog(dialog_sequence.lines)
+	elif dialog_line:
+		DialogManager.start_dialog([dialog_line])
+	else:
+		print("Interactable has no associated dialog sequence or line.")
+		pass
+
 func _unhandled_input(event_input) -> void:
 	if need_to_interact and interactable_enabled and _player_inside and event_input.is_action_pressed("Interact"):
 		_on_interact()
