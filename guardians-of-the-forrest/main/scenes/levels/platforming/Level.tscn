@@ -114,7 +114,7 @@
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
 [ext_resource type="PackedScene" uid="uid://dxf487ah20c3t" path="res://main/scenes/levels/platforming/DialogInteractable.tscn" id="87_ihyw1"]
 [ext_resource type="Resource" uid="uid://ccxt2pun8h8ch" path="res://main/scripts/src/main/dialog/TaneIntro.tres" id="88_ejyt0"]
-[ext_resource type="Resource" uid="uid://dhv07322ninhp" path="res://main/scripts/src/main/dialog/LoremIpsum.tres" id="89_ejyt0"]
+[ext_resource type="Resource" uid="uid://bk6x7lcs115" path="res://main/scripts/src/main/dialog/TestSequence.tres" id="89_bcyea"]
 [ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
 [ext_resource type="PackedScene" uid="uid://gk23ayu0jtr3" path="res://main/scenes/levels/platforming/Blocker.tscn" id="110_32mwg"]
@@ -4287,7 +4287,7 @@ need_to_interact = false
 
 [node name="DialogInteractable2" parent="Gameplay/Interactables" unique_id=886846020 instance=ExtResource("87_ihyw1")]
 position = Vector2(1680, 231)
-dialog_line = ExtResource("89_ejyt0")
+dialog_sequence = ExtResource("89_bcyea")
 need_to_interact = false
 
 [node name="Cosmetic-Back" type="Node2D" parent="Gameplay" unique_id=2066799475]
