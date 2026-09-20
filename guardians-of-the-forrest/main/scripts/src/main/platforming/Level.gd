@@ -6,6 +6,7 @@ extends Node2D
 @onready var minigame_boot_pos: Marker2D = $Markers/MinigameBootPos
 @onready var minigame_trim_pos: Marker2D = $Markers/MinigameTrimPos
 @onready var forest_floor_pos: Marker2D = $Markers/ForestFloorPos
+@onready var cave_pos: Marker2D = $Markers/CavePos
 
 @onready var defense_interactable: Interactable = $Gameplay/Interactables/DefenseInteractable
 @onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
@@ -79,9 +80,13 @@ func _apply_frozen_state(should_freeze: bool) -> void:
 			else:
 				child.process_mode = Node.PROCESS_MODE_INHERIT
 
-func _on_new_spawn_body_entered(body: Node2D) -> void:
-	PlayerData.save_platforming_position(forest_floor_pos.global_position)
-
 func _on_player_player_died() -> void:
 	print("death")
 	restore_player_position()
+
+func _on_cave_spawn_body_entered(body: Node2D) -> void:
+	PlayerData.save_platforming_position(cave_pos.global_position)
+
+
+func _on_forest_spawn_body_entered(body: Node2D) -> void:
+	PlayerData.save_platforming_position(forest_floor_pos.global_position)
