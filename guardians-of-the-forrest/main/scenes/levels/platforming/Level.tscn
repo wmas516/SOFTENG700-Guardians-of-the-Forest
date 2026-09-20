@@ -5893,6 +5893,6 @@ position = Vector2(3407, 1871)
 scale = Vector2(0.294, 0.228)
 bounce_force = 450
 
-[connection signal="body_entered" from="Gameplay/Deathzone" to="." method="_on_deathzone_body_entered"]
-[connection signal="body_entered" from="Gameplay/NewSpawn" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_entered" from="Gameplay/NewSpawn" to="." method="_on_new_spawn_body_entered"]
+[connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
+[connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
+[connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
