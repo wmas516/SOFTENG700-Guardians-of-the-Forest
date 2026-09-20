@@ -11,7 +11,7 @@ var infected_trees: Array[String] = []
 var game_progress_stage: int = 0
 var skip_narrative: bool = false
 var player_active: bool = true
-var difficulty: Difficulty
+var difficulty: Difficulty = Difficulty.MEDIUM
 
 func update_progress_stage(stage: int) -> void:
 	game_progress_stage = stage
