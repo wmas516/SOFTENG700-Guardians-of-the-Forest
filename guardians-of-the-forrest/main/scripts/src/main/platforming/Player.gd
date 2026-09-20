@@ -103,6 +103,7 @@ func handle_collisions() -> void:
 			player_died.emit()
 		elif collider.is_in_group("Bounce"):
 			bounce_up(collider.bounce_force)
+			$"../../BouncePlayer".play()
 
 func update_animation(direction):
 	if is_hurt or is_landing: return

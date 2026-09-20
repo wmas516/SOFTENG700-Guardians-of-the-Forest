@@ -127,6 +127,7 @@
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="123_ejyt0"]
+[ext_resource type="AudioStream" uid="uid://d1jrmjlovflh2" path="res://resources/audio/bounce.mp3" id="125_bcyea"]
 [ext_resource type="PackedScene" uid="uid://b6bn5om7sek8q" path="res://main/scenes/levels/platforming/BounceObject.tscn" id="125_ejyt0"]
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
@@ -5863,6 +5864,35 @@ stream = ExtResource("80_6w1ea")
 autoplay = true
 bus = &"Music"
 
-[connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
-[connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
-[connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
+[node name="BouncePlayer" type="AudioStreamPlayer" parent="." unique_id=919782610]
+stream = ExtResource("125_bcyea")
+bus = &"Music"
+
+[node name="BounceObject" parent="." unique_id=223773111 instance=ExtResource("125_ejyt0")]
+position = Vector2(2450, 346)
+scale = Vector2(0.24000001, 0.24000001)
+bounce_force = 400
+
+[node name="BounceObject2" parent="." unique_id=1755420318 instance=ExtResource("125_ejyt0")]
+position = Vector2(2368.0002, 1801)
+scale = Vector2(0.5386893, -0.27140713)
+bounce_force = 300
+
+[node name="BounceObject3" parent="." unique_id=2000657007 instance=ExtResource("125_ejyt0")]
+position = Vector2(2144.6665, 1809.5383)
+scale = Vector2(0.42003906, 0.18)
+bounce_force = 350
+
+[node name="BounceObject4" parent="." unique_id=1511887581 instance=ExtResource("125_ejyt0")]
+position = Vector2(1954.3461, 1838.7932)
+scale = Vector2(0.5, 0.22)
+bounce_force = 300
+
+[node name="BounceObject5" parent="." unique_id=868108962 instance=ExtResource("125_ejyt0")]
+position = Vector2(3407, 1871)
+scale = Vector2(0.294, 0.228)
+bounce_force = 450
+
+[connection signal="body_entered" from="Gameplay/Deathzone" to="." method="_on_deathzone_body_entered"]
+[connection signal="body_entered" from="Gameplay/NewSpawn" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Gameplay/NewSpawn" to="." method="_on_new_spawn_body_entered"]
