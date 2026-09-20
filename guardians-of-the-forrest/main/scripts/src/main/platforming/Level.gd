@@ -20,7 +20,7 @@ var frozen: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_restore_player_position()
+	restore_player_position()
 	_update_interactables()
 	defense_interactable.interacted.connect(go_to_defense)
 	minigame_boot_interactable.interacted.connect(go_to_boot_clean)
@@ -45,7 +45,7 @@ func _update_interactables() -> void:
 		minigame_trim_blocker.disable_collision(true)
 		minigame_trim_blocker.visible = false
 
-func _restore_player_position() -> void:
+func restore_player_position() -> void:
 	if PlayerData.has_saved_platforming_position:
 		player.global_position = PlayerData.saved_platforming_position
 	else:
@@ -79,9 +79,9 @@ func _apply_frozen_state(should_freeze: bool) -> void:
 			else:
 				child.process_mode = Node.PROCESS_MODE_INHERIT
 
-func _on_deathzone_body_entered(body: Node2D) -> void:
-	print("death")
-	_restore_player_position()
-	
 func _on_new_spawn_body_entered(body: Node2D) -> void:
 	PlayerData.save_platforming_position(forest_floor_pos.global_position)
+
+func _on_player_player_died() -> void:
+	print("death")
+	restore_player_position()
