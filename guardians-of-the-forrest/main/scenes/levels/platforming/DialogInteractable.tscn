@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxf487ah20c3t"]
+
+[ext_resource type="Script" uid="uid://xa1il48uynma" path="res://main/scripts/src/main/platforming/DialogInteractable.gd" id="1_laul5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laul5"]
+size = Vector2(44, 42)
+
+[node name="DialogInteractable" type="Area2D" unique_id=1553916585]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_laul5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584256101]
+shape = SubResource("RectangleShape2D_laul5")
+
+[node name="Label" type="Label" parent="." unique_id=1713282983]
+z_index = 11
+offset_left = -20.0
+offset_top = -29.0
+offset_right = 20.0
+offset_bottom = -6.0
+horizontal_alignment = 1
+vertical_alignment = 1
