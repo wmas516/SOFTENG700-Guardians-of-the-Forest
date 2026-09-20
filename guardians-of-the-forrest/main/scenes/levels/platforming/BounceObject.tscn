@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ddqgsewft4n0l" path="res://main/scripts/src/main/platforming/BounceObject.gd" id="1_33inf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_m5rpj"]
-radius = 65.03076
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33inf"]
+size = Vector2(129, 111)
 
 [node name="BounceObject" type="StaticBody2D" unique_id=223773111 groups=["Bounce"]]
 script = ExtResource("1_33inf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829740538]
-shape = SubResource("CircleShape2D_m5rpj")
+shape = SubResource("RectangleShape2D_33inf")

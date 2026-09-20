@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://dhv07322ninhp"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="1_tgpmr"]
+
+[resource]
+script = ExtResource("1_tgpmr")
+speaker = "Tester"
+text = "lorem ipsum dolor sit amet consectetur adipiscing elit illum id magna culpa at occaecat quibusdam sint rerum aliquip dolore cupidatat molestias tempor culpa deserunt enim velit sunt dolor maxime exercitation in eu tempor cillum et velit cum ducimus aute soluta ducimus tempore laborum ad exercitation possimus labore omnis officia maxime"
+metadata/_custom_type_script = "uid://xxvberhow7ro"
