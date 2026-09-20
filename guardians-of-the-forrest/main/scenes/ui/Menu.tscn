@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b48m8w6d5x2v5"]
+
+[ext_resource type="PackedScene" uid="uid://qr7fiy65pn2p" path="res://main/scenes/ui/audio/AudioSliders.tscn" id="1_e0747"]
+[ext_resource type="Script" uid="uid://b1ij7t778jryc" path="res://main/scripts/src/main/ui/DifficultyOptions.gd" id="2_difficulty"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_panel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16, 0.16, 0.18, 0.95)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qunw"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qunw"]
+
+[node name="Menu" type="Control" unique_id=1705628697]
+mouse_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuButton" type="Button" parent="." unique_id=2101113975]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 31.0
+grow_horizontal = 0
+focus_mode = 0
+toggle_mode = true
+text = "Menu"
+
+[node name="MenuContainer" type="MarginContainer" parent="." unique_id=1723744628]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Audio" type="TabContainer" parent="MenuContainer" unique_id=584695569]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tab_panel")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_6qunw")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_tab_panel")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_tab_panel")
+current_tab = 0
+tab_focus_mode = 0
+
+[node name="Audio" type="MarginContainer" parent="MenuContainer/Audio" unique_id=2124711020]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+metadata/_tab_index = 0
+metadata/_tab_name = "Audio"
+
+[node name="AudioSliders" parent="MenuContainer/Audio/Audio" unique_id=515924015 instance=ExtResource("1_e0747")]
+layout_mode = 2
+
+[node name="Difficulty" type="PanelContainer" parent="MenuContainer/Audio" unique_id=1714004237]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6qunw")
+script = ExtResource("2_difficulty")
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/Audio/Difficulty" unique_id=1517194417]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Buttons" type="VBoxContainer" parent="MenuContainer/Audio/Difficulty/MarginContainer" unique_id=493136662]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Heading" type="Label" parent="MenuContainer/Audio/Difficulty/MarginContainer/Buttons" unique_id=50888917]
+layout_mode = 2
+text = "Difficulty"
+horizontal_alignment = 1
+
+[connection signal="toggled" from="MenuButton" to="MenuContainer" method="set_visible"]

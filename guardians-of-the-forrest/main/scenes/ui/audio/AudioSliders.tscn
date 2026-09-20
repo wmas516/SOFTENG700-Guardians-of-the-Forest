@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://qr7fiy65pn2p"]
+
+[ext_resource type="Script" uid="uid://b3t1s6tlxt0bl" path="res://main/scripts/src/main/ui/Audio/AudioOptions.gd" id="1_gj0hg"]
+
+[node name="AudioSliders" type="Control" unique_id=515924015]
+custom_minimum_size = Vector2(220, 120)
+layout_mode = 3
+anchor_right = 0.19100001
+anchor_bottom = 0.201
+offset_right = -0.03201294
+offset_bottom = -0.2480011
+script = ExtResource("1_gj0hg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1942981205]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer" unique_id=1261883949]
+layout_mode = 2
+text = "Master"
+
+[node name="GapBeforeMasterSlider" type="Control" parent="VBoxContainer" unique_id=1289634723]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer" unique_id=1916036096]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="GapBeforeMusicLabel" type="Control" parent="VBoxContainer" unique_id=1553775021]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer" unique_id=476383793]
+layout_mode = 2
+text = "Music"
+
+[node name="GapBeforeMusicSlider" type="Control" parent="VBoxContainer" unique_id=1914182369]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer" unique_id=1470982621]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="GapBeforeSFXLabel" type="Control" parent="VBoxContainer" unique_id=1867754503]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SFXLabel" type="Label" parent="VBoxContainer" unique_id=1380779583]
+layout_mode = 2
+text = "SFX"
+
+[node name="GapBeforeSFXSlider" type="Control" parent="VBoxContainer" unique_id=626096319]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer" unique_id=1378656204]
+layout_mode = 2
+focus_mode = 0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[connection signal="drag_ended" from="VBoxContainer/MasterSlider" to="." method="_on_master_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]

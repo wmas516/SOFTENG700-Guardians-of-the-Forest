@@ -109,7 +109,6 @@
 [ext_resource type="Texture2D" uid="uid://4qg1ialydilo" path="res://resources/environment/trees/stump_base_01.png" id="70_vcs3c"]
 [ext_resource type="Texture2D" uid="uid://bh4d5i73pw5jv" path="res://resources/environment/trees/branch_wide_05.png" id="71_q1p1y"]
 [ext_resource type="Texture2D" uid="uid://h0d3wnlwtaih" path="res://resources/environment/trees/branch_thin_01.png" id="72_q1p1y"]
-[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="78_d24a7"]
 [ext_resource type="Texture2D" uid="uid://ce3o8f0o10340" path="res://resources/environment/foliage/grass_round_01.png" id="79_6w1ea"]
 [ext_resource type="AudioStream" uid="uid://drbeyt01a7tyf" path="res://resources/audio/main.mp3" id="80_6w1ea"]
 [ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
@@ -127,6 +126,7 @@
 [ext_resource type="Texture2D" uid="uid://b6fe8bvxlb8fi" path="res://resources/environment/trees/rusted_canopy_medium_02.png" id="114_5dgl0"]
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
+[ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="123_ejyt0"]
 [ext_resource type="PackedScene" uid="uid://b6bn5om7sek8q" path="res://main/scenes/levels/platforming/BounceObject.tscn" id="125_ejyt0"]
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
@@ -5844,14 +5844,19 @@ position = Vector2(797, 712)
 [node name="UI" type="CanvasLayer" parent="." unique_id=342041360]
 layer = 3
 
-[node name="VolumeMenu" parent="UI" unique_id=1882963629 instance=ExtResource("78_d24a7")]
-anchors_preset = 1
-anchor_left = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1290678398]
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -220.0
-offset_bottom = 120.0
-grow_horizontal = 0
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Menu" parent="UI/MarginContainer" unique_id=1705628697 instance=ExtResource("123_ejyt0")]
+layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")

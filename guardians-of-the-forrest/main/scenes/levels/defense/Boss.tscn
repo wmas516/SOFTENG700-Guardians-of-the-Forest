@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_4eu1o"]
 [ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="9_8asba"]
 [ext_resource type="AudioStream" uid="uid://c78aaqw8taap4" path="res://resources/audio/bossDamage.mp3" id="9_so5yu"]
-[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_ido5u"]
+[ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="11_5fu0h"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="11_p4iqy"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
@@ -363,10 +363,9 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Stop the Myrtle Spores from reaching Kaimanaki (You)"
 
-[node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_ido5u")]
+[node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("11_5fu0h")]
+z_index = 1
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1710171856]
 visible = false
