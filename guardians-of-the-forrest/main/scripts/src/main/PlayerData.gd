@@ -2,6 +2,8 @@ extends Node
 
 enum Difficulty {EASY, MEDIUM, HARD}
 
+signal difficulty_changed(new_difficulty: Difficulty)
+
 var saved_platforming_position: Vector2 = Vector2.ZERO
 var has_saved_platforming_position: bool = false
 var trimed_trees: Array[String] = []
@@ -26,4 +28,16 @@ func add_trimmed_tree_name(tree_name: String) -> void:
 		trimed_trees.append(tree_name)
 
 func set_difficulty(new_difficulty: Difficulty) -> void:
+	if difficulty == new_difficulty:
+		return
 	difficulty = new_difficulty
+	difficulty_changed.emit(difficulty)
+
+func restart() -> void:
+	saved_platforming_position = Vector2.ZERO
+	has_saved_platforming_position = false
+	trimed_trees = []
+	infected_trees = []
+	game_progress_stage = 0
+	player_active = true
+	

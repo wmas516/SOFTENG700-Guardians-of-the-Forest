@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="DefenseLevelConfig" format=3 uid="uid://bfla7afqlpt6p"]
+
+[ext_resource type="Script" uid="uid://bw3e5enegklu2" path="res://main/scripts/src/main/defense/FreezeEntry.gd" id="1_qac4r"]
+[ext_resource type="Script" path="res://main/scripts/src/main/defense/difficulty/DefenseLevelConfig.gd" id="2_q6r0c"]
+[ext_resource type="Script" uid="uid://cl86ypf08bfjf" path="res://main/scripts/src/main/defense/Wave.gd" id="3_vwq7i"]
+
+[sub_resource type="Resource" id="Resource_4eu1o"]
+script = ExtResource("1_qac4r")
+node = NodePath("HUD/Dialog")
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_8asba"]
+script = ExtResource("1_qac4r")
+node = NodePath("HUD/Dialog2")
+wave = 2
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_5fu0h"]
+script = ExtResource("1_qac4r")
+node = NodePath("HUD/Dialog3")
+wave = 3
+
+[sub_resource type="Resource" id="Resource_ido5u"]
+script = ExtResource("1_qac4r")
+node = NodePath("HUD/Dialog4")
+wave = 4
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_krpyx"]
+script = ExtResource("1_qac4r")
+node = NodePath("HUD/Dialog5")
+wave = 5
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_7pjxo"]
+script = ExtResource("1_qac4r")
+node = NodePath("HUD/Dialog6")
+wave = 0
+metadata/_custom_type_script = "uid://bw3e5enegklu2"
+
+[sub_resource type="Resource" id="Resource_8fsoy"]
+script = ExtResource("3_vwq7i")
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_fgwmm"]
+script = ExtResource("3_vwq7i")
+normal = 5
+elite = 2
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_uopnk"]
+script = ExtResource("3_vwq7i")
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_g26fa"]
+script = ExtResource("3_vwq7i")
+normal = 10
+elite = 5
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[sub_resource type="Resource" id="Resource_2vs1w"]
+script = ExtResource("3_vwq7i")
+boss = 1
+metadata/_custom_type_script = "uid://cl86ypf08bfjf"
+
+[resource]
+script = ExtResource("2_q6r0c")
+waveEnemies = Array[ExtResource("3_vwq7i")]([SubResource("Resource_8fsoy"), SubResource("Resource_fgwmm"), SubResource("Resource_uopnk"), SubResource("Resource_g26fa"), SubResource("Resource_2vs1w")])
+freeze_entries = Array[ExtResource("1_qac4r")]([SubResource("Resource_4eu1o"), SubResource("Resource_8asba"), SubResource("Resource_5fu0h"), SubResource("Resource_ido5u"), SubResource("Resource_krpyx"), SubResource("Resource_7pjxo")])
