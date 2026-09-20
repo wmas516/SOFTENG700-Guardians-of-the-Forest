@@ -124,6 +124,7 @@
 [ext_resource type="Texture2D" uid="uid://c7jij8eqa5hy3" path="res://resources/environment/trees/rusted_canopy_small_01.png" id="115_8yxmo"]
 [ext_resource type="Texture2D" uid="uid://dwb11bg0vypw7" path="res://resources/props/boot_simple.png" id="121_y6fx6"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="123_ejyt0"]
+[ext_resource type="AudioStream" uid="uid://d1jrmjlovflh2" path="res://resources/audio/bounce.mp3" id="125_bcyea"]
 [ext_resource type="PackedScene" uid="uid://b6bn5om7sek8q" path="res://main/scenes/levels/platforming/BounceObject.tscn" id="125_ejyt0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
@@ -5725,6 +5726,10 @@ layout_mode = 2
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
 autoplay = true
+bus = &"Music"
+
+[node name="BouncePlayer" type="AudioStreamPlayer" parent="." unique_id=919782610]
+stream = ExtResource("125_bcyea")
 bus = &"Music"
 
 [node name="BounceObject" parent="." unique_id=223773111 instance=ExtResource("125_ejyt0")]

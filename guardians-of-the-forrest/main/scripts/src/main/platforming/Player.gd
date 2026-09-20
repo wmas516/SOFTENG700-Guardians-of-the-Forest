@@ -103,6 +103,7 @@ func handle_collisions() -> void:
 			take_damage(get_slide_collision(i))
 		elif collider.is_in_group("Bounce"):
 			bounce_up(collider.bounce_force)
+			$"../../BouncePlayer".play()
 
 func take_damage(collision: KinematicCollision2D) -> void:
 	is_hurt = true
