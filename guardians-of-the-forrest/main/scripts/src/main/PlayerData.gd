@@ -1,5 +1,7 @@
 extends Node
 
+enum Difficulty {EASY, MEDIUM, HARD}
+
 var saved_platforming_position: Vector2 = Vector2.ZERO
 var has_saved_platforming_position: bool = false
 var trimed_trees: Array[String] = []
@@ -7,6 +9,7 @@ var infected_trees: Array[String] = []
 var game_progress_stage: int = 0
 var skip_narrative: bool = false
 var player_active: bool = true
+var difficulty: Difficulty
 
 func update_progress_stage(stage: int) -> void:
 	game_progress_stage = stage
@@ -21,3 +24,6 @@ func clear_platforming_position() -> void:
 func add_trimmed_tree_name(tree_name: String) -> void:
 	if not trimed_trees.has(tree_name):
 		trimed_trees.append(tree_name)
+
+func set_difficulty(new_difficulty: Difficulty) -> void:
+	difficulty = new_difficulty
