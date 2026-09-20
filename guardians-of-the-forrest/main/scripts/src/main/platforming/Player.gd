@@ -24,9 +24,9 @@ extends CharacterBody2D
 @onready var jump_audio_player: AudioStreamPlayer = $JumpSound
 @onready var damage_audio_player: AudioStreamPlayer = $DamageSound
 
+signal player_died
+
 var direction: int = 0
-var health: int = 100
-var invincible: bool = false
 var can_dash: bool = true
 var dashing: bool = false
 
@@ -95,24 +95,14 @@ func _physics_process(delta: float) -> void:
 	handle_collisions()
 
 func handle_collisions() -> void:
-	if invincible: return
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider() 
-		
+
 		if collider.is_in_group("Enemies"):
-			take_damage(get_slide_collision(i))
+			print("enemy")
+			player_died.emit()
 		elif collider.is_in_group("Bounce"):
 			bounce_up(collider.bounce_force)
-
-func take_damage(collision: KinematicCollision2D) -> void:
-	is_hurt = true
-	PlayerData.take_damage(10)
-	bounce_up(knockback_force)
-	start_invincibility(1)
-	animated_sprite.play("hurt")
-	damage_audio_player.play()
-	await animated_sprite.animation_finished
-	is_hurt = false
 
 func update_animation(direction):
 	if is_hurt or is_landing: return
@@ -147,11 +137,6 @@ func check_landing() -> void:
 		await animated_sprite.animation_finished
 		is_landing = false
 	was_on_floor = is_on_floor()
-
-func start_invincibility(duration: float) -> void:
-	invincible = true
-	await get_tree().create_timer(duration).timeout
-	invincible = false
 
 func bounce_up(force: int) -> void:
 	velocity.y = -force

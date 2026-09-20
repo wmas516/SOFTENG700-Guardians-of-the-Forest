@@ -6,6 +6,7 @@ extends Node2D
 @onready var minigame_boot_pos: Marker2D = $Markers/MinigameBootPos
 @onready var minigame_trim_pos: Marker2D = $Markers/MinigameTrimPos
 @onready var forest_floor_pos: Marker2D = $Markers/ForestFloorPos
+@onready var cave_pos: Marker2D = $Markers/CavePos
 
 @onready var defense_interactable: Interactable = $Gameplay/Interactables/DefenseInteractable
 @onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
@@ -20,7 +21,7 @@ var frozen: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_restore_player_position()
+	restore_player_position()
 	_update_interactables()
 	defense_interactable.interacted.connect(go_to_defense)
 	minigame_boot_interactable.interacted.connect(go_to_boot_clean)
@@ -45,7 +46,7 @@ func _update_interactables() -> void:
 		minigame_trim_blocker.disable_collision(true)
 		minigame_trim_blocker.visible = false
 
-func _restore_player_position() -> void:
+func restore_player_position() -> void:
 	if PlayerData.has_saved_platforming_position:
 		player.global_position = PlayerData.saved_platforming_position
 	else:
@@ -79,9 +80,13 @@ func _apply_frozen_state(should_freeze: bool) -> void:
 			else:
 				child.process_mode = Node.PROCESS_MODE_INHERIT
 
-func _on_deathzone_body_entered(body: Node2D) -> void:
+func _on_player_player_died() -> void:
 	print("death")
-	_restore_player_position()
-	
-func _on_new_spawn_body_entered(body: Node2D) -> void:
+	restore_player_position()
+
+func _on_cave_spawn_body_entered(body: Node2D) -> void:
+	PlayerData.save_platforming_position(cave_pos.global_position)
+
+
+func _on_forest_spawn_body_entered(body: Node2D) -> void:
 	PlayerData.save_platforming_position(forest_floor_pos.global_position)
