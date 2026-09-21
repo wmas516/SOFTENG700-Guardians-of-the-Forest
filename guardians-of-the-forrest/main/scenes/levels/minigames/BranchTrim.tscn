@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://pw4yxaq8sm8j" path="res://resources/props/branchParts/infected-Top.png" id="7_ufqbl"]
 [ext_resource type="Texture2D" uid="uid://dinwfr1xly44b" path="res://resources/environment/trees/branch_thin_02.png" id="8_qjx1r"]
 [ext_resource type="Texture2D" uid="uid://bpc6vk55scfdu" path="res://resources/environment/silhouettes_trunk/trunk_branching_dark_01.png" id="9_760op"]
-[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="9_gqdpc"]
+[ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="9_gqdpc"]
 [ext_resource type="Texture2D" uid="uid://m6m5s5w6n1pk" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_01.png" id="10_kr6li"]
 [ext_resource type="Texture2D" uid="uid://cc4sco1y38bhs" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_02.png" id="11_gqdpc"]
 [ext_resource type="AudioStream" uid="uid://bv5bk7igwbcwe" path="res://resources/audio/branchTrim.mp3" id="12_kr6li"]
@@ -219,6 +219,10 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
 text = "Trim the base of infected branches"
 
+[node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("9_gqdpc")]
+z_index = 1
+layout_mode = 2
+
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=376418556]
 visible = false
 layout_mode = 1
@@ -245,17 +249,6 @@ horizontal_alignment = 1
 [node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=424820200]
 layout_mode = 2
 text = "Return"
-
-[node name="VolumeMenu" parent="HUD" unique_id=1882963629 instance=ExtResource("9_gqdpc")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -220.0
-offset_bottom = 120.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1397301246]
 layer = -1

@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://ku3lb7vtrpvf"]
 
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_so5yu"]
+[ext_resource type="Resource" uid="uid://dv1271giife44" path="res://main/scripts/src/main/defense/difficulty/boss/Easy.tres" id="2_2k7vr"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_8fsoy"]
-[ext_resource type="Script" uid="uid://cl86ypf08bfjf" path="res://main/scripts/src/main/defense/Wave.gd" id="2_qmd71"]
-[ext_resource type="Script" uid="uid://bw3e5enegklu2" path="res://main/scripts/src/main/defense/FreezeEntry.gd" id="3_2k7vr"]
 [ext_resource type="PackedScene" uid="uid://ctqsgrenq75cf" path="res://main/scenes/backgrounds/BackgroundGrass.tscn" id="3_fgwmm"]
 [ext_resource type="PackedScene" uid="uid://bplrvtsqqw2rr" path="res://main/scenes/levels/defense/Enemy.tscn" id="7_5fu0h"]
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_4eu1o"]
 [ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="9_8asba"]
 [ext_resource type="AudioStream" uid="uid://c78aaqw8taap4" path="res://resources/audio/bossDamage.mp3" id="9_so5yu"]
-[ext_resource type="PackedScene" uid="uid://dc732d7xk1lce" path="res://main/scenes/ui/audio/VolumeMenu.tscn" id="10_ido5u"]
+[ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="11_5fu0h"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="11_p4iqy"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
@@ -20,67 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://doh2fjfqepnsx" path="res://resources/audio/bossSpawn.mp3" id="15_uopnk"]
 [ext_resource type="AudioStream" uid="uid://6qayyt61yngb" path="res://resources/audio/bossDeath.mp3" id="16_p4iqy"]
 [ext_resource type="AudioStream" uid="uid://cexmgvwaa0ook" path="res://resources/audio/bossHurt.mp3" id="17_2k7vr"]
-
-[sub_resource type="Resource" id="Resource_8fsoy"]
-script = ExtResource("2_qmd71")
-boss = 1
-metadata/_custom_type_script = "uid://cl86ypf08bfjf"
-
-[sub_resource type="Resource" id="Resource_fgwmm"]
-script = ExtResource("2_qmd71")
-normal = 5
-elite = 2
-metadata/_custom_type_script = "uid://cl86ypf08bfjf"
-
-[sub_resource type="Resource" id="Resource_uopnk"]
-script = ExtResource("2_qmd71")
-boss = 1
-metadata/_custom_type_script = "uid://cl86ypf08bfjf"
-
-[sub_resource type="Resource" id="Resource_g26fa"]
-script = ExtResource("2_qmd71")
-normal = 10
-elite = 5
-metadata/_custom_type_script = "uid://cl86ypf08bfjf"
-
-[sub_resource type="Resource" id="Resource_2vs1w"]
-script = ExtResource("2_qmd71")
-boss = 1
-metadata/_custom_type_script = "uid://cl86ypf08bfjf"
-
-[sub_resource type="Resource" id="Resource_4eu1o"]
-script = ExtResource("3_2k7vr")
-node = NodePath("HUD/Dialog")
-metadata/_custom_type_script = "uid://bw3e5enegklu2"
-
-[sub_resource type="Resource" id="Resource_8asba"]
-script = ExtResource("3_2k7vr")
-node = NodePath("HUD/Dialog2")
-wave = 2
-metadata/_custom_type_script = "uid://bw3e5enegklu2"
-
-[sub_resource type="Resource" id="Resource_5fu0h"]
-script = ExtResource("3_2k7vr")
-node = NodePath("HUD/Dialog3")
-wave = 3
-
-[sub_resource type="Resource" id="Resource_ido5u"]
-script = ExtResource("3_2k7vr")
-node = NodePath("HUD/Dialog4")
-wave = 4
-metadata/_custom_type_script = "uid://bw3e5enegklu2"
-
-[sub_resource type="Resource" id="Resource_krpyx"]
-script = ExtResource("3_2k7vr")
-node = NodePath("HUD/Dialog5")
-wave = 5
-metadata/_custom_type_script = "uid://bw3e5enegklu2"
-
-[sub_resource type="Resource" id="Resource_7pjxo"]
-script = ExtResource("3_2k7vr")
-node = NodePath("HUD/Dialog6")
-wave = 0
-metadata/_custom_type_script = "uid://bw3e5enegklu2"
 
 [sub_resource type="Curve2D" id="Curve2D_c0r40"]
 _data = {
@@ -110,12 +48,11 @@ bg_color = Color(0, 0, 0, 0.55)
 
 [node name="Boss" type="Node2D" unique_id=19613511 node_paths=PackedStringArray("enemy", "bossEnemy", "spawnTimer")]
 script = ExtResource("1_so5yu")
-waveEnemies = Array[Object]([SubResource("Resource_8fsoy"), SubResource("Resource_fgwmm"), SubResource("Resource_uopnk"), SubResource("Resource_g26fa"), SubResource("Resource_2vs1w")])
+level_config = ExtResource("2_2k7vr")
 boss = true
 enemy = NodePath("Enemy")
 bossEnemy = NodePath("BossEnemy")
 spawnTimer = NodePath("SpawnTimer")
-freeze_entries = Array[ExtResource("3_2k7vr")]([SubResource("Resource_4eu1o"), SubResource("Resource_8asba"), SubResource("Resource_5fu0h"), SubResource("Resource_ido5u"), SubResource("Resource_krpyx"), SubResource("Resource_7pjxo")])
 
 [node name="PlayerDef" parent="." unique_id=868766390 groups=["Player", "Target"] instance=ExtResource("2_8fsoy")]
 position = Vector2(560, 375)
@@ -363,10 +300,9 @@ size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "Stop the Myrtle Spores from reaching Kaimanaki (You)"
 
-[node name="VolumeMenu" parent="HUD/MarginContainer" unique_id=1882963629 instance=ExtResource("10_ido5u")]
+[node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("11_5fu0h")]
+z_index = 1
 layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 0
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1710171856]
 visible = false

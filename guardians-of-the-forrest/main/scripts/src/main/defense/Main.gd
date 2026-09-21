@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var waveEnemies: Array[Wave] = [Wave.new(1,1,1),Wave.new(2,1,0),Wave.new(0,0,2),Wave.new(3,2,1)]
+@export var level_config: DefenseLevelConfig
 @export var wave = 0
 @export var boss: bool = false
 @export var aliveEnemies = 0
@@ -8,8 +8,6 @@ extends Node2D
 @export var bossEnemy: CharacterBody2D
 @export var spawnTimer: Timer
 @export var lives: int = 5
-
-@export var freeze_entries: Array[FreezeEntry] = []
 
 var enemies: Array[Node] = []
 var level_complete: bool = false
@@ -30,12 +28,18 @@ var active_freeze_actions: Array[StringName] = []
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
 @onready var spawnBossAudioPlayer: AudioStreamPlayer = get_node_or_null("SpawnPlayerBoss") as AudioStreamPlayer
 
-var curWaveEnemies = waveEnemies
+var curWaveEnemies: Array[Wave] = []
 var originalWaveEnemies: Array[Wave] = []
 var curLives = lives
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if not PlayerData.difficulty_changed.is_connected(_on_difficulty_changed):
+		PlayerData.difficulty_changed.connect(_on_difficulty_changed)
+	_select_difficulty_config(PlayerData.difficulty)
+	if level_config == null:
+		push_error("Assign a DefenseLevelConfig resource before starting this level.")
+		return
 	#enemy.setEnabled(true)
 	curLives = lives
 	if (enemy.dest.has_method("setVisibleHealth")):
@@ -45,8 +49,7 @@ func _ready() -> void:
 			enemy_node.queue_free()
 	enemies.clear()
 	hpLabel.text = str(curLives)
-	if originalWaveEnemies.is_empty():
-		originalWaveEnemies = copy_waves(waveEnemies)
+	originalWaveEnemies = copy_waves(level_config.waveEnemies)
 	curWaveEnemies = copy_waves(originalWaveEnemies)
 	waveTotalLabel.text = str(curWaveEnemies.size())
 	completion_container.visible = false
@@ -57,6 +60,22 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _select_difficulty_config(difficulty: PlayerData.Difficulty) -> void:
+	var difficulty_name: String = PlayerData.Difficulty.keys()[difficulty].capitalize()
+	var level_folder := "boss" if boss else "defense"
+	var config_path := "res://main/scripts/src/main/defense/difficulty/%s/%s.tres" % [level_folder, difficulty_name]
+	var selected_config := load(config_path) as DefenseLevelConfig
+	if selected_config == null:
+		push_error("Unable to load difficulty configuration: " + config_path)
+		return
+	level_config = selected_config
+
+
+func _on_difficulty_changed(_difficulty: PlayerData.Difficulty) -> void:
+	# Let the button signal finish before replacing the scene that owns it.
+	get_tree().reload_current_scene.call_deferred()
+
 
 func copy_waves(waves: Array[Wave]) -> Array[Wave]:
 	var copied_waves: Array[Wave] = []
@@ -74,6 +93,9 @@ func _on_spawn_timer_timeout() -> void:
 		spawnTimer.stop()
 
 func nextWave():
+	# Enemy cleanup can trigger this while the level is leaving the scene tree.
+	if not is_instance_valid(spawnTimer) or not spawnTimer.is_inside_tree():
+		return
 	if (wave < curWaveEnemies.size()):
 		aliveEnemies = curWaveEnemies[wave].total()
 		wave = wave + 1
@@ -147,6 +169,7 @@ func _show_completion() -> void:
 
 func _on_return_button_pressed() -> void:
 	if (boss):
+		PlayerData.restart()
 		get_tree().change_scene_to_file("res://main/scenes/Main.tscn")
 	else:
 		get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Level.tscn")
@@ -177,7 +200,7 @@ func _matches_freeze_action(event: InputEvent) -> bool:
 func _check_freeze_for_wave(wave_number: int) -> void:
 	active_freeze_nodes.clear()
 	active_freeze_actions.clear()
-	for entry in freeze_entries:
+	for entry in level_config.freeze_entries:
 		if entry.wave != wave_number:
 			continue
 		var node := get_node_or_null(entry.node) as CanvasItem
