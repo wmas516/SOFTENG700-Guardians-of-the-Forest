@@ -115,8 +115,13 @@
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
 [ext_resource type="PackedScene" uid="uid://dxf487ah20c3t" path="res://main/scenes/levels/platforming/DialogInteractable.tscn" id="87_ihyw1"]
-[ext_resource type="Resource" uid="uid://ccxt2pun8h8ch" path="res://main/scripts/src/main/dialog/TaneIntro.tres" id="88_ejyt0"]
-[ext_resource type="Resource" uid="uid://bk6x7lcs115" path="res://main/scripts/src/main/dialog/TestSequence.tres" id="89_bcyea"]
+[ext_resource type="Resource" uid="uid://blr8nnfrvcckm" path="res://main/scripts/src/main/dialog/TaneMahuta1.tres" id="94_54gam"]
+[ext_resource type="Resource" uid="uid://gacod51lcj80" path="res://main/scripts/src/main/dialog/TaneMahuta2.tres" id="95_54gam"]
+[ext_resource type="Resource" uid="uid://c60si2q4andsp" path="res://main/scripts/src/main/dialog/TaneMahuta3.tres" id="96_pvsop"]
+[ext_resource type="Resource" uid="uid://bvso2eeamjj0u" path="res://main/scripts/src/main/dialog/TaneMahuta4.tres" id="97_u6rl0"]
+[ext_resource type="Resource" uid="uid://cl5aiu1twu0qr" path="res://main/scripts/src/main/dialog/TaneMahuta5.tres" id="98_ib78u"]
+[ext_resource type="Resource" uid="uid://b20kalwvath4i" path="res://main/scripts/src/main/dialog/TaneMahuta6.tres" id="99_4a3g8"]
+[ext_resource type="Resource" uid="uid://cw1goanv4jyep" path="res://main/scripts/src/main/dialog/TaneMahuta7.tres" id="100_x18a4"]
 [ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
 [ext_resource type="PackedScene" uid="uid://gk23ayu0jtr3" path="res://main/scenes/levels/platforming/Blocker.tscn" id="110_32mwg"]
@@ -4342,13 +4347,45 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=310783337 instance=ExtResource("87_ihyw1")]
-position = Vector2(1268, 75)
-dialog_line = ExtResource("88_ejyt0")
+position = Vector2(640.00006, 160)
+scale = Vector2(0.87183577, 3.4658055)
+dialog_sequence = ExtResource("94_54gam")
 need_to_interact = false
 
 [node name="DialogInteractable2" parent="Gameplay/Interactables" unique_id=886846020 instance=ExtResource("87_ihyw1")]
-position = Vector2(1680, 231)
-dialog_sequence = ExtResource("89_bcyea")
+position = Vector2(1816.0001, 199.00002)
+scale = Vector2(-0.5199644, 2.7315266)
+dialog_sequence = ExtResource("95_54gam")
+need_to_interact = false
+
+[node name="DialogInteractable3" parent="Gameplay/Interactables" unique_id=1538704379 instance=ExtResource("87_ihyw1")]
+position = Vector2(3067.0002, 169)
+scale = Vector2(-0.5199644, 2.7315266)
+dialog_sequence = ExtResource("96_pvsop")
+need_to_interact = false
+
+[node name="DialogInteractable4" parent="Gameplay/Interactables" unique_id=1640469754 instance=ExtResource("87_ihyw1")]
+position = Vector2(2549, 776.00006)
+scale = Vector2(-0.5199644, 2.7315266)
+dialog_sequence = ExtResource("97_u6rl0")
+need_to_interact = false
+
+[node name="DialogInteractable5" parent="Gameplay/Interactables" unique_id=141615839 instance=ExtResource("87_ihyw1")]
+position = Vector2(949.00006, 1767)
+scale = Vector2(-0.5199644, 2.7315266)
+dialog_sequence = ExtResource("98_ib78u")
+need_to_interact = false
+
+[node name="DialogInteractable6" parent="Gameplay/Interactables" unique_id=1287493605 instance=ExtResource("87_ihyw1")]
+position = Vector2(2914, 1831.0001)
+scale = Vector2(-0.5199644, 2.7315266)
+dialog_sequence = ExtResource("99_4a3g8")
+need_to_interact = false
+
+[node name="DialogInteractable7" parent="Gameplay/Interactables" unique_id=1252672436 instance=ExtResource("87_ihyw1")]
+position = Vector2(4301.0005, 1767.0001)
+scale = Vector2(-0.5199644, 2.7315266)
+dialog_sequence = ExtResource("100_x18a4")
 need_to_interact = false
 
 [node name="BounceObjects" type="Node2D" parent="Gameplay" unique_id=747326431]
@@ -5868,31 +5905,6 @@ bus = &"Music"
 stream = ExtResource("125_bcyea")
 bus = &"Music"
 
-[node name="BounceObject" parent="." unique_id=223773111 instance=ExtResource("125_ejyt0")]
-position = Vector2(2450, 346)
-scale = Vector2(0.24000001, 0.24000001)
-bounce_force = 400
-
-[node name="BounceObject2" parent="." unique_id=1755420318 instance=ExtResource("125_ejyt0")]
-position = Vector2(2368.0002, 1801)
-scale = Vector2(0.5386893, -0.27140713)
-bounce_force = 300
-
-[node name="BounceObject3" parent="." unique_id=2000657007 instance=ExtResource("125_ejyt0")]
-position = Vector2(2144.6665, 1809.5383)
-scale = Vector2(0.42003906, 0.18)
-bounce_force = 350
-
-[node name="BounceObject4" parent="." unique_id=1511887581 instance=ExtResource("125_ejyt0")]
-position = Vector2(1954.3461, 1838.7932)
-scale = Vector2(0.5, 0.22)
-bounce_force = 300
-
-[node name="BounceObject5" parent="." unique_id=868108962 instance=ExtResource("125_ejyt0")]
-position = Vector2(3407, 1871)
-scale = Vector2(0.294, 0.228)
-bounce_force = 450
-
 [connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
-[connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
 [connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
+[connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]

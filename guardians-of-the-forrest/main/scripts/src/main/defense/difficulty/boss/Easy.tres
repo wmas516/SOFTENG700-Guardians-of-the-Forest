@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DefenseLevelConfig" format=3 uid="uid://dv1271giife44"]
 
-[ext_resource type="Script" path="res://main/scripts/src/main/defense/difficulty/DefenseLevelConfig.gd" id="1_config"]
+[ext_resource type="Script" uid="uid://by0cew4g0x01" path="res://main/scripts/src/main/defense/difficulty/DefenseLevelConfig.gd" id="1_config"]
 [ext_resource type="Script" uid="uid://cl86ypf08bfjf" path="res://main/scripts/src/main/defense/Wave.gd" id="2_qmd71"]
 [ext_resource type="Script" uid="uid://bw3e5enegklu2" path="res://main/scripts/src/main/defense/FreezeEntry.gd" id="3_2k7vr"]
 

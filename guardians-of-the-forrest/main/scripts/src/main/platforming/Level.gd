@@ -12,6 +12,13 @@ extends Node2D
 @onready var minigame_boot_interactable: Interactable = $Gameplay/Interactables/MinigameBootInteractable
 @onready var minigame_trim_interactable: Interactable = $Gameplay/Interactables/MinigameTrimInteractable
 @onready var boss_interactable: Interactable = $Gameplay/Interactables/BossInteractable
+@onready var dialog_interactable: DialogInteractable = $Gameplay/Interactables/DialogInteractable
+@onready var dialog_interactable_2: DialogInteractable = $Gameplay/Interactables/DialogInteractable2
+@onready var dialog_interactable_3: DialogInteractable = $Gameplay/Interactables/DialogInteractable3
+@onready var dialog_interactable_4: DialogInteractable = $Gameplay/Interactables/DialogInteractable4
+@onready var dialog_interactable_5: DialogInteractable = $Gameplay/Interactables/DialogInteractable5
+@onready var dialog_interactable_6: DialogInteractable = $Gameplay/Interactables/DialogInteractable6
+@onready var dialog_interactable_7: DialogInteractable = $Gameplay/Interactables/DialogInteractable7
 
 @onready var defense_blocker: StaticBody2D = $Gameplay/Blockers/DefenseBlocker
 @onready var minigame_boot_blocker: StaticBody2D = $Gameplay/Blockers/MinigameBootBlocker
@@ -34,17 +41,23 @@ func _update_interactables() -> void:
 	if progress >= 1:
 		defense_interactable.interactable_enabled = false
 		defense_blocker.disable_collision(true)
+		dialog_interactable.interactable_enabled = false
+		dialog_interactable_2.interactable_enabled = false
 	
 	# Boot Minigame has been finished
 	if progress >= 2:
 		minigame_boot_interactable.interactable_enabled = false
 		minigame_boot_blocker.disable_collision(true)
+		dialog_interactable_3.interactable_enabled = false
+		dialog_interactable_4.interactable_enabled = false
 		
-	# Boot Minigame has been finished
+	# Trimming Minigame has been finished
 	if progress >= 3:
 		minigame_trim_interactable.interactable_enabled = false
 		minigame_trim_blocker.disable_collision(true)
 		minigame_trim_blocker.visible = false
+		dialog_interactable_5.interactable_enabled = false
+		dialog_interactable_6.interactable_enabled = false
 
 func restore_player_position() -> void:
 	if PlayerData.has_saved_platforming_position:
