@@ -115,8 +115,9 @@
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
 [ext_resource type="PackedScene" uid="uid://dxf487ah20c3t" path="res://main/scenes/levels/platforming/DialogInteractable.tscn" id="87_ihyw1"]
-[ext_resource type="Resource" uid="uid://ccxt2pun8h8ch" path="res://main/scripts/src/main/dialog/TaneIntro.tres" id="88_ejyt0"]
 [ext_resource type="Resource" uid="uid://bk6x7lcs115" path="res://main/scripts/src/main/dialog/TestSequence.tres" id="89_bcyea"]
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="94_pvsop"]
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="95_u6rl0"]
 [ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
 [ext_resource type="PackedScene" uid="uid://gk23ayu0jtr3" path="res://main/scenes/levels/platforming/Blocker.tscn" id="110_32mwg"]
@@ -132,6 +133,13 @@
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
+
+[sub_resource type="Resource" id="Resource_ib78u"]
+script = ExtResource("95_u6rl0")
+speaker = "Tāne Mahuta"
+text = "Kaimanaki, the forest needs you! Myrtle Rust is spreading everywhere. Please save our plants and clear away this sickness!"
+portrait = ExtResource("94_pvsop")
+metadata/_custom_type_script = "uid://xxvberhow7ro"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
@@ -4342,8 +4350,8 @@ collision_layer = 8
 collision_mask = 2
 
 [node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=310783337 instance=ExtResource("87_ihyw1")]
-position = Vector2(1268, 75)
-dialog_line = ExtResource("88_ejyt0")
+position = Vector2(633, 191)
+dialog_line = SubResource("Resource_ib78u")
 need_to_interact = false
 
 [node name="DialogInteractable2" parent="Gameplay/Interactables" unique_id=886846020 instance=ExtResource("87_ihyw1")]
@@ -5868,31 +5876,31 @@ bus = &"Music"
 stream = ExtResource("125_bcyea")
 bus = &"Music"
 
-[node name="BounceObject" parent="." unique_id=223773111 instance=ExtResource("125_ejyt0")]
+[node name="BounceObject" parent="." unique_id=1389409298 instance=ExtResource("125_ejyt0")]
 position = Vector2(2450, 346)
 scale = Vector2(0.24000001, 0.24000001)
 bounce_force = 400
 
-[node name="BounceObject2" parent="." unique_id=1755420318 instance=ExtResource("125_ejyt0")]
+[node name="BounceObject2" parent="." unique_id=640395418 instance=ExtResource("125_ejyt0")]
 position = Vector2(2368.0002, 1801)
 scale = Vector2(0.5386893, -0.27140713)
 bounce_force = 300
 
-[node name="BounceObject3" parent="." unique_id=2000657007 instance=ExtResource("125_ejyt0")]
+[node name="BounceObject3" parent="." unique_id=2131662557 instance=ExtResource("125_ejyt0")]
 position = Vector2(2144.6665, 1809.5383)
 scale = Vector2(0.42003906, 0.18)
 bounce_force = 350
 
-[node name="BounceObject4" parent="." unique_id=1511887581 instance=ExtResource("125_ejyt0")]
+[node name="BounceObject4" parent="." unique_id=1311361762 instance=ExtResource("125_ejyt0")]
 position = Vector2(1954.3461, 1838.7932)
 scale = Vector2(0.5, 0.22)
 bounce_force = 300
 
-[node name="BounceObject5" parent="." unique_id=868108962 instance=ExtResource("125_ejyt0")]
+[node name="BounceObject5" parent="." unique_id=1688212535 instance=ExtResource("125_ejyt0")]
 position = Vector2(3407, 1871)
 scale = Vector2(0.294, 0.228)
 bounce_force = 450
 
 [connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
-[connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
 [connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
+[connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
