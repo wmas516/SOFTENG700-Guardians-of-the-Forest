@@ -28,6 +28,8 @@ var active_freeze_actions: Array[StringName] = []
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
 @onready var spawnBossAudioPlayer: AudioStreamPlayer = get_node_or_null("SpawnPlayerBoss") as AudioStreamPlayer
 
+@onready var tutorial: Control = $HUD/MarginContainer/Tutorial
+
 var curWaveEnemies: Array[Wave] = []
 var originalWaveEnemies: Array[Wave] = []
 var curLives = lives
@@ -262,4 +264,6 @@ func revertLoss() -> void:
 
 
 func _on_menu_help() -> void:
-	$HUD/MarginContainer/Tutorial.set_visible(!$HUD/MarginContainer/Tutorial.is_visible())
+	tutorial.set_visible(!tutorial.is_visible())
+	frozen = !frozen
+	_apply_frozen_state(frozen)
