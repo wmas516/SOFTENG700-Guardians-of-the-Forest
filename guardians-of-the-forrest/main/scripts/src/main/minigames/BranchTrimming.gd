@@ -13,6 +13,7 @@ const INFECTED_PIECES := [
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
 @onready var trimSoundPlayer: AudioStreamPlayer = $TrimPlayer
+@onready var tutorialVideo: Control = $HUD/MarginContainer/TutorialVideo
 
 var infected_sprites: Array[Sprite2D] = []
 var active_pieces: Array[Sprite2D] = []
@@ -31,6 +32,10 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	
+	if (tutorialVideo && tutorialVideo.visible):
+		return
+	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			dragging = true
@@ -209,3 +214,8 @@ func updateBranchLabel(text: String):
 
 func _on_return_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://main/scenes/levels/minigames/TreeTrim.tscn")
+
+
+func _on_menu_help() -> void:
+	if (tutorialVideo):
+		tutorialVideo.visible = !tutorialVideo.visible
