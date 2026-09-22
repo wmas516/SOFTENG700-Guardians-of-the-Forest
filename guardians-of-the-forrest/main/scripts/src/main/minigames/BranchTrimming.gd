@@ -29,6 +29,9 @@ func _ready() -> void:
 	_cache_infected_sprites()
 	_setup_random_infected_visibility()
 	updateBranchLabel(str(active_pieces.size()))
+	print(PlayerData.trimed_trees)
+	if (tutorialVideo && PlayerData.trimed_trees.size() > 1):
+		tutorialVideo.visible = false
 
 
 func _input(event: InputEvent) -> void:
