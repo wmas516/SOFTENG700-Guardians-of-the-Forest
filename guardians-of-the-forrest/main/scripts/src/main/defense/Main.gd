@@ -259,3 +259,7 @@ func revertLoss() -> void:
 			child.set_physics_process(true)
 			if (child.has_method("_ready()")):
 				child._ready()
+
+
+func _on_menu_help() -> void:
+	$HUD/MarginContainer/Tutorial.set_visible(!$HUD/MarginContainer/Tutorial.is_visible())
