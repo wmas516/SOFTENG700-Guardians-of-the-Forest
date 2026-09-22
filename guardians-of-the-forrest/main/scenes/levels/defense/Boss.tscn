@@ -8,10 +8,12 @@
 [ext_resource type="Script" uid="uid://bvennvoixoq0v" path="res://main/scripts/src/main/defense/Enemy.gd" id="8_4eu1o"]
 [ext_resource type="AudioStream" uid="uid://xjfk8whml1ll" path="res://resources/audio/eat.mp3" id="9_8asba"]
 [ext_resource type="AudioStream" uid="uid://c78aaqw8taap4" path="res://resources/audio/bossDamage.mp3" id="9_so5yu"]
+[ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="11_4eu1o"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="11_5fu0h"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="11_krpyx"]
 [ext_resource type="PackedScene" uid="uid://bs3bf0pyoanhi" path="res://main/scenes/ui/Dialog.tscn" id="11_p4iqy"]
 [ext_resource type="AudioStream" uid="uid://dnocbph8xy6cb" path="res://resources/audio/spawn.mp3" id="12_7pjxo"]
+[ext_resource type="Script" uid="uid://cqfsmrp31c6hk" path="res://main/scripts/src/main/ui/DefenseTutorial.gd" id="12_8asba"]
 [ext_resource type="PackedScene" uid="uid://dya3r3fgc4icx" path="res://main/scenes/levels/defense/BossEnemy.tscn" id="13_2vs1w"]
 [ext_resource type="Texture2D" uid="uid://c0qcteufdl8tm" path="res://resources/sprites/final/Boss.png" id="13_5fu0h"]
 [ext_resource type="AudioStream" uid="uid://tw4hen0dm71q" path="res://resources/audio/enemyKilled.mp3" id="13_iq156"]
@@ -304,6 +306,13 @@ text = "Stop the Myrtle Spores from reaching Kaimanaki (You)"
 z_index = 1
 layout_mode = 2
 
+[node name="Tutorial" parent="HUD/MarginContainer" unique_id=1434005533 instance=ExtResource("11_4eu1o")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("12_8asba")
+
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1710171856]
 visible = false
 layout_mode = 1
@@ -492,5 +501,6 @@ one_way_collision = true
 [connection signal="damagedTarget" from="BossEnemy" to="." method="_on_boss_enemy_damaged_target"]
 [connection signal="timeout" from="BossEnemy/DamageTimer" to="BossEnemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="HUD/TryAgainBox/TryAgainButton" to="." method="_on_try_again_button_pressed"]
