@@ -4365,7 +4365,7 @@ dialog_sequence = ExtResource("96_pvsop")
 need_to_interact = false
 
 [node name="DialogInteractable4" parent="Gameplay/Interactables" unique_id=1640469754 instance=ExtResource("87_ihyw1")]
-position = Vector2(2575.0002, 780)
+position = Vector2(2549, 776.00006)
 scale = Vector2(-0.5199644, 2.7315266)
 dialog_sequence = ExtResource("97_u6rl0")
 need_to_interact = false
