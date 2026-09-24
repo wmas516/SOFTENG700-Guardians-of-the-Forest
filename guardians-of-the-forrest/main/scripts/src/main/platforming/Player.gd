@@ -18,6 +18,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_indicator: MeshInstance2D = $MeshInstance2D
+@onready var respawn_particles: GPUParticles2D = $RespawnParticles
 
 @onready var dash_audio_player: AudioStreamPlayer = $DashSound
 @onready var step_audio_player: AudioStreamPlayer = $FootstepSound
@@ -174,3 +175,6 @@ func spawn_ghost() -> void:
 	var tween := ghost.create_tween()
 	tween.tween_property(ghost, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(ghost.queue_free)
+	
+func play_particle_effect() -> void:
+	respawn_particles.restart()
