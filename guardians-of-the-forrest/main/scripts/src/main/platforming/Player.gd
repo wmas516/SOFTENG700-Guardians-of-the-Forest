@@ -19,6 +19,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_indicator: MeshInstance2D = $MeshInstance2D
 @onready var respawn_particles: GPUParticles2D = $RespawnParticles
+@onready var landing_particles: GPUParticles2D = $LandingParticles
 
 @onready var dash_audio_player: AudioStreamPlayer = $DashSound
 @onready var step_audio_player: AudioStreamPlayer = $FootstepSound
@@ -136,6 +137,7 @@ func check_landing() -> void:
 	if not was_on_floor and is_on_floor() and not is_landing:
 		is_landing = true
 		animated_sprite.play("land")
+		landing_particles.restart()
 		await animated_sprite.animation_finished
 		is_landing = false
 	was_on_floor = is_on_floor()
@@ -176,5 +178,5 @@ func spawn_ghost() -> void:
 	tween.tween_property(ghost, "modulate:a", 0.0, 0.2)
 	tween.tween_callback(ghost.queue_free)
 	
-func play_particle_effect() -> void:
+func play_respawn_effect() -> void:
 	respawn_particles.restart()

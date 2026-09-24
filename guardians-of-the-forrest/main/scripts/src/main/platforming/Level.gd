@@ -66,7 +66,7 @@ func restore_player_position() -> void:
 		player.global_position = PlayerData.saved_platforming_position
 	else:
 		player.global_position = start_pos.global_position
-	player.play_particle_effect()
+	player.play_respawn_effect()
 
 func go_to_defense(_source: Interactable) -> void:
 	PlayerData.save_platforming_position(defense_pos.global_position)

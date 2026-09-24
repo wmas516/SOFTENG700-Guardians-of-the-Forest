@@ -520,7 +520,7 @@ size = Vector2(16, 53)
 [sub_resource type="SphereMesh" id="SphereMesh_qopbr"]
 
 [sub_resource type="Gradient" id="Gradient_2qfoq"]
-offsets = PackedFloat32Array(0, 0.7117117)
+offsets = PackedFloat32Array(0, 0.18318318)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8xb2h"]
@@ -553,8 +553,30 @@ initial_velocity_max = 120.0
 angular_velocity_min = -180.00002
 angular_velocity_max = 179.99998
 gravity = Vector3(0, 30, 0)
+scale_min = 0.0
 scale_curve = SubResource("CurveTexture_xk8t1")
 color_ramp = SubResource("GradientTexture1D_gdtdr")
+
+[sub_resource type="Curve" id="Curve_2qfoq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_8xb2h"]
+curve = SubResource("Curve_2qfoq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8xb2h"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(8.425, 0.365, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 120.0
+flatness = 1.0
+initial_velocity_min = 10.0
+initial_velocity_max = 30.0
+gravity = Vector3(0, 23.45, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_8xb2h")
 
 [node name="Player" type="CharacterBody2D" unique_id=868766390 groups=["Player"]]
 script = ExtResource("1_738yx")
@@ -605,3 +627,13 @@ lifetime = 0.8
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_2qfoq")
+
+[node name="LandingParticles" type="GPUParticles2D" parent="." unique_id=1216217033]
+position = Vector2(-1, 32)
+emitting = false
+amount = 16
+texture = SubResource("GradientTexture2D_8xb2h")
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource("ParticleProcessMaterial_8xb2h")
