@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var player: PlatformPlayer = $Gameplay/Player
+@onready var screen_fade: CanvasLayer = $ScreenFade
+
 @onready var start_pos: Marker2D = $Markers/StartPos
 @onready var defense_pos: Marker2D = $Markers/DefensePos
 @onready var minigame_boot_pos: Marker2D = $Markers/MinigameBootPos
@@ -95,11 +97,14 @@ func _apply_frozen_state(should_freeze: bool) -> void:
 
 func _on_player_player_died() -> void:
 	print("death")
+	PlayerData.player_active = false
+	await screen_fade.fade_out()
 	restore_player_position()
+	await screen_fade.fade_in()
+	PlayerData.player_active = true
 
 func _on_cave_spawn_body_entered(body: Node2D) -> void:
 	PlayerData.save_platforming_position(cave_pos.global_position)
-
 
 func _on_forest_spawn_body_entered(body: Node2D) -> void:
 	PlayerData.save_platforming_position(forest_floor_pos.global_position)

@@ -137,6 +137,7 @@
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
+[ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
@@ -5904,6 +5905,8 @@ bus = &"Music"
 [node name="BouncePlayer" type="AudioStreamPlayer" parent="." unique_id=919782610]
 stream = ExtResource("125_bcyea")
 bus = &"Music"
+
+[node name="ScreenFade" parent="." unique_id=906879056 instance=ExtResource("138_v1vee")]
 
 [connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
 [connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
