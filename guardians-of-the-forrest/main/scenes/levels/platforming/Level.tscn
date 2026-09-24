@@ -3127,11 +3127,6 @@ rotation = 2.4213161
 scale = Vector2(0.37761876, 0.16008309)
 texture = ExtResource("41_1p11v")
 
-[node name="MushroomYellow02" type="Sprite2D" parent="Ground/Ground_Cave" unique_id=366228767]
-position = Vector2(1112, 914)
-scale = Vector2(0.2817805, 0.16785873)
-texture = ExtResource("46_jc1m1")
-
 [node name="Ground_Mountain" type="Node2D" parent="Ground" unique_id=724122064]
 
 [node name="Wood" type="Node2D" parent="Ground/Ground_Mountain" unique_id=1699782549]
@@ -4416,11 +4411,6 @@ position = Vector2(3407, 1871)
 scale = Vector2(0.294, 0.228)
 bounce_force = 450
 
-[node name="BounceObject6" parent="Gameplay/BounceObjects" unique_id=1498726302 instance=ExtResource("125_ejyt0")]
-position = Vector2(1113, 908.00006)
-scale = Vector2(0.16503856, 0.050616622)
-bounce_force = 300
-
 [node name="Cosmetic-Back" type="Node2D" parent="Gameplay" unique_id=2066799475]
 metadata/_edit_lock_ = true
 
@@ -5021,15 +5011,18 @@ shape = SubResource("RectangleShape2D_ihyw1")
 [node name="Enemies" type="Node2D" parent="Gameplay" unique_id=1300154553]
 
 [node name="MovingObstacle" parent="Gameplay/Enemies" unique_id=1916201170 node_paths=PackedStringArray("waypoints") instance=ExtResource("131_lsmlo")]
-position = Vector2(1713, 654)
+position = Vector2(1713, 746)
+scale = Vector2(0.5, 0.5)
 waypoints = [NodePath("../../../Markers/EnemyMarkers/EnemyStart1"), NodePath("../../../Markers/EnemyMarkers/EnemyEnd1")]
 
 [node name="MovingObstacle2" parent="Gameplay/Enemies" unique_id=1063473192 node_paths=PackedStringArray("waypoints") instance=ExtResource("131_lsmlo")]
 position = Vector2(1563, 904)
+scale = Vector2(0.5, 0.5)
 waypoints = [NodePath("../../../Markers/EnemyMarkers/EnemyStart2"), NodePath("../../../Markers/EnemyMarkers/EnemyEnd2")]
 
 [node name="MovingObstacle3" parent="Gameplay/Enemies" unique_id=1104653020 node_paths=PackedStringArray("waypoints") instance=ExtResource("131_lsmlo")]
-position = Vector2(1302, 902)
+position = Vector2(1280, 917)
+scale = Vector2(0.5, 0.5)
 waypoints = [NodePath("../../../Markers/EnemyMarkers/EnemyStart3"), NodePath("../../../Markers/EnemyMarkers/EnemyEnd3")]
 
 [node name="Canopies" type="Node2D" parent="." unique_id=1697288657]
@@ -5863,7 +5856,7 @@ position = Vector2(1759, 704)
 [node name="EnemyMarkers" type="Node2D" parent="Markers" unique_id=623107681]
 
 [node name="EnemyStart1" type="Marker2D" parent="Markers/EnemyMarkers" unique_id=812933034]
-position = Vector2(1600, 463)
+position = Vector2(1600, 555)
 
 [node name="EnemyEnd1" type="Marker2D" parent="Markers/EnemyMarkers" unique_id=64278803]
 position = Vector2(1600, 717)
@@ -5872,13 +5865,13 @@ position = Vector2(1600, 717)
 position = Vector2(1450, 714)
 
 [node name="EnemyEnd2" type="Marker2D" parent="Markers/EnemyMarkers" unique_id=1198292639]
-position = Vector2(1450, 459.925)
+position = Vector2(1450, 555)
 
 [node name="EnemyStart3" type="Marker2D" parent="Markers/EnemyMarkers" unique_id=1127703916]
-position = Vector2(1189, 712.075)
+position = Vector2(1167, 727)
 
 [node name="EnemyEnd3" type="Marker2D" parent="Markers/EnemyMarkers" unique_id=2067640969]
-position = Vector2(797, 712)
+position = Vector2(799, 727)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=342041360]
 layer = 3
