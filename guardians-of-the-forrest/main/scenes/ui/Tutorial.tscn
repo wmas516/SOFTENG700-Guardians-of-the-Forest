@@ -6,26 +6,37 @@
 
 [node name="Tutorial" type="Control" unique_id=1434005533]
 layout_mode = 3
-anchor_right = 0.26041666
-anchor_bottom = 0.3287037
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1768432230]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=646514072]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -69.5
+offset_right = 148.0
+offset_bottom = 69.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 4
@@ -33,7 +44,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Left" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1600904696]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Left" unique_id=44409145]
@@ -71,7 +82,7 @@ action = "Left"
 
 [node name="Jump" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1088949616]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Jump" unique_id=966458430]
@@ -109,7 +120,7 @@ action = "Jump"
 
 [node name="Right" type="VBoxContainer" parent="Panel/HBoxContainer" unique_id=1546793819]
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Right" unique_id=340086428]
