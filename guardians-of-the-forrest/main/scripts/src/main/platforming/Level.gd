@@ -99,9 +99,9 @@ func _apply_frozen_state(should_freeze: bool) -> void:
 func _on_player_player_died() -> void:
 	print("death")
 	PlayerData.player_active = false
-	await screen_fade.fade_out()
+	await screen_fade.fade_out(0.1)
 	restore_player_position()
-	await screen_fade.fade_in()
+	await screen_fade.fade_in(0.2)
 	PlayerData.player_active = true
 
 func _on_cave_spawn_body_entered(body: Node2D) -> void:

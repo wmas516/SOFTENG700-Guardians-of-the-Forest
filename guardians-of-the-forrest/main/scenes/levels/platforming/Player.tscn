@@ -599,9 +599,9 @@ bus = &"SFX"
 
 [node name="RespawnParticles" type="GPUParticles2D" parent="." unique_id=599429751]
 emitting = false
-amount = 20
+amount = 40
 texture = SubResource("GradientTexture2D_8xb2h")
-lifetime = 0.5
+lifetime = 0.8
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_2qfoq")
