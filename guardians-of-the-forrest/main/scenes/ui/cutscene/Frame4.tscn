@@ -1,31 +1,12 @@
 [gd_scene format=3 uid="uid://ssylucqvc0dk"]
 
-[ext_resource type="Texture2D" uid="uid://m66dwpoqse18" path="res://resources/cutscene/4/Hills.png" id="1_qy0lk"]
-[ext_resource type="Script" uid="uid://dqea78t351wly" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame4.gd" id="1_yfnf5"]
-[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_24vjh"]
-[ext_resource type="Texture2D" uid="uid://b27mwjjggftw1" path="res://resources/cutscene/4/Background.png" id="2_nlisy"]
+[ext_resource type="Script" uid="uid://cacoasrluvmmb" path="res://main/scripts/src/main/ui/cutscene/CutsceneCamera.gd" id="1_nlisy"]
+[ext_resource type="Texture2D" uid="uid://m66dwpoqse18" path="res://resources/cutscene/4/Hills.png" id="2_nlisy"]
 [ext_resource type="Texture2D" uid="uid://bvrnilhnfymyh" path="res://resources/cutscene/4/Sky.png" id="2_yfnf5"]
+[ext_resource type="Script" uid="uid://dsgbmjwm30tf0" path="res://main/scripts/src/main/ui/cutscene/ParallaxSwayLayer.gd" id="3_24vjh"]
 [ext_resource type="Texture2D" uid="uid://b5v1wgmh64b1x" path="res://resources/cutscene/4/Forest.png" id="3_45yg2"]
 [ext_resource type="Texture2D" uid="uid://cns1rxftp67nb" path="res://resources/cutscene/4/Dirt.png" id="4_4pgtw"]
 [ext_resource type="Texture2D" uid="uid://c30hjwv12oi4o" path="res://resources/cutscene/4/Bush.png" id="5_44lfp"]
-
-[sub_resource type="Resource" id="Resource_ftqun"]
-script = ExtResource("2_24vjh")
-caption = "This is Mr Mountain Range"
-displayTime = 2
-metadata/_custom_type_script = "uid://cgh6n6ony30kf"
-
-[sub_resource type="Resource" id="Resource_rklfq"]
-script = ExtResource("2_24vjh")
-caption = "You can Say hi now"
-displayTime = 2
-metadata/_custom_type_script = "uid://cgh6n6ony30kf"
-
-[sub_resource type="Resource" id="Resource_571yf"]
-script = ExtResource("2_24vjh")
-caption = "He's gonna be here for a while"
-displayTime = 2
-metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 
 [node name="Frame4" type="Control" unique_id=226109720]
 layout_mode = 3
@@ -33,45 +14,64 @@ anchor_right = 2.0730002
 anchor_bottom = 2.5740001
 offset_right = -0.096191406
 offset_bottom = 0.047973633
-script = ExtResource("1_yfnf5")
-captions = Array[ExtResource("2_24vjh")]([SubResource("Resource_ftqun"), SubResource("Resource_rklfq"), SubResource("Resource_571yf")])
+scale = Vector2(0.485, 0.395)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1861816080]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasModulate" unique_id=1261017240]
-offset_right = 2388.0
-offset_bottom = 1668.0
-texture = ExtResource("2_nlisy")
+script = ExtResource("1_nlisy")
 
 [node name="Hills" type="TextureRect" parent="CanvasModulate" unique_id=1421825893]
-offset_top = 175.0
-offset_right = 2388.0
-offset_bottom = 999.0
-texture = ExtResource("1_qy0lk")
+offset_top = 101.66
+offset_right = 2450.0
+offset_bottom = 998.978
+texture = ExtResource("2_nlisy")
+script = ExtResource("3_24vjh")
+sway_distance = Vector2(0, 0)
+sway_speed = 0.0
 
 [node name="Sky" type="TextureRect" parent="CanvasModulate" unique_id=1778058823]
-offset_right = 2388.0
-offset_bottom = 1146.0
+offset_top = -40.67
+offset_right = 2450.0
+offset_bottom = 1150.32
 texture = ExtResource("2_yfnf5")
+script = ExtResource("3_24vjh")
+sway_distance = Vector2(16, 1)
+sway_speed = 0.3
+phase_offset = 1.2
+rotation_amplitude_deg = 0.5
 
 [node name="Forest" type="TextureRect" parent="CanvasModulate" unique_id=1828498748]
-offset_top = 324.0
-offset_right = 2388.0
-offset_bottom = 1522.0
+offset_top = 298.165
+offset_right = 2450.0
+offset_bottom = 1521.6901
 texture = ExtResource("3_45yg2")
+script = ExtResource("3_24vjh")
+sway_distance = Vector2(10, 4)
+phase_offset = 3.6
+rotation_amplitude_deg = 0.2
 
 [node name="Dirt" type="TextureRect" parent="CanvasModulate" unique_id=272006093]
 offset_top = 532.0
-offset_right = 2388.0
+offset_right = 2450.0
 offset_bottom = 1668.0
 texture = ExtResource("4_4pgtw")
+script = ExtResource("3_24vjh")
+sway_distance = Vector2(16, 6)
+sway_speed = 0.3
+phase_offset = 6.0
+rotation_amplitude_deg = 0.3
 
 [node name="Bush" type="TextureRect" parent="CanvasModulate" unique_id=1710565197]
-offset_right = 2388.0
+offset_right = 2450.0
 offset_bottom = 1668.0
 texture = ExtResource("5_44lfp")
+script = ExtResource("3_24vjh")
+sway_distance = Vector2(16, 6)
+sway_speed = 0.3
+phase_offset = 6.0
+rotation_amplitude_deg = 0.3
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1335777704]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

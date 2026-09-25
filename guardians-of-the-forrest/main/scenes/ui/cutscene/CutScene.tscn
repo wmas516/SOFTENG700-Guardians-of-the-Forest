@@ -85,41 +85,37 @@ metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 script = ExtResource("1_26j4q")
 
 [node name="Frame1" parent="." unique_id=226109720 instance=ExtResource("3_ir5e6")]
-offset_left = 128.00002
-offset_right = 129.0791
+offset_left = 1.9999924
+offset_right = -1.0031738
 offset_bottom = 2.151123
-scale = Vector2(0.388, 0.388)
+scale = Vector2(0.483, 0.388)
 script = ExtResource("3_tb4b6")
 speed = 0.1
 captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_ov408"), SubResource("Resource_tqvm0"), SubResource("Resource_dh585"), SubResource("Resource_3o8h0"), SubResource("Resource_cuc0o")])
 
 [node name="Frame2" parent="." unique_id=175296139 instance=ExtResource("1_hgqwg")]
 visible = false
-offset_left = 126.00001
-offset_right = 126.2959
-scale = Vector2(0.388, 0.388)
+scale = Vector2(0.483, 0.388)
 speed = 0.1
 captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_vnhbu")])
 
 [node name="Frame3" parent="." unique_id=1151794034 instance=ExtResource("2_26j4q")]
 visible = false
-offset_left = 134.00002
-offset_right = 130.47119
+offset_right = -3.5288086
 offset_bottom = 0.22180176
-scale = Vector2(0.388, 0.388)
+scale = Vector2(0.483, 0.388)
 speed = 0.1
 captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_lqsls")])
 
 [node name="Frame4" parent="." unique_id=2113569263 instance=ExtResource("3_ir5e6")]
-visible = false
-offset_left = 128.00002
-offset_right = 129.0791
+offset_right = 1.0791016
 offset_bottom = 4.7283936
-scale = Vector2(0.388, 0.388)
+scale = Vector2(0.483, 0.388)
 speed = 0.1
 captions = Array[ExtResource("3_n8tvt")]([SubResource("Resource_tbkxf"), SubResource("Resource_e6n5f"), SubResource("Resource_dywic"), SubResource("Resource_8bnwm"), SubResource("Resource_dxb4i")])
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1105652920]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
