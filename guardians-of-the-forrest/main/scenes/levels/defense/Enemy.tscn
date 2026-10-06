@@ -105,9 +105,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ya4xx"]
-radius = 549.0
-height = 1098.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ya4xx"]
+radius = 500.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=959500786]
 
@@ -119,9 +118,8 @@ animation = &"idle"
 frame_progress = 0.6376259
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589379425]
-position = Vector2(4, 6)
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_ya4xx")
+shape = SubResource("CircleShape2D_ya4xx")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=2125186630]
 target_position = Vector2(1000, 0)

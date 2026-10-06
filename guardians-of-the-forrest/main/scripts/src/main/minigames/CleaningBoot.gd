@@ -18,11 +18,14 @@ extends Node2D
 @onready var scrubSoundPlayer: AudioStreamPlayer = $ScrubPlayer
 
 @onready var objectiveLabel: Label = $HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title
+@onready var tutorialVideo: Control = $HUD/MarginContainer/TutorialVideo
+
 
 var rightFocused: bool = true
 
 var isDragging = false
 var level_complete: bool = false
+
 
 func _ready():
 	spotLabel.text = str(sprites.size())
@@ -31,7 +34,7 @@ func _ready():
 	swapFoot()
 
 func _input(event):
-	if level_complete:
+	if level_complete || (tutorialVideo && tutorialVideo.visible):
 		return
 
 	if event is InputEventMouseButton:
@@ -125,3 +128,8 @@ func swapFoot():
 		dirtyRight.visible = rightFocused
 	bootRight.visible = rightFocused
 	objectiveLabel.set_text("Scrub the boot to clear the myrtle rust")
+
+
+func _on_menu_help() -> void:
+	if (tutorialVideo):
+		tutorialVideo.visible = !tutorialVideo.visible
