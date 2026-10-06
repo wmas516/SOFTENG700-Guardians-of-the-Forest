@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://duvcsxbevcv7t"]
+
+[ext_resource type="Script" uid="uid://lsj3xmna6lsg" path="res://main/scripts/src/main/platforming/ScreenFade.gd" id="1_asp1x"]
+
+[node name="ScreenFade" type="CanvasLayer" unique_id=906879056]
+script = ExtResource("1_asp1x")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=991916965]
+offset_right = 1153.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0)
