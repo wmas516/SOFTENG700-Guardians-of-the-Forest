@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Gravity
 	if is_on_floor() == false:
-		velocity.y += gravity*delta
+		velocity.y += gravity * delta
 		if velocity.y > 500:
 			velocity.y = 500
 	
@@ -100,9 +100,10 @@ func handle_collisions() -> void:
 	for i in get_slide_collision_count():
 		var collider = get_slide_collision(i).get_collider() 
 
-		if collider.is_in_group("Enemies"):
+		if collider.is_in_group("Enemies") and not is_hurt:
 			print("enemy")
-			player_died.emit()
+			damage()
+			
 		elif collider.is_in_group("Bounce"):
 			bounce_up(collider.bounce_force)
 			$"../../BouncePlayer".play()
@@ -163,6 +164,14 @@ func start_dash() -> void:
 	dash_indicator.visible = true
 	can_dash = true
 	
+func damage():
+	is_hurt = true
+	animated_sprite.play("hurt")
+	damage_audio_player.play()
+	await animated_sprite.animation_finished
+	player_died.emit()
+	is_hurt = false
+
 func spawn_ghost() -> void:
 	var ghost := Sprite2D.new()
 	ghost.texture = animated_sprite.sprite_frames.get_frame_texture(

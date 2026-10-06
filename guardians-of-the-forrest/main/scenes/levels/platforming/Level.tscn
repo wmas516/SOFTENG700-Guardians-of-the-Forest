@@ -137,7 +137,7 @@
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
-[ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
+[ext_resource type="PackedScene" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
