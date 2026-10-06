@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bubv66dcc7v56"]
+
+[ext_resource type="Script" uid="uid://jb6o6eshrje2" path="res://main/scripts/src/main/ui/TutorialVideo.gd" id="1_4jgbb"]
+[ext_resource type="VideoStream" uid="uid://gj1f7ljxuq6u" path="res://resources/tutorial/Tutorial-Boot-Clean.ogv" id="1_htd20"]
+
+[node name="TutorialVideo" type="Control" unique_id=1598740574]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4jgbb")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1218538965]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer" unique_id=426476235]
+layout_mode = 2
+ratio = 1.7777778
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="MarginContainer/AspectRatioContainer" unique_id=1918520283]
+layout_mode = 2
+stream = ExtResource("1_htd20")
+autoplay = true
+expand = true
+loop = true
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=542474765]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Instruction"
+
+[node name="Button" type="Button" parent="MarginContainer" unique_id=1774234940]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]

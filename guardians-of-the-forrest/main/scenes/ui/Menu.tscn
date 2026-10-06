@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b48m8w6d5x2v5"]
 
+[ext_resource type="Script" uid="uid://bnha0oq781tib" path="res://main/scripts/src/main/ui/Menu.gd" id="1_cdp3b"]
 [ext_resource type="PackedScene" uid="uid://qr7fiy65pn2p" path="res://main/scenes/ui/audio/AudioSliders.tscn" id="1_e0747"]
 [ext_resource type="Script" uid="uid://b1ij7t778jryc" path="res://main/scripts/src/main/ui/DifficultyOptions.gd" id="2_difficulty"]
 
@@ -20,22 +21,34 @@ bg_color = Color(0.06879826, 0.06879829, 0.06879823, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6qunw"]
 
 [node name="Menu" type="Control" unique_id=1705628697]
-mouse_filter = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cdp3b")
 
-[node name="MenuButton" type="Button" parent="." unique_id=2101113975]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=41239423]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -109.0
-offset_bottom = 31.0
+offset_left = -168.0
+offset_bottom = 40.0
 grow_horizontal = 0
+theme_override_constants/separation = 20
+
+[node name="HelpButton" type="Button" parent="HBoxContainer" unique_id=1970665108]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+focus_mode = 0
+text = "Help"
+
+[node name="MenuButton" type="Button" parent="HBoxContainer" unique_id=2101113975]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
 focus_mode = 0
 toggle_mode = true
 text = "Menu"
@@ -99,4 +112,5 @@ layout_mode = 2
 text = "Difficulty"
 horizontal_alignment = 1
 
-[connection signal="toggled" from="MenuButton" to="MenuContainer" method="set_visible"]
+[connection signal="pressed" from="HBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
