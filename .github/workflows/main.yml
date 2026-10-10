@@ -52,20 +52,22 @@ jobs:
         if: matrix.platform == 'android'
         run: sdkmanager --install "platform-tools" "build-tools;35.0.1" "platforms;android-36" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;28.1.13356709"
 
-      - name: Install Android build template
-        if: matrix.platform == 'android'
-        run: |
-          godot --headless --editor --import --quit
-          godot --headless --editor --install-android-build-template --quit
-
       - name: Verify Installations
         run: godot --version
+
+      - name: Import project assets
+        run: godot --headless --editor --import --quit
 
       - name: Create Build Directory
         run: mkdir -p ../build/${{ matrix.platform }}
 
-      - name: Compile and Export
+      - name: Export Windows build
+        if: matrix.platform == 'windows'
         run: godot --headless --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
+
+      - name: Export Android build
+        if: matrix.platform == 'android'
+        run: godot --headless --install-android-build-template --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
