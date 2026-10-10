@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bnha0oq781tib" path="res://main/scripts/src/main/ui/Menu.gd" id="1_cdp3b"]
 [ext_resource type="PackedScene" uid="uid://qr7fiy65pn2p" path="res://main/scenes/ui/audio/AudioSliders.tscn" id="1_e0747"]
 [ext_resource type="Script" uid="uid://b1ij7t778jryc" path="res://main/scripts/src/main/ui/DifficultyOptions.gd" id="2_difficulty"]
+[ext_resource type="Script" path="res://main/scripts/src/main/ui/NarrativeOptions.gd" id="3_narrative"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_panel"]
 content_margin_left = 8.0
@@ -110,6 +111,30 @@ alignment = 1
 [node name="Heading" type="Label" parent="MenuContainer/Audio/Difficulty/MarginContainer/Buttons" unique_id=50888917]
 layout_mode = 2
 text = "Difficulty"
+horizontal_alignment = 1
+
+[node name="Narrative" type="PanelContainer" parent="MenuContainer/Audio"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6qunw")
+script = ExtResource("3_narrative")
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/Audio/Narrative"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Buttons" type="VBoxContainer" parent="MenuContainer/Audio/Narrative/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Heading" type="Label" parent="MenuContainer/Audio/Narrative/MarginContainer/Buttons"]
+layout_mode = 2
+text = "Narrative"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
