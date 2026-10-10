@@ -56,7 +56,7 @@ jobs:
         if: matrix.platform == 'android'
         run: |
           godot --headless --editor --import --quit
-          godot --headless --install-android-build-template
+          godot --headless --editor --install-android-build-template --quit
 
       - name: Verify Installations
         run: godot --version
