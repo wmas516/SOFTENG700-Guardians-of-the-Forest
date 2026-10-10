@@ -18,7 +18,7 @@ jobs:
             artifact_ext: exe
           - platform: android
             preset: Android
-            artifact_ext: apk
+            artifact_ext: aab
     defaults:
       run:
         working-directory: guardians-of-the-forrest
@@ -37,14 +37,49 @@ jobs:
           use-dotnet: false
           include-templates: true
 
+      - name: Setup Java for Android
+        if: matrix.platform == 'android'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Android SDK
+        if: matrix.platform == 'android'
+        uses: android-actions/setup-android@v4
+
+      - name: Install Android SDK packages
+        if: matrix.platform == 'android'
+        run: sdkmanager --install "platform-tools" "build-tools;35.0.1" "platforms;android-36" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;28.1.13356709"
+
       - name: Verify Installations
         run: godot --version
+
+      - name: Import project assets
+        run: godot --headless --editor --import --quit
 
       - name: Create Build Directory
         run: mkdir -p ../build/${{ matrix.platform }}
 
-      - name: Compile and Export
+      - name: Prepare Android signing keystore
+        if: matrix.platform == 'android'
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          test -n "$ANDROID_KEYSTORE_BASE64" || { echo "Missing ANDROID_KEYSTORE_BASE64 repository secret"; exit 1; }
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/android-release.keystore"
+
+      - name: Export Windows build
+        if: matrix.platform == 'windows'
         run: godot --headless --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
+
+      - name: Export Android build
+        if: matrix.platform == 'android'
+        run: godot --headless --install-android-build-template --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
+        env:
+          GODOT_ANDROID_KEYSTORE_RELEASE_PATH: ${{ runner.temp }}/android-release.keystore
+          GODOT_ANDROID_KEYSTORE_RELEASE_USER: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
