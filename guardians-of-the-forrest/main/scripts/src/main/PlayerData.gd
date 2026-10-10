@@ -10,6 +10,7 @@ const NarrativeSubDir: Dictionary = {
 	}
 
 signal difficulty_changed(new_difficulty: Difficulty)
+signal narrative_changed(new_narrative: Narrative)
 
 var saved_platforming_position: Vector2 = Vector2.ZERO
 var has_saved_platforming_position: bool = false
@@ -42,6 +43,12 @@ func set_difficulty(new_difficulty: Difficulty) -> void:
 		return
 	difficulty = new_difficulty
 	difficulty_changed.emit(difficulty)
+
+func set_narrative(new_narrative: Narrative) -> void:
+	if narrative == new_narrative:
+		return
+	narrative = new_narrative
+	narrative_changed.emit(narrative)
 
 func restart() -> void:
 	saved_platforming_position = Vector2.ZERO
