@@ -9,11 +9,15 @@ var frames: Array[CutsceneFrame] = []
 var index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
+		done()
+		return
 	hideAllFrames()
 	disableAllFrames()
 	for child in get_children():
 		if (child is CutsceneFrame):
 			frames.append(child)
+	
 	showFrame(index)
 	pass # Replace with function body.
 
@@ -62,7 +66,12 @@ func _on_frame_done() -> void:
 	disableAllFrames()
 	index += 1
 	if (index >= frames.size()):
-		get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Level.tscn")
+		done()
 		
 	else:
 		showFrame(index)
+
+func done() -> void:
+	$AudioStreamPlayer.stop()
+	get_tree().change_scene_to_file("res://main/scenes/levels/platforming/Level.tscn")
+		

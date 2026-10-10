@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TimedCaption" load_steps=2 format=3]
+
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+caption = "YIPPEEEEE"
+displayTime = 2
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
