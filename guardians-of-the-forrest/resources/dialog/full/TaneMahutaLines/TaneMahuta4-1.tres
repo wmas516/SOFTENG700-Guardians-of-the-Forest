@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://bs7jhh0mr6iat"]
+
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="1_adn2h"]
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_spftj"]
+
+[resource]
+script = ExtResource("2_spftj")
+speaker = "Tāne Mahuta"
+text = "Someone has lost their boots in this cave!"
+portrait = ExtResource("1_adn2h")
+metadata/_custom_type_script = "uid://xxvberhow7ro"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DialogSequence" format=3 uid="uid://blr8nnfrvcckm"]
+[gd_resource type="Resource" script_class="DialogSequence" format=3 uid="uid://b72nthcxxaoy"]
 
 [ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="1_csxib"]
 [ext_resource type="Resource" uid="uid://wujlmpoe4vw3" path="res://resources/dialog/full/TaneMahutaLines/TaneMahuta1-1.tres" id="2_kyktx"]
