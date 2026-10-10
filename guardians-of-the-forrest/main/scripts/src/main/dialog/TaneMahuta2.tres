@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="1_6kyn4"]
 [ext_resource type="Script" uid="uid://byhhow1tqmuxc" path="res://main/scripts/src/main/DialogSequence.gd" id="2_iea1i"]
-[ext_resource type="Resource" uid="uid://tgb2shsxvdic" path="res://main/scripts/src/main/dialog/TaneMahutaLines/TaneMahuta2-1.tres" id="2_sotcl"]
-[ext_resource type="Resource" uid="uid://7iw8qb2d67if" path="res://main/scripts/src/main/dialog/TaneMahutaLines/TaneMahuta2-2.tres" id="3_5dvhe"]
+[ext_resource type="Resource" uid="uid://tgb2shsxvdic" path="res://resources/dialog/full/TaneMahutaLines/TaneMahuta2-1.tres" id="2_sotcl"]
+[ext_resource type="Resource" uid="uid://7iw8qb2d67if" path="res://resources/dialog/full/TaneMahutaLines/TaneMahuta2-2.tres" id="3_5dvhe"]
 
 [resource]
 script = ExtResource("2_iea1i")

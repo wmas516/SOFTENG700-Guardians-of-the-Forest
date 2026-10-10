@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://tc4dh6laar6v"]
+
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="1_rplyo"]
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_lvg8d"]
+
+[resource]
+script = ExtResource("2_lvg8d")
+speaker = "Tāne Mahuta"
+text = "Oh no this tree has been infected."
+portrait = ExtResource("1_rplyo")
+metadata/_custom_type_script = "uid://xxvberhow7ro"

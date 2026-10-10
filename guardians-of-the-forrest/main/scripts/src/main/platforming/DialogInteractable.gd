@@ -1,6 +1,7 @@
 class_name DialogInteractable
 extends Area2D
 
+@export var dialog_name: String
 @export var dialog_sequence: DialogSequence
 @export var dialog_line: DialogLine
 @export var need_to_interact: bool = true
@@ -27,6 +28,18 @@ var interactable_enabled: bool = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = popup_text
+	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
+		interactable_enabled = false
+		collision_shape_2d.set_deferred("disabled", true)
+		label.hide()
+		return
+
+	if ((PlayerData.narrative != PlayerData.Narrative.SKIP) && dialog_name):
+		var dialogPath: String = PlayerData.full_narrative_dir() + dialog_name
+		if (ResourceLoader.exists(dialogPath)):
+			var res: Resource = load(dialogPath)
+			if (res is DialogSequence):
+				dialog_sequence = res as DialogSequence
 	
 	var keys = InputMap.action_get_events("Interact")
 	var newText: Array[String] = []
