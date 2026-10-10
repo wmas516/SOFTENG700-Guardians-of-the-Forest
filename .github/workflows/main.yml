@@ -46,11 +46,15 @@ jobs:
 
       - name: Setup Android SDK
         if: matrix.platform == 'android'
-        uses: android-actions/setup-android@v4
+        uses: android-actions/setup-android@v3
 
       - name: Install Android SDK packages
         if: matrix.platform == 'android'
         run: sdkmanager --install "platform-tools" "build-tools;35.0.1" "platforms;android-36" "cmdline-tools;latest" "cmake;3.10.2.4988404" "ndk;28.1.13356709"
+
+      - name: Install Android build template
+        if: matrix.platform == 'android'
+        run: godot --headless --install-android-build-template
 
       - name: Verify Installations
         run: godot --version
