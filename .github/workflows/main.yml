@@ -61,6 +61,14 @@ jobs:
       - name: Create Build Directory
         run: mkdir -p ../build/${{ matrix.platform }}
 
+      - name: Prepare Android signing keystore
+        if: matrix.platform == 'android'
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          test -n "$ANDROID_KEYSTORE_BASE64" || { echo "Missing ANDROID_KEYSTORE_BASE64 repository secret"; exit 1; }
+          printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/android-release.keystore"
+
       - name: Export Windows build
         if: matrix.platform == 'windows'
         run: godot --headless --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
@@ -68,6 +76,10 @@ jobs:
       - name: Export Android build
         if: matrix.platform == 'android'
         run: godot --headless --install-android-build-template --export-release "${{ matrix.preset }}" ../build/${{ matrix.platform }}/${{ matrix.platform }}.${{ matrix.artifact_ext }}
+        env:
+          GODOT_ANDROID_KEYSTORE_RELEASE_PATH: ${{ runner.temp }}/android-release.keystore
+          GODOT_ANDROID_KEYSTORE_RELEASE_USER: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+          GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
