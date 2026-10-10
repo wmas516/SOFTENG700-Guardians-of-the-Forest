@@ -18,7 +18,7 @@ jobs:
             artifact_ext: exe
           - platform: android
             preset: Android
-            artifact_ext: apk
+            artifact_ext: aab
     defaults:
       run:
         working-directory: guardians-of-the-forrest
