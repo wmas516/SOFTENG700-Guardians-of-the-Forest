@@ -5,47 +5,27 @@
 [ext_resource type="PackedScene" uid="uid://rebxd0meupyi" path="res://main/scenes/ui/cutscene/Frame3.tscn" id="2_26j4q"]
 [ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="3_ir5e6"]
 [ext_resource type="Resource" uid="uid://xks27fa4f6kk" path="res://resources/dialog/full/Frame1.tres" id="4_tbkxf"]
-[ext_resource type="Resource" uid="uid://c3sps2whh0ex3" path="res://resources/dialog/full/Frame2.tres" id="6_e6n5f"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="7_ov408"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_tqvm0"]
-[ext_resource type="Resource" uid="uid://bsvaoj65mxuat" path="res://resources/dialog/full/Frame3.tres" id="8_dywic"]
 [ext_resource type="Resource" uid="uid://do6j05gh0374r" path="res://resources/dialog/full/Frame4.tres" id="9_8bnwm"]
 
 [node name="CutScene" type="Node" unique_id=590531104]
 script = ExtResource("1_26j4q")
 
-[node name="Frame1" parent="." unique_id=226109720 instance=ExtResource("3_ir5e6")]
-offset_left = 1.9999924
-offset_right = -1.0031738
-offset_bottom = 2.151123
-scale = Vector2(0.388, 0.388)
+[node name="Frame1" parent="." unique_id=2137054221 instance=ExtResource("3_ir5e6")]
 speed = 0.1
 captionsList = ExtResource("4_tbkxf")
 captionsListName = "Frame1"
 
-[node name="Frame2" parent="." unique_id=175296139 instance=ExtResource("1_hgqwg")]
-visible = false
-offset_left = 126.00001
-offset_right = 126.2959
-scale = Vector2(0.388, 0.388)
+[node name="Frame2" parent="." unique_id=637778314 instance=ExtResource("1_hgqwg")]
 speed = 0.1
-captionsList = ExtResource("6_e6n5f")
 captionsListName = "Frame2"
 
-[node name="Frame3" parent="." unique_id=1151794034 instance=ExtResource("2_26j4q")]
-visible = false
-offset_right = -3.5288086
-offset_bottom = 0.22180176
-scale = Vector2(0.388, 0.388)
+[node name="Frame3" parent="." unique_id=1245797859 instance=ExtResource("2_26j4q")]
 speed = 0.1
-captionsList = ExtResource("8_dywic")
 captionsListName = "Frame3"
 
-[node name="Frame4" parent="." unique_id=2113569263 instance=ExtResource("3_ir5e6")]
-visible = false
-offset_right = 1.0791016
-offset_bottom = 4.7283936
-scale = Vector2(0.388, 0.388)
+[node name="Frame4" parent="." unique_id=634001487 instance=ExtResource("3_ir5e6")]
 speed = 0.1
 captionsList = ExtResource("9_8bnwm")
 captionsListName = "Frame4"

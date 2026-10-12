@@ -9,7 +9,7 @@ extends Control
 @onready var timer: Timer = $Timer
 
 var index = 0
-var captions 
+var captions: Array[TimedCaption] = []
 signal done
 
 # Called when the node enters the scene tree for the first time.
@@ -17,11 +17,13 @@ func _ready() -> void:
 	#PlayerData.full_narrative_dir()
 	if ((PlayerData.narrative != PlayerData.Narrative.SKIP) && captionsListName):
 		var dialogPath: String = PlayerData.full_narrative_dir() + captionsListName
+		if not dialogPath.ends_with(".tres"):
+			dialogPath += ".tres"
 		if (ResourceLoader.exists(dialogPath)):
 			var res: Resource = load(dialogPath)
 			if (res is TimedCaptionSequence):
 				captionsList = res as TimedCaptionSequence
-	if(captionsList):
+	if captionsList:
 		captions = captionsList.captions
 	
 	pass # Replace with function body.
