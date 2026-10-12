@@ -138,6 +138,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
 [ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
+[ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="tutorial_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
@@ -4338,6 +4339,7 @@ popup_text = "Challenge the Myrtle King []"
 label_offset = Vector2(-80, -60)
 
 [node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
+z_index = 3
 position = Vector2(205, 106)
 collision_layer = 8
 collision_mask = 2
@@ -5895,7 +5897,13 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Menu" parent="UI/MarginContainer" unique_id=1705628697 instance=ExtResource("123_ejyt0")]
+z_index = 2
 layout_mode = 2
+
+[node name="Tutorial" parent="UI/MarginContainer" unique_id=1479953224 instance=ExtResource("tutorial_controls")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
@@ -5911,3 +5919,4 @@ bus = &"Music"
 [connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
 [connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
 [connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
+[connection signal="help" from="UI/MarginContainer/Menu" to="." method="_on_menu_help"]

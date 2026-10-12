@@ -4,16 +4,17 @@
 [ext_resource type="Script" uid="uid://ctpp75jehr23s" path="res://main/scripts/src/main/ui/PlayerTutorial.gd" id="2_54omf"]
 [ext_resource type="Script" uid="uid://q0ft3l2npcl3" path="res://main/scripts/src/main/ui/InputLabeller.gd" id="3_avg8m"]
 [ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="3_dsb75"]
+[ext_resource type="Texture2D" uid="uid://iy2dr7i0tsrp" path="res://resources/icons/Vertical Banner.png" id="5_54omf"]
+[ext_resource type="Texture2D" uid="uid://vxg3rl60qugq" path="res://resources/icons/Banner.png" id="6_t6k0c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_54omf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6k0c"]
 
 [node name="Tutorial" type="Control" unique_id=1434005533]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="." unique_id=1768432230]
@@ -25,6 +26,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel" unique_id=646514072]
@@ -34,12 +37,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -148.0
-offset_top = -69.5
-offset_right = 148.0
-offset_bottom = 69.5
+offset_left = -124.0
+offset_top = -65.0
+offset_right = 124.0
+offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/separation = 4
 metadata/_edit_use_anchors_ = true
 
@@ -47,19 +51,31 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Left" unique_id=44409145]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Right Jumping Wrap" type="PanelContainer" parent="Panel/HBoxContainer/Left/VBoxContainer" unique_id=2143000001]
-custom_minimum_size = Vector2(96, 112)
+custom_minimum_size = Vector2(80, 90)
 layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_54omf")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap" unique_id=467188585]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_54omf")
+expand_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap" unique_id=2143000101]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Bounds" type="Control" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap/CenterContainer" unique_id=2143000201]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Left" parent="Panel/HBoxContainer/Left/VBoxContainer/Right Jumping Wrap/CenterContainer/Bounds" unique_id=125588370 instance=ExtResource("1_dsb75")]
 scale = Vector2(0.9, 0.9)
@@ -74,11 +90,28 @@ attacking = false
 switch = false
 switchTime = 1
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Left/VBoxContainer" unique_id=982494538]
+[node name="PanelContainer" type="PanelContainer" parent="Panel/HBoxContainer/Left/VBoxContainer" unique_id=259362274]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t6k0c")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Left/VBoxContainer/PanelContainer" unique_id=656486621]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("6_t6k0c")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Left/VBoxContainer/PanelContainer" unique_id=50945257]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Left/VBoxContainer/PanelContainer/MarginContainer" unique_id=982494538]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_dsb75")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "[Left]"
 horizontal_alignment = 1
 script = ExtResource("3_avg8m")
@@ -88,26 +121,38 @@ action = "Left"
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Jump" unique_id=966458430]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Right Jumping Wrap" type="PanelContainer" parent="Panel/HBoxContainer/Jump/VBoxContainer" unique_id=1428598977]
-custom_minimum_size = Vector2(96, 112)
+custom_minimum_size = Vector2(80, 90)
 layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_54omf")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap" unique_id=1424737348]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_54omf")
+expand_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap" unique_id=1464324037]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Bounds" type="Control" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap/CenterContainer" unique_id=142593347]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Jumping" parent="Panel/HBoxContainer/Jump/VBoxContainer/Right Jumping Wrap/CenterContainer/Bounds" unique_id=868766390 instance=ExtResource("1_dsb75")]
 scale = Vector2(0.9, 0.9)
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_54omf")
-jump_force = 200
+jump_force = 150
 gravity = 400
 direction = 0
 jumping = true
@@ -115,11 +160,28 @@ attacking = false
 switch = false
 switchTime = 1
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Jump/VBoxContainer" unique_id=211842522]
+[node name="PanelContainer" type="PanelContainer" parent="Panel/HBoxContainer/Jump/VBoxContainer" unique_id=648571136]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t6k0c")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Jump/VBoxContainer/PanelContainer" unique_id=49754654]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("6_t6k0c")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Jump/VBoxContainer/PanelContainer" unique_id=1728368486]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Jump/VBoxContainer/PanelContainer/MarginContainer" unique_id=211842522]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_dsb75")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "[Jump]"
 horizontal_alignment = 1
 script = ExtResource("3_avg8m")
@@ -129,19 +191,31 @@ action = "Jump"
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/Right" unique_id=340086428]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Right Jumping Wrap" type="PanelContainer" parent="Panel/HBoxContainer/Right/VBoxContainer" unique_id=110637965]
-custom_minimum_size = Vector2(96, 112)
+custom_minimum_size = Vector2(80, 90)
 layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_54omf")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap" unique_id=1518746071]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_54omf")
+expand_mode = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap" unique_id=319028699]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Bounds" type="Control" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap/CenterContainer" unique_id=2125852602]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Right" parent="Panel/HBoxContainer/Right/VBoxContainer/Right Jumping Wrap/CenterContainer/Bounds" unique_id=201761421 instance=ExtResource("1_dsb75")]
 scale = Vector2(0.9, 0.9)
@@ -156,11 +230,28 @@ attacking = false
 switch = false
 switchTime = 1
 
-[node name="Label" type="Label" parent="Panel/HBoxContainer/Right/VBoxContainer" unique_id=1932186265]
+[node name="PanelContainer" type="PanelContainer" parent="Panel/HBoxContainer/Right/VBoxContainer" unique_id=1410788500]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_t6k0c")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/HBoxContainer/Right/VBoxContainer/PanelContainer" unique_id=2077112653]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("6_t6k0c")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer/Right/VBoxContainer/PanelContainer" unique_id=1611210295]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer/Right/VBoxContainer/PanelContainer/MarginContainer" unique_id=1962012276]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_dsb75")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "[Right]"
 horizontal_alignment = 1
 script = ExtResource("3_avg8m")
