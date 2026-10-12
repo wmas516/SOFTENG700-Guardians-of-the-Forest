@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bq0xx0f2ne41i"]
 
 [ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
+[ext_resource type="PackedScene" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="2_uvyfl"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="3_uvyfl"]
@@ -15,6 +16,10 @@ bg_color = Color(0, 0, 0, 0.55)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvyfl"]
 bg_color = Color(0, 0, 0, 0.55)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyicb"]
 radius = 94.0
@@ -92,6 +97,7 @@ layout_mode = 2
 text = "67"
 
 [node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=1142590230]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -150,9 +156,9 @@ size_flags_horizontal = 4
 text = "Boots Are Now Clean!"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=206448421]
+[node name="ReturnButton" parent="HUD/ReturnBox" unique_id=206448421 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "Return"
+button_text = "Return"
 
 [node name="BootRight" type="Sprite2D" parent="." unique_id=1775772366]
 position = Vector2(556, 282)

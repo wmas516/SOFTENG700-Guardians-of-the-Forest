@@ -19,7 +19,7 @@ var infected_trees: Array[String] = []
 var game_progress_stage: int = 0
 var narrative: Narrative = Narrative.FULL
 var player_active: bool = true
-var difficulty: Difficulty = Difficulty.MEDIUM
+var difficulty: Difficulty = Difficulty.EASY
 
 func full_narrative_dir() -> String:
 	return(NarrativeResLoc + NarrativeSubDir.get(narrative))

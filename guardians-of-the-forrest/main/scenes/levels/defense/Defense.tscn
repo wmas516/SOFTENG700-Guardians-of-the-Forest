@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bd4t1vlxqe1xw" path="res://resources/icons/Life.png" id="13_bkpia"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="13_kf8d3"]
 [ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_501nx"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="14_vkyni"]
+[ext_resource type="PackedScene" uid="uid://ba5x1cxygfjdb" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
@@ -43,8 +45,12 @@ point_count = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ktgts"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stat_bg"]
-bg_color = Color(0, 0, 0, 0.55)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_objective"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sx28c"]
 
@@ -182,40 +188,47 @@ theme_override_fonts/font = ExtResource("11_ktgts")
 theme_override_font_sizes/font_size = 16
 text = "Wave: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=502969364]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=305008687]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/separation = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=502969364]
+layout_mode = 2
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="CurrentWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=781350397]
+[node name="CurrentWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer2" unique_id=781350397]
 z_index = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ktgts")
 text = "67"
 
-[node name="MarginContainer3" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=564574337]
+[node name="MarginContainer3" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=564574337]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="Divisor" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer3" unique_id=1005617058]
+[node name="Divisor" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer3" unique_id=1005617058]
 z_index = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ktgts")
 text = "/"
 
-[node name="MarginContainer4" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=136305637]
+[node name="MarginContainer4" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=136305637]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="TotalWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4" unique_id=18322677]
+[node name="TotalWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer4" unique_id=18322677]
 z_index = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("11_ktgts")
 text = "69"
 
 [node name="Enemies" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=1163219687]
@@ -254,6 +267,7 @@ theme_override_constants/margin_bottom = 4
 [node name="Count" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=2115732667]
 z_index = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("12_wnsf8")
 text = "67"
 
 [node name="HP" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=1787254912]
@@ -288,29 +302,26 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
+theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=771989821]
 layout_mode = 2
 
-[node name="Count" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1676531051]
-z_index = 1
-layout_mode = 2
-theme_override_fonts/font = ExtResource("12_wnsf8")
-text = "5"
-
 [node name="Life" type="TextureRect" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=2023908828]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+size_flags_horizontal = 3
 texture = ExtResource("13_bkpia")
 expand_mode = 3
 
 [node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=301180694]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_stat_bg")
+theme_override_styles/panel = SubResource("StyleBoxFlat_objective")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/Objective" unique_id=1193175475]
 layout_mode = 2
@@ -319,21 +330,44 @@ theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=343777915]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=126209379]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("14_vkyni")
 theme_override_font_sizes/font_size = 24
-text = "Stop the Myrtle Spores from reaching Tāne Mahuta"
+text = "Stop the myrtle spores from reaching Tane mahuta"
 
-[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=965864015 instance=ExtResource("ui_panel_base")]
+[node name="UIPanel2" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=1600975572 instance=ExtResource("ui_panel_base")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 541.2404
+offset_top = 69.0
+offset_right = 1130.5055
+offset_bottom = 321.719
+grow_horizontal = 1
+rotation = 3.1415927
+expand_mode = 1
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=320323935 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 570.2803
+offset_top = 17.0
+offset_right = 1218.592
+offset_bottom = 318.0
+grow_horizontal = 1
+rotation = 3.1415927
+expand_mode = 1
 
 [node name="Tutorial" parent="HUD/MarginContainer" unique_id=1434005533 instance=ExtResource("11_sx28c")]
 layout_mode = 2
@@ -361,21 +395,21 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=2000000004]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("14_vkyni")
+theme_override_font_sizes/font_size = 48
 text = "You Have Protected The Tree!"
 horizontal_alignment = 1
 
-[node name="UIPanel" parent="HUD/ReturnBox/Label" unique_id=458110511 instance=ExtResource("ui_panel_base")]
-layout_mode = 0
-anchors_preset = 0
-
-[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=384352501]
+[node name="ReturnButton" parent="HUD/ReturnBox" unique_id=384352501 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "Return"
+size_flags_horizontal = 4
+button_text = "Return"
 
 [node name="TryAgainBox" type="VBoxContainer" parent="HUD" unique_id=520451897]
 visible = false
@@ -392,21 +426,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="HUD/TryAgainBox" unique_id=945399355]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("14_vkyni")
+theme_override_font_sizes/font_size = 48
 text = "Level Failed"
 horizontal_alignment = 1
 
-[node name="UIPanel" parent="HUD/TryAgainBox/Label" unique_id=1000904957 instance=ExtResource("ui_panel_base")]
-layout_mode = 0
-anchors_preset = 0
-
-[node name="TryAgainButton" type="Button" parent="HUD/TryAgainBox" unique_id=1769213289]
+[node name="TryAgainButton" parent="HUD/TryAgainBox" unique_id=1769213289 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "Try Again"
+button_text = "Try Again"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=262987383]
 stream = ExtResource("11_a68iq")

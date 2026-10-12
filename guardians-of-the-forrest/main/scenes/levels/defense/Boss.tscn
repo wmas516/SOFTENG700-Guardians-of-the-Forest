@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ku3lb7vtrpvf"]
 
 [ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
+[ext_resource type="Texture2D" uid="uid://bd4t1vlxqe1xw" path="res://resources/icons/Life.png" id="life_icon"]
+[ext_resource type="PackedScene" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_so5yu"]
 [ext_resource type="Resource" uid="uid://dv1271giife44" path="res://main/scripts/src/main/defense/difficulty/boss/Easy.tres" id="2_2k7vr"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_8fsoy"]
@@ -46,6 +48,10 @@ bg_color = Color(0, 0, 0, 0.55)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uopnk"]
 bg_color = Color(0, 0, 0, 0.55)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2vs1w"]
 
@@ -282,12 +288,16 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="Count" type="Label" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2" unique_id=1107438070]
-z_index = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2" unique_id=771989821]
 layout_mode = 2
-text = "5"
+
+[node name="Life" type="TextureRect" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=2023908828]
+layout_mode = 2
+texture = ExtResource("life_icon")
+expand_mode = 3
 
 [node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=310026628]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -347,9 +357,9 @@ size_flags_horizontal = 4
 text = "Congratulations you've won"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=83633541]
+[node name="ReturnButton" parent="HUD/ReturnBox" unique_id=83633541 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "End Game"
+button_text = "End Game"
 
 [node name="TryAgainBox" type="VBoxContainer" parent="HUD" unique_id=2061347946]
 visible = false
@@ -375,9 +385,9 @@ size_flags_horizontal = 4
 text = "Level Failed"
 horizontal_alignment = 1
 
-[node name="TryAgainButton" type="Button" parent="HUD/TryAgainBox" unique_id=1049131055]
+[node name="TryAgainButton" parent="HUD/TryAgainBox" unique_id=1049131055 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "Try Again"
+button_text = "Try Again"
 
 [node name="Dialog" parent="HUD" unique_id=445186671 instance=ExtResource("11_p4iqy")]
 visible = false
@@ -523,7 +533,7 @@ one_way_collision = true
 
 [node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
 
-[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/Count" instance=ExtResource("ui_panel_base")]
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/HBoxContainer/Life" instance=ExtResource("ui_panel_base")]
 
 [node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
 

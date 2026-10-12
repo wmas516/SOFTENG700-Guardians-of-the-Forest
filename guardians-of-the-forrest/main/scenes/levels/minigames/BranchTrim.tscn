@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://crt4idn7oe0ng"]
 
 [ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
+[ext_resource type="PackedScene" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="Script" uid="uid://dxcjygs21llba" path="res://main/scripts/src/main/minigames/BranchTrimming.gd" id="1_qjx1r"]
 [ext_resource type="Texture2D" uid="uid://c3hucxoogwx8i" path="res://resources/props/branchParts/infected-Bot.png" id="3_vrsdg"]
 [ext_resource type="Texture2D" uid="uid://g4hjqvfv12sf" path="res://resources/props/branchParts/infected-Left.png" id="4_tq68q"]
@@ -46,6 +47,10 @@ bg_color = Color(0, 0, 0, 0.55)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqdpc"]
 bg_color = Color(0, 0, 0, 0.55)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="BranchTrimming" type="Node2D" unique_id=513680572]
 script = ExtResource("1_qjx1r")
@@ -201,6 +206,7 @@ layout_mode = 2
 text = "67"
 
 [node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=119562108]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -259,9 +265,9 @@ size_flags_horizontal = 4
 text = "Tree Treated"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=424820200]
+[node name="ReturnButton" parent="HUD/ReturnBox" unique_id=424820200 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "Return"
+button_text = "Return"
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1397301246]
 layer = -1

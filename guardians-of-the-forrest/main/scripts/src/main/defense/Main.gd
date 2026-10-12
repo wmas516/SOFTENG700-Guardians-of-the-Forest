@@ -20,10 +20,11 @@ var freezers: Array[String] = []
 @onready var rightFollow: PathFollow2D = $Right/Position
 @onready var bottomFollow: PathFollow2D = $Bottom/Position
 
-@onready var waveLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentWave
-@onready var waveTotalLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4/TotalWave
-@onready var hpLabel: Label = $HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/Count
-@onready var enemyLabel: Label = $HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
+@onready var waveLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer2/CurrentWave
+@onready var waveTotalLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer4/TotalWave
+@onready var life_container: HBoxContainer = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer
+@onready var life_template: TextureRect = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer/Life
+@onready var enemyLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var tryAgain_container: Container = $HUD/TryAgainBox
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
@@ -51,7 +52,7 @@ func _ready() -> void:
 		if is_instance_valid(enemy_node):
 			enemy_node.queue_free()
 	enemies.clear()
-	hpLabel.text = str(curLives)
+	_reset_life_icons()
 	originalWaveEnemies = copy_waves(level_config.waveEnemies)
 	curWaveEnemies = copy_waves(originalWaveEnemies)
 	waveTotalLabel.text = str(curWaveEnemies.size())
@@ -251,12 +252,44 @@ func _on_enemy_damaged_target() -> void:
 	targetDamage()
 
 func targetDamage() -> void:
+	if curLives <= 0:
+		return
 	curLives -= 1
-	hpLabel.text = str(curLives)
+	_remove_life_icon()
 	if (enemy.dest.has_method("setVisibleHealth")):
 		enemy.dest.setVisibleHealth(curLives)
 	if (curLives <= 0):
 		loss()
+
+func _reset_life_icons() -> void:
+	if life_container == null or life_template == null:
+		return
+
+	# Keep the original icon as the template and rebuild any clones. This also
+	# restores the correct display when the level is retried.
+	for child in life_container.get_children():
+		if child != life_template:
+			life_container.remove_child(child)
+			child.free()
+
+	var visible_lives: int = max(curLives, 0)
+	life_template.visible = visible_lives > 0
+	for i in range(max(visible_lives - 1, 0)):
+		var life_icon := life_template.duplicate() as TextureRect
+		life_icon.name = "Life%d" % (i + 2)
+		life_icon.visible = true
+		life_container.add_child(life_icon)
+
+func _remove_life_icon() -> void:
+	if life_container == null or life_template == null:
+		return
+
+	if life_container.get_child_count() > 1:
+		var last_icon: Node = life_container.get_child(-1)
+		life_container.remove_child(last_icon)
+		last_icon.queue_free()
+	else:
+		life_template.hide()
 
 func loss() -> void:
 	tryAgain_container.visible = true
