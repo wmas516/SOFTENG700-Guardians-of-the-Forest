@@ -22,8 +22,8 @@ var freezers: Array[String] = []
 
 @onready var waveLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer2/CurrentWave
 @onready var waveTotalLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer4/TotalWave
-@onready var life_container: HBoxContainer = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer
-@onready var life_template: TextureRect = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer/Life
+@onready var life_container: HBoxContainer = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/HBoxContainer
+@onready var life_template: TextureRect = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/HBoxContainer/Life
 @onready var enemyLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var tryAgain_container: Container = $HUD/TryAgainBox
