@@ -14,13 +14,39 @@ class Word:
 	var length: int
 	
 func _ready() -> void:
-	textLabelWidth = int(DialogBox.panel_container.size.x) - 60
+	# Wait until the dialog controls have completed their first layout pass so
+	# wrapping uses the actual text field width rather than an estimate based on
+	# the outer panel.
+	await get_tree().process_frame
+	if not DialogBox.text_label.resized.is_connected(_update_text_label_width):
+		DialogBox.text_label.resized.connect(_update_text_label_width)
+	_update_text_label_width()
+
+func _update_text_label_width() -> void:
+	var field_width := int(DialogBox.text_label.size.x)
+	if field_width >= 100:
+		textLabelWidth = field_width
+		return
+
+	var panel_width := int(DialogBox.panel_container.size.x)
+	if panel_width >= 100:
+		textLabelWidth = panel_width - 60
+		return
+
+	# The autoload can receive the first dialog before the nested controls have
+	# completed layout. Use the viewport as a safe temporary width instead of
+	# treating an uninitialized control size as a one-pixel text field.
+	textLabelWidth = maxi(1, int(get_viewport().get_visible_rect().size.x) - 120)
 
 func start_dialog(lines: Array[DialogLine]) -> void:
 	PlayerData.player_active = false
 	current_lines = lines
 	current_index = -1
 	dialog_started.emit()
+	# Showing the CanvasLayer can trigger another layout pass after it has been
+	# hidden. Wait for that pass before measuring the first dialog line.
+	await get_tree().process_frame
+	_update_text_label_width()
 	advance()
 
 func advance() -> void:
@@ -38,9 +64,12 @@ func end_dialog() -> void:
 	dialog_ended.emit()
 
 func splitTextIntoDialog(text: String) -> void:
+	_update_text_label_width()
 	var font: Font = DialogBox.text_label.get_theme_font("normal_font")
 	var font_size= DialogBox.text_label.get_theme_font_size("normal_font_size")
 	if (font == null):
+		return
+	if font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x <= textLabelWidth:
 		return
 		
 	var currentLine: DialogLine = current_lines.pop_at(current_index)

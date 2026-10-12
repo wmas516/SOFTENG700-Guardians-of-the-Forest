@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://crt4idn7oe0ng"]
 
-[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
-[ext_resource type="PackedScene" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="Script" uid="uid://dxcjygs21llba" path="res://main/scripts/src/main/minigames/BranchTrimming.gd" id="1_qjx1r"]
 [ext_resource type="Texture2D" uid="uid://c3hucxoogwx8i" path="res://resources/props/branchParts/infected-Bot.png" id="3_vrsdg"]
 [ext_resource type="Texture2D" uid="uid://g4hjqvfv12sf" path="res://resources/props/branchParts/infected-Left.png" id="4_tq68q"]
@@ -17,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://cc4sco1y38bhs" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_02.png" id="11_gqdpc"]
 [ext_resource type="VideoStream" uid="uid://bquxgo4v7rt5w" path="res://resources/tutorial/Tutorial-Tree-Trim.ogv" id="11_ubgw0"]
 [ext_resource type="AudioStream" uid="uid://bv5bk7igwbcwe" path="res://resources/audio/branchTrim.mp3" id="12_kr6li"]
+[ext_resource type="PackedScene" uid="uid://ba5x1cxygfjdb" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="return_font"]
+[ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
+[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="wave_font"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr6li"]
 radius = 35.723694
@@ -42,11 +44,10 @@ height = 199.08813
 radius = 35.73297
 height = 243.46063
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dwokx"]
-bg_color = Color(0, 0, 0, 0.55)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wave"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqdpc"]
-bg_color = Color(0, 0, 0, 0.55)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
@@ -165,44 +166,69 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=503510028]
-layout_mode = 2
-theme_override_constants/separation = 1
-
-[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=666423056]
+[node name="UIPanel" parent="HUD/MarginContainer" unique_id=53141369 instance=ExtResource("ui_panel_base")]
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_dwokx")
+size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=1510897323]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel" unique_id=635065735]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -15.5
+offset_right = 103.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer" unique_id=32818953]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 9
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=385374368]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wave")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave" unique_id=1297761525]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=969480574]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=829406472]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=452186184]
+[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=794136605]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("wave_font")
 theme_override_font_sizes/font_size = 16
 text = "Branches to Trim: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1779035812]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1530360904]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1700819724]
+[node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1890113625]
 z_index = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("wave_font")
 text = "67"
 
 [node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=119562108]
@@ -219,27 +245,55 @@ theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=1734204285]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=1879707019]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 16
+theme_override_fonts/font = ExtResource("return_font")
+theme_override_font_sizes/font_size = 24
 text = "Trim the base of infected branches"
+
+[node name="UIPanel2" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=1379482224 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 377.24042
+offset_top = 68.999985
+offset_right = 791.5055
+offset_bottom = 321.719
+grow_horizontal = 1
+rotation = 3.1415927
+expand_mode = 1
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=2033491218 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 570.2803
+offset_top = 17.0
+offset_right = 1218.592
+offset_bottom = 318.0
+grow_horizontal = 1
+rotation = 3.1415927
+expand_mode = 1
 
 [node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("9_gqdpc")]
 z_index = 1
 layout_mode = 2
 
 [node name="TutorialVideo" parent="HUD/MarginContainer" unique_id=1598740574 instance=ExtResource("10_rphrw")]
+z_index = 3
 layout_mode = 2
 mouse_filter = 2
 video = ExtResource("11_ubgw0")
-instruction = "Click and drag base off branch to trip"
+instruction = "Click and drag base off branch to trim"
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=376418556]
 visible = false
@@ -257,16 +311,20 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=593183791]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Tree Treated"
+theme_override_fonts/font = ExtResource("return_font")
+theme_override_font_sizes/font_size = 48
+text = "Branch Treated"
 horizontal_alignment = 1
 
 [node name="ReturnButton" parent="HUD/ReturnBox" unique_id=424820200 instance=ExtResource("menu_action_button")]
 layout_mode = 2
+size_flags_horizontal = 4
 button_text = "Return"
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1397301246]
@@ -348,13 +406,5 @@ stream = ExtResource("12_kr6li")
 volume_db = 4.0
 bus = &"SFX"
 
-
-[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
-
-[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches" instance=ExtResource("ui_panel_base")]
-
-[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
-
-[node name="UIPanel" parent="HUD/ReturnBox/Label" instance=ExtResource("ui_panel_base")]
 [connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]

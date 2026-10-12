@@ -4563,6 +4563,7 @@ scale = Vector2(0.16167721, 0.16167721)
 texture = ExtResource("28_rlkse")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
+z_index = 4
 position = Vector2(103, 105)
 collision_layer = 2
 collision_mask = 15
@@ -5901,6 +5902,7 @@ z_index = 2
 layout_mode = 2
 
 [node name="Tutorial" parent="UI/MarginContainer" unique_id=1479953224 instance=ExtResource("tutorial_controls")]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

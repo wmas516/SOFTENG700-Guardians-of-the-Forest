@@ -4,7 +4,7 @@ extends Control
 @onready var rightBox: VBoxContainer = $Panel/HBoxContainer/Right
 @onready var leftBox: VBoxContainer = $Panel/HBoxContainer/Left
 @onready var jumpBox: VBoxContainer = $Panel/HBoxContainer/Jump
-@onready var rightLabel: Label = $Panel/HBoxContainer/Right/VBoxContainer/Label
+@onready var rightLabel: Label = $Panel/HBoxContainer/Right/VBoxContainer/PanelContainer/MarginContainer/Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -46,8 +46,6 @@ _data = {
 }
 point_count = 2
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsff0"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g34ii"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c0r40"]
@@ -182,25 +180,25 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 9
 
-[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=577633505]
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=1509485310]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_tsff0")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_g34ii")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave" unique_id=1995681122]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave" unique_id=149272235]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=747259895]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=110792771]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=563606363]
+[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=1053116980]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
@@ -208,74 +206,74 @@ theme_override_fonts/font = ExtResource("font_title_top")
 theme_override_font_sizes/font_size = 16
 text = "Wave: "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=908668170]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=347691863]
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=789427485]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=1637290843]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="CurrentWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer2" unique_id=1112330188]
+[node name="CurrentWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer2" unique_id=411709064]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("font_title_top")
 text = "67"
 
-[node name="MarginContainer3" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=1559280616]
+[node name="MarginContainer3" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=1238739634]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="Divisor" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer3" unique_id=1518874547]
+[node name="Divisor" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer3" unique_id=1774662820]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("font_title_top")
 text = "/"
 
-[node name="MarginContainer4" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=9091356]
+[node name="MarginContainer4" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer" unique_id=518885283]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="TotalWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer4" unique_id=825199719]
+[node name="TotalWave" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/HBoxContainer/MarginContainer4" unique_id=1604377153]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("font_title_top")
 text = "69"
 
-[node name="Enemies" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=104465672]
+[node name="Enemies" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=1968599692]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_g34ii")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies" unique_id=89649767]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies" unique_id=881245472]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=1839082054]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=870767699]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer" unique_id=344213573]
+[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer" unique_id=32642346]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("font_title")
 text = "Enemies Left: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=708130915]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer" unique_id=1744634946]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -284,49 +282,52 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="Count" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=1881905367]
+[node name="Count" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=724050134]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("font_title")
 text = "67"
 
-[node name="HP" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=399407462]
+[node name="HP" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=1004053036]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_c0r40")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP" unique_id=1054599734]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP" unique_id=95953783]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer" unique_id=1202215454]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer" unique_id=1668452648]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer" unique_id=430811141]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer" unique_id=1393701491]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer" unique_id=292494455]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("font_title")
 text = "Lives: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer" unique_id=1268588525]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer" unique_id=66519173]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 5
+theme_override_constants/margin_top = 1
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2" unique_id=771989821]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=1834033828]
 layout_mode = 2
 
-[node name="Life" type="TextureRect" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=2023908828]
+[node name="Life" type="TextureRect" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/HBoxContainer" unique_id=1024355056]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 3

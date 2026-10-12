@@ -1,5 +1,7 @@
 extends PanelContainer
 
+const UI_TITLE_FONT: Font = preload("res://resources/fonts/UIFontTitle.ttf")
+
 
 func _ready() -> void:
 	var button_group := ButtonGroup.new()
@@ -8,6 +10,7 @@ func _ready() -> void:
 		var button := Button.new()
 		button.name = narrative_name.capitalize()
 		button.text = narrative_name.capitalize()
+		button.add_theme_font_override("font", UI_TITLE_FONT)
 		button.custom_minimum_size.y = 44
 		button.focus_mode = Control.FOCUS_NONE
 		button.toggle_mode = true

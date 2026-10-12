@@ -1,10 +1,10 @@
 extends CanvasLayer
 
-@onready var portrait_rect: TextureRect = $PortraitRect
-@onready var name_label: Label = $PanelContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
-@onready var text_label: RichTextLabel = $PanelContainer/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
-@onready var continue_label: Label = $PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer/ContinueLabel
-@onready var panel_container: PanelContainer = $PanelContainer
+@onready var portrait_rect: TextureRect = $MarginContainer/PortraitLayer/PortraitRect
+@onready var name_label: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/NameLabel
+@onready var text_label: RichTextLabel = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/TextLabel
+@onready var continue_label: Label = $MarginContainer/PanelContainer/MarginContainer/HBoxContainer/MarginContainer3/VBoxContainer/ContinueLabel
+@onready var panel_container: PanelContainer = $MarginContainer/PanelContainer
 
 var typing: bool = false
 var typing_tween: Tween

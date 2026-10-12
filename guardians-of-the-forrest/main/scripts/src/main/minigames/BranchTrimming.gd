@@ -9,7 +9,7 @@ const INFECTED_PIECES := [
 ]
 
 @onready var healthy_sprite: Sprite2D = $Healthy
-@onready var branchesLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches
+@onready var branchesLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
 @onready var trimSoundPlayer: AudioStreamPlayer = $TrimPlayer

@@ -370,6 +370,7 @@ rotation = 3.1415927
 expand_mode = 1
 
 [node name="Tutorial" parent="HUD/MarginContainer" unique_id=1434005533 instance=ExtResource("11_sx28c")]
+z_index = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -403,7 +404,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("14_vkyni")
 theme_override_font_sizes/font_size = 48
-text = "You Have Protected The Tree!"
+text = "You Have Protected Tree mahuta!"
 horizontal_alignment = 1
 
 [node name="ReturnButton" parent="HUD/ReturnBox" unique_id=384352501 instance=ExtResource("menu_action_button")]

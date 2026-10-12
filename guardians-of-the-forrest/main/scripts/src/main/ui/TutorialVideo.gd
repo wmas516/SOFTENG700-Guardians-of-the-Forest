@@ -1,7 +1,7 @@
 extends Control
 
-@onready var videoStreamer: VideoStreamPlayer = $MarginContainer/AspectRatioContainer/VideoStreamPlayer
-@onready var label: Label = $MarginContainer/Label
+@onready var videoStreamer: VideoStreamPlayer = $UIPanel/MarginContainer/AspectRatioContainer/VideoStreamPlayer
+@onready var label: Label = $UIPanel/MarginContainer/Label
 
 @export var video: VideoStreamTheora
 @export var instruction: String
