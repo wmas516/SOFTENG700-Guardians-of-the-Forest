@@ -181,13 +181,14 @@ func _on_try_again_button_pressed() -> void:
 	revertLoss()
 	_ready()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if not frozen:
 		return
-	if event is InputEventKey and event.pressed and not event.echo and _matches_freeze_action(event):
+	var key_to_continue: bool = event is InputEventKey and event.pressed and not event.echo and _matches_freeze_action(event)
+	if key_to_continue:
 		for node in active_freeze_nodes:
 			if is_instance_valid(node):
-				node.hide()
+				node.call("hide")
 		active_freeze_nodes.clear()
 		active_freeze_actions.clear()
 		_set_freezer("cutscene", false)
@@ -205,10 +206,10 @@ func _check_freeze_for_wave(wave_number: int) -> void:
 	for entry in level_config.freeze_entries:
 		if entry.wave != wave_number:
 			continue
-		var node := get_node_or_null(entry.node) as CanvasItem
-		if node == null:
+		var node := get_node_or_null(entry.node)
+		if node == null or not node.has_method("show") or not node.has_method("hide"):
 			continue
-		node.show()
+		node.call("show")
 		active_freeze_nodes.append(node)
 		active_freeze_actions.append(entry.action)
 
