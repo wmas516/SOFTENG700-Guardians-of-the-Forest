@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dwxgornygspgk" path="res://main/scenes/ui/cutscene/Frame2.tscn" id="1_hgqwg"]
 [ext_resource type="PackedScene" uid="uid://rebxd0meupyi" path="res://main/scenes/ui/cutscene/Frame3.tscn" id="2_26j4q"]
 [ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="3_ir5e6"]
+[ext_resource type="Resource" uid="uid://xks27fa4f6kk" path="res://resources/dialog/full/Frame1.tres" id="4_tbkxf"]
+[ext_resource type="Resource" uid="uid://c3sps2whh0ex3" path="res://resources/dialog/full/Frame2.tres" id="6_e6n5f"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="7_ov408"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_tqvm0"]
 
@@ -14,8 +16,7 @@ script = ExtResource("1_26j4q")
 offset_left = 1.9999924
 offset_right = -1.0031738
 offset_bottom = 2.151123
-scale = Vector2(0.483, 0.388)
-script = ExtResource("3_tb4b6")
+scale = Vector2(0.388, 0.388)
 speed = 0.1
 captionsList = ExtResource("4_tbkxf")
 captionsListName = "Frame1"

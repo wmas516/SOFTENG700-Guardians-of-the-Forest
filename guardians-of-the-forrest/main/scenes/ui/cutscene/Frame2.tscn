@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://dwxgornygspgk"]
 
-[ext_resource type="Script" uid="uid://dflhvox4geju" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame2.gd" id="1_66m6r"]
 [ext_resource type="Script" uid="uid://cacoasrluvmmb" path="res://main/scripts/src/main/ui/cutscene/CutsceneCamera.gd" id="1_a2cx0"]
+[ext_resource type="Script" uid="uid://dflhvox4geju" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame2.gd" id="1_novuo"]
 [ext_resource type="Script" uid="uid://dsgbmjwm30tf0" path="res://main/scripts/src/main/ui/cutscene/ParallaxSwayLayer.gd" id="3_xkdhk"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="4_inihf"]
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="6_a2cx0"]
+[ext_resource type="Resource" uid="uid://c3sps2whh0ex3" path="res://resources/dialog/full/Frame2.tres" id="captions_2"]
 
 [node name="Frame2" type="Control" unique_id=175296139]
 layout_mode = 3
-anchor_right = 1.005
-anchor_bottom = 1.0170001
-offset_right = 1230.24
-offset_bottom = 1008.98395
-scale = Vector2(0.485, 0.395)
-script = ExtResource("1_66m6r")
+anchor_right = 2.0770001
+anchor_bottom = 2.5730002
+offset_right = 25.295898
+offset_bottom = -3.3040771
+script = ExtResource("1_novuo")
+captionsList = ExtResource("captions_2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=102044394]
 position = Vector2(-31.96, -37.435)

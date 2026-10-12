@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://b7gnpn7xk01gg" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame3.gd" id="1_fcd3i"]
 [ext_resource type="Script" uid="uid://cacoasrluvmmb" path="res://main/scripts/src/main/ui/cutscene/CutsceneCamera.gd" id="1_nlisy"]
 [ext_resource type="Texture2D" uid="uid://cq2m0xa8c1nyd" path="res://resources/cutscene/3/Dirt.png" id="1_t0tvk"]
-[ext_resource type="Script" uid="uid://dsgbmjwm30tf0" path="res://main/scripts/src/main/ui/cutscene/ParallaxSwayLayer.gd" id="3_24vjh"]
 [ext_resource type="Texture2D" uid="uid://d4m8khmvo8x3b" path="res://resources/cutscene/3/Kea.png" id="3_aq3p8"]
 [ext_resource type="Texture2D" uid="uid://bfw2r1hejk6r8" path="res://resources/cutscene/3/Bush.png" id="4_6j70f"]
 [ext_resource type="Texture2D" uid="uid://doofc8w6ujoaa" path="res://resources/cutscene/3/Background.png" id="6_4v8xe"]
+[ext_resource type="Script" uid="uid://dsgbmjwm30tf0" path="res://main/scripts/src/main/ui/cutscene/ParallaxSwayLayer.gd" id="3_24vjh"]
+[ext_resource type="Resource" uid="uid://bsvaoj65mxuat" path="res://resources/dialog/full/Frame3.tres" id="captions_3"]
 [node name="Frame3" type="Control" unique_id=175296139]
 layout_mode = 3
 anchor_right = 1.005
@@ -15,7 +16,7 @@ offset_right = 1230.24
 offset_bottom = 1008.98395
 scale = Vector2(0.485, 0.395)
 script = ExtResource("1_fcd3i")
-captions = Array[ExtResource("2_jb8xw")]([ExtResource("caption_3_1"), ExtResource("caption_3_2"), ExtResource("caption_3_3")])
+captionsList = ExtResource("captions_3")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=358110103]
 scale = Vector2(1.025, 1.025)
