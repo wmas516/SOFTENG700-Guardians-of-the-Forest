@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ssylucqvc0dk"]
 
+[ext_resource type="Script" uid="uid://tfntdntl178y" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame1.gd" id="1_24vjh"]
 [ext_resource type="Script" uid="uid://cacoasrluvmmb" path="res://main/scripts/src/main/ui/cutscene/CutsceneCamera.gd" id="1_nlisy"]
 [ext_resource type="Texture2D" uid="uid://m66dwpoqse18" path="res://resources/cutscene/4/Hills.png" id="2_nlisy"]
 [ext_resource type="Texture2D" uid="uid://bvrnilhnfymyh" path="res://resources/cutscene/4/Sky.png" id="2_yfnf5"]
@@ -10,13 +11,16 @@
 
 [node name="Frame4" type="Control" unique_id=226109720]
 layout_mode = 3
-anchor_right = 2.0730002
-anchor_bottom = 2.5740001
-offset_right = -0.096191406
-offset_bottom = 0.047973633
+anchor_right = 1.005
+anchor_bottom = 1.0170001
+offset_right = 1230.24
+offset_bottom = 1008.98395
 scale = Vector2(0.485, 0.395)
+script = ExtResource("1_24vjh")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1861816080]
+position = Vector2(-79.95, -21.515)
+scale = Vector2(1.025, 1.025)
 script = ExtResource("1_nlisy")
 
 [node name="Hills" type="TextureRect" parent="CanvasModulate" unique_id=1421825893]
@@ -71,7 +75,6 @@ phase_offset = 6.0
 rotation_amplitude_deg = 0.3
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1335777704]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
