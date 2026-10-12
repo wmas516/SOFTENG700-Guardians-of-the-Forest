@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ssylucqvc0dk"]
 
-[ext_resource type="Script" uid="uid://tfntdntl178y" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame1.gd" id="1_24vjh"]
+[ext_resource type="Script" uid="uid://dqea78t351wly" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame4.gd" id="1_24vjh"]
 [ext_resource type="Script" uid="uid://cacoasrluvmmb" path="res://main/scripts/src/main/ui/cutscene/CutsceneCamera.gd" id="1_nlisy"]
 [ext_resource type="Texture2D" uid="uid://m66dwpoqse18" path="res://resources/cutscene/4/Hills.png" id="2_nlisy"]
 [ext_resource type="Texture2D" uid="uid://bvrnilhnfymyh" path="res://resources/cutscene/4/Sky.png" id="2_yfnf5"]
