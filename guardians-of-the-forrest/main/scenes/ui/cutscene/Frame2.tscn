@@ -9,30 +9,33 @@
 
 [node name="Frame2" type="Control" unique_id=175296139]
 layout_mode = 3
-anchor_right = 2.0770001
-anchor_bottom = 2.5730002
-offset_right = 25.295898
-offset_bottom = -3.3040771
+anchor_right = 1.005
+anchor_bottom = 1.0170001
+offset_right = 1230.24
+offset_bottom = 1008.98395
+scale = Vector2(0.485, 0.395)
 script = ExtResource("1_novuo")
 captionsList = ExtResource("captions_2")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=102044394]
-position = Vector2(-31.96, -37.435)
+position = Vector2(-62.515, -30.245)
 scale = Vector2(1.025, 1.025)
 script = ExtResource("1_a2cx0")
 
 [node name="Forest" type="TextureRect" parent="CanvasModulate" unique_id=361378407]
-offset_right = 2388.0
-offset_bottom = 1664.7112
+offset_top = -33.347515
+offset_right = 2453.6602
+offset_bottom = 1675.8219
 texture = ExtResource("6_a2cx0")
 script = ExtResource("3_xkdhk")
 sway_distance = Vector2(0, 0)
 sway_speed = 0.0
 
 [node name="Shoe" type="TextureRect" parent="CanvasModulate" unique_id=1254910091]
-offset_left = 313.0
-offset_right = 1459.0
-offset_bottom = 1511.0
+offset_left = 295.2492
+offset_top = 1.2310581
+offset_right = 1441.2493
+offset_bottom = 1512.2311
 texture = ExtResource("4_inihf")
 script = ExtResource("3_xkdhk")
 sway_distance = Vector2(16, 6)
