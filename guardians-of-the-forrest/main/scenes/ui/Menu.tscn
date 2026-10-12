@@ -3,7 +3,48 @@
 [ext_resource type="Script" uid="uid://bnha0oq781tib" path="res://main/scripts/src/main/ui/Menu.gd" id="1_cdp3b"]
 [ext_resource type="PackedScene" uid="uid://qr7fiy65pn2p" path="res://main/scenes/ui/audio/AudioSliders.tscn" id="1_e0747"]
 [ext_resource type="Script" uid="uid://b1ij7t778jryc" path="res://main/scripts/src/main/ui/DifficultyOptions.gd" id="2_difficulty"]
-[ext_resource type="Script" path="res://main/scripts/src/main/ui/NarrativeOptions.gd" id="3_narrative"]
+[ext_resource type="Texture2D" uid="uid://vxg3rl60qugq" path="res://resources/icons/Banner.png" id="2_qkp3i"]
+[ext_resource type="Script" uid="uid://djcrlymj4t6a6" path="res://main/scripts/src/main/ui/NarrativeOptions.gd" id="3_narrative"]
+[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFont1.ttf" id="3_woo1n"]
+[ext_resource type="Texture2D" uid="uid://cuuuinfgtdkqv" path="res://resources/icons/Circle Button.png" id="4_circle_button"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkp3i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_woo1n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmana"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqnxp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y326q"]
+
+[sub_resource type="FontVariation" id="FontVariation_woo1n"]
+base_font = ExtResource("3_woo1n")
+spacing_top = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_help_hover"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.615686, 0, 1)
+corner_radius_top_left = 31
+corner_radius_top_right = 31
+corner_radius_bottom_right = 31
+corner_radius_bottom_left = 31
+corner_detail = 20
+
+[sub_resource type="ImageTexture" id="ImageTexture_x2yyt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_textedit_hover"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.615686, 0, 1)
+corner_detail = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tab_panel"]
 content_margin_left = 8.0
@@ -36,22 +77,101 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -168.0
-offset_bottom = 40.0
+offset_left = -256.0
+offset_bottom = 62.0
 grow_horizontal = 0
 theme_override_constants/separation = 20
 
 [node name="HelpButton" type="Button" parent="HBoxContainer" unique_id=1970665108]
-custom_minimum_size = Vector2(60, 0)
+custom_minimum_size = Vector2(73, 29.466)
 layout_mode = 2
 focus_mode = 0
-text = "Help"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkp3i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_woo1n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gmana")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gqnxp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y326q")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/HelpButton" unique_id=730000001]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_circle_button")
+expand_mode = 5
+
+[node name="TextEdit" type="Button" parent="HBoxContainer/HelpButton/TextureRect" unique_id=730000002]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.827451, 0.615686, 0, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.615686, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_woo1n")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkp3i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_woo1n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_help_hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y326q")
+text = "?"
 
 [node name="MenuButton" type="Button" parent="HBoxContainer" unique_id=2101113975]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(150, 73)
 layout_mode = 2
 focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkp3i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_woo1n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gmana")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gqnxp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y326q")
 toggle_mode = true
+icon = SubResource("ImageTexture_x2yyt")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MenuButton" unique_id=820239567]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qkp3i")
+expand_mode = 5
+
+[node name="TextEdit" type="Button" parent="HBoxContainer/MenuButton/TextureRect" unique_id=1922903048]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.112
+anchor_top = 0.12900001
+anchor_right = 0.8880001
+anchor_bottom = 0.887
+offset_left = -8.7999935
+offset_top = -2.4170008
+offset_right = 8.799988
+offset_bottom = 1.2490005
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.827451, 0.615686, 0, 1)
+theme_override_colors/font_hover_color = Color(0.827451, 0.615686, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_woo1n")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qkp3i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_woo1n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_textedit_hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y326q")
 text = "Menu"
 
 [node name="MenuContainer" type="MarginContainer" parent="." unique_id=1723744628]
@@ -113,26 +233,26 @@ layout_mode = 2
 text = "Difficulty"
 horizontal_alignment = 1
 
-[node name="Narrative" type="PanelContainer" parent="MenuContainer/Audio"]
+[node name="Narrative" type="PanelContainer" parent="MenuContainer/Audio" unique_id=383437618]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6qunw")
 script = ExtResource("3_narrative")
 metadata/_tab_index = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/Audio/Narrative"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/Audio/Narrative" unique_id=1423180985]
 layout_mode = 2
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="Buttons" type="VBoxContainer" parent="MenuContainer/Audio/Narrative/MarginContainer"]
+[node name="Buttons" type="VBoxContainer" parent="MenuContainer/Audio/Narrative/MarginContainer" unique_id=1637041537]
 layout_mode = 2
 theme_override_constants/separation = 12
 alignment = 1
 
-[node name="Heading" type="Label" parent="MenuContainer/Audio/Narrative/MarginContainer/Buttons"]
+[node name="Heading" type="Label" parent="MenuContainer/Audio/Narrative/MarginContainer/Buttons" unique_id=389236456]
 layout_mode = 2
 text = "Narrative"
 horizontal_alignment = 1
