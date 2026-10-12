@@ -4,13 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dwxgornygspgk" path="res://main/scenes/ui/cutscene/Frame2.tscn" id="1_hgqwg"]
 [ext_resource type="PackedScene" uid="uid://rebxd0meupyi" path="res://main/scenes/ui/cutscene/Frame3.tscn" id="2_26j4q"]
 [ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="3_ir5e6"]
-[ext_resource type="Script" uid="uid://tfntdntl178y" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame1.gd" id="3_tb4b6"]
-[ext_resource type="Resource" uid="uid://xks27fa4f6kk" path="res://resources/dialog/full/Frame1.tres" id="4_tbkxf"]
-[ext_resource type="Resource" uid="uid://c3sps2whh0ex3" path="res://resources/dialog/full/Frame2.tres" id="6_e6n5f"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="7_ov408"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_tqvm0"]
-[ext_resource type="Resource" uid="uid://bsvaoj65mxuat" path="res://resources/dialog/full/Frame3.tres" id="8_dywic"]
-[ext_resource type="Resource" uid="uid://do6j05gh0374r" path="res://resources/dialog/full/Frame4.tres" id="9_8bnwm"]
 
 [node name="CutScene" type="Node" unique_id=590531104]
 script = ExtResource("1_26j4q")
@@ -42,6 +37,7 @@ captionsList = ExtResource("8_dywic")
 captionsListName = "Frame3"
 
 [node name="Frame4" parent="." unique_id=2113569263 instance=ExtResource("3_ir5e6")]
+visible = false
 offset_right = 1.0791016
 offset_bottom = 4.7283936
 scale = Vector2(0.483, 0.388)
@@ -70,8 +66,3 @@ hideHelp = true
 stream = ExtResource("7_ov408")
 autoplay = true
 bus = &"Music"
-
-[connection signal="done" from="Frame1" to="." method="_on_frame_done"]
-[connection signal="done" from="Frame2" to="." method="_on_frame_done"]
-[connection signal="done" from="Frame3" to="." method="_on_frame_done"]
-[connection signal="done" from="Frame4" to="." method="_on_frame_done"]
