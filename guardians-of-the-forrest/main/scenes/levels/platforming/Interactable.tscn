@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqh8j34rsc5ga"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="Script" uid="uid://b4cuu66lhxdph" path="res://main/scripts/src/main/platforming/Interactable.gd" id="1_tmepa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tmepa"]
@@ -19,3 +20,5 @@ offset_right = 40.0
 offset_bottom = 23.0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UIPanel" parent="Label" instance=ExtResource("ui_panel_base")]

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_5tloi")
-speaker = "Tāne Mahuta"
-text = "Wake up Kaimanaki! The forest needs you!"
+speaker = "Tane mahuta"
+text = "Wake up Kaimanaki! the forest needs you!"
 portrait = ExtResource("1_og6kv")
 metadata/_custom_type_script = "uid://xxvberhow7ro"

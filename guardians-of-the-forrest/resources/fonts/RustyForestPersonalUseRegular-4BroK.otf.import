@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://me7af1lnf2x"
-path="res://.godot/imported/UIFont1.ttf-354afe0cb99ad7a69de0669309c2c691.fontdata"
+uid="uid://7h0hawnp3svs"
+path="res://.godot/imported/RustyForestPersonalUseRegular-4BroK.otf-3e4ba800671f77e6c9111f9dbddf5cc4.fontdata"
 
 [deps]
 
-source_file="res://resources/fonts/UIFont1.ttf"
-dest_files=["res://.godot/imported/UIFont1.ttf-354afe0cb99ad7a69de0669309c2c691.fontdata"]
+source_file="res://resources/fonts/RustyForestPersonalUseRegular-4BroK.otf"
+dest_files=["res://.godot/imported/RustyForestPersonalUseRegular-4BroK.otf-3e4ba800671f77e6c9111f9dbddf5cc4.fontdata"]
 
 [params]
 

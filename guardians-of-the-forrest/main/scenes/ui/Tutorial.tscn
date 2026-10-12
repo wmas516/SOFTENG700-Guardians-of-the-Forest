@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cr5cbvq7sv7gv"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="1_dsb75"]
 [ext_resource type="Script" uid="uid://ctpp75jehr23s" path="res://main/scripts/src/main/ui/PlayerTutorial.gd" id="2_54omf"]
 [ext_resource type="Script" uid="uid://q0ft3l2npcl3" path="res://main/scripts/src/main/ui/InputLabeller.gd" id="3_avg8m"]
@@ -74,6 +75,7 @@ switch = false
 switchTime = 1
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/Left/VBoxContainer" unique_id=982494538]
+z_index = 1
 layout_mode = 2
 text = "[Left]"
 horizontal_alignment = 1
@@ -112,6 +114,7 @@ switch = false
 switchTime = 1
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/Jump/VBoxContainer" unique_id=211842522]
+z_index = 1
 layout_mode = 2
 text = "[Jump]"
 horizontal_alignment = 1
@@ -150,8 +153,15 @@ switch = false
 switchTime = 1
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/Right/VBoxContainer" unique_id=1932186265]
+z_index = 1
 layout_mode = 2
 text = "[Right]"
 horizontal_alignment = 1
 script = ExtResource("3_avg8m")
 action = "Right"
+
+[node name="UIPanel" parent="Panel/HBoxContainer/Left/VBoxContainer/Label" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="Panel/HBoxContainer/Jump/VBoxContainer/Label" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="Panel/HBoxContainer/Right/VBoxContainer/Label" instance=ExtResource("ui_panel_base")]

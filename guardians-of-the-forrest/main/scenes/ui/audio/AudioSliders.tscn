@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://qr7fiy65pn2p"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="Script" uid="uid://b3t1s6tlxt0bl" path="res://main/scripts/src/main/ui/Audio/AudioOptions.gd" id="1_gj0hg"]
 
 [node name="AudioSliders" type="Control" unique_id=515924015]
@@ -21,6 +22,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="MasterLabel" type="Label" parent="VBoxContainer" unique_id=1261883949]
+z_index = 1
 layout_mode = 2
 text = "Master"
 
@@ -44,6 +46,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="MusicLabel" type="Label" parent="VBoxContainer" unique_id=476383793]
+z_index = 1
 layout_mode = 2
 text = "Music"
 
@@ -67,6 +70,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="SFXLabel" type="Label" parent="VBoxContainer" unique_id=1380779583]
+z_index = 1
 layout_mode = 2
 text = "SFX"
 
@@ -83,6 +87,12 @@ max_value = 1.0
 step = 0.05
 value = 0.5
 
+
+[node name="UIPanel" parent="VBoxContainer/MasterLabel" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="VBoxContainer/MusicLabel" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="VBoxContainer/SFXLabel" instance=ExtResource("ui_panel_base")]
 [connection signal="drag_ended" from="VBoxContainer/MasterSlider" to="." method="_on_master_slider_drag_ended"]
 [connection signal="drag_ended" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_drag_ended"]
 [connection signal="drag_ended" from="VBoxContainer/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]

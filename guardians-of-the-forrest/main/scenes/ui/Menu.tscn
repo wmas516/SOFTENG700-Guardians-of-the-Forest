@@ -5,8 +5,9 @@
 [ext_resource type="Script" uid="uid://b1ij7t778jryc" path="res://main/scripts/src/main/ui/DifficultyOptions.gd" id="2_difficulty"]
 [ext_resource type="Texture2D" uid="uid://vxg3rl60qugq" path="res://resources/icons/Banner.png" id="2_qkp3i"]
 [ext_resource type="Script" uid="uid://djcrlymj4t6a6" path="res://main/scripts/src/main/ui/NarrativeOptions.gd" id="3_narrative"]
-[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFont1.ttf" id="3_woo1n"]
+[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="3_woo1n"]
 [ext_resource type="Texture2D" uid="uid://cuuuinfgtdkqv" path="res://resources/icons/Circle Button.png" id="4_circle_button"]
+[ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkp3i"]
 
@@ -229,9 +230,18 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Heading" type="Label" parent="MenuContainer/Audio/Difficulty/MarginContainer/Buttons" unique_id=50888917]
+z_index = 1
 layout_mode = 2
 text = "Difficulty"
 horizontal_alignment = 1
+
+[node name="UIPanel" parent="MenuContainer/Audio/Difficulty/MarginContainer/Buttons/Heading" unique_id=1201433318 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Narrative" type="PanelContainer" parent="MenuContainer/Audio" unique_id=383437618]
 visible = false
@@ -253,9 +263,18 @@ theme_override_constants/separation = 12
 alignment = 1
 
 [node name="Heading" type="Label" parent="MenuContainer/Audio/Narrative/MarginContainer/Buttons" unique_id=389236456]
+z_index = 1
 layout_mode = 2
 text = "Narrative"
 horizontal_alignment = 1
+
+[node name="UIPanel" parent="MenuContainer/Audio/Narrative/MarginContainer/Buttons/Heading" unique_id=1443317897 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="HBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

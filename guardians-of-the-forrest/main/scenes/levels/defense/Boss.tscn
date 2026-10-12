@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ku3lb7vtrpvf"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="Script" uid="uid://bgvcsg74g3sn3" path="res://main/scripts/src/main/defense/Main.gd" id="1_so5yu"]
 [ext_resource type="Resource" uid="uid://dv1271giife44" path="res://main/scripts/src/main/defense/difficulty/boss/Easy.tres" id="2_2k7vr"]
 [ext_resource type="PackedScene" uid="uid://d4fq0xbkh3u0m" path="res://main/scenes/levels/defense/PlayerDef.tscn" id="2_8fsoy"]
@@ -170,6 +171,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=1893433320]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
@@ -183,6 +185,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="CurrentWave" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1824403626]
+z_index = 1
 layout_mode = 2
 text = "67"
 
@@ -194,6 +197,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Divisor" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer3" unique_id=1258635618]
+z_index = 1
 layout_mode = 2
 text = "/"
 
@@ -205,6 +209,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="TotalWave" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4" unique_id=629076354]
+z_index = 1
 layout_mode = 2
 text = "69"
 
@@ -226,6 +231,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer" unique_id=344213573]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 text = "Enemies Left: "
@@ -240,6 +246,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Count" type="Label" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2" unique_id=1881905367]
+z_index = 1
 layout_mode = 2
 text = "67"
 
@@ -261,6 +268,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer" unique_id=430811141]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 text = "Lives: "
@@ -275,6 +283,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Count" type="Label" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2" unique_id=1107438070]
+z_index = 1
 layout_mode = 2
 text = "5"
 
@@ -297,6 +306,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=815881432]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
@@ -331,6 +341,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=1360818450]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Congratulations you've won"
@@ -358,6 +369,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="HUD/TryAgainBox" unique_id=1245461415]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Level Failed"
@@ -496,6 +508,28 @@ collision_mask = 0
 shape = SubResource("WorldBoundaryShape2D_2vs1w")
 one_way_collision = true
 
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentWave" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer3/Divisor" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer4/TotalWave" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Enemies/HBoxContainer/MarginContainer2/Count" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/HP/HBoxContainer/MarginContainer2/Count" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/ReturnBox/Label" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/TryAgainBox/Label" instance=ExtResource("ui_panel_base")]
 [connection signal="damagedTarget" from="Enemy" to="." method="_on_enemy_damaged_target"]
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
 [connection signal="damagedTarget" from="BossEnemy" to="." method="_on_boss_enemy_damaged_target"]

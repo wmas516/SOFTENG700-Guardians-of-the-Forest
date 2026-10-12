@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bq0xx0f2ne41i"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="2_uvyfl"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="3_uvyfl"]
@@ -72,6 +73,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=139965579]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
@@ -85,6 +87,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="CurrentSpots" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=701112630]
+z_index = 1
 layout_mode = 2
 text = "67"
 
@@ -107,6 +110,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=771553209]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
@@ -140,6 +144,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=469975197]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Boots Are Now Clean!"
@@ -194,6 +199,14 @@ shape = SubResource("CapsuleShape2D_hyicb")
 stream = ExtResource("5_uvyfl")
 bus = &"SFX"
 
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentSpots" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/ReturnBox/Label" instance=ExtResource("ui_panel_base")]
 [connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="input_event" from="Right" to="." method="_on_shoe_input_event"]

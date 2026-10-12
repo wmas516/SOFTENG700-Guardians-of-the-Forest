@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://i4fkq1l5qvpq"]
+
+[ext_resource type="Texture2D" uid="uid://vxg3rl60qugq" path="res://resources/icons/Banner.png" id="1_banner"]
+
+[node name="UIPanel" type="TextureRect" unique_id=320323935]
+z_index = -1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.864
+offset_bottom = -0.21514893
+grow_horizontal = 2
+mouse_filter = 2
+texture = ExtResource("1_banner")
+expand_mode = 5

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://crt4idn7oe0ng"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="Script" uid="uid://dxcjygs21llba" path="res://main/scripts/src/main/minigames/BranchTrimming.gd" id="1_qjx1r"]
 [ext_resource type="Texture2D" uid="uid://c3hucxoogwx8i" path="res://resources/props/branchParts/infected-Bot.png" id="3_vrsdg"]
 [ext_resource type="Texture2D" uid="uid://g4hjqvfv12sf" path="res://resources/props/branchParts/infected-Left.png" id="4_tq68q"]
@@ -181,6 +182,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=452186184]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
@@ -194,6 +196,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1700819724]
+z_index = 1
 layout_mode = 2
 text = "67"
 
@@ -216,6 +219,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=1879707019]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
@@ -249,6 +253,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=593183791]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Tree Treated"
@@ -337,5 +342,13 @@ stream = ExtResource("12_kr6li")
 volume_db = 4.0
 bus = &"SFX"
 
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/ReturnBox/Label" instance=ExtResource("ui_panel_base")]
 [connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]

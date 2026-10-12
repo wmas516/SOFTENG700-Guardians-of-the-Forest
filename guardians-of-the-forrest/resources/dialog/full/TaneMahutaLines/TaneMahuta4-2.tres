@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_2gc4s")
-speaker = "Tāne Mahuta"
-text = "And look! It’s all covered in myrtle rust."
+speaker = "Tane mahuta"
+text = "And look! it’s all covered in myrtle rust."
 portrait = ExtResource("1_0b53h")
 metadata/_custom_type_script = "uid://xxvberhow7ro"

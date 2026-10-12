@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_7shc2")
-speaker = "Tāne Mahuta"
+speaker = "Tane mahuta"
 text = "Try cutting off infected leaves to slow it down."
 portrait = ExtResource("1_dmnca")
 metadata/_custom_type_script = "uid://xxvberhow7ro"

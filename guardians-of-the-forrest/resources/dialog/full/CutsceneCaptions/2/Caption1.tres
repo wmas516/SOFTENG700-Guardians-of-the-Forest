@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1")
-caption = "This is a script test"
+caption = "this is a script test"
 displayTime = 2
 metadata/_custom_type_script = "uid://cgh6n6ony30kf"

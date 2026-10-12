@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b7kn5yvkqh6q0"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="PackedScene" uid="uid://hvuda7qthsar" path="res://main/scenes/backgrounds/Background2.tscn" id="1_amdy5"]
 [ext_resource type="Script" uid="uid://cxq3gofqbwwi0" path="res://main/scripts/src/main/minigames/TreeTrimming.gd" id="1_vk8mo"]
 [ext_resource type="PackedScene" uid="uid://b3vkbv5hgt1rw" path="res://main/scenes/levels/defense/Tree1.tscn" id="2_4qsu2"]
@@ -75,6 +76,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=853620793]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 16
@@ -88,6 +90,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=320933632]
+z_index = 1
 layout_mode = 2
 text = "67"
 
@@ -110,6 +113,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 4
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=419279328]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 24
@@ -137,6 +141,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=405630267]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Forest Section Treated"
@@ -146,6 +151,14 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Return"
 
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" instance=ExtResource("ui_panel_base")]
+
+[node name="UIPanel" parent="HUD/ReturnBox/Label" instance=ExtResource("ui_panel_base")]
 [connection signal="input_event" from="Tree" to="." method="_on_static_body_clicked" binds= ["Tree"]]
 [connection signal="input_event" from="Tree2" to="." method="_on_static_body_clicked" binds= ["Tree2"]]
 [connection signal="input_event" from="Tree3" to="." method="_on_static_body_clicked" binds= ["Tree3"]]

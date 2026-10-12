@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b27nfnasxkbnl"]
 
 [ext_resource type="Script" uid="uid://cv0rjn5gp6g8u" path="res://main/scripts/src/main/DialogBox.gd" id="1_5oe3o"]
+[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="2_anj5d"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="3_8ky55"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5oe3o"]
 bg_color = Color(0.0745098, 0.0745098, 0.0745098, 0.95)
@@ -13,6 +15,12 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="FontVariation" id="FontVariation_28uwf"]
+base_font = ExtResource("3_8ky55")
+
+[sub_resource type="FontVariation" id="FontVariation_rcwn0"]
+base_font = ExtResource("3_8ky55")
 
 [node name="DialogBox" type="CanvasLayer" unique_id=2143990973]
 script = ExtResource("1_5oe3o")
@@ -42,9 +50,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer" unique_id=71343380]
 layout_mode = 2
@@ -53,6 +61,8 @@ theme_override_constants/separation = 8
 
 [node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer/VBoxContainer" unique_id=192354133]
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_28uwf")
+theme_override_font_sizes/font_size = 36
 text = "Name"
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer" unique_id=685417377]
@@ -61,7 +71,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2" unique_id=387845375]
@@ -73,6 +83,8 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_fonts/normal_font = SubResource("FontVariation_rcwn0")
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Dialog text goes here. "
 fit_content = true
@@ -84,7 +96,7 @@ size_flags_vertical = 4
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_bottom = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer3" unique_id=1317306159]
 layout_mode = 2
@@ -94,4 +106,5 @@ theme_override_constants/separation = 8
 [node name="ContinueLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer3/VBoxContainer" unique_id=1694488005]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_anj5d")
 text = "Click [] to continue"

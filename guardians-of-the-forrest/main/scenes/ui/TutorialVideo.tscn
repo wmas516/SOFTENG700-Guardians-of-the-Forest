@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bubv66dcc7v56"]
 
+[ext_resource type="PackedScene" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 [ext_resource type="Script" uid="uid://jb6o6eshrje2" path="res://main/scripts/src/main/ui/TutorialVideo.gd" id="1_4jgbb"]
 [ext_resource type="VideoStream" uid="uid://gj1f7ljxuq6u" path="res://resources/tutorial/Tutorial-Boot-Clean.ogv" id="1_htd20"]
 
@@ -36,6 +37,7 @@ expand = true
 loop = true
 
 [node name="Label" type="Label" parent="MarginContainer" unique_id=542474765]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -48,4 +50,6 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 16
 text = "Close"
 
+
+[node name="UIPanel" parent="MarginContainer/Label" instance=ExtResource("ui_panel_base")]
 [connection signal="pressed" from="MarginContainer/Button" to="." method="_on_button_pressed"]
