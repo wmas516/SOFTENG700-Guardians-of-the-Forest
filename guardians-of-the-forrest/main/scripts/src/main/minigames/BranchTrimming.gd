@@ -182,6 +182,7 @@ func _apply_cutout_from_sprite(sprite: Sprite2D) -> void:
 
 	var source_size := source_image.get_size()
 	var target_size := healthy_cut_image.get_size()
+	var source_to_healthy := healthy_sprite.global_transform.affine_inverse() * sprite.global_transform
 
 	for y in range(source_size.y):
 		for x in range(source_size.x):
@@ -193,8 +194,7 @@ func _apply_cutout_from_sprite(sprite: Sprite2D) -> void:
 			if sprite.centered:
 				source_local -= source_size / 2.0
 
-			var world_point := sprite.to_global(source_local)
-			var healthy_local := healthy_sprite.to_local(world_point)
+			var healthy_local := source_to_healthy * source_local
 			var healthy_pixel := healthy_local
 			if healthy_sprite.centered:
 				healthy_pixel += target_size / 2.0
