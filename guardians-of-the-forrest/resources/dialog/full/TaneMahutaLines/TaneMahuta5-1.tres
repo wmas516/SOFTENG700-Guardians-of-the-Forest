@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://d18kd7gj01m1m"]
+
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="1_unkbv"]
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_kfg1g"]
+
+[resource]
+script = ExtResource("2_kfg1g")
+speaker = "Tāne Mahuta"
+text = "I sense the Myrtle King is close."
+portrait = ExtResource("1_unkbv")
+metadata/_custom_type_script = "uid://xxvberhow7ro"

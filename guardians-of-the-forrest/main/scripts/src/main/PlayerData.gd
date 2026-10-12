@@ -1,17 +1,28 @@
 extends Node
 
 enum Difficulty {EASY, MEDIUM, HARD}
+enum Narrative {SKIP, LITE, FULL}
+const NarrativeResLoc: String = "res://resources/dialog/"
+const NarrativeSubDir: Dictionary = {
+	Narrative.SKIP: "", 
+	Narrative.LITE: "lite/", 
+	Narrative.FULL: "full/",
+	}
 
 signal difficulty_changed(new_difficulty: Difficulty)
+signal narrative_changed(new_narrative: Narrative)
 
 var saved_platforming_position: Vector2 = Vector2.ZERO
 var has_saved_platforming_position: bool = false
 var trimed_trees: Array[String] = []
 var infected_trees: Array[String] = []
 var game_progress_stage: int = 0
-var skip_narrative: bool = false
+var narrative: Narrative = Narrative.SKIP
 var player_active: bool = true
 var difficulty: Difficulty = Difficulty.MEDIUM
+
+func full_narrative_dir() -> String:
+	return(NarrativeResLoc + NarrativeSubDir.get(narrative))
 
 func update_progress_stage(stage: int) -> void:
 	game_progress_stage = stage
@@ -32,6 +43,12 @@ func set_difficulty(new_difficulty: Difficulty) -> void:
 		return
 	difficulty = new_difficulty
 	difficulty_changed.emit(difficulty)
+
+func set_narrative(new_narrative: Narrative) -> void:
+	if narrative == new_narrative:
+		return
+	narrative = new_narrative
+	narrative_changed.emit(narrative)
 
 func restart() -> void:
 	saved_platforming_position = Vector2.ZERO

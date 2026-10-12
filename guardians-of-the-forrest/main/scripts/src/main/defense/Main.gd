@@ -14,6 +14,7 @@ var level_complete: bool = false
 var frozen: bool = false
 var active_freeze_nodes: Array[Node] = []
 var active_freeze_actions: Array[StringName] = []
+var freezers: Array[String] = []
 
 @onready var leftFollow: PathFollow2D = $Left/Position
 @onready var rightFollow: PathFollow2D = $Right/Position
@@ -27,6 +28,8 @@ var active_freeze_actions: Array[StringName] = []
 @onready var tryAgain_container: Container = $HUD/TryAgainBox
 @onready var spawnAudioPlayer: AudioStreamPlayer = $SpawnPlayer
 @onready var spawnBossAudioPlayer: AudioStreamPlayer = get_node_or_null("SpawnPlayerBoss") as AudioStreamPlayer
+
+@onready var tutorial: Control = $HUD/MarginContainer/Tutorial
 
 var curWaveEnemies: Array[Wave] = []
 var originalWaveEnemies: Array[Wave] = []
@@ -185,10 +188,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			if is_instance_valid(node):
 				node.hide()
 		active_freeze_nodes.clear()
-		frozen = false
-		call_deferred("_apply_frozen_state", false)
-		if aliveEnemies > 0:
-			spawnTimer.start()
+		active_freeze_actions.clear()
+		_set_freezer("cutscene", false)
 		get_viewport().set_input_as_handled()
 
 func _matches_freeze_action(event: InputEvent) -> bool:
@@ -212,8 +213,25 @@ func _check_freeze_for_wave(wave_number: int) -> void:
 
 	if active_freeze_nodes.is_empty():
 		return
-	frozen = true
-	call_deferred("_apply_frozen_state", true)
+	_set_freezer("cutscene", true)
+
+func _set_freezer(source: String, should_freeze: bool) -> void:
+	if should_freeze:
+		if not freezers.has(source):
+			freezers.append(source)
+	else:
+		freezers.erase(source)
+
+	var was_frozen := frozen
+	frozen = not freezers.is_empty()
+	if frozen != was_frozen:
+		call_deferred("_sync_frozen_state")
+
+func _sync_frozen_state() -> void:
+	# Read the latest state in case multiple sources changed this frame.
+	_apply_frozen_state(frozen)
+	if not frozen and not level_complete and aliveEnemies > 0:
+		spawnTimer.start()
 
 func _apply_frozen_state(should_freeze: bool) -> void:
 	for child in get_children():
@@ -259,3 +277,8 @@ func revertLoss() -> void:
 			child.set_physics_process(true)
 			if (child.has_method("_ready()")):
 				child._ready()
+
+
+func _on_menu_help() -> void:
+	tutorial.set_visible(!tutorial.is_visible())
+	_set_freezer("tutorial", tutorial.is_visible())

@@ -32,7 +32,7 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 		
 func _on_body_entered(body: Node2D) -> void:
-	if PlayerData.skip_narrative and self.is_in_group("Narrative"):
+	if PlayerData.narrative == PlayerData.Narrative.SKIP and self.is_in_group("Narrative"):
 		return
 	if _dialog_finished or _player_inside:
 		return

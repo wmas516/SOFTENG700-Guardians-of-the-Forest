@@ -3,17 +3,27 @@ class_name CutsceneFrame
 extends Control
 
 @export var speed: float = 1
-@export var captions: Array[TimedCaption]
-@export var nonNarrativeCaptions: Array[TimedCaption]
+@export var captionsList: TimedCaptionSequence
+@export var captionsListName: String
 @onready var label: Label = $MarginContainer/Label
 @onready var timer: Timer = $Timer
 
 var index = 0
-
+var captions 
 signal done
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#PlayerData.full_narrative_dir()
+	if ((PlayerData.narrative != PlayerData.Narrative.SKIP) && captionsListName):
+		var dialogPath: String = PlayerData.full_narrative_dir() + captionsListName
+		if (ResourceLoader.exists(dialogPath)):
+			var res: Resource = load(dialogPath)
+			if (res is TimedCaptionSequence):
+				captionsList = res as TimedCaptionSequence
+	if(captionsList):
+		captions = captionsList.captions
+	
 	pass # Replace with function body.
 
 

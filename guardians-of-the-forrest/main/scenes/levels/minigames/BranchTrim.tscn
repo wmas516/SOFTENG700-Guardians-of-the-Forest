@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bpc6vk55scfdu" path="res://resources/environment/silhouettes_trunk/trunk_branching_dark_01.png" id="9_760op"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="9_gqdpc"]
 [ext_resource type="Texture2D" uid="uid://m6m5s5w6n1pk" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_01.png" id="10_kr6li"]
+[ext_resource type="PackedScene" uid="uid://bubv66dcc7v56" path="res://main/scenes/ui/TutorialVideo.tscn" id="10_rphrw"]
 [ext_resource type="Texture2D" uid="uid://cc4sco1y38bhs" path="res://resources/environment/silhouettes_trunk/trunk_thick_dark_02.png" id="11_gqdpc"]
+[ext_resource type="VideoStream" uid="uid://bquxgo4v7rt5w" path="res://resources/tutorial/Tutorial-Tree-Trim.ogv" id="11_ubgw0"]
 [ext_resource type="AudioStream" uid="uid://bv5bk7igwbcwe" path="res://resources/audio/branchTrim.mp3" id="12_kr6li"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kr6li"]
@@ -223,6 +225,12 @@ text = "Trim the base of infected branches"
 z_index = 1
 layout_mode = 2
 
+[node name="TutorialVideo" parent="HUD/MarginContainer" unique_id=1598740574 instance=ExtResource("10_rphrw")]
+layout_mode = 2
+mouse_filter = 2
+video = ExtResource("11_ubgw0")
+instruction = "Click and drag base off branch to trip"
+
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=376418556]
 visible = false
 layout_mode = 1
@@ -329,4 +337,5 @@ stream = ExtResource("12_kr6li")
 volume_db = 4.0
 bus = &"SFX"
 
+[connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cbfqvphyvwmbh" path="res://main/scripts/src/main/minigames/CleaningBoot.gd" id="1_gy606"]
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="2_uvyfl"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="3_uvyfl"]
+[ext_resource type="PackedScene" uid="uid://bubv66dcc7v56" path="res://main/scenes/ui/TutorialVideo.tscn" id="4_eml3c"]
+[ext_resource type="VideoStream" uid="uid://gj1f7ljxuq6u" path="res://resources/tutorial/Tutorial-Boot-Clean.ogv" id="5_8p5d2"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="5_iwasc"]
 [ext_resource type="AudioStream" uid="uid://bqy8tqlnpx6u8" path="res://resources/audio/bootScrub.mp3" id="5_uvyfl"]
 [ext_resource type="Texture2D" uid="uid://cmhak7pmtshlr" path="res://resources/props/shoeDirty.png" id="6_uvyfl"]
@@ -114,6 +116,12 @@ text = "Scrub the boot to clear the myrtle rust"
 z_index = 1
 layout_mode = 2
 
+[node name="TutorialVideo" parent="HUD/MarginContainer" unique_id=1598740574 instance=ExtResource("4_eml3c")]
+layout_mode = 2
+mouse_filter = 2
+video = ExtResource("5_8p5d2")
+instruction = "Click and drag the mouse to clean the boot and click a boot to swap it"
+
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1526241117]
 visible = false
 layout_mode = 1
@@ -186,6 +194,7 @@ shape = SubResource("CapsuleShape2D_hyicb")
 stream = ExtResource("5_uvyfl")
 bus = &"SFX"
 
+[connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="input_event" from="Right" to="." method="_on_shoe_input_event"]
 [connection signal="input_event" from="Left" to="." method="_on_shoe_input_event"]

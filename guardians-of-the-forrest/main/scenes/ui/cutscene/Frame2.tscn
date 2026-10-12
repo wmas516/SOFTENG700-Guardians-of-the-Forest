@@ -1,19 +1,27 @@
 [gd_scene format=3 uid="uid://dwxgornygspgk"]
 
-[ext_resource type="Script" uid="uid://dflhvox4geju" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame2.gd" id="1_66m6r"]
-[ext_resource type="Script" uid="uid://cacoasrluvmmb" path="res://main/scripts/src/main/ui/cutscene/CutsceneCamera.gd" id="1_a2cx0"]
-[ext_resource type="Script" uid="uid://dsgbmjwm30tf0" path="res://main/scripts/src/main/ui/cutscene/ParallaxSwayLayer.gd" id="3_xkdhk"]
+[ext_resource type="Texture2D" uid="uid://daktl3p473i8f" path="res://resources/cutscene/2/Dirt.png" id="1_434f2"]
+[ext_resource type="Script" uid="uid://dflhvox4geju" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame2.gd" id="1_novuo"]
+[ext_resource type="Texture2D" uid="uid://mwtl6rj7eaxo" path="res://resources/cutscene/2/Forest.png" id="2_novuo"]
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_xkdhk"]
+[ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/2/Caption1.tres" id="caption_2_1"]
+[ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/2/Caption2.tres" id="caption_2_2"]
+[ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/2/Caption3.tres" id="caption_2_3"]
+[ext_resource type="Texture2D" uid="uid://bvwvdn4orihhm" path="res://resources/cutscene/2/Bush.png" id="3_h02x5"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="4_inihf"]
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="6_a2cx0"]
 
+
+
+
 [node name="Frame2" type="Control" unique_id=175296139]
 layout_mode = 3
-anchor_right = 1.005
-anchor_bottom = 1.0170001
-offset_right = 1230.24
-offset_bottom = 1008.98395
-scale = Vector2(0.485, 0.395)
-script = ExtResource("1_66m6r")
+anchor_right = 2.0770001
+anchor_bottom = 2.5730002
+offset_right = 0.29589844
+offset_bottom = -0.30407715
+script = ExtResource("1_novuo")
+captions = Array[ExtResource("2_xkdhk")]([ExtResource("caption_2_1"), ExtResource("caption_2_2"), ExtResource("caption_2_3")])
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=102044394]
 position = Vector2(-31.96, -37.435)

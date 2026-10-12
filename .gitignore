@@ -21,3 +21,11 @@ mono_crash.*.json
 
 #JetBrains
 .idea
+
+#Java Keystore
+*.jks
+
+#Builds
+*.aab
+*.apk
+*.exe

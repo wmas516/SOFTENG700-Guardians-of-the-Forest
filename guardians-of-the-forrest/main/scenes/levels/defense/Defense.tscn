@@ -406,5 +406,6 @@ one_way_collision = true
 [connection signal="damagedTarget" from="Enemy" to="." method="_on_enemy_damaged_target"]
 [connection signal="timeout" from="Enemy/DamageTimer" to="Enemy" method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="help" from="HUD/MarginContainer/Menu" to="." method="_on_menu_help"]
 [connection signal="pressed" from="HUD/ReturnBox/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="HUD/TryAgainBox/TryAgainButton" to="." method="_on_try_again_button_pressed"]

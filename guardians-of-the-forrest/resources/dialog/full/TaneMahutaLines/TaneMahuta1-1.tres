@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://wujlmpoe4vw3"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="1_5tloi"]
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="1_og6kv"]
+
+[resource]
+script = ExtResource("1_5tloi")
+speaker = "Tāne Mahuta"
+text = "Wake up Kaimanaki! The forest needs you!"
+portrait = ExtResource("1_og6kv")
+metadata/_custom_type_script = "uid://xxvberhow7ro"
