@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://mwa6cb1sxxmb"]
+
+[ext_resource type="Texture2D" uid="uid://clvyvmv50lwc5" path="res://resources/sprites/final/Tane-Mahuta.png" id="1_cpcfa"]
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_6hhgb"]
+
+[resource]
+script = ExtResource("2_6hhgb")
+speaker = "Tāne Mahuta"
+text = "Prepare yourself Kaimanaki, the Myrtle King is ahead!"
+portrait = ExtResource("1_cpcfa")
+metadata/_custom_type_script = "uid://xxvberhow7ro"

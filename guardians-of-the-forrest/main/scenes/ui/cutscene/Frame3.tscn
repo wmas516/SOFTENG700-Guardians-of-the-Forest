@@ -3,27 +3,15 @@
 [ext_resource type="Script" uid="uid://b7gnpn7xk01gg" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame3.gd" id="1_fcd3i"]
 [ext_resource type="Texture2D" uid="uid://cq2m0xa8c1nyd" path="res://resources/cutscene/3/Dirt.png" id="1_t0tvk"]
 [ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_jb8xw"]
+[ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/3/Caption1.tres" id="caption_3_1"]
+[ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/3/Caption2.tres" id="caption_3_2"]
+[ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/3/Caption3.tres" id="caption_3_3"]
 [ext_resource type="Texture2D" uid="uid://d4m8khmvo8x3b" path="res://resources/cutscene/3/Kea.png" id="3_aq3p8"]
 [ext_resource type="Texture2D" uid="uid://bfw2r1hejk6r8" path="res://resources/cutscene/3/Bush.png" id="4_6j70f"]
 [ext_resource type="Texture2D" uid="uid://doofc8w6ujoaa" path="res://resources/cutscene/3/Background.png" id="6_4v8xe"]
 
-[sub_resource type="Resource" id="Resource_4shbs"]
-script = ExtResource("2_jb8xw")
-caption = "Welcome to Scene 3"
-displayTime = 2
-metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 
-[sub_resource type="Resource" id="Resource_ld1h5"]
-script = ExtResource("2_jb8xw")
-caption = "Check out the Kea"
-displayTime = 2
-metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 
-[sub_resource type="Resource" id="Resource_ppj3f"]
-script = ExtResource("2_jb8xw")
-caption = "He lowk chillin"
-displayTime = 2
-metadata/_custom_type_script = "uid://cgh6n6ony30kf"
 
 [node name="Frame3" type="Control" unique_id=175296139]
 layout_mode = 3
@@ -32,7 +20,7 @@ anchor_bottom = 2.5730002
 offset_right = 0.29589844
 offset_bottom = -0.30407715
 script = ExtResource("1_fcd3i")
-captions = Array[ExtResource("2_jb8xw")]([SubResource("Resource_4shbs"), SubResource("Resource_ld1h5"), SubResource("Resource_ppj3f")])
+captions = Array[ExtResource("2_jb8xw")]([ExtResource("caption_3_1"), ExtResource("caption_3_2"), ExtResource("caption_3_3")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=358110102]
 layout_mode = 0

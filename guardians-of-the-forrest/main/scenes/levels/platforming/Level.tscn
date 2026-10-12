@@ -137,7 +137,7 @@
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
-[ext_resource type="PackedScene" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
+[ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
@@ -4345,42 +4345,49 @@ collision_mask = 2
 [node name="DialogInteractable" parent="Gameplay/Interactables" unique_id=310783337 instance=ExtResource("87_ihyw1")]
 position = Vector2(640.00006, 160)
 scale = Vector2(0.87183577, 3.4658055)
+dialog_name = "TaneMahuta1.tres"
 dialog_sequence = ExtResource("94_54gam")
 need_to_interact = false
 
 [node name="DialogInteractable2" parent="Gameplay/Interactables" unique_id=886846020 instance=ExtResource("87_ihyw1")]
 position = Vector2(1816.0001, 199.00002)
 scale = Vector2(-0.5199644, 2.7315266)
+dialog_name = "TaneMahuta2.tres"
 dialog_sequence = ExtResource("95_54gam")
 need_to_interact = false
 
 [node name="DialogInteractable3" parent="Gameplay/Interactables" unique_id=1538704379 instance=ExtResource("87_ihyw1")]
 position = Vector2(3067.0002, 169)
 scale = Vector2(-0.5199644, 2.7315266)
+dialog_name = "TaneMahuta3.tres"
 dialog_sequence = ExtResource("96_pvsop")
 need_to_interact = false
 
 [node name="DialogInteractable4" parent="Gameplay/Interactables" unique_id=1640469754 instance=ExtResource("87_ihyw1")]
 position = Vector2(2549, 776.00006)
 scale = Vector2(-0.5199644, 2.7315266)
+dialog_name = "TaneMahuta4.tres"
 dialog_sequence = ExtResource("97_u6rl0")
 need_to_interact = false
 
 [node name="DialogInteractable5" parent="Gameplay/Interactables" unique_id=141615839 instance=ExtResource("87_ihyw1")]
 position = Vector2(949.00006, 1767)
 scale = Vector2(-0.5199644, 2.7315266)
+dialog_name = "TaneMahuta5.tres"
 dialog_sequence = ExtResource("98_ib78u")
 need_to_interact = false
 
 [node name="DialogInteractable6" parent="Gameplay/Interactables" unique_id=1287493605 instance=ExtResource("87_ihyw1")]
 position = Vector2(2914, 1831.0001)
 scale = Vector2(-0.5199644, 2.7315266)
+dialog_name = "TaneMahuta6.tres"
 dialog_sequence = ExtResource("99_4a3g8")
 need_to_interact = false
 
 [node name="DialogInteractable7" parent="Gameplay/Interactables" unique_id=1252672436 instance=ExtResource("87_ihyw1")]
 position = Vector2(4301.0005, 1767.0001)
 scale = Vector2(-0.5199644, 2.7315266)
+dialog_name = "TaneMahuta7.tres"
 dialog_sequence = ExtResource("100_x18a4")
 need_to_interact = false
 
