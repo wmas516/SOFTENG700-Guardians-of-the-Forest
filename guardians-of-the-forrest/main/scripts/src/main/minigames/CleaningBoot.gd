@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var sprites: Array[Sprite2D]
-@export var cleaningRate: float = 0.01
+@export_range(0.01, 60.0, 0.01) var cleaningTime: float = 3.0
 
 @onready var spotLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentSpots
 @onready var completion_panel: Control = $HUD/ReturnBox
@@ -25,13 +25,31 @@ var rightFocused: bool = true
 
 var isDragging = false
 var level_complete: bool = false
+var cleaning_progress: Dictionary = {}
 
 
 func _ready():
 	spotLabel.text = str(sprites.size())
+	for sprite in sprites:
+		cleaning_progress[sprite] = 0.0
 	areaLeft.visible = true
 	areaRight.visible = true
 	swapFoot()
+
+func _process(delta: float) -> void:
+	if level_complete or (tutorialVideo and tutorialVideo.visible):
+		scrubSoundPlayer.stop()
+		return
+	if not isDragging or not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		scrubSoundPlayer.stop()
+		return
+
+	var sprite := isPointInsideSprite(get_global_mouse_position())
+	if sprite == null:
+		scrubSoundPlayer.stop()
+		return
+
+	_clean_sprite_for_time(sprite, delta)
 
 func _input(event):
 	if level_complete || (tutorialVideo && tutorialVideo.visible):
@@ -39,42 +57,32 @@ func _input(event):
 
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed:
-				var curSprite = isPointInsideSprite(event.global_position)
-				isDragging = true
-				if curSprite:
-					dragSprite(curSprite)
-			else:
-				isDragging = false
+			isDragging = event.pressed
+			if not isDragging:
+				scrubSoundPlayer.stop()
 
-	if event is InputEventMouseMotion && isDragging:
-		var curSprite = isPointInsideSprite(event.global_position)
-		if curSprite:
-			dragSprite(curSprite)
-		else:
-			scrubSoundPlayer.stop()
-	else:
-		scrubSoundPlayer.stop()
+func _clean_sprite_for_time(curSprite: Sprite2D, delta: float) -> void:
+	var required_time := maxf(cleaningTime, 0.01)
+	var elapsed := float(cleaning_progress.get(curSprite, 0.0)) + delta
+	cleaning_progress[curSprite] = elapsed
+	curSprite.modulate.a = clampf(1.0 - elapsed / required_time, 0.0, 1.0)
+	if not scrubSoundPlayer.is_playing():
+		scrubSoundPlayer.play()
 
-func dragSprite(curSprite):
-	if level_complete:
+	if elapsed < required_time:
 		return
-	if curSprite.modulate.a > 0.05:
-		curSprite.modulate.a = curSprite.modulate.a - cleaningRate
-		if (!scrubSoundPlayer.is_playing()):
-			scrubSoundPlayer.play()
-			
+
+	curSprite.modulate.a = 0.0
+	sprites.erase(curSprite)
+	cleaning_progress.erase(curSprite)
+	curSprite.queue_free()
+	scrubSoundPlayer.stop()
+	if sprites.size() <= 0:
+		clearedSprite(sprites.size())
+		miniGameOver()
 	else:
-		curSprite.modulate.a = 0
-		sprites.erase(curSprite)
-		curSprite.queue_free()
-		scrubSoundPlayer.stop()
-		if sprites.size() <= 0:
-			clearedSprite(sprites.size())
-			miniGameOver()
-		else:
-			clearedSprite(sprites.size())
-			objectiveLabel.set_text("Select the other boot")
+		clearedSprite(sprites.size())
+		objectiveLabel.set_text("Select the other boot")
 
 func isPointInsideSprite(globalPoint: Vector2) -> Sprite2D:
 	if sprites == null:
