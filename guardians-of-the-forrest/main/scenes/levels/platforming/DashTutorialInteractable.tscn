@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://6y1fai3ptghw"]
+
+[ext_resource type="Script" uid="uid://blqdrmafl62a6" path="res://main/scripts/src/main/ui/Interactable.gd" id="1_3jblo"]
+[ext_resource type="PackedScene" uid="uid://deabxcxgxblaa" path="res://main/scenes/ui/DashTutorial.tscn" id="2_3jblo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah0oh"]
+size = Vector2(277, 206)
+
+[node name="Interactable" type="Area2D" unique_id=1553916585 node_paths=PackedStringArray("fadable")]
+collision_layer = 4
+script = ExtResource("1_3jblo")
+fadable = [NodePath("DashTutorial")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=584256101]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ah0oh")
+
+[node name="DashTutorial" parent="." unique_id=484402820 instance=ExtResource("2_3jblo")]

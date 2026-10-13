@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://deabxcxgxblaa"]
+
+[ext_resource type="Texture2D" uid="uid://duubq5xlfsos7" path="res://resources/icons/Horizontal Banner.png" id="1_dl5p4"]
+[ext_resource type="PackedScene" uid="uid://bpdur70ykfenc" path="res://main/scenes/levels/platforming/Player.tscn" id="1_player"]
+[ext_resource type="Script" uid="uid://ctpp75jehr23s" path="res://main/scripts/src/main/ui/PlayerTutorial.gd" id="2_preview"]
+[ext_resource type="Script" uid="uid://q0ft3l2npcl3" path="res://main/scripts/src/main/ui/InputLabeller.gd" id="3_input"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://vxg3rl60qugq" path="res://resources/icons/Banner.png" id="6_banner"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl5p4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_preview"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_key"]
+
+[node name="DashTutorial" type="Control" unique_id=484402820]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1726612381]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 0.65)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dl5p4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=85252173]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Preview" type="PanelContainer" parent="Panel/VBoxContainer" unique_id=521647617]
+custom_minimum_size = Vector2(240, 130)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_preview")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/Preview" unique_id=1389130240]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_dl5p4")
+expand_mode = 5
+
+[node name="PreviewViewport" type="SubViewportContainer" parent="Panel/VBoxContainer/Preview" unique_id=607541999]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Panel/VBoxContainer/Preview/PreviewViewport" unique_id=2066060779]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(240, 160)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Panel/VBoxContainer/Preview/PreviewViewport/SubViewport" unique_id=1015311885]
+position = Vector2(120, 65)
+limit_left = 0
+limit_top = 0
+limit_right = 240
+limit_bottom = 130
+
+[node name="DashPreview" parent="Panel/VBoxContainer/Preview/PreviewViewport/SubViewport" unique_id=1703094430 instance=ExtResource("1_player")]
+position = Vector2(46, 65)
+scale = Vector2(1.2, 1.2)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_preview")
+gravity = 800
+direction = 0
+jumping = false
+attacking = false
+switch = false
+switchTime = 0
+preview_animation = "dash"
+DASH_PREVIEW_WAIT = 0.5
+DASH_PREVIEW_FORCE = 800.0
+DASH_PREVIEW_DURATION = 0.15
+
+[node name="KeyPanel" type="PanelContainer" parent="Panel/VBoxContainer" unique_id=1814384622]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_key")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/KeyPanel" unique_id=1076529725]
+z_index = -1
+layout_mode = 2
+texture = ExtResource("6_banner")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/KeyPanel" unique_id=342896721]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/KeyPanel/MarginContainer" unique_id=113086545]
+z_index = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 48
+text = "[Dash]"
+horizontal_alignment = 1
+script = ExtResource("3_input")
+action = "Dash"
