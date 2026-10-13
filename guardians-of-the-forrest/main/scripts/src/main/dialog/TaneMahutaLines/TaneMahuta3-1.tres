@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_2emmd")
-speaker = "Tāne Mahuta"
+speaker = "Tane mahuta"
 text = "Jump down and go through the cave."
 portrait = ExtResource("1_kwj01")
 metadata/_custom_type_script = "uid://xxvberhow7ro"

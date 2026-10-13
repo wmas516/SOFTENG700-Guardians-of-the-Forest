@@ -3,7 +3,7 @@ extends Node2D
 @onready var tree_nodes: Array[TreeTrim] = [$Tree, $Tree2, $Tree3]
 @onready var completion_container: Container = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
-@onready var branchesLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches
+@onready var branchesLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentBranches
 
 func _ready() -> void:
 	if PlayerData.infected_trees.is_empty() and PlayerData.trimed_trees.is_empty():

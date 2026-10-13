@@ -68,6 +68,7 @@ theme_override_constants/margin_bottom = 20
 [node name="Menu" parent="MarginContainer" unique_id=1705628697 instance=ExtResource("7_tqvm0")]
 z_index = 1
 layout_mode = 2
+hideHelp = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1910838241]
 stream = ExtResource("7_ov408")

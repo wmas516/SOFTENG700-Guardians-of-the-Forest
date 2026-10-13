@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var player: PlatformPlayer = $Gameplay/Player
 @onready var screen_fade: CanvasLayer = $ScreenFade
+@onready var tutorial: Control = $UI/MarginContainer/Tutorial
 
 @onready var start_pos: Marker2D = $Markers/StartPos
 @onready var defense_pos: Marker2D = $Markers/DefensePos
@@ -109,3 +110,6 @@ func _on_cave_spawn_body_entered(body: Node2D) -> void:
 
 func _on_forest_spawn_body_entered(body: Node2D) -> void:
 	PlayerData.save_platforming_position(forest_floor_pos.global_position)
+
+func _on_menu_help() -> void:
+	tutorial.visible = !tutorial.visible

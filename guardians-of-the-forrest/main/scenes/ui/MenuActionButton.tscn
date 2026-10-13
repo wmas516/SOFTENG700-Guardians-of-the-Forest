@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ba5x1cxygfjdb"]
+
+[ext_resource type="FontVariation" uid="uid://bk3hi2wd6jbfx" path="res://resources/fonts/UIFontTitleTopSpace.tres" id="1_6dlfs"]
+[ext_resource type="Texture2D" uid="uid://vxg3rl60qugq" path="res://resources/icons/Banner.png" id="1_banner"]
+[ext_resource type="Script" uid="uid://c5mc2h8adfxos" path="res://main/scripts/src/main/ui/MenuActionButton.gd" id="1_button_script"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_normal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.615686, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 20
+
+[node name="MenuActionButton" type="Button" unique_id=1168268693]
+custom_minimum_size = Vector2(150, 73)
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_normal")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_normal")
+script = ExtResource("1_button_script")
+
+[node name="Banner" type="TextureRect" parent="." unique_id=443187867]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_banner")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Banner" unique_id=143124932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HoverOutline" type="Panel" parent="Banner/MarginContainer" unique_id=500000001]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hover")
+
+[node name="Label" type="Label" parent="Banner/MarginContainer" unique_id=1837854520]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_6dlfs")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1

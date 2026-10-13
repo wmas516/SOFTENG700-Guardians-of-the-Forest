@@ -3,7 +3,7 @@ extends Node2D
 @export var sprites: Array[Sprite2D]
 @export var cleaningRate: float = 0.01
 
-@onready var spotLabel: Label = $HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentSpots
+@onready var spotLabel: Label = $HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2/CurrentSpots
 @onready var completion_panel: Control = $HUD/ReturnBox
 @onready var completion_button: Button = $HUD/ReturnBox/ReturnButton
 

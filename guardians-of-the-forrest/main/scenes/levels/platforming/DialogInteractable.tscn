@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxf487ah20c3t"]
 
 [ext_resource type="Script" uid="uid://xa1il48uynma" path="res://main/scripts/src/main/platforming/DialogInteractable.gd" id="1_laul5"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="2_gr77c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_laul5"]
 size = Vector2(44, 42)
@@ -19,5 +20,6 @@ offset_left = -20.0
 offset_top = -29.0
 offset_right = 20.0
 offset_bottom = -6.0
+theme_override_fonts/font = ExtResource("2_gr77c")
 horizontal_alignment = 1
 vertical_alignment = 1

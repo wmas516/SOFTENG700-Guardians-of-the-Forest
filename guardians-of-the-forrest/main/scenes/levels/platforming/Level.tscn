@@ -121,6 +121,7 @@
 [ext_resource type="Resource" uid="uid://bvso2eeamjj0u" path="res://main/scripts/src/main/dialog/TaneMahuta4.tres" id="97_u6rl0"]
 [ext_resource type="Resource" uid="uid://cl5aiu1twu0qr" path="res://main/scripts/src/main/dialog/TaneMahuta5.tres" id="98_ib78u"]
 [ext_resource type="Resource" uid="uid://b20kalwvath4i" path="res://main/scripts/src/main/dialog/TaneMahuta6.tres" id="99_4a3g8"]
+[ext_resource type="PackedScene" uid="uid://6y1fai3ptghw" path="res://main/scenes/levels/platforming/DashTutorialInteractable.tscn" id="100_2b27b"]
 [ext_resource type="Resource" uid="uid://cw1goanv4jyep" path="res://main/scripts/src/main/dialog/TaneMahuta7.tres" id="100_x18a4"]
 [ext_resource type="Texture2D" uid="uid://crxs4h2btd863" path="res://resources/environment/trees/rusted_canopy_large_01.png" id="108_5dgl0"]
 [ext_resource type="PackedScene" uid="uid://bqh8j34rsc5ga" path="res://main/scenes/levels/platforming/Interactable.tscn" id="109_kpbni"]
@@ -138,6 +139,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
 [ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
+[ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="tutorial_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
 size = Vector2(2596, 162.5)
@@ -4338,7 +4340,8 @@ popup_text = "Challenge the Myrtle King []"
 label_offset = Vector2(-80, -60)
 
 [node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
-position = Vector2(205, 106)
+z_index = 3
+position = Vector2(200, 100)
 collision_layer = 8
 collision_mask = 2
 
@@ -4390,6 +4393,13 @@ scale = Vector2(-0.5199644, 2.7315266)
 dialog_name = "TaneMahuta7.tres"
 dialog_sequence = ExtResource("100_x18a4")
 need_to_interact = false
+
+[node name="DashTutorialInteractable" parent="Gameplay/Interactables" unique_id=1536926772 instance=ExtResource("100_2b27b")]
+z_index = 2
+position = Vector2(500, 100)
+collision_layer = 8
+collision_mask = 2
+keep = true
 
 [node name="BounceObjects" type="Node2D" parent="Gameplay" unique_id=747326431]
 
@@ -4561,6 +4571,7 @@ scale = Vector2(0.16167721, 0.16167721)
 texture = ExtResource("28_rlkse")
 
 [node name="Player" parent="Gameplay" unique_id=868766390 instance=ExtResource("14_xce43")]
+z_index = 4
 position = Vector2(103, 105)
 collision_layer = 2
 collision_mask = 15
@@ -5895,7 +5906,14 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Menu" parent="UI/MarginContainer" unique_id=1705628697 instance=ExtResource("123_ejyt0")]
+z_index = 2
 layout_mode = 2
+
+[node name="Tutorial" parent="UI/MarginContainer" unique_id=1479953224 instance=ExtResource("tutorial_controls")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
 stream = ExtResource("80_6w1ea")
@@ -5911,3 +5929,4 @@ bus = &"Music"
 [connection signal="player_died" from="Gameplay/Player" to="." method="_on_player_player_died"]
 [connection signal="body_entered" from="Gameplay/ForestSpawn" to="." method="_on_forest_spawn_body_entered"]
 [connection signal="body_entered" from="Gameplay/CaveSpawn" to="." method="_on_cave_spawn_body_entered"]
+[connection signal="help" from="UI/MarginContainer/Menu" to="." method="_on_menu_help"]

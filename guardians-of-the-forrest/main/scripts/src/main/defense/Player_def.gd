@@ -3,6 +3,8 @@ class_name PlayerDef
 
 @export var speed = 125
 
+const STARTING_POSITION := Vector2(560.0, 375.0)
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var rangeRay: RayCast2D = $Range
 
@@ -62,6 +64,10 @@ func _physics_process(delta: float) -> void:
 
 	setTargetAngle(x, y)
 	move_and_slide()
+	var level_bounds := get_viewport_rect()
+	if not level_bounds.has_point(global_position):
+		global_position = STARTING_POSITION
+		velocity = Vector2.ZERO
 	update_animation(x, y)
 	return
 

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://rebxd0meupyi"]
 
 [ext_resource type="Script" uid="uid://b7gnpn7xk01gg" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame3.gd" id="1_fcd3i"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="caption_font"]
 [ext_resource type="Texture2D" uid="uid://cq2m0xa8c1nyd" path="res://resources/cutscene/3/Dirt.png" id="1_t0tvk"]
 [ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2_jb8xw"]
 [ext_resource type="Resource" path="res://resources/dialog/full/CutsceneCaptions/3/Caption1.tres" id="caption_3_1"]
@@ -69,7 +70,8 @@ custom_minimum_size = Vector2(2000, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 96
+theme_override_fonts/font = ExtResource("caption_font")
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2

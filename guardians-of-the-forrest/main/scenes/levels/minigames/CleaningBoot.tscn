@@ -4,16 +4,23 @@
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="2_uvyfl"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="3_uvyfl"]
 [ext_resource type="PackedScene" uid="uid://bubv66dcc7v56" path="res://main/scenes/ui/TutorialVideo.tscn" id="4_eml3c"]
+[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="4_kkgdc"]
 [ext_resource type="VideoStream" uid="uid://gj1f7ljxuq6u" path="res://resources/tutorial/Tutorial-Boot-Clean.ogv" id="5_8p5d2"]
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="5_iwasc"]
 [ext_resource type="AudioStream" uid="uid://bqy8tqlnpx6u8" path="res://resources/audio/bootScrub.mp3" id="5_uvyfl"]
 [ext_resource type="Texture2D" uid="uid://cmhak7pmtshlr" path="res://resources/props/shoeDirty.png" id="6_uvyfl"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="8_ylig1"]
+[ext_resource type="PackedScene" uid="uid://ba5x1cxygfjdb" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
+[ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyicb"]
-bg_color = Color(0, 0, 0, 0.55)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ylig1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvyfl"]
-bg_color = Color(0, 0, 0, 0.55)
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hyicb"]
 radius = 94.0
@@ -50,45 +57,73 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer" unique_id=1037876537]
-layout_mode = 2
-theme_override_constants/separation = 1
-
-[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/HBoxContainer" unique_id=1381198697]
+[node name="UIPanel" parent="HUD/MarginContainer" unique_id=320323935 instance=ExtResource("ui_panel_base")]
+custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hyicb")
+size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/HBoxContainer/Wave" unique_id=676610854]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel" unique_id=1280581372]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -15.5
+offset_right = 103.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer" unique_id=48220272]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 9
+
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=1381198697]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ylig1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave" unique_id=676610854]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1310756826]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1310756826]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="Title" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=139965579]
+[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=139965579]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_kkgdc")
 theme_override_font_sizes/font_size = 16
 text = "Boots Left to Clean: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=882530717]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=882530717]
 layout_mode = 2
-theme_override_constants/margin_left = 8
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="CurrentSpots" type="Label" parent="HUD/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=701112630]
+[node name="CurrentSpots" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=701112630]
+z_index = 1
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_kkgdc")
 text = "67"
 
 [node name="Objective" type="PanelContainer" parent="HUD/MarginContainer" unique_id=1142590230]
+clip_children = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -101,26 +136,55 @@ theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/Objective/HBoxContainer" unique_id=925980293]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="Title" type="Label" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer" unique_id=771553209]
+z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("8_ylig1")
 theme_override_font_sizes/font_size = 24
 text = "Scrub the boot to clear the myrtle rust"
+
+[node name="UIPanel2" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=808137757 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 435.85205
+offset_top = 68.99999
+offset_right = 911.0676
+offset_bottom = 321.719
+grow_horizontal = 1
+rotation = 3.1415927
+expand_mode = 1
+
+[node name="UIPanel" parent="HUD/MarginContainer/Objective/HBoxContainer/MarginContainer/Title" unique_id=1942793193 instance=ExtResource("ui_panel_base")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 570.2803
+offset_top = 17.0
+offset_right = 1218.592
+offset_bottom = 318.0
+grow_horizontal = 1
+rotation = 3.1415927
+expand_mode = 1
 
 [node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("3_uvyfl")]
 z_index = 1
 layout_mode = 2
 
 [node name="TutorialVideo" parent="HUD/MarginContainer" unique_id=1598740574 instance=ExtResource("4_eml3c")]
+z_index = 2
 layout_mode = 2
 mouse_filter = 2
 video = ExtResource("5_8p5d2")
-instruction = "Click and drag the mouse to clean the boot and click a boot to swap it"
+instruction = "Click and drag mouse to clean and click a boot to swap it"
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1526241117]
 visible = false
@@ -138,16 +202,22 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="HUD/ReturnBox" unique_id=469975197]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("8_ylig1")
+theme_override_font_sizes/font_size = 48
 text = "Boots Are Now Clean!"
 horizontal_alignment = 1
 
-[node name="ReturnButton" type="Button" parent="HUD/ReturnBox" unique_id=206448421]
+[node name="ReturnButton" parent="HUD/ReturnBox" unique_id=206448421 instance=ExtResource("menu_action_button")]
 layout_mode = 2
-text = "Return"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+button_text = "Return"
 
 [node name="BootRight" type="Sprite2D" parent="." unique_id=1775772366]
 position = Vector2(556, 282)
