@@ -180,12 +180,11 @@ z_index = 1
 layout_mode = 2
 
 [node name="TutorialVideo" parent="HUD/MarginContainer" unique_id=1598740574 instance=ExtResource("4_eml3c")]
-visible = false
 z_index = 2
 layout_mode = 2
 mouse_filter = 2
 video = ExtResource("5_8p5d2")
-instruction = "Click and drag the mouse to clean the boot and click a boot to swap it"
+instruction = "Click and drag mouse to clean and click a boot to swap it"
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1526241117]
 visible = false

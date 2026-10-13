@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1")
-caption = "myrtle Rust is a tiny, sneaky sickness"
+caption = "myrtle rust is a tiny, sneaky sickness"
 displayTime = 4
 metadata/_custom_type_script = "uid://cgh6n6ony30kf"

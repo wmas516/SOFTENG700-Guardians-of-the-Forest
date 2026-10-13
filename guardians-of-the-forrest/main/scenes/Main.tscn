@@ -57,6 +57,7 @@ button_text = "Start"
 
 [node name="Menu" parent="Control/MarginContainer" unique_id=1705628697 instance=ExtResource("5_tcrm2")]
 layout_mode = 2
+hideHelp = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=951489767]
 stream = ExtResource("4_mdq7u")

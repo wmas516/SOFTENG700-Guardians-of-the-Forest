@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("2_fmu3c")
 speaker = "Tane mahuta"
-text = "Myrtle Rust has been spreading all across the forest."
+text = "Myrtle rust has been spreading all across the forest."
 portrait = ExtResource("1_arf1o")
 metadata/_custom_type_script = "uid://xxvberhow7ro"

@@ -48,11 +48,13 @@ loop = true
 [node name="Label" type="Label" parent="UIPanel/MarginContainer" unique_id=542474765]
 z_index = 1
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 0
+autowrap_mode = 3
 theme_override_fonts/font = ExtResource("4_rhc71")
 theme_override_font_sizes/font_size = 48
 text = "Instruction"
+horizontal_alignment = 1
 
 [node name="Button" parent="UIPanel/MarginContainer" unique_id=1774234940 instance=ExtResource("menu_action_button")]
 layout_mode = 2

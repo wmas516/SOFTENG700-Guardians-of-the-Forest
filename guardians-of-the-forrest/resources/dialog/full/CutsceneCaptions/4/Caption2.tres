@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1")
-caption = "tane mahuta cannot fix this alone. He needs help."
+caption = "tane mahuta cannot fix this alone. he needs help."
 displayTime = 8
 metadata/_custom_type_script = "uid://cgh6n6ony30kf"

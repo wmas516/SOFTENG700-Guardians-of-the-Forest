@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_5tloi")
 speaker = "Tane mahuta"
-text = "Wake up Kaimanaki! the forest needs you!"
+text = "Wake up kaimanaki! the forest needs you!"
 portrait = ExtResource("1_og6kv")
 metadata/_custom_type_script = "uid://xxvberhow7ro"
