@@ -17,7 +17,7 @@ var has_saved_platforming_position: bool = false
 var trimed_trees: Array[String] = []
 var infected_trees: Array[String] = []
 var game_progress_stage: int = 0
-var narrative: Narrative = Narrative.FULL
+var narrative: Narrative = Narrative.SKIP
 var player_active: bool = true
 var difficulty: Difficulty = Difficulty.MEDIUM
 

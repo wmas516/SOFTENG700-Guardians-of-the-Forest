@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TimedCaption" format=3 uid="uid://chfiswohwwiye"]
+
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+caption = "Without our help, NZ could lose all its myrtle plants to this disease."
+displayTime = 8
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"

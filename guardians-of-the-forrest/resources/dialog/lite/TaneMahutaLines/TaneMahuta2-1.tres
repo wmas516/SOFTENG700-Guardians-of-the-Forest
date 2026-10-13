@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://c2lddaunfit8h"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_hu7fp"]
+
+[resource]
+script = ExtResource("2_hu7fp")
+speaker = "Objective"
+text = "This tree has been infected"
+metadata/_custom_type_script = "uid://xxvberhow7ro"

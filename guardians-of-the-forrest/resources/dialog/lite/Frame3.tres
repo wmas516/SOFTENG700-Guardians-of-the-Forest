@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TimedCaptionSequence" format=3 uid="uid://b2hycl2k5d581"]
+
+[ext_resource type="Script" uid="uid://v6plqiy376wg" path="res://main/scripts/src/main/ui/cutscene/TimedCaptionSequence.gd" id="1"]
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="2"]
+[ext_resource type="Resource" uid="uid://do3o0iidufcxh" path="res://resources/dialog/lite/CutsceneCaptions/3/Caption1.tres" id="2_48gqg"]
+[ext_resource type="Resource" uid="uid://byrij3sc51gaf" path="res://resources/dialog/lite/CutsceneCaptions/3/Caption2.tres" id="3_kt0en"]
+
+[resource]
+script = ExtResource("1")
+captions = Array[ExtResource("2")]([ExtResource("2_48gqg"), ExtResource("3_kt0en")])
+metadata/_custom_type_script = "uid://v6plqiy376wg"

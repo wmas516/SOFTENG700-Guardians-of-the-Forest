@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DialogLine" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://resources/sprites/final/Boss.png" id="portrait"]
+[ext_resource type="Script" path="res://main/scripts/src/main/DialogLine.gd" id="script"]
+
+[resource]
+script = ExtResource("script")
+speaker = "Myrtle King"
+text = "You are but an ant in this game and i shall be your boot."
+portrait = ExtResource("portrait")
