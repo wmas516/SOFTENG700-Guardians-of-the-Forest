@@ -46,6 +46,18 @@ func on_line_changed(line: DialogLine) -> void:
 	typing_tween = create_tween()
 	typing_tween.tween_property(text_label, "visible_characters", line.text.length(), line.text.length() * 0.02)
 	typing_tween.tween_callback(func(): typing = false)
+
+func apply_caption(line: DialogLine) -> void:
+	speaker = line.speaker
+	text = line.text
+	speakerImage = line.portrait
+	name_label.text = speaker
+	portrait_rect.texture = speakerImage
+	text_label.text = text
+	text_label.visible_characters = -1
+
+func has_caption() -> bool:
+	return not text.is_empty()
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible or not text.is_empty(): return

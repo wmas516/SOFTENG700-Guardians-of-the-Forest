@@ -29,7 +29,6 @@ height = 348.0
 [node name="CleaningBoot" type="Node2D" unique_id=965748908 node_paths=PackedStringArray("sprites")]
 script = ExtResource("1_gy606")
 sprites = [NodePath("BootRight/Dirty"), NodePath("BootLeft/Dirty")]
-cleaningRate = 0.002
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1618740350]
 z_index = -2

@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 		attackTimer.start()
 		attacking = true
 		blastSoundPlayer.play()
-		var damaged = getTargetsInRange()
+		var damaged := getTargetsInSphere() if PlayerData.difficulty == PlayerData.Difficulty.EASY else getTargetsInRange()
 
 		for target in damaged:
 			if (target 
@@ -153,8 +153,36 @@ func getTargetsInRange() -> Array[Node]:
 	
 	return collisions
 
+func getTargetsInSphere() -> Array[Node]:
+	var collisions: Array[Node] = []
+	var seen_targets: Dictionary = {}
+	var attack_shape := CircleShape2D.new()
+	attack_shape.radius = rangeRay.global_position.distance_to(rangeRay.to_global(rangeRay.target_position))
 
-func getTargetableParent(collider: Node) -> Node:
+	var query := PhysicsShapeQueryParameters2D.new()
+	query.shape = attack_shape
+	query.transform = Transform2D(0.0, global_position)
+	query.collision_mask = rangeRay.collision_mask
+	query.collide_with_areas = true
+	query.collide_with_bodies = true
+	query.exclude = [get_rid()]
+
+	var space_state := get_world_2d().direct_space_state
+	for result in space_state.intersect_shape(query):
+		var collider := result.get("collider") as Node
+		if collider == null:
+			continue
+
+		var target := getTargetableParent(collider, false)
+		if target == null or seen_targets.has(target.get_instance_id()):
+			continue
+		seen_targets[target.get_instance_id()] = true
+		collisions.append(target)
+
+	return collisions
+
+
+func getTargetableParent(collider: Node, log_failure: bool = true) -> Node:
 	var current: Node = collider
 	
 	while current != null:
@@ -165,7 +193,8 @@ func getTargetableParent(collider: Node) -> Node:
 		
 		if !current || current == get_tree().root:
 			break
-	print("valid parent not found")
+	if log_failure:
+		print("valid parent not found")
 	return null
 
 func damage():

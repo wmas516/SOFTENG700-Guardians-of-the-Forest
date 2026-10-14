@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogSequence" format=3 uid="uid://0jnuv0fdcggw"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="1_vg0l0"]
+[ext_resource type="Resource" uid="uid://dqwiwcpnn5n87" path="res://resources/dialog/lite/TaneMahutaLines/TaneMahuta4-1.tres" id="2_82tll"]
+[ext_resource type="Script" uid="uid://byhhow1tqmuxc" path="res://main/scripts/src/main/DialogSequence.gd" id="2_wco80"]
+[ext_resource type="Resource" uid="uid://c5uulh2k2qqjd" path="res://resources/dialog/lite/TaneMahutaLines/TaneMahuta4-2.tres" id="3_j0p8l"]
+
+[resource]
+script = ExtResource("2_wco80")
+lines = Array[ExtResource("1_vg0l0")]([ExtResource("2_82tll"), ExtResource("3_j0p8l")])
+metadata/_custom_type_script = "uid://byhhow1tqmuxc"

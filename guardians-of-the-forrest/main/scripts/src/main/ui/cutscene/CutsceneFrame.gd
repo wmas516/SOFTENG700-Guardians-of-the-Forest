@@ -16,11 +16,15 @@ signal done
 func _ready() -> void:
 	#PlayerData.full_narrative_dir()
 	if ((PlayerData.narrative != PlayerData.Narrative.SKIP) && captionsListName):
-		var dialogPath: String = PlayerData.full_narrative_dir() + captionsListName
+		var dialogPath: String = PlayerData.full_narrative_dir() + captionsListName + ".tres"
 		if (ResourceLoader.exists(dialogPath)):
 			var res: Resource = load(dialogPath)
 			if (res is TimedCaptionSequence):
 				captionsList = res as TimedCaptionSequence
+			else:
+				push_error("Cutscene captions resource has an invalid type: " + dialogPath)
+		else:
+			push_error("Cutscene captions resource was not found: " + dialogPath)
 	if(captionsList):
 		captions = captionsList.captions
 	

@@ -41,6 +41,7 @@ func _ready() -> void:
 	if not PlayerData.difficulty_changed.is_connected(_on_difficulty_changed):
 		PlayerData.difficulty_changed.connect(_on_difficulty_changed)
 	_select_difficulty_config(PlayerData.difficulty)
+	_load_boss_captions()
 	if level_config == null:
 		push_error("Assign a DefenseLevelConfig resource before starting this level.")
 		return
@@ -171,6 +172,28 @@ func _show_completion() -> void:
 	completion_container.visible = true
 	_check_freeze_for_wave(0)
 
+func _load_boss_captions() -> void:
+	if not boss:
+		return
+
+	for index in range(1, 7):
+		var dialog_node_name := "Dialog" if index == 1 else "Dialog%d" % index
+		var dialog_box := get_node_or_null("HUD/" + dialog_node_name)
+		if PlayerData.narrative in [PlayerData.Narrative.LITE, PlayerData.Narrative.SKIP] and dialog_box != null and dialog_box.has_method("apply_caption"):
+			dialog_box.call("apply_caption", DialogLine.new())
+		if PlayerData.narrative == PlayerData.Narrative.SKIP:
+			continue
+
+		var caption_path := PlayerData.full_narrative_dir() + "BossCaptions/BossDialog%d.tres" % index
+		if not ResourceLoader.exists(caption_path):
+			continue
+		var caption := load(caption_path) as DialogLine
+		if caption == null:
+			continue
+		if dialog_box == null or not dialog_box.has_method("apply_caption"):
+			continue
+		dialog_box.call("apply_caption", caption)
+
 func _on_return_button_pressed() -> void:
 	if (boss):
 		PlayerData.restart()
@@ -208,6 +231,8 @@ func _check_freeze_for_wave(wave_number: int) -> void:
 			continue
 		var node := get_node_or_null(entry.node)
 		if node == null or not node.has_method("show") or not node.has_method("hide"):
+			continue
+		if node.has_method("has_caption") and not node.call("has_caption"):
 			continue
 		node.call("show")
 		active_freeze_nodes.append(node)

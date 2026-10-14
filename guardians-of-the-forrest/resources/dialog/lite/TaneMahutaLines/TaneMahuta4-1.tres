@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://dqwiwcpnn5n87"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_spftj"]
+
+[resource]
+script = ExtResource("2_spftj")
+speaker = "Objective"
+text = "There’s an old boot covered in myrtle rust spores."
+metadata/_custom_type_script = "uid://xxvberhow7ro"

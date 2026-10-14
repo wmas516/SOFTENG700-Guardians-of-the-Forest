@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="DialogLine" format=3 uid="uid://c5uulh2k2qqjd"]
+
+[ext_resource type="Script" uid="uid://xxvberhow7ro" path="res://main/scripts/src/main/DialogLine.gd" id="2_2gc4s"]
+
+[resource]
+script = ExtResource("2_2gc4s")
+speaker = "Objective"
+text = "Give it a clean."
+metadata/_custom_type_script = "uid://xxvberhow7ro"

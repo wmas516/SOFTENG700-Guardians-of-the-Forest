@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogLine" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://main/scripts/src/main/DialogLine.gd" id="script"]
+
+[resource]
+script = ExtResource("script")
+speaker = ""
+text = "Congratulations on getting rid of Myrtle rust! You have saved the forest."

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TimedCaption" format=3 uid="uid://lbxoeoyhhh2u"]
+
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+caption = "The spores can be carried by the wind."
+displayTime = 5
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
