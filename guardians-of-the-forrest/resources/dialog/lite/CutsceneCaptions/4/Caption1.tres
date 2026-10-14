@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1")
-caption = "Without our help, NZ could lose all its myrtle plants to this disease."
+caption = "Without our help, New Zealand could lose all its myrtle plants to this disease."
 displayTime = 8
 metadata/_custom_type_script = "uid://cgh6n6ony30kf"

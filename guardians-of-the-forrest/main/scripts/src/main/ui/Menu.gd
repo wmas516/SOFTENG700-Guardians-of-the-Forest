@@ -10,6 +10,7 @@ var tab_outline: Panel
 var hovered_tab: int = -1
 
 signal help
+signal menu_toggled(is_open: bool)
 
 func _ready() -> void:
 	helpButton.visible = !hideHelp
@@ -61,5 +62,6 @@ func _on_help_button_pressed() -> void:
 
 func _on_menu_button_pressed() -> void:
 	menuContainer.set_visible(!menuContainer.visible)
+	menu_toggled.emit(menuContainer.visible)
 	if not menuContainer.visible:
 		tab_outline.hide()

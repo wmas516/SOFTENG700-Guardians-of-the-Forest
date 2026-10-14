@@ -346,3 +346,6 @@ func revertLoss() -> void:
 func _on_menu_help() -> void:
 	tutorial.set_visible(!tutorial.is_visible())
 	_set_freezer("tutorial", tutorial.is_visible())
+
+func _on_menu_toggled(is_open: bool) -> void:
+	_set_freezer("menu", is_open)
