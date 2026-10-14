@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dwxgornygspgk" path="res://main/scenes/ui/cutscene/Frame2.tscn" id="1_hgqwg"]
 [ext_resource type="PackedScene" uid="uid://rebxd0meupyi" path="res://main/scenes/ui/cutscene/Frame3.tscn" id="2_26j4q"]
 [ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="3_ir5e6"]
+[ext_resource type="Script" uid="uid://tfntdntl178y" path="res://main/scripts/src/main/ui/cutscene/CutsceneFrame1.gd" id="3_tqvm0"]
 [ext_resource type="Resource" uid="uid://xks27fa4f6kk" path="res://resources/dialog/full/Frame1.tres" id="4_tbkxf"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="7_ov408"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_tqvm0"]
@@ -13,6 +14,7 @@
 script = ExtResource("1_26j4q")
 
 [node name="Frame1" parent="." unique_id=2137054221 instance=ExtResource("3_ir5e6")]
+script = ExtResource("3_tqvm0")
 speed = 0.1
 captionsList = ExtResource("4_tbkxf")
 captionsListName = "Frame1"
