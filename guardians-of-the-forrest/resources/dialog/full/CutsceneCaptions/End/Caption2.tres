@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TimedCaption" format=3 uid="uid://rka28lde6jl5"]
+
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="1_kyelh"]
+
+[resource]
+script = ExtResource("1_kyelh")
+caption = "You have saved the forest!"
+displayTime = 10
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"
