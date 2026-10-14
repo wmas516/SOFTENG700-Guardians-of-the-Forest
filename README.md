@@ -49,27 +49,3 @@ C:\Users\<User>\AppData\Local\Android\Sdk
 8. Set Android SDK Path as the path found from step 6 
 9. Leave Debug Keystore as is it should be set to Godot Keystore
 10. Set Java SDK Path as a Java runtime
-
-## Privacy Policy and Data use disclaimer
-
-Effective Date: 15/10/2026
-App Name: Kaimanaki - Guardians of the Forest
-Developer Name: Will Massam
-Contact Email: wmas516@aucklanduni.ac.nz
-
-We value your privacy. This Privacy Policy informs you that our Android application does not collect, store, share, or transmit any user data or personal information.
-
-1. Information Collection and Use
-We do not collect any personal or sensitive information from you when you download and use Kaimanaki - Guardians of the Forest. The app does not require a user account, registration, or any personal details to function.
-
-2. Permissions and Device Data
-The app runs entirely locally on your device. We do not access your device’s camera, microphone, contact list, location, or storage for any purpose other than what is technically required for the app to function locally on your device. Any such technical processing stays strictly on your device and is never transmitted to us or any third party.
-
-3. Third-Party Services
-We do not use any third-party SDKs, analytics tools, advertising networks, or cloud storage solutions that track your usage or collect your information.
-
-5. Changes to This Policy
-We may update our Privacy Policy from time to time. Any changes will be posted on this page with a revised "Effective Date."
-
-6. Contact Us
-If you have any questions regarding this Privacy Policy, please contact us via email at wmas516@aucklanduni.ac.nz
