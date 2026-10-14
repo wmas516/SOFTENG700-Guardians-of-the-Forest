@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bfw2r1hejk6r8" path="res://resources/cutscene/3/Bush.png" id="4_6j70f"]
 [ext_resource type="Texture2D" uid="uid://doofc8w6ujoaa" path="res://resources/cutscene/3/Background.png" id="6_4v8xe"]
 [ext_resource type="Resource" uid="uid://bsvaoj65mxuat" path="res://resources/dialog/full/Frame3.tres" id="captions_3"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="caption_font"]
 [node name="Frame3" type="Control" unique_id=175296139]
 layout_mode = 3
 anchor_right = 1.005

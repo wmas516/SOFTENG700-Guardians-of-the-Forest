@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1vwyk4qv66m2" path="res://resources/cutscene/2/Boot.png" id="4_inihf"]
 [ext_resource type="Texture2D" uid="uid://dx63yhfyt83dw" path="res://resources/cutscene/2/Background.png" id="6_a2cx0"]
 [ext_resource type="Resource" uid="uid://c3sps2whh0ex3" path="res://resources/dialog/full/Frame2.tres" id="captions_2"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="caption_font"]
 
 [node name="Frame2" type="Control" unique_id=175296139]
 layout_mode = 3
