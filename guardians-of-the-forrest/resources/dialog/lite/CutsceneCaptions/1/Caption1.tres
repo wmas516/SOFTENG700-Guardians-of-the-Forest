@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1")
-caption = "NZ is a country with many forests, each filled with many different trees and animals."
+caption = "New Zealand is a country with many forests, each filled with many different trees and animals."
 displayTime = 8
 metadata/_custom_type_script = "uid://cgh6n6ony30kf"

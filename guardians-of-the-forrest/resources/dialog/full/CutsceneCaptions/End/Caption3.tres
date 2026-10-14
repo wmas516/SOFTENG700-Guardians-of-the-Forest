@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_iwrgu")
-caption = "Remember Kaimanaki, if you spot myrtle rust in the wild, report it to the authorities"
+caption = "Remember Kaimanaki, if you spot myrtle rust in the wild, report it to DOC"
 displayTime = 10
 metadata/_custom_type_script = "uid://cgh6n6ony30kf"

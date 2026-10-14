@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_qldv1"]
 [ext_resource type="PackedScene" uid="uid://ba5x1cxygfjdb" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="return_font"]
-[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="wave_font"]
 [ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
+[ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="wave_font"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wave"]
 
@@ -60,13 +60,13 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="UIPanel" parent="HUD/MarginContainer" instance=ExtResource("ui_panel_base")]
+[node name="UIPanel" parent="HUD/MarginContainer" unique_id=2139800161 instance=ExtResource("ui_panel_base")]
 custom_minimum_size = Vector2(250, 120)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel" unique_id=426251595]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,31 +80,31 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer" unique_id=2052927862]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/separation = 9
 
-[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer"]
+[node name="Wave" type="PanelContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer" unique_id=45896949]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_wave")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave" unique_id=161952917]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=392484428]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer"]
+[node name="Title" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer" unique_id=1755117415]
 z_index = 1
 layout_mode = 2
 size_flags_vertical = 0
@@ -112,14 +112,14 @@ theme_override_fonts/font = ExtResource("wave_font")
 theme_override_font_sizes/font_size = 16
 text = "Trees to Treat: "
 
-[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer" unique_id=1783297723]
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 4
 
-[node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2"]
+[node name="CurrentBranches" type="Label" parent="HUD/MarginContainer/UIPanel/MarginContainer/HBoxContainer/Wave/HBoxContainer/MarginContainer2" unique_id=1002516677]
 z_index = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("wave_font")
@@ -181,6 +181,7 @@ expand_mode = 1
 [node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("7_qldv1")]
 z_index = 1
 layout_mode = 2
+hideHelp = true
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1965514459]
 visible = false

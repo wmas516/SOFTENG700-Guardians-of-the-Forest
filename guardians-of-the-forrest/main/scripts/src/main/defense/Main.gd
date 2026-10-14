@@ -171,7 +171,7 @@ func enemyLog():
 	enemyLabel.text = str(aliveEnemies + enemies.size())
 
 func _show_completion() -> void:
-	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
+	if (PlayerData.narrative == PlayerData.Narrative.SKIP || !boss):
 		completion_container.visible = true
 		_check_freeze_for_wave(0)
 	else:
@@ -346,3 +346,6 @@ func revertLoss() -> void:
 func _on_menu_help() -> void:
 	tutorial.set_visible(!tutorial.is_visible())
 	_set_freezer("tutorial", tutorial.is_visible())
+
+func _on_menu_toggled(is_open: bool) -> void:
+	_set_freezer("menu", is_open)
