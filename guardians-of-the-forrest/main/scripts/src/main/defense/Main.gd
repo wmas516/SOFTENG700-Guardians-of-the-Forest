@@ -171,10 +171,10 @@ func enemyLog():
 	enemyLabel.text = str(aliveEnemies + enemies.size())
 
 func _show_completion() -> void:
-	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
+	if (PlayerData.narrative == PlayerData.Narrative.SKIP || !boss):
 		completion_container.visible = true
 		_check_freeze_for_wave(0)
-	elif (boss):
+	else:
 		get_tree().change_scene_to_file("res://main/scenes/ui/cutscene/EndCutScene.tscn")
 
 func _load_boss_captions() -> void:
