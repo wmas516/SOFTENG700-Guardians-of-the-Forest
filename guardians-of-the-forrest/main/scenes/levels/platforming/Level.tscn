@@ -4584,6 +4584,7 @@ jump_buffer_time = 0.5
 metadata/_edit_lock_ = true
 
 [node name="BossStump" type="Node2D" parent="Gameplay/Cosmetic-Front" unique_id=1171720504]
+z_index = 2
 
 [node name="StumpBase04" type="Sprite2D" parent="Gameplay/Cosmetic-Front/BossStump" unique_id=1945141666]
 position = Vector2(5168, 1777.0001)
