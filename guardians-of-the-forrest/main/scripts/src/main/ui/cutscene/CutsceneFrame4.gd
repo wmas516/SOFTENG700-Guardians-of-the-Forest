@@ -1,10 +1,5 @@
 extends CutsceneFrame
 
-@onready var forest: TextureRect = $CanvasModulate/Forest
-@onready var dirt: TextureRect = $CanvasModulate/Dirt
-@onready var bush: TextureRect = $CanvasModulate/Bush
-@onready var hills: TextureRect = $CanvasModulate/Hills
-@onready var sky: TextureRect = $CanvasModulate/Sky
 @onready var canvas: CanvasModulate = $CanvasModulate
 
 func _process(delta: float) -> void:
@@ -19,11 +14,3 @@ func zoom_canvas(growth: float) -> void:
 	var transform := canvas.get_transform()
 	transform = Transform2D.IDENTITY.translated(center) * Transform2D.IDENTITY.scaled(Vector2(growth, growth)) * Transform2D.IDENTITY.translated(-center) * transform
 	canvas.set_transform(transform)
-
-func parallax(dir: Vector2):
-	forest.set_position(forest.position + 0.25 * dir * speed)
-	dirt.set_position(dirt.position + 0.25 * dir * speed)
-	bush.set_position(bush.position + 0.5 * dir * speed)
-	sky.set_position(sky.position + dir * speed)
-	hills.set_position(hills.position + dir * speed)
-	return

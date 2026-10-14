@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TimedCaption" format=3 uid="uid://bw26ixnxbqs4p"]
+
+[ext_resource type="Script" uid="uid://cgh6n6ony30kf" path="res://main/scripts/src/main/ui/cutscene/TimedCaption.gd" id="1_n4tya"]
+
+[resource]
+script = ExtResource("1_n4tya")
+caption = "Congratulations on getting rid of Myrtle rust!"
+displayTime = 10
+metadata/_custom_type_script = "uid://cgh6n6ony30kf"

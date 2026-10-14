@@ -99,7 +99,7 @@ func _on_spawn_timer_timeout() -> void:
 
 func nextWave():
 	# Enemy cleanup can trigger this while the level is leaving the scene tree.
-	if not is_instance_valid(spawnTimer) or not spawnTimer.is_inside_tree():
+	if not is_inside_tree() or not is_instance_valid(spawnTimer) or not spawnTimer.is_inside_tree():
 		return
 	if (wave < curWaveEnemies.size()):
 		aliveEnemies = curWaveEnemies[wave].total()
@@ -114,8 +114,10 @@ func nextWave():
 		spawnTimer.stop()
 		level_complete = true
 		_show_completion()
-		if (boss):
-			$DeathPlayerBoss.play()
+		if boss:
+			var death_player := get_node_or_null("DeathPlayerBoss") as AudioStreamPlayer
+			if death_player and death_player.is_inside_tree():
+				death_player.play()
 	
 func spawn():
 	if level_complete:
@@ -169,8 +171,11 @@ func enemyLog():
 	enemyLabel.text = str(aliveEnemies + enemies.size())
 
 func _show_completion() -> void:
-	completion_container.visible = true
-	_check_freeze_for_wave(0)
+	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
+		completion_container.visible = true
+		_check_freeze_for_wave(0)
+	else:
+		get_tree().change_scene_to_file("res://main/scenes/ui/cutscene/EndCutScene.tscn")
 
 func _load_boss_captions() -> void:
 	if not boss:

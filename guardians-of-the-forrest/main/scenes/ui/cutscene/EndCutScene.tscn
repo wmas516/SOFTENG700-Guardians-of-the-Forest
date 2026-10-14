@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cgnw4i7wm85r2"]
+
+[ext_resource type="Script" uid="uid://c5wk8mp4ii43c" path="res://main/scripts/src/main/ui/cutscene/EndCutscene.gd" id="1_0irrc"]
+[ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="2_7uymk"]
+[ext_resource type="Script" uid="uid://bbsy8wq2ab5tb" path="res://main/scripts/src/main/ui/cutscene/EndingFrame.gd" id="2_u1taj"]
+[ext_resource type="Resource" uid="uid://bfj6pi1ir2qey" path="res://resources/dialog/full/EndingCaptions.tres" id="3_0irrc"]
+[ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_mmd8r"]
+[ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="8_rx3g6"]
+
+[node name="EndCutScene" type="Node" unique_id=590531104]
+script = ExtResource("1_0irrc")
+
+[node name="EndingFrame" parent="." unique_id=2137054221 instance=ExtResource("2_7uymk")]
+script = ExtResource("2_u1taj")
+captionsList = ExtResource("3_0irrc")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1105652920]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Menu" parent="MarginContainer" unique_id=1705628697 instance=ExtResource("7_mmd8r")]
+z_index = 1
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1910838241]
+stream = ExtResource("8_rx3g6")
+autoplay = true
+bus = &"Music"
+
+[connection signal="done" from="EndingFrame" to="." method="_on_frame_done"]

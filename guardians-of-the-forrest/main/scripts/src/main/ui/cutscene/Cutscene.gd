@@ -12,19 +12,15 @@ func _ready() -> void:
 	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
 		done()
 		return
+	for child in get_children():
+		if (child.name.contains("Frame")):
+			frames.append(child)
 	hideAllFrames()
 	disableAllFrames()
-	for child in get_children():
-		if (child is CutsceneFrame):
-			frames.append(child)
-	
 	showFrame(index)
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	if Input.is_key_pressed(OS.find_keycode_from_string("1")):
 		hideAllFrames()
 		disableAllFrames()
@@ -57,18 +53,17 @@ func disableAllFrames():
 
 func showFrame(frame_index: int):
 	index = frame_index
-	frames[index].visible  = true
+	frames[index].visible = true
 	frames[index].process_mode = Node.PROCESS_MODE_INHERIT
 	frames[index].startFrame()
 
 func _on_frame_done() -> void:
-	hideAllFrames()
-	disableAllFrames()
 	index += 1
 	if (index >= frames.size()):
 		done()
-		
 	else:
+		hideAllFrames()
+		disableAllFrames()
 		showFrame(index)
 
 func done() -> void:
