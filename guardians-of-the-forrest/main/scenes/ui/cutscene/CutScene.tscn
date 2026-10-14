@@ -51,3 +51,8 @@ hideHelp = true
 stream = ExtResource("7_ov408")
 autoplay = true
 bus = &"Music"
+
+[connection signal="done" from="Frame1" to="." method="_on_frame_done"]
+[connection signal="done" from="Frame2" to="." method="_on_frame_done"]
+[connection signal="done" from="Frame3" to="." method="_on_frame_done"]
+[connection signal="done" from="Frame4" to="." method="_on_frame_done"]

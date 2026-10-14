@@ -12,12 +12,11 @@ func _ready() -> void:
 	if (PlayerData.narrative == PlayerData.Narrative.SKIP):
 		done()
 		return
-	hideAllFrames()
-	disableAllFrames()
 	for child in get_children():
 		if (child.name.contains("Frame")):
 			frames.append(child)
-	print(frames.size())
+	hideAllFrames()
+	disableAllFrames()
 	showFrame(index)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,13 +58,12 @@ func showFrame(frame_index: int):
 	frames[index].startFrame()
 
 func _on_frame_done() -> void:
-	hideAllFrames()
-	disableAllFrames()
 	index += 1
 	if (index >= frames.size()):
 		done()
-		
 	else:
+		hideAllFrames()
+		disableAllFrames()
 		showFrame(index)
 
 func done() -> void:
