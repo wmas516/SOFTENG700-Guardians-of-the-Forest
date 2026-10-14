@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5wk8mp4ii43c" path="res://main/scripts/src/main/ui/cutscene/EndCutscene.gd" id="1_0irrc"]
 [ext_resource type="PackedScene" uid="uid://ssylucqvc0dk" path="res://main/scenes/ui/cutscene/Frame4.tscn" id="2_7uymk"]
 [ext_resource type="Script" uid="uid://bbsy8wq2ab5tb" path="res://main/scripts/src/main/ui/cutscene/EndingFrame.gd" id="2_u1taj"]
+[ext_resource type="Resource" uid="uid://bfj6pi1ir2qey" path="res://resources/dialog/full/EndingCaptions.tres" id="3_0irrc"]
 [ext_resource type="PackedScene" uid="uid://b48m8w6d5x2v5" path="res://main/scenes/ui/Menu.tscn" id="7_mmd8r"]
 [ext_resource type="AudioStream" uid="uid://d1n6vonehqtqw" path="res://resources/audio/defence.mp3" id="8_rx3g6"]
 
@@ -11,6 +12,7 @@ script = ExtResource("1_0irrc")
 
 [node name="EndingFrame" parent="." unique_id=2137054221 instance=ExtResource("2_7uymk")]
 script = ExtResource("2_u1taj")
+captionsList = ExtResource("3_0irrc")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1105652920]
 visible = false
