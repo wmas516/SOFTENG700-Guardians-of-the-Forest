@@ -110,7 +110,6 @@
 [ext_resource type="Texture2D" uid="uid://bh4d5i73pw5jv" path="res://resources/environment/trees/branch_wide_05.png" id="71_q1p1y"]
 [ext_resource type="Texture2D" uid="uid://h0d3wnlwtaih" path="res://resources/environment/trees/branch_thin_01.png" id="72_q1p1y"]
 [ext_resource type="Texture2D" uid="uid://ce3o8f0o10340" path="res://resources/environment/foliage/grass_round_01.png" id="79_6w1ea"]
-[ext_resource type="AudioStream" uid="uid://drbeyt01a7tyf" path="res://resources/audio/main.mp3" id="80_6w1ea"]
 [ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
@@ -138,6 +137,7 @@
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
+[ext_resource type="AudioStream" uid="uid://dq7h0atp13jbh" path="res://resources/audio/Level_1_mixdown.mp3" id="138_mf38m"]
 [ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
 [ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="tutorial_controls"]
 
@@ -5917,7 +5917,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
-stream = ExtResource("80_6w1ea")
+stream = ExtResource("138_mf38m")
 autoplay = true
 bus = &"Music"
 
