@@ -22,6 +22,7 @@
 [ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="14_vkyni"]
 [ext_resource type="PackedScene" uid="uid://ba5x1cxygfjdb" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
 [ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
+[ext_resource type="Script" path="res://main/scripts/src/main/ui/DefenseTouchControls.gd" id="touch_controls"]
 
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
 _data = {
@@ -370,6 +371,7 @@ rotation = 3.1415927
 expand_mode = 1
 
 [node name="Tutorial" parent="HUD/MarginContainer" unique_id=1434005533 instance=ExtResource("11_sx28c")]
+visible = false
 z_index = 3
 layout_mode = 2
 size_flags_horizontal = 4
@@ -379,6 +381,20 @@ script = ExtResource("12_cel8w")
 [node name="Menu" parent="HUD/MarginContainer" unique_id=1705628697 instance=ExtResource("13_kf8d3")]
 z_index = 2
 layout_mode = 2
+
+[node name="TouchControlsLayer" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="TouchControls" type="Control" parent="TouchControlsLayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+menu_container_path = NodePath("../../HUD/MarginContainer/Menu/MenuContainer")
+tutorial_path = NodePath("../../HUD/MarginContainer/Tutorial")
+script = ExtResource("touch_controls")
 
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1784878928]
 visible = false

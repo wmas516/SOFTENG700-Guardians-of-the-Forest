@@ -138,6 +138,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
 [ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
+[ext_resource type="Script" uid="uid://dlqiahayr4aca" path="res://main/scripts/src/main/ui/TouchControls.gd" id="touch_controls_script"]
 [ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="tutorial_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
@@ -5892,7 +5893,7 @@ position = Vector2(1167, 727)
 position = Vector2(799, 727)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=342041360]
-layer = 5
+layer = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1290678398]
 anchors_preset = 15
@@ -5900,20 +5901,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Menu" parent="UI/MarginContainer" unique_id=1705628697 instance=ExtResource("123_ejyt0")]
-z_index = 2
+z_index = 7
 layout_mode = 2
 
 [node name="Tutorial" parent="UI/MarginContainer" unique_id=1479953224 instance=ExtResource("tutorial_controls")]
 visible = false
+z_index = 7
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="TouchControlsLayer" type="CanvasLayer" parent="." unique_id=2100000001]
+layer = 5
+
+[node name="TouchControls" type="Control" parent="TouchControlsLayer" unique_id=1846520901]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("touch_controls_script")
 
 [node name="BouncePlayer" type="AudioStreamPlayer" parent="." unique_id=919782610]
 stream = ExtResource("125_bcyea")

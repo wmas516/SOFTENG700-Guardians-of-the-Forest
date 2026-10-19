@@ -11,6 +11,7 @@ extends Node2D
 
 var enemies: Array[Node] = []
 var level_complete: bool = false
+var game_over: bool = false
 var frozen: bool = false
 var active_freeze_nodes: Array[Node] = []
 var active_freeze_actions: Array[StringName] = []
@@ -38,6 +39,7 @@ var curLives = lives
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	game_over = false
 	if not PlayerData.difficulty_changed.is_connected(_on_difficulty_changed):
 		PlayerData.difficulty_changed.connect(_on_difficulty_changed)
 	_select_difficulty_config(PlayerData.difficulty)
@@ -89,7 +91,7 @@ func copy_waves(waves: Array[Wave]) -> Array[Wave]:
 	return copied_waves
 
 func _on_spawn_timer_timeout() -> void:
-	if level_complete:
+	if level_complete or game_over or tryAgain_container.visible:
 		return
 	if aliveEnemies > 0:
 		spawn()
@@ -99,7 +101,7 @@ func _on_spawn_timer_timeout() -> void:
 
 func nextWave():
 	# Enemy cleanup can trigger this while the level is leaving the scene tree.
-	if not is_inside_tree() or not is_instance_valid(spawnTimer) or not spawnTimer.is_inside_tree():
+	if game_over or tryAgain_container.visible or not is_inside_tree() or not is_instance_valid(spawnTimer) or not spawnTimer.is_inside_tree():
 		return
 	if (wave < curWaveEnemies.size()):
 		aliveEnemies = curWaveEnemies[wave].total()
@@ -120,7 +122,7 @@ func nextWave():
 				death_player.play()
 	
 func spawn():
-	if level_complete:
+	if level_complete or game_over or tryAgain_container.visible:
 		return
 	if (enemy):
 		enemy.type = curWaveEnemies[wave-1].getRandEnemyBossLast()
@@ -162,6 +164,8 @@ func _on_enemy_tree_exited(enemy_node: Node) -> void:
 	enemies.erase(enemy_node)
 	#print("[Enemy Dead]:")
 	enemyLog()
+	if game_over or tryAgain_container.visible:
+		return
 	if enemies.size() <= 0 && aliveEnemies <= 0:
 		nextWave()
 	
@@ -210,10 +214,11 @@ func _on_try_again_button_pressed() -> void:
 	_ready()
 
 func _input(event: InputEvent) -> void:
-	if not frozen:
+	if game_over or tryAgain_container.visible or not frozen:
 		return
-	var key_to_continue: bool = event is InputEventKey and event.pressed and not event.echo and _matches_freeze_action(event)
-	if key_to_continue:
+	if event is InputEventKey and event.echo:
+		return
+	if _matches_freeze_action(event):
 		for node in active_freeze_nodes:
 			if is_instance_valid(node):
 				node.call("hide")
@@ -229,6 +234,8 @@ func _matches_freeze_action(event: InputEvent) -> bool:
 	return false
 
 func _check_freeze_for_wave(wave_number: int) -> void:
+	if game_over or tryAgain_container.visible:
+		return
 	active_freeze_nodes.clear()
 	active_freeze_actions.clear()
 	for entry in level_config.freeze_entries:
@@ -262,7 +269,7 @@ func _set_freezer(source: String, should_freeze: bool) -> void:
 func _sync_frozen_state() -> void:
 	# Read the latest state in case multiple sources changed this frame.
 	_apply_frozen_state(frozen)
-	if not frozen and not level_complete and aliveEnemies > 0:
+	if not frozen and not level_complete and not game_over and aliveEnemies > 0:
 		spawnTimer.start()
 
 func _apply_frozen_state(should_freeze: bool) -> void:
@@ -323,6 +330,7 @@ func _remove_life_icon() -> void:
 		life_template.hide()
 
 func loss() -> void:
+	game_over = true
 	tryAgain_container.visible = true
 	for child in get_children():
 		if !(child is Control):
@@ -334,6 +342,7 @@ func loss() -> void:
 			(enemy as DefenceEnemy).set_physics_process(false)
 
 func revertLoss() -> void:
+	game_over = false
 	tryAgain_container.visible = false
 	for child in get_children():
 		if !(child is Control):
@@ -344,8 +353,16 @@ func revertLoss() -> void:
 
 
 func _on_menu_help() -> void:
-	tutorial.set_visible(!tutorial.is_visible())
-	_set_freezer("tutorial", tutorial.is_visible())
+	var closing_tutorial := tutorial.is_visible()
+	tutorial.set_visible(not closing_tutorial)
+	_set_freezer("tutorial", not closing_tutorial)
+	if closing_tutorial:
+		var tutorial_freeze_index := active_freeze_nodes.find(tutorial)
+		if tutorial_freeze_index >= 0:
+			active_freeze_nodes.remove_at(tutorial_freeze_index)
+			active_freeze_actions.remove_at(tutorial_freeze_index)
+		if active_freeze_nodes.is_empty():
+			_set_freezer("cutscene", false)
 
 func _on_menu_toggled(is_open: bool) -> void:
 	_set_freezer("menu", is_open)

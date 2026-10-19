@@ -46,7 +46,7 @@ func _input(event: InputEvent) -> void:
 		#var click_event := event as InputEventMouseButton
 		#if $PanelContainer.get_global_rect().has_point(click_event.global_position):
 			#nextDialog()
-	if event is InputEventKey and event.pressed and not event.echo and event.is_action_pressed("Skip"):
+	if event.is_action_pressed("Skip") and not (event is InputEventKey and event.echo):
 		nextDialog()
 	
 func setDialog(text: String) -> void:

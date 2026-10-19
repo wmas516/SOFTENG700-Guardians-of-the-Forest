@@ -21,6 +21,11 @@ var narrative: Narrative = Narrative.FULL
 var player_active: bool = true
 var difficulty: Difficulty = Difficulty.MEDIUM
 var open_credits_on_main_menu: bool = false
+var touch_controls_enabled: bool = false
+
+func _ready() -> void:
+	# Touch controls are enabled by default only on devices with a touchscreen.
+	touch_controls_enabled = DisplayServer.is_touchscreen_available()
 
 func full_narrative_dir() -> String:
 	return(NarrativeResLoc + NarrativeSubDir.get(narrative))

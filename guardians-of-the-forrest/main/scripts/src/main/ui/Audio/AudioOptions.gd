@@ -3,6 +3,7 @@ extends Control
 @onready var master_slider: HSlider = $VBoxContainer/MasterSlider
 @onready var music_slider: HSlider = $VBoxContainer/MusicSlider
 @onready var sfx_slider: HSlider = $VBoxContainer/SFXSlider
+@onready var touch_controls_toggle: CheckButton = $VBoxContainer/TouchControlsToggle
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +18,7 @@ func _ready() -> void:
 	master_slider.set_value(db_to_linear(AudioServer.get_bus_volume_db(0)))
 	sfx_slider.set_value(db_to_linear(AudioServer.get_bus_volume_db(1)))
 	music_slider.set_value(db_to_linear(AudioServer.get_bus_volume_db(2)))
+	touch_controls_toggle.button_pressed = PlayerData.touch_controls_enabled
 
 func _on_master_slider_drag_ended(value_changed: bool) -> void:
 	AudioServer.set_bus_volume_db(0, linear_to_db(master_slider.value))
@@ -26,3 +28,6 @@ func _on_sfx_slider_drag_ended(value_changed: bool) -> void:
 
 func _on_music_slider_drag_ended(value_changed: bool) -> void:
 	AudioServer.set_bus_volume_db(2, linear_to_db(music_slider.value))
+
+func _on_touch_controls_toggled(enabled: bool) -> void:
+	PlayerData.touch_controls_enabled = enabled
