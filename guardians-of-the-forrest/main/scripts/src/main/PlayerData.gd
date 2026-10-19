@@ -58,4 +58,5 @@ func restart() -> void:
 	infected_trees = []
 	game_progress_stage = 0
 	player_active = true
+	open_credits_on_main_menu = true
 	

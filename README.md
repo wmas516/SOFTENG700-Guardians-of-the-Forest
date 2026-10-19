@@ -1,16 +1,25 @@
 # SOFTENG700-Guardians-of-the-Forest
-UoA part 4 project 
+UoA part 4 project 2026 #62
 
 
 ## Execution Instructions
 For Windows systems use:
 ```
-build.exe
+Guardians of the Forest.exe <- executable
+Guardians of the Forest.pck (must be in same directory)
 ```
 
+For Web use with HTML5 Zip:
+```
+\Kaimanaki - Guardians of the Forest\
+```
+For Google play store use:
+```
+Guardians of the Forest.aab
+```
 For Android devices use:
 ```
-build.apk
+Guardians of the Forest.apk
 ```
 If you want to run APK from non-Android device:
 
@@ -49,3 +58,5 @@ C:\Users\<User>\AppData\Local\Android\Sdk
 8. Set Android SDK Path as the path found from step 6 
 9. Leave Debug Keystore as is it should be set to Godot Keystore
 10. Set Java SDK Path as a Java runtime
+
+For a Google Play .aab android build you will need a java keystore .jks file secret  

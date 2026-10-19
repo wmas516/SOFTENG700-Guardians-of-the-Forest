@@ -34,5 +34,6 @@ layout_mode = 2
 stream = ExtResource("6_tbyqq")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [connection signal="done" from="EndingFrame" to="." method="_on_frame_done"]

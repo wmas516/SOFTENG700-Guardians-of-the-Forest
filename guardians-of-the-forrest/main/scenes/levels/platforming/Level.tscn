@@ -137,7 +137,6 @@
 [ext_resource type="Texture2D" uid="uid://hntu84xsgswi" path="res://resources/environment/stones_spikes/stone_spike_02.png" id="126_ab7ga"]
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
-[ext_resource type="AudioStream" uid="uid://dq7h0atp13jbh" path="res://resources/audio/Level_1_mixdown.mp3" id="138_mf38m"]
 [ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
 [ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="tutorial_controls"]
 
@@ -5915,11 +5914,6 @@ visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
-stream = ExtResource("138_mf38m")
-autoplay = true
-bus = &"Music"
 
 [node name="BouncePlayer" type="AudioStreamPlayer" parent="." unique_id=919782610]
 stream = ExtResource("125_bcyea")

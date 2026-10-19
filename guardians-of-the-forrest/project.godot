@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://k1ic2ba1olo6"
 DialogBox="*uid://b27nfnasxkbnl"
 PlayerData="*uid://cgw664gw5wods"
 DialogManager="*uid://bma3lgj4pioje"
+LevelMusic="*res://main/scripts/src/main/LevelMusic.gd"
 
 [display]
 

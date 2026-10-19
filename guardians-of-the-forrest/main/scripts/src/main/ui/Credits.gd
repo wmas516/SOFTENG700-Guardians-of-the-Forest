@@ -46,8 +46,13 @@ func _on_visibility_changed() -> void:
 
 
 func _position_credits_at_midpoint() -> void:
-	await get_tree().process_frame
-	await get_tree().process_frame
+	if not is_inside_tree():
+		return
+	var scene_tree := get_tree()
+	await scene_tree.process_frame
+	if not is_inside_tree():
+		return
+	await scene_tree.process_frame
 	if not is_visible_in_tree():
 		return
 	if scroll_container.size.y <= 0.0:
