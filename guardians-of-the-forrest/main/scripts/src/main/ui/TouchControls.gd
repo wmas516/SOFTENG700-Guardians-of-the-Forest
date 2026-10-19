@@ -26,8 +26,8 @@ func _ready() -> void:
 		_create_move_joystick()
 		_create_action_button("Damage", "ATTACK", true, 1)
 	else:
-		_create_action_button("Left", "←", false, 0)
-		_create_action_button("Right", "→", false, 1)
+		_create_action_button("Left", "<", false, 0)
+		_create_action_button("Right", ">", false, 1)
 		_create_action_button("Dash", "DASH", true, 1)
 		_create_action_button("Jump", "JUMP", true, 0)
 		_create_action_button("Interact", "USE", true, 0)
