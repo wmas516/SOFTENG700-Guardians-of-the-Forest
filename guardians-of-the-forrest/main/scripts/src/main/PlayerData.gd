@@ -20,6 +20,7 @@ var game_progress_stage: int = 0
 var narrative: Narrative = Narrative.FULL
 var player_active: bool = true
 var difficulty: Difficulty = Difficulty.MEDIUM
+var open_credits_on_main_menu: bool = false
 
 func full_narrative_dir() -> String:
 	return(NarrativeResLoc + NarrativeSubDir.get(narrative))
