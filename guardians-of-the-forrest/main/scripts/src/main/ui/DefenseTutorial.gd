@@ -12,5 +12,6 @@ func _ready() -> void:
 	jumpBox.visible = false
 	right.attacking = true
 	rightLabel.action = "Damage"
+	rightLabel.action_caption = "ATTACK"
 	rightLabel._ready()
 	right.update_animation(-1)

@@ -14,7 +14,11 @@ const JOYSTICK_SIZE := Vector2(200.0, 200.0)
 var menu_container: Control
 var tutorial: Control
 
+# Pointer IDs map to the action button each pointer is holding. Action counts
+# allow a touch and a mouse (or multiple touches) to hold actions safely.
+var active_pointers: Dictionary = {}
 var active_actions: Dictionary = {}
+var action_buttons: Dictionary = {}
 var move_joystick: Control
 
 
@@ -60,6 +64,23 @@ func _process(_delta: float) -> void:
 	_update_controls_visibility()
 
 
+func _input(event: InputEvent) -> void:
+	if not visible:
+		return
+
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			_press_pointer(event.index, event.position)
+		else:
+			_release_pointer(event.index)
+	elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		var pointer_id := "mouse:%d" % event.device
+		if event.pressed:
+			_press_pointer(pointer_id, event.position)
+		else:
+			_release_pointer(pointer_id)
+
+
 func _create_action_button(action: String, caption: String, right_side: bool, index: int) -> void:
 	var button := TextureButton.new()
 	button.name = action + "TouchButton"
@@ -70,13 +91,14 @@ func _create_action_button(action: String, caption: String, right_side: bool, in
 	button.custom_minimum_size = BUTTON_SIZE
 	button.size = BUTTON_SIZE
 	button.focus_mode = Control.FOCUS_NONE
+	button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	button.modulate = Color(1.0, 1.0, 1.0, 0.72)
-	button.button_down.connect(_on_action_button_down.bind(action, button))
-	button.button_up.connect(_on_action_button_up.bind(action, button))
+	button.set_meta("action", action)
 	button.set_meta("right_side", right_side)
 	button.set_meta("button_index", index)
 	button.set_meta("row_index", 1 if action == "Interact" else 0)
 	add_child(button)
+	action_buttons[action] = button
 
 	var label := Label.new()
 	label.text = caption
@@ -151,20 +173,56 @@ func _update_controls_visibility() -> void:
 	visible = should_show
 
 
-func _on_action_button_down(action: String, button: TextureButton) -> void:
-	active_actions[action] = true
+func _press_pointer(pointer_id: Variant, screen_position: Vector2) -> void:
+	if active_pointers.has(pointer_id):
+		return
+	for child in get_children():
+		if child is TextureButton and child.get_global_rect().has_point(screen_position):
+			var action: String = child.get_meta("action")
+			active_pointers[pointer_id] = action
+			_press_action(action)
+			get_viewport().set_input_as_handled()
+			return
+
+
+func _release_pointer(pointer_id: Variant) -> void:
+	if not active_pointers.has(pointer_id):
+		return
+	var action: String = active_pointers[pointer_id]
+	active_pointers.erase(pointer_id)
+	_release_action(action)
+	get_viewport().set_input_as_handled()
+
+
+func _press_action(action: String) -> void:
+	var pointer_count := int(active_actions.get(action, 0))
+	active_actions[action] = pointer_count + 1
+	if pointer_count > 0:
+		return
+
 	Input.action_press(action)
 	_emit_action_event(action, true)
 	_emit_action_event("Skip", true)
 	_emit_action_event("Skip", false)
-	button.modulate = Color(0.82, 0.82, 0.82, 0.92)
+	var button := action_buttons.get(action) as TextureButton
+	if button != null:
+		button.modulate = Color(0.82, 0.82, 0.82, 0.92)
 
 
-func _on_action_button_up(action: String, button: TextureButton) -> void:
+func _release_action(action: String) -> void:
+	if not active_actions.has(action):
+		return
+	var pointer_count := int(active_actions[action]) - 1
+	if pointer_count > 0:
+		active_actions[action] = pointer_count
+		return
+
 	active_actions.erase(action)
 	Input.action_release(action)
 	_emit_action_event(action, false)
-	button.modulate = Color(1.0, 1.0, 1.0, 0.72)
+	var button := action_buttons.get(action) as TextureButton
+	if button != null:
+		button.modulate = Color(1.0, 1.0, 1.0, 0.72)
 
 
 func _emit_action_event(action: String, pressed: bool) -> void:
@@ -177,9 +235,13 @@ func _emit_action_event(action: String, pressed: bool) -> void:
 func _release_all_actions() -> void:
 	if move_joystick != null and move_joystick.has_method("release_movement"):
 		move_joystick.call("release_movement")
+	active_pointers.clear()
 	for action in active_actions.keys():
 		Input.action_release(action)
 		_emit_action_event(action, false)
+		var button := action_buttons.get(action) as TextureButton
+		if button != null:
+			button.modulate = Color(1.0, 1.0, 1.0, 0.72)
 	active_actions.clear()
 
 

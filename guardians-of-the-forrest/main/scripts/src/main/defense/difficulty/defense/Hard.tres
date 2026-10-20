@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_ktgts"]
 script = ExtResource("1_si47h")
-node = NodePath("OverlayLayer/Tutorial")
+node = NodePath("HUD/MarginContainer/Tutorial")
 action = &"Damage"
 
 [sub_resource type="Resource" id="Resource_si47h"]

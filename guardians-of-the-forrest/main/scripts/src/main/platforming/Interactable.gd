@@ -9,7 +9,7 @@ signal interacted(interactable: Interactable)
 		if is_node_ready():
 			_fit_shape_to_size()
 @export var interact_action: String = "Heal"
-@export var popup_text: String = "Press [] to interact":
+@export var popup_text: String = "Press [] or USE":
 	set(value):
 		popup_text = value
 		if label:
@@ -30,9 +30,9 @@ func _ready() -> void:
 	var keys = InputMap.action_get_events("Interact")
 	var newText: Array[String] = []
 	for key in keys:
-		newText.append("["+OS.get_keycode_string(key.physical_keycode)+"]")
+		newText.append(OS.get_keycode_string(key.physical_keycode).strip_edges())
 		
-	label.text = popup_text.replace("[]", " or ".join(newText))
+	label.text = popup_text.replace("[]", _join_options(newText))
 	label.hide()
 	
 	label.position = Vector2(label_offset.x, label_offset.y)
@@ -84,3 +84,6 @@ func _fit_shape_to_size() -> void:
 		"CapsuleShape2D":
 			(collision_shape_2d.shape as CapsuleShape2D).radius = minf(size.x, size.y) / 2.0
 			(collision_shape_2d.shape as CapsuleShape2D).height = size.y
+
+func _join_options(options: Array[String]) -> String:
+	return ", ".join(options)

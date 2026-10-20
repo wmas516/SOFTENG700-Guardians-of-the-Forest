@@ -119,3 +119,4 @@ text = "[Dash]"
 horizontal_alignment = 1
 script = ExtResource("3_input")
 action = "Dash"
+action_caption = "DASH"
