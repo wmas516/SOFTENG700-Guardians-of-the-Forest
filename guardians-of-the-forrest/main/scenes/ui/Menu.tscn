@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://me7af1lnf2x" path="res://resources/fonts/UIFontTitle.ttf" id="3_woo1n"]
 [ext_resource type="Texture2D" uid="uid://cuuuinfgtdkqv" path="res://resources/icons/Circle Button.png" id="4_circle_button"]
 [ext_resource type="FontVariation" uid="uid://bk3hi2wd6jbfx" path="res://resources/fonts/UIFontTitleTopSpace.tres" id="5_gqnxp"]
+[ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="credits_body_font"]
+[ext_resource type="Script" uid="uid://dc45itbvej4hb" path="res://main/scripts/src/main/ui/Credits.gd" id="credits_script"]
 [ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkp3i"]
@@ -279,6 +281,45 @@ theme_override_fonts/font = ExtResource("5_gqnxp")
 theme_override_font_sizes/font_size = 32
 text = "Narrative"
 horizontal_alignment = 1
+
+[node name="Credits" type="PanelContainer" parent="MenuContainer/MarginContainer/Audio" unique_id=1749478134]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6qunw")
+script = ExtResource("credits_script")
+metadata/_tab_index = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/MarginContainer/Audio/Credits" unique_id=1607479802]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer/MarginContainer/Audio/Credits/MarginContainer" unique_id=561972127]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="Content" type="VBoxContainer" parent="MenuContainer/MarginContainer/Audio/Credits/MarginContainer/ScrollContainer" unique_id=745120061]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TopSpacer" type="Control" parent="MenuContainer/MarginContainer/Audio/Credits/MarginContainer/ScrollContainer/Content" unique_id=745120062]
+layout_mode = 2
+
+[node name="CreditsText" type="RichTextLabel" parent="MenuContainer/MarginContainer/Audio/Credits/MarginContainer/ScrollContainer/Content" unique_id=1519241455]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("credits_body_font")
+theme_override_font_sizes/normal_font_size = 24
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="BottomSpacer" type="Control" parent="MenuContainer/MarginContainer/Audio/Credits/MarginContainer/ScrollContainer/Content" unique_id=745120063]
+layout_mode = 2
 
 [connection signal="pressed" from="HBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -110,7 +110,6 @@
 [ext_resource type="Texture2D" uid="uid://bh4d5i73pw5jv" path="res://resources/environment/trees/branch_wide_05.png" id="71_q1p1y"]
 [ext_resource type="Texture2D" uid="uid://h0d3wnlwtaih" path="res://resources/environment/trees/branch_thin_01.png" id="72_q1p1y"]
 [ext_resource type="Texture2D" uid="uid://ce3o8f0o10340" path="res://resources/environment/foliage/grass_round_01.png" id="79_6w1ea"]
-[ext_resource type="AudioStream" uid="uid://drbeyt01a7tyf" path="res://resources/audio/main.mp3" id="80_6w1ea"]
 [ext_resource type="Texture2D" uid="uid://bj68od0lhndge" path="res://resources/environment/stones/boulder_mossy_05.png" id="80_esh1t"]
 [ext_resource type="Texture2D" uid="uid://cndu042xo8kgv" path="res://resources/environment/stones/boulder_dark_02.png" id="81_23chx"]
 [ext_resource type="Texture2D" uid="uid://dj6nmc6erbj5t" path="res://resources/environment/trees/stump_base_03.png" id="84_apd0o"]
@@ -139,6 +138,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxxhpsiyb410" path="res://resources/environment/stones_spikes/stone_spike_03.png" id="127_vyuhg"]
 [ext_resource type="PackedScene" uid="uid://daie1b5kby3yy" path="res://main/scenes/levels/platforming/MovingObstacle.tscn" id="131_lsmlo"]
 [ext_resource type="PackedScene" uid="uid://duvcsxbevcv7t" path="res://main/scenes/levels/platforming/ScreenFade.tscn" id="138_v1vee"]
+[ext_resource type="Script" uid="uid://dlqiahayr4aca" path="res://main/scripts/src/main/ui/TouchControls.gd" id="touch_controls_script"]
 [ext_resource type="PackedScene" uid="uid://cr5cbvq7sv7gv" path="res://main/scenes/ui/Tutorial.tscn" id="tutorial_controls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5dgl0"]
@@ -4321,22 +4321,22 @@ texture = ExtResource("115_8yxmo")
 
 [node name="DefenseInteractable" parent="Gameplay/Interactables" unique_id=1553916585 instance=ExtResource("109_kpbni")]
 position = Vector2(1932, 232)
-popup_text = "Protect This Tree []"
+popup_text = "Protect This Tree [] or USE"
 label_offset = Vector2(-80, -60)
 
 [node name="MinigameBootInteractable" parent="Gameplay/Interactables" unique_id=766318692 instance=ExtResource("109_kpbni")]
 position = Vector2(2498, 806)
-popup_text = "Clean the Infected Boots []"
+popup_text = "Clean the Infected Boots [] or USE"
 label_offset = Vector2(-80, -60)
 
 [node name="MinigameTrimInteractable" parent="Gameplay/Interactables" unique_id=990329024 instance=ExtResource("109_kpbni")]
 position = Vector2(2988, 1864)
-popup_text = "Trim the Rusted Leaves []"
+popup_text = "Trim the Rusted Leaves [] or USE"
 label_offset = Vector2(-80, -60)
 
 [node name="BossInteractable" parent="Gameplay/Interactables" unique_id=1984729510 instance=ExtResource("109_kpbni")]
 position = Vector2(4810, 1800)
-popup_text = "Challenge the Myrtle King []"
+popup_text = "Challenge the Myrtle King [] or USE"
 label_offset = Vector2(-80, -60)
 
 [node name="Tutorial" parent="Gameplay/Interactables" unique_id=1099835618 instance=ExtResource("112_valmb")]
@@ -5893,7 +5893,7 @@ position = Vector2(1167, 727)
 position = Vector2(799, 727)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=342041360]
-layer = 5
+layer = 7
 
 [node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1290678398]
 anchors_preset = 15
@@ -5901,25 +5901,34 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="Menu" parent="UI/MarginContainer" unique_id=1705628697 instance=ExtResource("123_ejyt0")]
-z_index = 2
+z_index = 7
 layout_mode = 2
 
 [node name="Tutorial" parent="UI/MarginContainer" unique_id=1479953224 instance=ExtResource("tutorial_controls")]
 visible = false
+z_index = 7
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1353171857]
-stream = ExtResource("80_6w1ea")
-autoplay = true
-bus = &"Music"
+[node name="TouchControlsLayer" type="CanvasLayer" parent="." unique_id=2100000001]
+layer = 5
+
+[node name="TouchControls" type="Control" parent="TouchControlsLayer" unique_id=1846520901]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("touch_controls_script")
 
 [node name="BouncePlayer" type="AudioStreamPlayer" parent="." unique_id=919782610]
 stream = ExtResource("125_bcyea")

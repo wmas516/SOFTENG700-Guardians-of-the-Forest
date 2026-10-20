@@ -15,4 +15,5 @@ func _on_frame_done() -> void:
 
 func done() -> void:
 	$AudioStreamPlayer.stop()
+	PlayerData.restart()
 	get_tree().change_scene_to_file("res://main/scenes/Main.tscn")

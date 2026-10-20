@@ -15,13 +15,9 @@ var typing_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	_set_caption_controls_mouse_transparent(self)
 	visible = false
-	continue_label.text = "Press [] to continue"
-	var keys = InputMap.action_get_events("Skip")
-	var newText: Array[String] = []
-	for key in keys:
-		newText.append("[" + OS.get_keycode_string(key.physical_keycode) + "]")
-	continue_label.text = continue_label.text.replace("[]", " or ".join(newText))
+	continue_label.text = "Click/Press or use [E] to continue"
 
 	# Boss wave interstitials still provide their content on the scene instance,
 	# while other dialog boxes are driven by DialogManager.
@@ -35,6 +31,51 @@ func _ready() -> void:
 	DialogManager.dialog_started.connect(func(): visible = true)
 	DialogManager.dialog_ended.connect(func(): visible = false)
 	DialogManager.line_changed.connect(on_line_changed)
+
+func _set_caption_controls_mouse_transparent(node: Node) -> void:
+	if node is Control:
+		node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for child in node.get_children():
+		_set_caption_controls_mouse_transparent(child)
+
+func _input(event: InputEvent) -> void:
+	if not visible:
+		return
+
+	var clicked_caption := false
+	var click_position := Vector2.ZERO
+	if event is InputEventMouseButton:
+		clicked_caption = event.pressed and event.button_index == MOUSE_BUTTON_LEFT
+		click_position = event.position
+	elif event is InputEventScreenTouch:
+		clicked_caption = event.pressed
+		click_position = event.position
+
+	if clicked_caption and panel_container.get_global_rect().has_point(click_position):
+		if text.is_empty():
+			_advance_dialog()
+		else:
+			# Scene-authored boss captions use the Skip action to advance their
+			# cutscene freeze logic.
+			var skip_event := InputEventAction.new()
+			skip_event.action = "Skip"
+			skip_event.pressed = true
+			Input.parse_input_event(skip_event)
+			skip_event = InputEventAction.new()
+			skip_event.action = "Skip"
+			skip_event.pressed = false
+			Input.parse_input_event(skip_event)
+		get_viewport().set_input_as_handled()
+
+
+func _advance_dialog() -> void:
+	if typing:
+		if typing_tween != null and typing_tween.is_running():
+			typing_tween.kill()
+		text_label.visible_characters = -1
+		typing = false
+	else:
+		DialogManager.advance()
 
 func on_line_changed(line: DialogLine) -> void:
 	name_label.text = line.speaker
@@ -63,9 +104,4 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not visible or not text.is_empty(): return
 	
 	if event.is_action_pressed("Skip"):
-		if typing: 
-			typing_tween.kill()
-			text_label.visible_characters = -1
-			typing = false
-		else:
-			DialogManager.advance()
+		_advance_dialog()

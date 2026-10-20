@@ -3,7 +3,9 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if PlayerData.open_credits_on_main_menu:
+		PlayerData.open_credits_on_main_menu = false
+		$Control/MarginContainer/Menu.open_credits()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

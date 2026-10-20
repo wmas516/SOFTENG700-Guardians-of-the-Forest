@@ -31,6 +31,7 @@ var frozen: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	LevelMusic.play_level_music()
 	restore_player_position()
 	_update_interactables()
 	defense_interactable.interacted.connect(go_to_defense)
@@ -70,6 +71,7 @@ func restore_player_position() -> void:
 	player.play_respawn_effect()
 
 func go_to_defense(_source: Interactable) -> void:
+	LevelMusic.stop_level_music()
 	PlayerData.save_platforming_position(defense_pos.global_position)
 	PlayerData.update_progress_stage(1)
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Defense.tscn")
@@ -85,6 +87,7 @@ func go_to_tree_trim(_source: Interactable) -> void:
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/minigames/TreeTrim.tscn")
 	
 func go_to_boss(_source: Interactable) -> void:
+	LevelMusic.stop_level_music()
 	get_tree().change_scene_to_file.call_deferred("res://main/scenes/levels/defense/Boss.tscn")
 
 func _apply_frozen_state(should_freeze: bool) -> void:

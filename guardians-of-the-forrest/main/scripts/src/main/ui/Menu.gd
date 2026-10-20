@@ -6,6 +6,7 @@ extends Control
 @onready var helpButton: Button = $HBoxContainer/HelpButton
 @onready var tabs: TabContainer = $MenuContainer/MarginContainer/Audio
 
+var tutorial: Control
 var tab_outline: Panel
 var hovered_tab: int = -1
 
@@ -14,6 +15,9 @@ signal menu_toggled(is_open: bool)
 
 func _ready() -> void:
 	helpButton.visible = !hideHelp
+	tutorial = get_parent().get_node_or_null("Tutorial") as Control
+	if tutorial == null:
+		tutorial = get_parent().get_node_or_null("TutorialVideo") as Control
 	var tab_bar := tabs.get_tab_bar()
 	tab_outline = Panel.new()
 	tab_outline.z_index = 4
@@ -58,10 +62,23 @@ func _update_tab_outline() -> void:
 	tab_outline.show()
 
 func _on_help_button_pressed() -> void:
+	if menuContainer.visible:
+		menuContainer.hide()
+		menu_toggled.emit(false)
+		tab_outline.hide()
 	help.emit()
 
 func _on_menu_button_pressed() -> void:
-	menuContainer.set_visible(!menuContainer.visible)
+	var opening_menu := !menuContainer.visible
+	if opening_menu and tutorial != null and tutorial.visible:
+		help.emit()
+	menuContainer.set_visible(opening_menu)
 	menu_toggled.emit(menuContainer.visible)
 	if not menuContainer.visible:
 		tab_outline.hide()
+
+
+func open_credits() -> void:
+	menuContainer.show()
+	tabs.current_tab = tabs.get_tab_idx_from_control($MenuContainer/MarginContainer/Audio/Credits)
+	_update_tab_outline()
