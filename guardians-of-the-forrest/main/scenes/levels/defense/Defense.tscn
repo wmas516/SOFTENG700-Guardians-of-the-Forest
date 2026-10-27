@@ -21,8 +21,8 @@
 [ext_resource type="AudioStream" uid="uid://7wt71856gdam" path="res://resources/audio/damageEnemy.mp3" id="14_501nx"]
 [ext_resource type="FontFile" uid="uid://b3n8xvnwcbt1c" path="res://resources/fonts/UIFontBody.ttf" id="14_vkyni"]
 [ext_resource type="PackedScene" uid="uid://ba5x1cxygfjdb" path="res://main/scenes/ui/MenuActionButton.tscn" id="menu_action_button"]
+[ext_resource type="Script" uid="uid://b3gfq5h50rj7m" path="res://main/scripts/src/main/ui/DefenseTouchControls.gd" id="touch_controls"]
 [ext_resource type="PackedScene" uid="uid://i4fkq1l5qvpq" path="res://main/scenes/ui/UIPanel.tscn" id="ui_panel_base"]
-[ext_resource type="Script" path="res://main/scripts/src/main/ui/DefenseTouchControls.gd" id="touch_controls"]
 
 [sub_resource type="Curve2D" id="Curve2D_a68iq"]
 _data = {
@@ -382,20 +382,6 @@ script = ExtResource("12_cel8w")
 z_index = 2
 layout_mode = 2
 
-[node name="TouchControlsLayer" type="CanvasLayer" parent="."]
-layer = 5
-
-[node name="TouchControls" type="Control" parent="TouchControlsLayer"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-menu_container_path = NodePath("../../HUD/MarginContainer/Menu/MenuContainer")
-tutorial_path = NodePath("../../HUD/MarginContainer/Tutorial")
-script = ExtResource("touch_controls")
-
 [node name="ReturnBox" type="VBoxContainer" parent="HUD" unique_id=1784878928]
 visible = false
 layout_mode = 1
@@ -420,7 +406,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("14_vkyni")
 theme_override_font_sizes/font_size = 48
-text = "You Have Protected Tree mahuta!"
+text = "You Have Protected Tane mahuta!"
 horizontal_alignment = 1
 
 [node name="ReturnButton" parent="HUD/ReturnBox" unique_id=384352501 instance=ExtResource("menu_action_button")]
@@ -457,6 +443,18 @@ horizontal_alignment = 1
 [node name="TryAgainButton" parent="HUD/TryAgainBox" unique_id=1769213289 instance=ExtResource("menu_action_button")]
 layout_mode = 2
 button_text = "Try Again"
+
+[node name="TouchControlsLayer" type="CanvasLayer" parent="." unique_id=757818564]
+layer = 5
+
+[node name="TouchControls" type="Control" parent="TouchControlsLayer" unique_id=1931541025]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("touch_controls")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=262987383]
 stream = ExtResource("11_a68iq")
